@@ -23,6 +23,7 @@ import com.maya.base.utils.FileUtil;
 import com.maya.base.utils.LogUtil;
 import com.maya.base.utils.LogUtil.LogLevel;
 import com.maya.base.utils.RarUtil;
+import com.maya.packtools.builder.GamesExplorer;
 import com.maya.packtools.builder.Platforms;
 import com.maya.packtools.model.ApkParser;
 import com.maya.packtools.config.Common;
@@ -31,7 +32,7 @@ import com.maya.packtools.model.XmlParser;
 public class BaseBuilder {
 
     public static int SDK = Platforms.SDK_MAYA;
-    public static String SDK_TOP_VERSION = "2.0.0";// 每次升级的时候都需要修改
+    public static String SDK_TOP_VERSION = "2.0.1";// 每次升级的时候都需要修改
 
     public static final String GUANFANG_SDK_TAG = "maya";
     public static final String MAJIA_SDK_TAG = "fanxun";
@@ -536,6 +537,8 @@ public class BaseBuilder {
 
         handleDeleteUnionSmali();
 
+        handleGameSmali(Common.getApkTempPath(apkParser),apkParser.gameId);
+
         handleLibsBeforeCopy();
 
         // 20150309记录游戏的lib目录下的适配情况
@@ -660,6 +663,16 @@ public class BaseBuilder {
         // 默认不处理libs，子类若有需要则需重写此方法
 
     }
+
+
+
+
+    public void  handleGameSmali(String apkThempPath,String gid){
+
+        GamesExplorer.handleSmali(apkThempPath,gid);
+    }
+
+
 
     /**
      * 删除data下面的mayaGame.ini文件 重新apktemp下的mayaGame.ini文件
@@ -888,6 +901,9 @@ public class BaseBuilder {
 
         // 处理游戏和第三方渠道的so库问题
         handleSoFilesBetweenGameAndData();
+
+
+
 
         //是否复制旧包的R文件
         LogUtil.showLog("复制旧包名路径下的内容到新包名下", LogLevel.LEVEL_1);

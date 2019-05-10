@@ -168,6 +168,9 @@ public class PlatformBuild {
                     builder = new YunYuBuilder(apkParser);
                     break;
 
+                case Platforms.SDK_YOUXIFAN:
+                    builder = new YouXiFanBuilder(apkParser);
+                    break;
                 default:
                     builder = new BaseBuilder(apkParser);
                     break;

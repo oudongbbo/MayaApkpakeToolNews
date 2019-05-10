@@ -65,6 +65,9 @@ public class YunYuBuilder extends BaseBuilder {
     protected void handleAndroidManifestByGame(String gid, int sdk, String contentPath) {
         super.handleAndroidManifestByGame(gid, sdk, contentPath);
 
+
+
+
         String manifestContent = FileUtil.read(contentPath);
         manifestContent = manifestContent.replaceFirst("android.intent.action.MAIN", "lenovoid.MAIN");
         manifestContent = manifestContent.replaceFirst("android.intent.category.LAUNCHER", "android.intent.category.DEFAULT");

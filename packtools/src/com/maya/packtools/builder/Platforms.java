@@ -169,8 +169,18 @@ public class Platforms {
     public static final String SDK_NAME_YUNYU = "yunyu";
 
 
+    //游戏fan
+    //游戏Fan
+    public static final int SDK_YOUXIFAN = 191;
+    public static final String SDK_NAME_YOUXIFAN = "youxifan";
+
+
     public static int getSdkNoByName(String sdkName) {
         switch (sdkName) {
+
+            case SDK_NAME_YOUXIFAN:
+
+                return SDK_YOUXIFAN;
 
             case SDK_NAME_YUNYU:
                 return SDK_YUNYU;
@@ -283,6 +293,10 @@ public class Platforms {
     public static String getSdkNameByNo(int sdk) {
 
         switch (sdk) {
+
+            case SDK_YOUXIFAN:
+
+                return SDK_NAME_YOUXIFAN;
 
             case SDK_YUNYU:
 
