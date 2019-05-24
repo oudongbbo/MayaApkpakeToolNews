@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okgo/convert/StringConvert;
 .super Ljava/lang/Object;
-.source "StringConvert.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okgo/convert/Converter;
@@ -37,7 +37,6 @@
     .locals 1
 
     .line 18
-    # getter for: Lcom/maya/open/http/okgo/convert/StringConvert$ConvertHolder;->convert:Lcom/maya/open/http/okgo/convert/StringConvert;
     invoke-static {}, Lcom/maya/open/http/okgo/convert/StringConvert$ConvertHolder;->access$000()Lcom/maya/open/http/okgo/convert/StringConvert;
 
     move-result-object v0
@@ -49,11 +48,6 @@
 # virtual methods
 .method public bridge synthetic convertSuccess(Lcom/maya/open/http/okhttp3/Response;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
 
     .line 15
     invoke-virtual {p0, p1}, Lcom/maya/open/http/okgo/convert/StringConvert;->convertSuccess(Lcom/maya/open/http/okhttp3/Response;)Ljava/lang/String;
@@ -64,22 +58,16 @@
 .end method
 
 .method public convertSuccess(Lcom/maya/open/http/okhttp3/Response;)Ljava/lang/String;
-    .locals 1
-    .param p1, "value"    # Lcom/maya/open/http/okhttp3/Response;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
+    .locals 0
 
     .line 27
     invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/Response;->body()Lcom/maya/open/http/okhttp3/ResponseBody;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/ResponseBody;->string()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/ResponseBody;->string()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method

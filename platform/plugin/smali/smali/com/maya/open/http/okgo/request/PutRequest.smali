@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okgo/request/PutRequest;
 .super Lcom/maya/open/http/okgo/request/BaseBodyRequest;
-.source "PutRequest.java"
+.source "SourceFile"
 
 
 # annotations
@@ -15,18 +15,16 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "url"    # Ljava/lang/String;
+    .locals 0
 
     .line 26
     invoke-direct {p0, p1}, Lcom/maya/open/http/okgo/request/BaseBodyRequest;-><init>(Ljava/lang/String;)V
 
+    const-string p1, "PUT"
+
     .line 27
-    const-string v0, "PUT"
+    iput-object p1, p0, Lcom/maya/open/http/okgo/request/PutRequest;->method:Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/maya/open/http/okgo/request/PutRequest;->method:Ljava/lang/String;
-
-    .line 28
     return-void
 .end method
 
@@ -34,7 +32,6 @@
 # virtual methods
 .method public generateRequest(Lcom/maya/open/http/okhttp3/RequestBody;)Lcom/maya/open/http/okhttp3/Request;
     .locals 4
-    .param p1, "requestBody"    # Lcom/maya/open/http/okhttp3/RequestBody;
 
     .line 33
     :try_start_0
@@ -54,19 +51,15 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 36
     goto :goto_0
 
-    .line 34
     :catch_0
     move-exception v0
 
     .line 35
-    .local v0, "e":Ljava/io/IOException;
     invoke-static {v0}, Lcom/maya/open/http/okgo/utils/OkLogger;->e(Ljava/lang/Throwable;)V
 
     .line 37
-    .end local v0    # "e":Ljava/io/IOException;
     :goto_0
     iget-object v0, p0, Lcom/maya/open/http/okgo/request/PutRequest;->headers:Lcom/maya/open/http/okgo/model/HttpHeaders;
 
@@ -75,26 +68,25 @@
     move-result-object v0
 
     .line 38
-    .local v0, "requestBuilder":Lcom/maya/open/http/okhttp3/Request$Builder;
     invoke-virtual {v0, p1}, Lcom/maya/open/http/okhttp3/Request$Builder;->put(Lcom/maya/open/http/okhttp3/RequestBody;)Lcom/maya/open/http/okhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/maya/open/http/okgo/request/PutRequest;->url:Ljava/lang/String;
+    iget-object v0, p0, Lcom/maya/open/http/okgo/request/PutRequest;->url:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Lcom/maya/open/http/okhttp3/Request$Builder;->url(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/Request$Builder;
+    invoke-virtual {p1, v0}, Lcom/maya/open/http/okhttp3/Request$Builder;->url(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    iget-object v2, p0, Lcom/maya/open/http/okgo/request/PutRequest;->tag:Ljava/lang/Object;
+    iget-object v0, p0, Lcom/maya/open/http/okgo/request/PutRequest;->tag:Ljava/lang/Object;
 
-    invoke-virtual {v1, v2}, Lcom/maya/open/http/okhttp3/Request$Builder;->tag(Ljava/lang/Object;)Lcom/maya/open/http/okhttp3/Request$Builder;
+    invoke-virtual {p1, v0}, Lcom/maya/open/http/okhttp3/Request$Builder;->tag(Ljava/lang/Object;)Lcom/maya/open/http/okhttp3/Request$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-virtual {v1}, Lcom/maya/open/http/okhttp3/Request$Builder;->build()Lcom/maya/open/http/okhttp3/Request;
+    invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/Request$Builder;->build()Lcom/maya/open/http/okhttp3/Request;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method

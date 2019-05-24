@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/m/model/constant/MsdkConstant;
 .super Ljava/lang/Object;
-.source "MsdkConstant.java"
+.source "SourceFile"
 
 
 # static fields
@@ -64,7 +64,7 @@
 
 .field public static final SDK_OS:Ljava/lang/String; = "android"
 
-.field public static final SDK_VERSION_NAME:Ljava/lang/String; = "2.0.0"
+.field public static final SDK_VERSION_NAME:Ljava/lang/String; = "2.0.1"
 
 .field public static final SUBMIT_ACTION_ROLE_CHANGENAME:Ljava/lang/String; = "changeName"
 

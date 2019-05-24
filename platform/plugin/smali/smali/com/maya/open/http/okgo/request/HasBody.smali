@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okgo/request/HasBody;
 .super Ljava/lang/Object;
-.source "HasBody.java"
+.source "SourceFile"
 
 
 # annotations

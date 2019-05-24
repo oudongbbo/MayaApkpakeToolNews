@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/framework/web/SdkWebDialog$2;
 .super Landroid/os/Handler;
-.source "SdkWebDialog.java"
+.source "SourceFile"
 
 
 # annotations
@@ -15,16 +15,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/framework/web/SdkWebDialog;
+.field final synthetic a:Lcom/maya/sdk/framework/web/SdkWebDialog;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/framework/web/SdkWebDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/web/SdkWebDialog;
 
     .line 161
-    iput-object p1, p0, Lcom/maya/sdk/framework/web/SdkWebDialog$2;->this$0:Lcom/maya/sdk/framework/web/SdkWebDialog;
+    iput-object p1, p0, Lcom/maya/sdk/framework/web/SdkWebDialog$2;->a:Lcom/maya/sdk/framework/web/SdkWebDialog;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
@@ -34,17 +33,15 @@
 
 # virtual methods
 .method public dispatchMessage(Landroid/os/Message;)V
-    .locals 1
-    .param p1, "msg"    # Landroid/os/Message;
+    .locals 0
 
     .line 165
     invoke-super {p0, p1}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
 
     .line 166
-    iget-object v0, p0, Lcom/maya/sdk/framework/web/SdkWebDialog$2;->this$0:Lcom/maya/sdk/framework/web/SdkWebDialog;
+    iget-object p1, p0, Lcom/maya/sdk/framework/web/SdkWebDialog$2;->a:Lcom/maya/sdk/framework/web/SdkWebDialog;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/web/SdkWebDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/maya/sdk/framework/web/SdkWebDialog;->dismiss()V
 
-    .line 167
     return-void
 .end method

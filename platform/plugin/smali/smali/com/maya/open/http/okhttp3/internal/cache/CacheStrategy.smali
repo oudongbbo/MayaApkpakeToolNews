@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/internal/cache/CacheStrategy;
 .super Ljava/lang/Object;
-.source "CacheStrategy.java"
+.source "SourceFile"
 
 
 # annotations
@@ -20,8 +20,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/Request;Lcom/maya/open/http/okhttp3/Response;)V
     .locals 0
-    .param p1, "networkRequest"    # Lcom/maya/open/http/okhttp3/Request;
-    .param p2, "cacheResponse"    # Lcom/maya/open/http/okhttp3/Response;
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,14 +30,11 @@
     .line 59
     iput-object p2, p0, Lcom/maya/open/http/okhttp3/internal/cache/CacheStrategy;->cacheResponse:Lcom/maya/open/http/okhttp3/Response;
 
-    .line 60
     return-void
 .end method
 
 .method public static isCacheable(Lcom/maya/open/http/okhttp3/Response;Lcom/maya/open/http/okhttp3/Request;)Z
     .locals 3
-    .param p0, "response"    # Lcom/maya/open/http/okhttp3/Response;
-    .param p1, "request"    # Lcom/maya/open/http/okhttp3/Request;
 
     .line 66
     invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/Response;->code()I
@@ -50,12 +45,12 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    goto :goto_1
+    goto :goto_0
 
-    .line 86
     :sswitch_0
     const-string v0, "Expires"
 
+    .line 86
     invoke-virtual {p0, v0}, Lcom/maya/open/http/okhttp3/Response;->header(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -97,47 +92,39 @@
 
     if-eqz v0, :cond_2
 
-    .line 90
-    goto :goto_0
-
-    .line 79
-    :sswitch_1
-    nop
-
     .line 100
     :cond_0
-    :goto_0
+    :sswitch_1
     invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/Response;->cacheControl()Lcom/maya/open/http/okhttp3/CacheControl;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/CacheControl;->noStore()Z
+    invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/CacheControl;->noStore()Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/Request;->cacheControl()Lcom/maya/open/http/okhttp3/CacheControl;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/CacheControl;->noStore()Z
+    invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/CacheControl;->noStore()Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     const/4 v1, 0x1
-
-    nop
 
     :cond_1
     return v1
 
-    .line 96
     :cond_2
-    :goto_1
+    :goto_0
     return v1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;
 .super Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;
-.source "TrustRootIndex.java"
+.source "SourceFile"
 
 
 # annotations
@@ -30,8 +30,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Ljava/security/cert/X509Certificate;)V
-    .locals 7
-    .param p1, "caCerts"    # [Ljava/security/cert/X509Certificate;
+    .locals 6
 
     .line 107
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;-><init>()V
@@ -54,13 +53,11 @@
     aget-object v2, p1, v1
 
     .line 110
-    .local v2, "caCert":Ljava/security/cert/X509Certificate;
     invoke-virtual {v2}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
     move-result-object v3
 
     .line 111
-    .local v3, "subject":Ljavax/security/auth/x500/X500Principal;
     iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
     invoke-interface {v4, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -69,18 +66,14 @@
 
     check-cast v4, Ljava/util/Set;
 
-    .line 112
-    .local v4, "subjectCaCerts":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;"
     if-nez v4, :cond_0
 
     .line 113
-    new-instance v5, Ljava/util/LinkedHashSet;
+    new-instance v4, Ljava/util/LinkedHashSet;
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    invoke-direct {v5, v6}, Ljava/util/LinkedHashSet;-><init>(I)V
-
-    move-object v4, v5
+    invoke-direct {v4, v5}, Ljava/util/LinkedHashSet;-><init>(I)V
 
     .line 114
     iget-object v5, p0, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
@@ -91,15 +84,10 @@
     :cond_0
     invoke-interface {v4, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 109
-    .end local v2    # "caCert":Ljava/security/cert/X509Certificate;
-    .end local v3    # "subject":Ljavax/security/auth/x500/X500Principal;
-    .end local v4    # "subjectCaCerts":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;"
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 118
     :cond_1
     return-void
 .end method
@@ -107,10 +95,8 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 2
 
-    .line 138
     const/4 v0, 0x1
 
     if-ne p1, p0, :cond_0
@@ -123,34 +109,30 @@
 
     if-eqz v1, :cond_1
 
-    move-object v1, p1
+    check-cast p1, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;
 
-    check-cast v1, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;
+    iget-object p1, p1, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
-    iget-object v1, v1, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
-
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
     .line 140
-    invoke-interface {v1, v2}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
+    invoke-interface {p1, v1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     :cond_1
     const/4 v0, 0x0
 
-    .line 139
     :goto_0
     return v0
 .end method
 
 .method public findByIssuerAndSignature(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
-    .locals 7
-    .param p1, "cert"    # Ljava/security/cert/X509Certificate;
+    .locals 4
 
     .line 121
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getIssuerX500Principal()Ljavax/security/auth/x500/X500Principal;
@@ -158,70 +140,54 @@
     move-result-object v0
 
     .line 122
-    .local v0, "issuer":Ljavax/security/auth/x500/X500Principal;
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;->subjectToCaCerts:Ljava/util/Map;
 
     invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Ljava/util/Set;
+    check-cast v0, Ljava/util/Set;
 
-    .line 123
-    .local v1, "subjectCaCerts":Ljava/util/Set;, "Ljava/util/Set<Ljava/security/cert/X509Certificate;>;"
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v0, :cond_0
 
-    return-object v2
+    return-object v1
 
     .line 125
     :cond_0
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :catch_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/security/cert/X509Certificate;
+
+    .line 126
+    invoke-virtual {v2}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v3
 
-    :goto_0
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/security/cert/X509Certificate;
-
-    .line 126
-    .local v4, "caCert":Ljava/security/cert/X509Certificate;
-    invoke-virtual {v4}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
-
-    move-result-object v5
-
     .line 128
-    .local v5, "publicKey":Ljava/security/PublicKey;
     :try_start_0
-    invoke-virtual {p1, v5}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
+    invoke-virtual {p1, v3}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 129
-    return-object v4
-
-    .line 130
-    :catch_0
-    move-exception v6
-
-    .line 132
-    .end local v4    # "caCert":Ljava/security/cert/X509Certificate;
-    .end local v5    # "publicKey":Ljava/security/PublicKey;
-    goto :goto_0
-
-    .line 134
-    :cond_1
     return-object v2
+
+    :cond_1
+    return-object v1
 .end method
 
 .method public hashCode()I

@@ -1,6 +1,6 @@
 .class final enum Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
 .super Ljava/lang/Enum;
-.source "RelativePopupWindow.java"
+.source "SourceFile"
 
 
 # annotations
@@ -91,9 +91,9 @@
 
     sput-object v0, Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;->ALIGN_BOTTOM:Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
 
-    .line 16
     const/4 v0, 0x5
 
+    .line 16
     new-array v0, v0, [Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
 
     sget-object v1, Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;->CENTER:Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
@@ -137,18 +137,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 16
     const-class v0, Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
+    check-cast p0, Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/maya/sdk/framework/view/common/RelativePopupWindow$VerticalPosition;

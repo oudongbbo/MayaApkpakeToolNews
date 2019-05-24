@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/http2/PushObserver$1;
 .super Ljava/lang/Object;
-.source "PushObserver.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okhttp3/internal/http2/PushObserver;
@@ -30,32 +30,20 @@
 
 # virtual methods
 .method public onData(ILcom/maya/open/http/okio/BufferedSource;IZ)Z
-    .locals 2
-    .param p1, "streamId"    # I
-    .param p2, "source"    # Lcom/maya/open/http/okio/BufferedSource;
-    .param p3, "byteCount"    # I
-    .param p4, "last"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 0
+
+    int-to-long p3, p3
 
     .line 90
-    int-to-long v0, p3
+    invoke-interface {p2, p3, p4}, Lcom/maya/open/http/okio/BufferedSource;->skip(J)V
 
-    invoke-interface {p2, v0, v1}, Lcom/maya/open/http/okio/BufferedSource;->skip(J)V
+    const/4 p1, 0x1
 
-    .line 91
-    const/4 v0, 0x1
-
-    return v0
+    return p1
 .end method
 
 .method public onHeaders(ILjava/util/List;Z)Z
-    .locals 1
-    .param p1, "streamId"    # I
-    .param p3, "last"    # Z
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -65,16 +53,13 @@
         }
     .end annotation
 
-    .line 85
-    .local p2, "responseHeaders":Ljava/util/List;, "Ljava/util/List<Lcom/maya/open/http/okhttp3/internal/http2/Header;>;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public onRequest(ILjava/util/List;)Z
-    .locals 1
-    .param p1, "streamId"    # I
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -84,18 +69,13 @@
         }
     .end annotation
 
-    .line 81
-    .local p2, "requestHeaders":Ljava/util/List;, "Ljava/util/List<Lcom/maya/open/http/okhttp3/internal/http2/Header;>;"
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method
 
 .method public onReset(ILcom/maya/open/http/okhttp3/internal/http2/ErrorCode;)V
     .locals 0
-    .param p1, "streamId"    # I
-    .param p2, "errorCode"    # Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 
-    .line 95
     return-void
 .end method

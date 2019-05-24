@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okgo/adapter/CallAdapter;
 .super Ljava/lang/Object;
-.source "CallAdapter.java"
+.source "SourceFile"
 
 
 # annotations

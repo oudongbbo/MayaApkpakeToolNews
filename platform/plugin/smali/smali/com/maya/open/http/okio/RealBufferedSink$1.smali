@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okio/RealBufferedSink$1;
 .super Ljava/io/OutputStream;
-.source "RealBufferedSink.java"
+.source "SourceFile"
 
 
 # annotations
@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okio/RealBufferedSink;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okio/RealBufferedSink;
 
     .line 193
     iput-object p1, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
@@ -35,28 +34,17 @@
 # virtual methods
 .method public close()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 214
     iget-object v0, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
 
     invoke-virtual {v0}, Lcom/maya/open/http/okio/RealBufferedSink;->close()V
 
-    .line 215
     return-void
 .end method
 
 .method public flush()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 208
     iget-object v0, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
@@ -70,7 +58,6 @@
 
     invoke-virtual {v0}, Lcom/maya/open/http/okio/RealBufferedSink;->flush()V
 
-    .line 211
     :cond_0
     return-void
 .end method
@@ -99,13 +86,7 @@
 .end method
 
 .method public write(I)V
-    .locals 2
-    .param p1, "b"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 1
 
     .line 195
     iget-object v0, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
@@ -119,39 +100,30 @@
 
     iget-object v0, v0, Lcom/maya/open/http/okio/RealBufferedSink;->buffer:Lcom/maya/open/http/okio/Buffer;
 
-    int-to-byte v1, p1
+    int-to-byte p1, p1
 
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v0, p1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
     .line 197
-    iget-object v0, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
+    iget-object p1, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okio/RealBufferedSink;->emitCompleteSegments()Lcom/maya/open/http/okio/BufferedSink;
+    invoke-virtual {p1}, Lcom/maya/open/http/okio/RealBufferedSink;->emitCompleteSegments()Lcom/maya/open/http/okio/BufferedSink;
 
-    .line 198
     return-void
 
     .line 195
     :cond_0
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string v0, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public write([BII)V
-    .locals 2
-    .param p1, "data"    # [B
-    .param p2, "offset"    # I
-    .param p3, "byteCount"    # I
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 1
 
     .line 201
     iget-object v0, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
@@ -168,20 +140,19 @@
     invoke-virtual {v0, p1, p2, p3}, Lcom/maya/open/http/okio/Buffer;->write([BII)Lcom/maya/open/http/okio/Buffer;
 
     .line 203
-    iget-object v0, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
+    iget-object p1, p0, Lcom/maya/open/http/okio/RealBufferedSink$1;->this$0:Lcom/maya/open/http/okio/RealBufferedSink;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okio/RealBufferedSink;->emitCompleteSegments()Lcom/maya/open/http/okio/BufferedSink;
+    invoke-virtual {p1}, Lcom/maya/open/http/okio/RealBufferedSink;->emitCompleteSegments()Lcom/maya/open/http/okio/BufferedSink;
 
-    .line 204
     return-void
 
     .line 201
     :cond_0
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

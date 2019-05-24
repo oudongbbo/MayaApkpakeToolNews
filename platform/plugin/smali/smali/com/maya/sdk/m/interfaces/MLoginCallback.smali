@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/m/interfaces/MLoginCallback;
 .super Ljava/lang/Object;
-.source "MLoginCallback.java"
+.source "SourceFile"
 
 
 # virtual methods

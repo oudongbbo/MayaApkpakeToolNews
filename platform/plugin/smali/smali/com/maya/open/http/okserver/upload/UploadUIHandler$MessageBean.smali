@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okserver/upload/UploadUIHandler$MessageBean;
 .super Ljava/lang/Object;
-.source "UploadUIHandler.java"
+.source "SourceFile"
 
 
 # annotations
@@ -44,7 +44,6 @@
     .locals 0
 
     .line 60
-    .local p0, "this":Lcom/maya/open/http/okserver/upload/UploadUIHandler$MessageBean;, "Lcom/maya/open/http/okserver/upload/UploadUIHandler$MessageBean<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

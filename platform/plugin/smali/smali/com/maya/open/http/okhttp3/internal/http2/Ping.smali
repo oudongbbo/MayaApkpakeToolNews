@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/http2/Ping;
 .super Ljava/lang/Object;
-.source "Ping.java"
+.source "SourceFile"
 
 
 # instance fields
@@ -27,15 +27,14 @@
 
     iput-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->latch:Ljava/util/concurrent/CountDownLatch;
 
-    .line 26
     const-wide/16 v0, -0x1
 
+    .line 26
     iput-wide v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->sent:J
 
     .line 27
     iput-wide v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->received:J
 
-    .line 30
     return-void
 .end method
 
@@ -73,7 +72,6 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 47
     return-void
 
     .line 44
@@ -115,7 +113,6 @@
 
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
-    .line 41
     return-void
 
     .line 38
@@ -129,11 +126,6 @@
 
 .method public roundTripTime()J
     .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/InterruptedException;
-        }
-    .end annotation
 
     .line 54
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->latch:Ljava/util/concurrent/CountDownLatch;
@@ -151,38 +143,30 @@
 .end method
 
 .method public roundTripTime(JLjava/util/concurrent/TimeUnit;)J
-    .locals 4
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/InterruptedException;
-        }
-    .end annotation
+    .locals 2
 
     .line 63
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->latch:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/util/concurrent/CountDownLatch;->await(JLjava/util/concurrent/TimeUnit;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 64
-    iget-wide v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->received:J
+    iget-wide p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->received:J
 
-    iget-wide v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->sent:J
+    iget-wide v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->sent:J
 
-    sub-long/2addr v0, v2
+    sub-long/2addr p1, v0
 
-    return-wide v0
+    return-wide p1
 
-    .line 66
     :cond_0
-    const-wide/16 v0, -0x2
+    const-wide/16 p1, -0x2
 
-    return-wide v0
+    return-wide p1
 .end method
 
 .method send()V
@@ -204,7 +188,6 @@
 
     iput-wide v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Ping;->sent:J
 
-    .line 35
     return-void
 
     .line 33

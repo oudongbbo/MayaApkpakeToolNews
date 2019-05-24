@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okgo/cookie/store/CookieStore;
 .super Ljava/lang/Object;
-.source "CookieStore.java"
+.source "SourceFile"
 
 
 # virtual methods

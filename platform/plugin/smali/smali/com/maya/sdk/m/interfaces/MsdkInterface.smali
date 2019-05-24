@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/m/interfaces/MsdkInterface;
 .super Ljava/lang/Object;
-.source "MsdkInterface.java"
+.source "SourceFile"
 
 
 # virtual methods

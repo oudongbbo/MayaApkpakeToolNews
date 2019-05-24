@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;
 .super Ljava/lang/Object;
-.source "AutoLoginDialog.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnShowListener;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
+.field final synthetic a:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/login/AutoLoginDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/login/AutoLoginDialog;
 
     .line 82
-    iput-object p1, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
+    iput-object p1, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->a:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,29 +36,24 @@
 
 # virtual methods
 .method public onShow(Landroid/content/DialogInterface;)V
-    .locals 3
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 2
 
     .line 87
-    iget-object v0, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
+    iget-object p1, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->a:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
 
-    iget-object v1, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->a:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
 
-    # getter for: Lcom/maya/sdk/s/app/login/AutoLoginDialog;->mContent:Landroid/widget/LinearLayout;
-    invoke-static {v1}, Lcom/maya/sdk/s/app/login/AutoLoginDialog;->access$000(Lcom/maya/sdk/s/app/login/AutoLoginDialog;)Landroid/widget/LinearLayout;
+    invoke-static {v0}, Lcom/maya/sdk/s/app/login/AutoLoginDialog;->a(Lcom/maya/sdk/s/app/login/AutoLoginDialog;)Landroid/widget/LinearLayout;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->a:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
+
+    invoke-static {v1}, Lcom/maya/sdk/s/app/login/AutoLoginDialog;->b(Lcom/maya/sdk/s/app/login/AutoLoginDialog;)Landroid/content/Context;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/maya/sdk/s/app/login/AutoLoginDialog$1;->this$0:Lcom/maya/sdk/s/app/login/AutoLoginDialog;
+    invoke-static {p1, v0, v1}, Lcom/maya/sdk/s/app/login/AutoLoginDialog;->a(Lcom/maya/sdk/s/app/login/AutoLoginDialog;Landroid/view/View;Landroid/content/Context;)V
 
-    # getter for: Lcom/maya/sdk/s/app/login/AutoLoginDialog;->mContext:Landroid/content/Context;
-    invoke-static {v2}, Lcom/maya/sdk/s/app/login/AutoLoginDialog;->access$100(Lcom/maya/sdk/s/app/login/AutoLoginDialog;)Landroid/content/Context;
-
-    move-result-object v2
-
-    # invokes: Lcom/maya/sdk/s/app/login/AutoLoginDialog;->startAnimate(Landroid/view/View;Landroid/content/Context;)V
-    invoke-static {v0, v1, v2}, Lcom/maya/sdk/s/app/login/AutoLoginDialog;->access$200(Lcom/maya/sdk/s/app/login/AutoLoginDialog;Landroid/view/View;Landroid/content/Context;)V
-
-    .line 88
     return-void
 .end method

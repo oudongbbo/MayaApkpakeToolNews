@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/framework/utils/ImageUtil$ImageCallback;
 .super Ljava/lang/Object;
-.source "ImageUtil.java"
+.source "SourceFile"
 
 
 # annotations

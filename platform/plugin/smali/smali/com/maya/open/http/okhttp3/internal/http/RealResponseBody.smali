@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/internal/http/RealResponseBody;
 .super Lcom/maya/open/http/okhttp3/ResponseBody;
-.source "RealResponseBody.java"
+.source "SourceFile"
 
 
 # instance fields
@@ -12,8 +12,6 @@
 # direct methods
 .method public constructor <init>(Lcom/maya/open/http/okhttp3/Headers;Lcom/maya/open/http/okio/BufferedSource;)V
     .locals 0
-    .param p1, "headers"    # Lcom/maya/open/http/okhttp3/Headers;
-    .param p2, "source"    # Lcom/maya/open/http/okio/BufferedSource;
 
     .line 30
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/ResponseBody;-><init>()V
@@ -24,7 +22,6 @@
     .line 32
     iput-object p2, p0, Lcom/maya/open/http/okhttp3/internal/http/RealResponseBody;->source:Lcom/maya/open/http/okio/BufferedSource;
 
-    .line 33
     return-void
 .end method
 
@@ -55,21 +52,20 @@
 
     move-result-object v0
 
-    .line 37
-    .local v0, "contentType":Ljava/lang/String;
     if-eqz v0, :cond_0
 
+    .line 37
     invoke-static {v0}, Lcom/maya/open/http/okhttp3/MediaType;->parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/MediaType;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public source()Lcom/maya/open/http/okio/BufferedSource;

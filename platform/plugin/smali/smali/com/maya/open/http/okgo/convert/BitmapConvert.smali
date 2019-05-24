@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okgo/convert/BitmapConvert;
 .super Ljava/lang/Object;
-.source "BitmapConvert.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okgo/convert/Converter;
@@ -37,7 +37,6 @@
     .locals 1
 
     .line 23
-    # getter for: Lcom/maya/open/http/okgo/convert/BitmapConvert$ConvertHolder;->convert:Lcom/maya/open/http/okgo/convert/BitmapConvert;
     invoke-static {}, Lcom/maya/open/http/okgo/convert/BitmapConvert$ConvertHolder;->access$000()Lcom/maya/open/http/okgo/convert/BitmapConvert;
 
     move-result-object v0
@@ -48,37 +47,26 @@
 
 # virtual methods
 .method public convertSuccess(Lcom/maya/open/http/okhttp3/Response;)Landroid/graphics/Bitmap;
-    .locals 1
-    .param p1, "value"    # Lcom/maya/open/http/okhttp3/Response;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
+    .locals 0
 
     .line 32
     invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/Response;->body()Lcom/maya/open/http/okhttp3/ResponseBody;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/ResponseBody;->byteStream()Ljava/io/InputStream;
+    invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/ResponseBody;->byteStream()Ljava/io/InputStream;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {v0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    invoke-static {p1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic convertSuccess(Lcom/maya/open/http/okhttp3/Response;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
 
     .line 20
     invoke-virtual {p0, p1}, Lcom/maya/open/http/okgo/convert/BitmapConvert;->convertSuccess(Lcom/maya/open/http/okhttp3/Response;)Landroid/graphics/Bitmap;

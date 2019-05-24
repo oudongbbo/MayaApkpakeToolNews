@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/m/interfaces/PlatformLogInterface;
 .super Ljava/lang/Object;
-.source "PlatformLogInterface.java"
+.source "SourceFile"
 
 
 # virtual methods

@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okgo/convert/BitmapConvert$ConvertHolder;
 .super Ljava/lang/Object;
-.source "BitmapConvert.java"
+.source "SourceFile"
 
 
 # annotations

@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/utils/CrashUtils;
 .super Ljava/lang/Object;
-.source "CrashUtils.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Thread$UncaughtExceptionHandler;
@@ -29,29 +29,26 @@
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/maya/open/utils/CrashUtils;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/open/utils/CrashUtils;
+    .locals 0
 
     .line 26
     invoke-direct {p0}, Lcom/maya/open/utils/CrashUtils;->getCrashHead()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static createOrExistsDir(Ljava/io/File;)Z
     .locals 1
-    .param p0, "file"    # Ljava/io/File;
 
-    .line 162
     if-eqz p0, :cond_1
 
+    .line 162
     invoke-virtual {p0}, Ljava/io/File;->exists()Z
 
     move-result v0
@@ -60,34 +57,33 @@
 
     invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
     :goto_0
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_1
-    return v0
+    return p0
 .end method
 
 .method private static createOrExistsFile(Ljava/lang/String;)Z
-    .locals 3
-    .param p0, "filePath"    # Ljava/lang/String;
+    .locals 2
 
     .line 141
     new-instance v0, Ljava/io/File;
@@ -95,56 +91,52 @@
     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 143
-    .local v0, "file":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
-    move-result v1
+    move-result p0
 
-    if-eqz v1, :cond_0
+    if-eqz p0, :cond_0
 
     invoke-virtual {v0}, Ljava/io/File;->isFile()Z
 
-    move-result v1
+    move-result p0
 
-    return v1
+    return p0
 
     .line 144
     :cond_0
     invoke-virtual {v0}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Lcom/maya/open/utils/CrashUtils;->createOrExistsDir(Ljava/io/File;)Z
+    invoke-static {p0}, Lcom/maya/open/utils/CrashUtils;->createOrExistsDir(Ljava/io/File;)Z
 
-    move-result v1
+    move-result p0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-nez v1, :cond_1
+    if-nez p0, :cond_1
 
-    return v2
+    return v1
 
     .line 146
     :cond_1
     :try_start_0
     invoke-virtual {v0}, Ljava/io/File;->createNewFile()Z
 
-    move-result v1
+    move-result p0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return p0
 
-    .line 147
     :catch_0
-    move-exception v1
+    move-exception p0
 
     .line 148
-    .local v1, "e":Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 149
-    return v2
+    return v1
 .end method
 
 .method private getCrashHead()Ljava/lang/String;
@@ -266,8 +258,7 @@
 
 # virtual methods
 .method public init(Landroid/content/Context;)Z
-    .locals 5
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 4
 
     .line 65
     iget-boolean v0, p0, Lcom/maya/open/utils/CrashUtils;->mInitialized:Z
@@ -278,10 +269,10 @@
 
     return v1
 
-    .line 66
     :cond_0
     const-string v0, "mounted"
 
+    .line 66
     invoke-static {}, Landroid/os/Environment;->getExternalStorageState()Ljava/lang/String;
 
     move-result-object v2
@@ -299,8 +290,6 @@
 
     move-result-object v0
 
-    .line 68
-    .local v0, "baseCache":Ljava/io/File;
     if-nez v0, :cond_1
 
     return v2
@@ -313,30 +302,28 @@
 
     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v4, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object v0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "crash"
+    const-string v0, "crash"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v4, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object v0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    iput-object v3, p0, Lcom/maya/open/utils/CrashUtils;->crashDir:Ljava/lang/String;
+    iput-object v0, p0, Lcom/maya/open/utils/CrashUtils;->crashDir:Ljava/lang/String;
 
-    .line 70
-    .end local v0    # "baseCache":Ljava/io/File;
     goto :goto_0
 
     .line 71
@@ -345,8 +332,6 @@
 
     move-result-object v0
 
-    .line 72
-    .restart local v0    # "baseCache":Ljava/io/File;
     if-nez v0, :cond_3
 
     return v2
@@ -359,30 +344,29 @@
 
     invoke-virtual {v0}, Ljava/io/File;->getPath()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v4, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object v0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "crash"
+    const-string v0, "crash"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v4, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object v0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    iput-object v3, p0, Lcom/maya/open/utils/CrashUtils;->crashDir:Ljava/lang/String;
+    iput-object v0, p0, Lcom/maya/open/utils/CrashUtils;->crashDir:Ljava/lang/String;
 
     .line 76
-    .end local v0    # "baseCache":Ljava/io/File;
     :goto_0
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -391,35 +375,30 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p1
 
-    invoke-virtual {v0, v3, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v0, p1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 77
-    .local v0, "pi":Landroid/content/pm/PackageInfo;
-    iget-object v3, v0, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
+    iget-object v0, p1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
 
-    iput-object v3, p0, Lcom/maya/open/utils/CrashUtils;->versionName:Ljava/lang/String;
+    iput-object v0, p0, Lcom/maya/open/utils/CrashUtils;->versionName:Ljava/lang/String;
 
     .line 78
-    iget v3, v0, Landroid/content/pm/PackageInfo;->versionCode:I
+    iget p1, p1, Landroid/content/pm/PackageInfo;->versionCode:I
 
-    iput v3, p0, Lcom/maya/open/utils/CrashUtils;->versionCode:I
+    iput p1, p0, Lcom/maya/open/utils/CrashUtils;->versionCode:I
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    .line 82
-    .end local v0    # "pi":Landroid/content/pm/PackageInfo;
-    nop
 
     .line 83
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/maya/open/utils/CrashUtils;->mHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
+    iput-object p1, p0, Lcom/maya/open/utils/CrashUtils;->mHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
 
     .line 84
     invoke-static {p0}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
@@ -429,22 +408,17 @@
 
     return v1
 
-    .line 79
     :catch_0
-    move-exception v0
+    move-exception p1
 
     .line 80
-    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {p1}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
 
-    .line 81
     return v2
 .end method
 
 .method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .locals 4
-    .param p1, "thread"    # Ljava/lang/Thread;
-    .param p2, "throwable"    # Ljava/lang/Throwable;
+    .locals 3
 
     .line 90
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -466,7 +440,6 @@
     move-result-object v0
 
     .line 91
-    .local v0, "now":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -477,48 +450,46 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, ".txt"
+    const-string v0, ".txt"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 92
-    .local v1, "fullPath":Ljava/lang/String;
-    invoke-static {v1}, Lcom/maya/open/utils/CrashUtils;->createOrExistsFile(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/maya/open/utils/CrashUtils;->createOrExistsFile(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-nez v2, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
     .line 93
     :cond_0
-    new-instance v2, Ljava/lang/Thread;
+    new-instance v1, Ljava/lang/Thread;
 
-    new-instance v3, Lcom/maya/open/utils/CrashUtils$1;
+    new-instance v2, Lcom/maya/open/utils/CrashUtils$1;
 
-    invoke-direct {v3, p0, v1, p2}, Lcom/maya/open/utils/CrashUtils$1;-><init>(Lcom/maya/open/utils/CrashUtils;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {v2, p0, v0, p2}, Lcom/maya/open/utils/CrashUtils$1;-><init>(Lcom/maya/open/utils/CrashUtils;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    invoke-direct {v2, v3}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    invoke-direct {v1, v2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     .line 112
-    invoke-virtual {v2}, Ljava/lang/Thread;->start()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
     .line 113
-    iget-object v2, p0, Lcom/maya/open/utils/CrashUtils;->mHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
+    iget-object v0, p0, Lcom/maya/open/utils/CrashUtils;->mHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
     .line 114
-    iget-object v2, p0, Lcom/maya/open/utils/CrashUtils;->mHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
+    iget-object v0, p0, Lcom/maya/open/utils/CrashUtils;->mHandler:Ljava/lang/Thread$UncaughtExceptionHandler;
 
-    invoke-interface {v2, p1, p2}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
+    invoke-interface {v0, p1, p2}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
 
-    .line 116
     :cond_1
     return-void
 .end method

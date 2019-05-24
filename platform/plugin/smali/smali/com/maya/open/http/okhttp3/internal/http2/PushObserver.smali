@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/internal/http2/PushObserver;
 .super Ljava/lang/Object;
-.source "PushObserver.java"
+.source "SourceFile"
 
 
 # static fields
@@ -24,11 +24,6 @@
 
 # virtual methods
 .method public abstract onData(ILcom/maya/open/http/okio/BufferedSource;IZ)Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method
 
 .method public abstract onHeaders(ILjava/util/List;Z)Z

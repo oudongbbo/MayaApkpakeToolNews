@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/Connection;
 .super Ljava/lang/Object;
-.source "Connection.java"
+.source "SourceFile"
 
 
 # virtual methods

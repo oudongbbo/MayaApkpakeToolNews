@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;
 .super Ljava/lang/Object;
-.source "Http1Codec.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -49,7 +49,6 @@
 
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->timeout:Lcom/maya/open/http/okio/ForwardingTimeout;
 
-    .line 314
     return-void
 .end method
 
@@ -57,11 +56,6 @@
 # virtual methods
 .method public declared-synchronized close()V
     .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     monitor-enter p0
 
@@ -77,10 +71,10 @@
 
     return-void
 
-    .line 337
     :cond_0
     const/4 v0, 0x1
 
+    .line 337
     :try_start_1
     iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->closed:Z
 
@@ -114,10 +108,10 @@
 
     return-void
 
-    .line 335
     :catchall_0
     move-exception v0
 
+    .line 335
     monitor-exit p0
 
     throw v0
@@ -125,11 +119,6 @@
 
 .method public declared-synchronized flush()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     monitor-enter p0
 
@@ -161,10 +150,10 @@
 
     return-void
 
-    .line 330
     :catchall_0
     move-exception v0
 
+    .line 330
     monitor-exit p0
 
     throw v0
@@ -181,20 +170,12 @@
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
     .locals 3
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 321
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->closed:Z
 
     if-nez v0, :cond_1
 
-    .line 322
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
@@ -228,24 +209,23 @@
     invoke-interface {v0, p1, p2, p3}, Lcom/maya/open/http/okio/BufferedSink;->write(Lcom/maya/open/http/okio/Buffer;J)V
 
     .line 327
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$ChunkedSink;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
 
-    iget-object v0, v0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/maya/open/http/okio/BufferedSink;
+    iget-object p1, p1, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;->sink:Lcom/maya/open/http/okio/BufferedSink;
 
-    const-string v1, "\r\n"
+    const-string p2, "\r\n"
 
-    invoke-interface {v0, v1}, Lcom/maya/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/BufferedSink;
+    invoke-interface {p1, p2}, Lcom/maya/open/http/okio/BufferedSink;->writeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/BufferedSink;
 
-    .line 328
     return-void
 
     .line 321
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

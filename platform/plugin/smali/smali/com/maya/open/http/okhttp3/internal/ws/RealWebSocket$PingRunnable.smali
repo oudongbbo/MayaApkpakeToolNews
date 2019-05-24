@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket$PingRunnable;
 .super Ljava/lang/Object;
-.source "RealWebSocket.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -30,7 +30,6 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 511
     return-void
 .end method
 
@@ -44,6 +43,5 @@
 
     invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;->writePingFrame()V
 
-    .line 515
     return-void
 .end method

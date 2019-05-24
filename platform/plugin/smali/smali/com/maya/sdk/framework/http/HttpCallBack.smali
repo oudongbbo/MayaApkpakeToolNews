@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/framework/http/HttpCallBack;
 .super Ljava/lang/Object;
-.source "HttpCallBack.java"
+.source "SourceFile"
 
 
 # virtual methods

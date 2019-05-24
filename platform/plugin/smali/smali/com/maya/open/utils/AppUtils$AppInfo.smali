@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/utils/AppUtils$AppInfo;
 .super Ljava/lang/Object;
-.source "AppUtils.java"
+.source "SourceFile"
 
 
 # annotations
@@ -33,13 +33,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;IZ)V
     .locals 0
-    .param p1, "packageName"    # Ljava/lang/String;
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "icon"    # Landroid/graphics/drawable/Drawable;
-    .param p4, "packagePath"    # Ljava/lang/String;
-    .param p5, "versionName"    # Ljava/lang/String;
-    .param p6, "versionCode"    # I
-    .param p7, "isSystem"    # Z
 
     .line 579
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,7 +58,6 @@
     .line 586
     invoke-virtual {p0, p7}, Lcom/maya/open/utils/AppUtils$AppInfo;->setSystem(Z)V
 
-    .line 587
     return-void
 .end method
 
@@ -136,78 +128,64 @@
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .param p1, "icon"    # Landroid/graphics/drawable/Drawable;
 
     .line 518
     iput-object p1, p0, Lcom/maya/open/utils/AppUtils$AppInfo;->icon:Landroid/graphics/drawable/Drawable;
 
-    .line 519
     return-void
 .end method
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 534
     iput-object p1, p0, Lcom/maya/open/utils/AppUtils$AppInfo;->name:Ljava/lang/String;
 
-    .line 535
     return-void
 .end method
 
 .method public setPackageName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "packagName"    # Ljava/lang/String;
 
     .line 542
     iput-object p1, p0, Lcom/maya/open/utils/AppUtils$AppInfo;->packageName:Ljava/lang/String;
 
-    .line 543
     return-void
 .end method
 
 .method public setPackagePath(Ljava/lang/String;)V
     .locals 0
-    .param p1, "packagePath"    # Ljava/lang/String;
 
     .line 550
     iput-object p1, p0, Lcom/maya/open/utils/AppUtils$AppInfo;->packagePath:Ljava/lang/String;
 
-    .line 551
     return-void
 .end method
 
 .method public setSystem(Z)V
     .locals 0
-    .param p1, "isSystem"    # Z
 
     .line 526
     iput-boolean p1, p0, Lcom/maya/open/utils/AppUtils$AppInfo;->isSystem:Z
 
-    .line 527
     return-void
 .end method
 
 .method public setVersionCode(I)V
     .locals 0
-    .param p1, "versionCode"    # I
 
     .line 558
     iput p1, p0, Lcom/maya/open/utils/AppUtils$AppInfo;->versionCode:I
 
-    .line 559
     return-void
 .end method
 
 .method public setVersionName(Ljava/lang/String;)V
     .locals 0
-    .param p1, "versionName"    # Ljava/lang/String;
 
     .line 566
     iput-object p1, p0, Lcom/maya/open/utils/AppUtils$AppInfo;->versionName:Ljava/lang/String;
 
-    .line 567
     return-void
 .end method
 
@@ -299,6 +277,5 @@
 
     move-result-object v0
 
-    .line 591
     return-object v0
 .end method

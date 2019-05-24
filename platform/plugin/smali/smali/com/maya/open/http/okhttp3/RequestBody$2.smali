@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/RequestBody$2;
 .super Lcom/maya/open/http/okhttp3/RequestBody;
-.source "RequestBody.java"
+.source "SourceFile"
 
 
 # annotations
@@ -66,12 +66,6 @@
 
 .method public writeTo(Lcom/maya/open/http/okio/BufferedSink;)V
     .locals 3
-    .param p1, "sink"    # Lcom/maya/open/http/okio/BufferedSink;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 100
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/RequestBody$2;->val$content:[B
@@ -82,6 +76,5 @@
 
     invoke-interface {p1, v0, v1, v2}, Lcom/maya/open/http/okio/BufferedSink;->write([BII)Lcom/maya/open/http/okio/BufferedSink;
 
-    .line 101
     return-void
 .end method

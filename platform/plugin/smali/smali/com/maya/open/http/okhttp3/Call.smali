@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/Call;
 .super Ljava/lang/Object;
-.source "Call.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Cloneable;
@@ -25,11 +25,6 @@
 .end method
 
 .method public abstract execute()Lcom/maya/open/http/okhttp3/Response;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method
 
 .method public abstract isCanceled()Z

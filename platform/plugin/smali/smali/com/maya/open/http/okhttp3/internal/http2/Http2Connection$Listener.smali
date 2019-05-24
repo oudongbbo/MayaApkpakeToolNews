@@ -1,6 +1,6 @@
 .class public abstract Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$Listener;
 .super Ljava/lang/Object;
-.source "Http2Connection.java"
+.source "SourceFile"
 
 
 # annotations
@@ -45,16 +45,9 @@
 # virtual methods
 .method public onSettings(Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;)V
     .locals 0
-    .param p1, "connection"    # Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    .line 883
     return-void
 .end method
 
 .method public abstract onStream(Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method

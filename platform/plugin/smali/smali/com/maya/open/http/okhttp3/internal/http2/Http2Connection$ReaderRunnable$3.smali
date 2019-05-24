@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable$3;
 .super Lcom/maya/open/http/okhttp3/internal/NamedRunnable;
-.source "Http2Connection.java"
+.source "SourceFile"
 
 
 # annotations
@@ -23,9 +23,6 @@
 # direct methods
 .method varargs constructor <init>(Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable;Ljava/lang/String;[Ljava/lang/Object;Lcom/maya/open/http/okhttp3/internal/http2/Settings;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable;
-    .param p2, "format"    # Ljava/lang/String;
-    .param p3, "args"    # [Ljava/lang/Object;
 
     .line 694
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable$3;->this$1:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable;
@@ -56,14 +53,6 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 699
-    goto :goto_0
-
-    .line 698
     :catch_0
-    move-exception v0
-
-    .line 700
-    :goto_0
     return-void
 .end method

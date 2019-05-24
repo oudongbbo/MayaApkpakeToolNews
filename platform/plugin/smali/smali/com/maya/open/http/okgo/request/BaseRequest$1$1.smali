@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okgo/request/BaseRequest$1$1;
 .super Ljava/lang/Object;
-.source "BaseRequest.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -30,10 +30,8 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okgo/request/BaseRequest$1;JJJ)V
     .locals 0
-    .param p1, "this$1"    # Lcom/maya/open/http/okgo/request/BaseRequest$1;
 
     .line 326
-    .local p0, "this":Lcom/maya/open/http/okgo/request/BaseRequest$1$1;, "Lcom/maya/open/http/okgo/request/BaseRequest$1$1;"
     iput-object p1, p0, Lcom/maya/open/http/okgo/request/BaseRequest$1$1;->this$1:Lcom/maya/open/http/okgo/request/BaseRequest$1;
 
     iput-wide p2, p0, Lcom/maya/open/http/okgo/request/BaseRequest$1$1;->val$bytesWritten:J
@@ -53,12 +51,10 @@
     .locals 9
 
     .line 329
-    .local p0, "this":Lcom/maya/open/http/okgo/request/BaseRequest$1$1;, "Lcom/maya/open/http/okgo/request/BaseRequest$1$1;"
     iget-object v0, p0, Lcom/maya/open/http/okgo/request/BaseRequest$1$1;->this$1:Lcom/maya/open/http/okgo/request/BaseRequest$1;
 
     iget-object v0, v0, Lcom/maya/open/http/okgo/request/BaseRequest$1;->this$0:Lcom/maya/open/http/okgo/request/BaseRequest;
 
-    # getter for: Lcom/maya/open/http/okgo/request/BaseRequest;->mCallback:Lcom/maya/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/maya/open/http/okgo/request/BaseRequest;->access$000(Lcom/maya/open/http/okgo/request/BaseRequest;)Lcom/maya/open/http/okgo/callback/AbsCallback;
 
     move-result-object v0
@@ -69,7 +65,6 @@
 
     iget-object v0, v0, Lcom/maya/open/http/okgo/request/BaseRequest$1;->this$0:Lcom/maya/open/http/okgo/request/BaseRequest;
 
-    # getter for: Lcom/maya/open/http/okgo/request/BaseRequest;->mCallback:Lcom/maya/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/maya/open/http/okgo/request/BaseRequest;->access$000(Lcom/maya/open/http/okgo/request/BaseRequest;)Lcom/maya/open/http/okgo/callback/AbsCallback;
 
     move-result-object v1
@@ -96,7 +91,6 @@
 
     invoke-virtual/range {v1 .. v8}, Lcom/maya/open/http/okgo/callback/AbsCallback;->upProgress(JJFJ)V
 
-    .line 330
     :cond_0
     return-void
 .end method

@@ -1,6 +1,6 @@
 .class Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1$1;
 .super Ljava/lang/Object;
-.source "AnimCircular.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1;
 
     .line 248
     iput-object p1, p0, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1$1;->this$1:Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1;
@@ -44,7 +43,6 @@
 
     iget-object v0, v0, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;
 
-    # getter for: Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;->mActivity:Landroid/app/Activity;
     invoke-static {v0}, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;->access$600(Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;)Landroid/app/Activity;
 
     move-result-object v0
@@ -82,7 +80,6 @@
     iget-object v4, v4, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1;->this$0:Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;
 
     .line 254
-    # getter for: Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;->mStartRadius:F
     invoke-static {v4}, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;->access$700(Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;)F
 
     move-result v4
@@ -93,7 +90,6 @@
     move-result-object v0
 
     .line 255
-    .local v0, "anim":Landroid/animation/Animator;
     iget-object v1, p0, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1$1;->this$1:Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1;
 
     iget-wide v1, v1, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder$1;->val$finalDuration:J
@@ -110,6 +106,5 @@
     .line 267
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
-    .line 268
     return-void
 .end method

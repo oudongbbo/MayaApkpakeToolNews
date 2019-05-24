@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/RequestBody$3;
 .super Lcom/maya/open/http/okhttp3/RequestBody;
-.source "RequestBody.java"
+.source "SourceFile"
 
 
 # annotations
@@ -60,47 +60,43 @@
 
 .method public writeTo(Lcom/maya/open/http/okio/BufferedSink;)V
     .locals 2
-    .param p1, "sink"    # Lcom/maya/open/http/okio/BufferedSink;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
-    .line 119
     const/4 v0, 0x0
 
     .line 121
-    .local v0, "source":Lcom/maya/open/http/okio/Source;
     :try_start_0
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/RequestBody$3;->val$file:Ljava/io/File;
 
     invoke-static {v1}, Lcom/maya/open/http/okio/Okio;->source(Ljava/io/File;)Lcom/maya/open/http/okio/Source;
 
     move-result-object v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    .line 122
+    :try_start_1
+    invoke-interface {p1, v1}, Lcom/maya/open/http/okio/BufferedSink;->writeAll(Lcom/maya/open/http/okio/Source;)J
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 124
+    invoke-static {v1}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
+
+    return-void
+
+    :catchall_0
+    move-exception p1
 
     move-object v0, v1
 
-    .line 122
-    invoke-interface {p1, v0}, Lcom/maya/open/http/okio/BufferedSink;->writeAll(Lcom/maya/open/http/okio/Source;)J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    goto :goto_0
 
-    .line 124
+    :catchall_1
+    move-exception p1
+
+    :goto_0
     invoke-static {v0}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 125
-    nop
-
-    .line 126
-    return-void
-
-    .line 124
-    :catchall_0
-    move-exception v1
-
-    invoke-static {v0}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
-
-    .line 125
-    throw v1
+    throw p1
 .end method

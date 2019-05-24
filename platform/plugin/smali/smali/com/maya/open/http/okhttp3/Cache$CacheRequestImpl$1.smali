@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl$1;
 .super Lcom/maya/open/http/okio/ForwardingSink;
-.source "Cache.java"
+.source "SourceFile"
 
 
 # annotations
@@ -25,8 +25,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;Lcom/maya/open/http/okio/Sink;Lcom/maya/open/http/okhttp3/Cache;Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Editor;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;
-    .param p2, "delegate"    # Lcom/maya/open/http/okio/Sink;
 
     .line 439
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl$1;->this$1:Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;
@@ -44,11 +42,6 @@
 # virtual methods
 .method public close()V
     .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 441
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl$1;->this$1:Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;
@@ -102,13 +95,12 @@
 
     invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Editor;->commit()V
 
-    .line 450
     return-void
 
-    .line 447
     :catchall_0
     move-exception v1
 
+    .line 447
     :try_start_1
     monitor-exit v0
     :try_end_1

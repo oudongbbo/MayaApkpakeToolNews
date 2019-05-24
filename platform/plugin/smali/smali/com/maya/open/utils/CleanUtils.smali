@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/utils/CleanUtils;
 .super Ljava/lang/Object;
-.source "CleanUtils.java"
+.source "SourceFile"
 
 
 # direct methods
@@ -21,32 +21,29 @@
 .end method
 
 .method public static cleanCustomCache(Ljava/io/File;)Z
-    .locals 1
-    .param p0, "dir"    # Ljava/io/File;
+    .locals 0
 
     .line 99
     invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/io/File;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static cleanCustomCache(Ljava/lang/String;)Z
-    .locals 1
-    .param p0, "dirPath"    # Ljava/lang/String;
+    .locals 0
 
     .line 89
     invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static cleanExternalCache(Landroid/content/Context;)Z
     .locals 1
-    .param p0, "context"    # Landroid/content/Context;
 
     .line 79
     invoke-static {}, Lcom/maya/open/utils/SDCardUtils;->isSDCardEnable()Z
@@ -57,57 +54,53 @@
 
     invoke-virtual {p0}, Landroid/content/Context;->getExternalCacheDir()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/io/File;)Z
+    invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/io/File;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    return v0
+    return p0
 .end method
 
 .method public static cleanInternalCache(Landroid/content/Context;)Z
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 28
     invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/io/File;)Z
+    invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/io/File;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static cleanInternalDbByName(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "dbName"    # Ljava/lang/String;
+    .locals 0
 
     .line 59
     invoke-virtual {p0, p1}, Landroid/content/Context;->deleteDatabase(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static cleanInternalDbs(Landroid/content/Context;)Z
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 1
 
     .line 48
     new-instance v0, Ljava/lang/StringBuilder;
@@ -116,52 +109,50 @@
 
     invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/io/File;->getParent()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/io/File;->getParent()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object p0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "databases"
+    const-string p0, "databases"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/lang/String;)Z
+    invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static cleanInternalFiles(Landroid/content/Context;)Z
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 38
     invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/io/File;)Z
+    invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/io/File;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method
 
 .method public static cleanInternalSP(Landroid/content/Context;)Z
-    .locals 2
-    .param p0, "context"    # Landroid/content/Context;
+    .locals 1
 
     .line 69
     new-instance v0, Ljava/lang/StringBuilder;
@@ -170,29 +161,29 @@
 
     invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v1}, Ljava/io/File;->getParent()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/io/File;->getParent()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
+    sget-object p0, Ljava/io/File;->separator:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "shared_prefs"
+    const-string p0, "shared_prefs"
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/lang/String;)Z
+    invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->deleteFilesInDir(Ljava/lang/String;)Z
 
-    move-result v0
+    move-result p0
 
-    return v0
+    return p0
 .end method

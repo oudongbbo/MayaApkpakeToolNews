@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;
 .super Ljava/lang/Object;
-.source "Http1Codec.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;J)V
     .locals 1
-    .param p2, "bytesRemaining"    # J
 
     .line 272
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
@@ -55,7 +54,6 @@
     .line 273
     iput-wide p2, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
 
-    .line 274
     return-void
 .end method
 
@@ -63,11 +61,6 @@
 # virtual methods
 .method public close()V
     .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 297
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->closed:Z
@@ -76,10 +69,10 @@
 
     return-void
 
-    .line 298
     :cond_0
     const/4 v0, 0x1
 
+    .line 298
     iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->closed:Z
 
     .line 299
@@ -105,7 +98,6 @@
 
     iput v1, v0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    .line 302
     return-void
 
     .line 299
@@ -121,11 +113,6 @@
 
 .method public flush()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 292
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->closed:Z
@@ -142,7 +129,6 @@
 
     invoke-interface {v0}, Lcom/maya/open/http/okio/BufferedSink;->flush()V
 
-    .line 294
     return-void
 .end method
 
@@ -157,13 +143,6 @@
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
     .locals 7
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 281
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->closed:Z
@@ -202,46 +181,45 @@
 
     iput-wide v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
 
-    .line 289
     return-void
 
     .line 284
     :cond_0
-    new-instance v0, Ljava/net/ProtocolException;
+    new-instance p1, Ljava/net/ProtocolException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "expected "
+    const-string v1, "expected "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v2, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
+    iget-wide v1, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$FixedLengthSink;->bytesRemaining:J
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v2, " bytes but received "
+    const-string v1, " bytes but received "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/net/ProtocolException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 281
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

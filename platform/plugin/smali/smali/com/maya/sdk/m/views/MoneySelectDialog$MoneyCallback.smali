@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
 .super Ljava/lang/Object;
-.source "MoneySelectDialog.java"
+.source "SourceFile"
 
 
 # annotations

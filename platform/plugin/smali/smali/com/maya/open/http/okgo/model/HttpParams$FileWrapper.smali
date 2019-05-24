@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okgo/model/HttpParams$FileWrapper;
 .super Ljava/lang/Object;
-.source "HttpParams.java"
+.source "SourceFile"
 
 
 # annotations
@@ -26,10 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;Lcom/maya/open/http/okhttp3/MediaType;)V
-    .locals 2
-    .param p1, "file"    # Ljava/io/File;
-    .param p2, "fileName"    # Ljava/lang/String;
-    .param p3, "contentType"    # Lcom/maya/open/http/okhttp3/MediaType;
+    .locals 0
 
     .line 226
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,11 +43,10 @@
     .line 230
     invoke-virtual {p1}, Ljava/io/File;->length()J
 
-    move-result-wide v0
+    move-result-wide p1
 
-    iput-wide v0, p0, Lcom/maya/open/http/okgo/model/HttpParams$FileWrapper;->fileSize:J
+    iput-wide p1, p0, Lcom/maya/open/http/okgo/model/HttpParams$FileWrapper;->fileSize:J
 
-    .line 231
     return-void
 .end method
 

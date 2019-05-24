@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okserver/download/db/DownloadRequest;
 .super Ljava/lang/Object;
-.source "DownloadRequest.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/io/Serializable;
@@ -38,123 +38,119 @@
 
 .method public static createRequest(Ljava/lang/String;Ljava/lang/String;)Lcom/maya/open/http/okgo/request/BaseRequest;
     .locals 1
-    .param p0, "url"    # Ljava/lang/String;
-    .param p1, "method"    # Ljava/lang/String;
 
-    .line 48
     const-string v0, "get"
 
+    .line 48
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Lcom/maya/open/http/okgo/request/GetRequest;
+    new-instance p1, Lcom/maya/open/http/okgo/request/GetRequest;
 
-    invoke-direct {v0, p0}, Lcom/maya/open/http/okgo/request/GetRequest;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lcom/maya/open/http/okgo/request/GetRequest;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p1
 
-    .line 49
     :cond_0
     const-string v0, "post"
 
+    .line 49
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    new-instance v0, Lcom/maya/open/http/okgo/request/PostRequest;
+    new-instance p1, Lcom/maya/open/http/okgo/request/PostRequest;
 
-    invoke-direct {v0, p0}, Lcom/maya/open/http/okgo/request/PostRequest;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lcom/maya/open/http/okgo/request/PostRequest;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p1
 
-    .line 50
     :cond_1
     const-string v0, "put"
 
+    .line 50
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
-    new-instance v0, Lcom/maya/open/http/okgo/request/PutRequest;
+    new-instance p1, Lcom/maya/open/http/okgo/request/PutRequest;
 
-    invoke-direct {v0, p0}, Lcom/maya/open/http/okgo/request/PutRequest;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lcom/maya/open/http/okgo/request/PutRequest;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p1
 
-    .line 51
     :cond_2
     const-string v0, "delete"
 
+    .line 51
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    new-instance v0, Lcom/maya/open/http/okgo/request/DeleteRequest;
+    new-instance p1, Lcom/maya/open/http/okgo/request/DeleteRequest;
 
-    invoke-direct {v0, p0}, Lcom/maya/open/http/okgo/request/DeleteRequest;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lcom/maya/open/http/okgo/request/DeleteRequest;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p1
 
-    .line 52
     :cond_3
     const-string v0, "options"
 
+    .line 52
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_4
 
-    new-instance v0, Lcom/maya/open/http/okgo/request/OptionsRequest;
+    new-instance p1, Lcom/maya/open/http/okgo/request/OptionsRequest;
 
-    invoke-direct {v0, p0}, Lcom/maya/open/http/okgo/request/OptionsRequest;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lcom/maya/open/http/okgo/request/OptionsRequest;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p1
 
-    .line 53
     :cond_4
     const-string v0, "head"
 
+    .line 53
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_5
+    if-eqz p1, :cond_5
 
-    new-instance v0, Lcom/maya/open/http/okgo/request/HeadRequest;
+    new-instance p1, Lcom/maya/open/http/okgo/request/HeadRequest;
 
-    invoke-direct {v0, p0}, Lcom/maya/open/http/okgo/request/HeadRequest;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p0}, Lcom/maya/open/http/okgo/request/HeadRequest;-><init>(Ljava/lang/String;)V
 
-    return-object v0
+    return-object p1
 
-    .line 54
     :cond_5
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getMethod(Lcom/maya/open/http/okgo/request/BaseRequest;)Ljava/lang/String;
     .locals 1
-    .param p0, "request"    # Lcom/maya/open/http/okgo/request/BaseRequest;
 
     .line 38
     instance-of v0, p0, Lcom/maya/open/http/okgo/request/GetRequest;
 
     if-eqz v0, :cond_0
 
-    const-string v0, "get"
+    const-string p0, "get"
 
-    return-object v0
+    return-object p0
 
     .line 39
     :cond_0
@@ -162,9 +158,9 @@
 
     if-eqz v0, :cond_1
 
-    const-string v0, "post"
+    const-string p0, "post"
 
-    return-object v0
+    return-object p0
 
     .line 40
     :cond_1
@@ -172,9 +168,9 @@
 
     if-eqz v0, :cond_2
 
-    const-string v0, "put"
+    const-string p0, "put"
 
-    return-object v0
+    return-object p0
 
     .line 41
     :cond_2
@@ -182,9 +178,9 @@
 
     if-eqz v0, :cond_3
 
-    const-string v0, "delete"
+    const-string p0, "delete"
 
-    return-object v0
+    return-object p0
 
     .line 42
     :cond_3
@@ -192,23 +188,22 @@
 
     if-eqz v0, :cond_4
 
-    const-string v0, "options"
+    const-string p0, "options"
 
-    return-object v0
+    return-object p0
 
     .line 43
     :cond_4
-    instance-of v0, p0, Lcom/maya/open/http/okgo/request/HeadRequest;
+    instance-of p0, p0, Lcom/maya/open/http/okgo/request/HeadRequest;
 
-    if-eqz v0, :cond_5
+    if-eqz p0, :cond_5
 
-    const-string v0, "head"
+    const-string p0, "head"
 
-    return-object v0
+    return-object p0
 
-    .line 44
     :cond_5
-    const-string v0, ""
+    const-string p0, ""
 
-    return-object v0
+    return-object p0
 .end method

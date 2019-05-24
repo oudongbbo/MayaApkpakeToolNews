@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/internal/connection/RouteException;
 .super Ljava/lang/RuntimeException;
-.source "RouteException.java"
+.source "SourceFile"
 
 
 # static fields
@@ -37,32 +37,20 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 35
-    .local v0, "m":Ljava/lang/reflect/Method;
     goto :goto_0
 
-    .line 33
-    .end local v0    # "m":Ljava/lang/reflect/Method;
     :catch_0
-    move-exception v0
-
-    .line 34
-    .local v0, "e":Ljava/lang/Exception;
     const/4 v0, 0x0
 
     .line 36
-    .local v0, "m":Ljava/lang/reflect/Method;
     :goto_0
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/connection/RouteException;->addSuppressedExceptionMethod:Ljava/lang/reflect/Method;
 
-    .line 37
-    .end local v0    # "m":Ljava/lang/reflect/Method;
     return-void
 .end method
 
 .method public constructor <init>(Ljava/io/IOException;)V
     .locals 0
-    .param p1, "cause"    # Ljava/io/IOException;
 
     .line 42
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -70,14 +58,11 @@
     .line 43
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/connection/RouteException;->lastException:Ljava/io/IOException;
 
-    .line 44
     return-void
 .end method
 
 .method private addSuppressedIfPossible(Ljava/io/IOException;Ljava/io/IOException;)V
     .locals 3
-    .param p1, "e"    # Ljava/io/IOException;
-    .param p2, "suppressed"    # Ljava/io/IOException;
 
     .line 56
     sget-object v0, Lcom/maya/open/http/okhttp3/internal/connection/RouteException;->addSuppressedExceptionMethod:Ljava/lang/reflect/Method;
@@ -101,16 +86,8 @@
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 60
-    goto :goto_0
-
-    .line 59
     :catch_0
-    move-exception v0
-
-    .line 62
     :cond_0
-    :goto_0
     return-void
 .end method
 
@@ -118,7 +95,6 @@
 # virtual methods
 .method public addConnectException(Ljava/io/IOException;)V
     .locals 1
-    .param p1, "e"    # Ljava/io/IOException;
 
     .line 51
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/connection/RouteException;->lastException:Ljava/io/IOException;
@@ -128,7 +104,6 @@
     .line 52
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/connection/RouteException;->lastException:Ljava/io/IOException;
 
-    .line 53
     return-void
 .end method
 

@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okgo/request/ProgressRequestBody$Listener;
 .super Ljava/lang/Object;
-.source "ProgressRequestBody.java"
+.source "SourceFile"
 
 
 # annotations

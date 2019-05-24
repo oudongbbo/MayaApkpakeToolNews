@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;
 .super Ljava/lang/Object;
-.source "RealInterceptorChain.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okhttp3/Interceptor$Chain;
@@ -33,11 +33,6 @@
 # direct methods
 .method public constructor <init>(Ljava/util/List;Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;Lcom/maya/open/http/okhttp3/internal/http/HttpCodec;Lcom/maya/open/http/okhttp3/Connection;ILcom/maya/open/http/okhttp3/Request;)V
     .locals 0
-    .param p2, "streamAllocation"    # Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;
-    .param p3, "httpCodec"    # Lcom/maya/open/http/okhttp3/internal/http/HttpCodec;
-    .param p4, "connection"    # Lcom/maya/open/http/okhttp3/Connection;
-    .param p5, "index"    # I
-    .param p6, "request"    # Lcom/maya/open/http/okhttp3/Request;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +49,6 @@
     .end annotation
 
     .line 45
-    .local p1, "interceptors":Ljava/util/List;, "Ljava/util/List<Lcom/maya/open/http/okhttp3/Interceptor;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 46
@@ -75,13 +69,11 @@
     .line 51
     iput-object p6, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->request:Lcom/maya/open/http/okhttp3/Request;
 
-    .line 52
     return-void
 .end method
 
 .method private sameConnection(Lcom/maya/open/http/okhttp3/HttpUrl;)Z
     .locals 2
-    .param p1, "url"    # Lcom/maya/open/http/okhttp3/HttpUrl;
 
     .line 113
     invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/HttpUrl;->host()Ljava/lang/String;
@@ -115,38 +107,37 @@
     .line 114
     invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/HttpUrl;->port()I
 
+    move-result p1
+
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->connection:Lcom/maya/open/http/okhttp3/Connection;
+
+    invoke-interface {v0}, Lcom/maya/open/http/okhttp3/Connection;->route()Lcom/maya/open/http/okhttp3/Route;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/Route;->address()Lcom/maya/open/http/okhttp3/Address;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/Address;->url()Lcom/maya/open/http/okhttp3/HttpUrl;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/HttpUrl;->port()I
+
     move-result v0
 
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->connection:Lcom/maya/open/http/okhttp3/Connection;
+    if-ne p1, v0, :cond_0
 
-    invoke-interface {v1}, Lcom/maya/open/http/okhttp3/Connection;->route()Lcom/maya/open/http/okhttp3/Route;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/maya/open/http/okhttp3/Route;->address()Lcom/maya/open/http/okhttp3/Address;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/maya/open/http/okhttp3/Address;->url()Lcom/maya/open/http/okhttp3/HttpUrl;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/maya/open/http/okhttp3/HttpUrl;->port()I
-
-    move-result v1
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    .line 113
     :goto_0
-    return v0
+    return p1
 .end method
 
 
@@ -171,12 +162,6 @@
 
 .method public proceed(Lcom/maya/open/http/okhttp3/Request;)Lcom/maya/open/http/okhttp3/Response;
     .locals 3
-    .param p1, "request"    # Lcom/maya/open/http/okhttp3/Request;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 71
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->streamAllocation:Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;
@@ -187,22 +172,13 @@
 
     invoke-virtual {p0, p1, v0, v1, v2}, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->proceed(Lcom/maya/open/http/okhttp3/Request;Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;Lcom/maya/open/http/okhttp3/internal/http/HttpCodec;Lcom/maya/open/http/okhttp3/Connection;)Lcom/maya/open/http/okhttp3/Response;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public proceed(Lcom/maya/open/http/okhttp3/Request;Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;Lcom/maya/open/http/okhttp3/internal/http/HttpCodec;Lcom/maya/open/http/okhttp3/Connection;)Lcom/maya/open/http/okhttp3/Response;
     .locals 9
-    .param p1, "request"    # Lcom/maya/open/http/okhttp3/Request;
-    .param p2, "streamAllocation"    # Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;
-    .param p3, "httpCodec"    # Lcom/maya/open/http/okhttp3/internal/http/HttpCodec;
-    .param p4, "connection"    # Lcom/maya/open/http/okhttp3/Connection;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 76
     iget v0, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
@@ -243,39 +219,39 @@
 
     .line 82
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "network interceptor "
+    const-string p3, "network interceptor "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    iget v4, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
+    iget p4, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
 
-    sub-int/2addr v4, v1
+    sub-int/2addr p4, v1
 
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p3, p4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, " must retain the same host and port"
+    const-string p3, " must retain the same host and port"
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 87
     :cond_1
@@ -292,39 +268,39 @@
 
     .line 88
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "network interceptor "
+    const-string p3, "network interceptor "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    iget v4, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
+    iget p4, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
 
-    sub-int/2addr v4, v1
+    sub-int/2addr p4, v1
 
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p3, p4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p3
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, " must call proceed() exactly once"
+    const-string p3, " must call proceed() exactly once"
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 93
     :cond_3
@@ -350,115 +326,107 @@
     invoke-direct/range {v2 .. v8}, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;-><init>(Ljava/util/List;Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;Lcom/maya/open/http/okhttp3/internal/http/HttpCodec;Lcom/maya/open/http/okhttp3/Connection;ILcom/maya/open/http/okhttp3/Request;)V
 
     .line 95
-    .local v0, "next":Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    iget v3, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
+    iget p2, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
 
-    invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/maya/open/http/okhttp3/Interceptor;
+    check-cast p1, Lcom/maya/open/http/okhttp3/Interceptor;
 
     .line 96
-    .local v2, "interceptor":Lcom/maya/open/http/okhttp3/Interceptor;
-    invoke-interface {v2, v0}, Lcom/maya/open/http/okhttp3/Interceptor;->intercept(Lcom/maya/open/http/okhttp3/Interceptor$Chain;)Lcom/maya/open/http/okhttp3/Response;
+    invoke-interface {p1, v0}, Lcom/maya/open/http/okhttp3/Interceptor;->intercept(Lcom/maya/open/http/okhttp3/Interceptor$Chain;)Lcom/maya/open/http/okhttp3/Response;
 
-    move-result-object v3
+    move-result-object p2
 
-    .line 99
-    .local v3, "response":Lcom/maya/open/http/okhttp3/Response;
     if-eqz p3, :cond_5
 
-    iget v4, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
+    .line 99
+    iget p3, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->index:I
 
-    add-int/2addr v4, v1
+    add-int/2addr p3, v1
 
-    iget-object v5, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
+    iget-object p4, p0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->interceptors:Ljava/util/List;
 
-    invoke-interface {v5}, Ljava/util/List;->size()I
+    invoke-interface {p4}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result p4
 
-    if-ge v4, v5, :cond_5
+    if-ge p3, p4, :cond_5
 
-    iget v4, v0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->calls:I
+    iget p3, v0, Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;->calls:I
 
-    if-ne v4, v1, :cond_4
+    if-ne p3, v1, :cond_4
 
     goto :goto_2
 
     .line 100
     :cond_4
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p2, Ljava/lang/IllegalStateException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "network interceptor "
+    const-string p4, "network interceptor "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v5, " must call proceed() exactly once"
+    const-string p1, " must call proceed() exactly once"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v1, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 
-    .line 105
     :cond_5
     :goto_2
-    if-eqz v3, :cond_6
+    if-eqz p2, :cond_6
 
-    .line 109
-    return-object v3
+    return-object p2
 
     .line 106
     :cond_6
-    new-instance v1, Ljava/lang/NullPointerException;
+    new-instance p2, Ljava/lang/NullPointerException;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance p3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "interceptor "
+    const-string p4, "interceptor "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v5, " returned null"
+    const-string p1, " returned null"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p1
 
-    invoke-direct {v1, v4}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p2
 
     .line 76
-    .end local v0    # "next":Lcom/maya/open/http/okhttp3/internal/http/RealInterceptorChain;
-    .end local v2    # "interceptor":Lcom/maya/open/http/okhttp3/Interceptor;
-    .end local v3    # "response":Lcom/maya/open/http/okhttp3/Response;
     :cond_7
-    new-instance v0, Ljava/lang/AssertionError;
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public request()Lcom/maya/open/http/okhttp3/Request;

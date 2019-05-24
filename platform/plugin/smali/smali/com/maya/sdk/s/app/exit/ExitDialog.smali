@@ -1,179 +1,102 @@
 .class public Lcom/maya/sdk/s/app/exit/ExitDialog;
 .super Landroid/app/Dialog;
-.source "ExitDialog.java"
+.source "SourceFile"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;,
-        Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogGiftListener;,
-        Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;,
-        Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogBitmapListener;,
+        Lcom/maya/sdk/s/app/exit/ExitDialog$c;,
+        Lcom/maya/sdk/s/app/exit/ExitDialog$d;,
+        Lcom/maya/sdk/s/app/exit/ExitDialog$a;,
+        Lcom/maya/sdk/s/app/exit/ExitDialog$b;,
         Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
     }
 .end annotation
 
 
 # instance fields
-.field private exitdialog_ad_view:Landroid/widget/RelativeLayout;
+.field private a:Landroid/content/Context;
 
-.field private exitdialog_bbsbtn:Landroid/widget/ImageButton;
+.field private b:Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
 
-.field private exitdialog_bg:Landroid/widget/ImageView;
+.field private c:Landroid/widget/ImageView;
 
-.field private exitdialog_exitbtn:Landroid/widget/Button;
+.field private d:Landroid/widget/ImageView;
 
-.field private exitdialog_giftbtn:Landroid/widget/ImageButton;
+.field private e:Landroid/widget/ImageButton;
 
-.field private exitdialog_starlogo:Landroid/widget/ImageView;
+.field private f:Landroid/widget/ImageButton;
 
-.field private isExitClick:Z
+.field private g:Landroid/widget/Button;
 
-.field private mCallback:Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
+.field private h:Landroid/widget/RelativeLayout;
 
-.field private mContent:Landroid/widget/RelativeLayout;
+.field private i:Landroid/widget/RelativeLayout;
 
-.field private mContext:Landroid/content/Context;
+.field private j:Z
 
-.field private screenHeight:I
+.field private k:I
 
-.field private screenWidth:I
+.field private l:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;)V
-    .locals 3
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "callback"    # Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
+    .locals 0
 
     .line 42
     invoke-direct {p0, p1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
 
     .line 43
-    iput-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     .line 44
-    iput-object p2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mCallback:Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
+    iput-object p2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->b:Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
+
+    const-string p2, "window"
 
     .line 45
-    const-string v0, "window"
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
-
-    check-cast v0, Landroid/view/WindowManager;
+    check-cast p1, Landroid/view/WindowManager;
 
     .line 47
-    .local v0, "manager":Landroid/view/WindowManager;
-    new-instance v1, Landroid/util/DisplayMetrics;
+    new-instance p2, Landroid/util/DisplayMetrics;
 
-    invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
+    invoke-direct {p2}, Landroid/util/DisplayMetrics;-><init>()V
 
     .line 48
-    .local v1, "dm":Landroid/util/DisplayMetrics;
-    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    invoke-interface {p1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-virtual {v2, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+    invoke-virtual {p1, p2}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
     .line 49
-    iget v2, v1, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget p1, p2, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    iput v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->screenWidth:I
+    iput p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->k:I
 
     .line 50
-    iget v2, v1, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget p1, p2, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    iput v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->screenHeight:I
-
-    .line 51
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/maya/sdk/s/app/exit/ExitDialog;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
-
-    .line 26
-    iget-boolean v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->isExitClick:Z
-
-    return v0
-.end method
-
-.method static synthetic access$002(Lcom/maya/sdk/s/app/exit/ExitDialog;Z)Z
-    .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
-    .param p1, "x1"    # Z
-
-    .line 26
-    iput-boolean p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->isExitClick:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/maya/sdk/s/app/exit/ExitDialog;)Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
-
-    .line 26
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mCallback:Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/RelativeLayout;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
-
-    .line 26
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_ad_view:Landroid/widget/RelativeLayout;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/ImageView;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
-
-    .line 26
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_bg:Landroid/widget/ImageView;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/content/Context;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
-
-    .line 26
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/maya/sdk/s/app/exit/ExitDialog;Ljava/lang/String;)V
-    .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
-    .param p1, "x1"    # Ljava/lang/String;
-
-    .line 26
-    invoke-direct {p0, p1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->showToas(Ljava/lang/String;)V
+    iput p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->l:I
 
     return-void
 .end method
 
-.method private initViews()V
-    .locals 10
+.method private a()V
+    .locals 9
 
-    .line 74
     const-string v0, "mContent"
 
     const-string v1, "id"
 
-    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    .line 74
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
@@ -185,305 +108,356 @@
 
     check-cast v0, Landroid/widget/RelativeLayout;
 
-    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContent:Landroid/widget/RelativeLayout;
-
-    .line 76
-    const/4 v0, 0x0
+    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->h:Landroid/widget/RelativeLayout;
 
     .line 78
-    .local v0, "lp":Landroid/widget/FrameLayout$LayoutParams;
-    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/maya/sdk/framework/utils/CommonUtil;->isScreenLandscape(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/CommonUtil;->isScreenLandscape(Landroid/content/Context;)Z
 
-    move-result v1
+    move-result v0
 
-    const-wide v2, 0x3fe6666666666666L    # 0.7
+    const-wide v1, 0x3fe6666666666666L    # 0.7
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     .line 79
-    new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
+    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    iget v4, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->screenWidth:I
+    iget v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->k:I
 
-    int-to-double v4, v4
+    int-to-double v3, v3
 
-    const-wide v6, 0x3fe3333333333333L    # 0.6
+    const-wide v5, 0x3fe3333333333333L    # 0.6
 
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v4, v4, v6
+    mul-double v3, v3, v5
 
-    double-to-int v4, v4
+    double-to-int v3, v3
 
-    iget v5, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->screenWidth:I
+    iget v4, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->k:I
 
-    int-to-double v8, v5
+    int-to-double v7, v4
 
-    invoke-static {v8, v9}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v8, v8, v6
+    mul-double v7, v7, v5
 
-    mul-double v8, v8, v2
+    mul-double v7, v7, v1
 
-    double-to-int v2, v8
+    double-to-int v1, v7
 
-    invoke-direct {v1, v4, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    move-object v0, v1
+    invoke-direct {v0, v3, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     goto :goto_0
 
     .line 82
     :cond_0
-    new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
+    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    iget v4, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->screenWidth:I
+    iget v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->k:I
 
-    int-to-double v4, v4
+    int-to-double v3, v3
 
-    const-wide v6, 0x3feccccccccccccdL    # 0.9
+    const-wide v5, 0x3feccccccccccccdL    # 0.9
 
-    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v4, v4, v6
+    mul-double v3, v3, v5
 
-    double-to-int v4, v4
+    double-to-int v3, v3
 
-    iget v5, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->screenWidth:I
+    iget v4, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->k:I
 
-    int-to-double v8, v5
+    int-to-double v7, v4
 
-    invoke-static {v8, v9}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v7, v8}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v8, v8, v6
+    mul-double v7, v7, v5
 
-    mul-double v8, v8, v2
+    mul-double v7, v7, v1
 
-    double-to-int v2, v8
+    double-to-int v1, v7
 
-    invoke-direct {v1, v4, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v3, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    move-object v0, v1
-
-    .line 87
     :goto_0
     const/16 v1, 0x11
 
+    .line 87
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
     .line 88
-    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContent:Landroid/widget/RelativeLayout;
+    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->h:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    const-string v0, "exitdialog_starlogo"
+
+    const-string v1, "id"
+
     .line 90
-    const-string v1, "exitdialog_starlogo"
-
-    const-string v2, "id"
-
-    iget-object v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     .line 91
-    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/ImageView;
+    check-cast v0, Landroid/widget/ImageView;
 
-    iput-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_starlogo:Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->d:Landroid/widget/ImageView;
+
+    const-string v0, "exitdialog_bg"
+
+    const-string v1, "id"
 
     .line 92
-    const-string v1, "exitdialog_bg"
-
-    const-string v2, "id"
-
-    iget-object v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     .line 93
-    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/ImageView;
+    check-cast v0, Landroid/widget/ImageView;
 
-    iput-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_bg:Landroid/widget/ImageView;
+    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->c:Landroid/widget/ImageView;
+
+    const-string v0, "exitdialog_bbsbtn"
+
+    const-string v1, "id"
 
     .line 94
-    const-string v1, "exitdialog_bbsbtn"
-
-    const-string v2, "id"
-
-    iget-object v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     .line 95
-    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/ImageButton;
+    check-cast v0, Landroid/widget/ImageButton;
 
-    iput-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_bbsbtn:Landroid/widget/ImageButton;
+    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->e:Landroid/widget/ImageButton;
+
+    const-string v0, "exitdialog_giftbtn"
+
+    const-string v1, "id"
 
     .line 96
-    const-string v1, "exitdialog_giftbtn"
-
-    const-string v2, "id"
-
-    iget-object v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     .line 97
-    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/ImageButton;
+    check-cast v0, Landroid/widget/ImageButton;
 
-    iput-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_giftbtn:Landroid/widget/ImageButton;
+    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->f:Landroid/widget/ImageButton;
+
+    const-string v0, "exitdialog_exitbtn"
+
+    const-string v1, "id"
 
     .line 98
-    const-string v1, "exitdialog_exitbtn"
-
-    const-string v2, "id"
-
-    iget-object v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     .line 99
-    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/Button;
+    check-cast v0, Landroid/widget/Button;
 
-    iput-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_exitbtn:Landroid/widget/Button;
+    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->g:Landroid/widget/Button;
+
+    const-string v0, "exitdialog_ad_view"
+
+    const-string v1, "id"
 
     .line 100
-    const-string v1, "exitdialog_ad_view"
-
-    const-string v2, "id"
-
-    iget-object v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     .line 101
-    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {p0, v1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/RelativeLayout;
+    check-cast v0, Landroid/widget/RelativeLayout;
 
-    iput-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_ad_view:Landroid/widget/RelativeLayout;
+    iput-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->i:Landroid/widget/RelativeLayout;
 
     .line 103
-    sget-object v1, Lcom/maya/sdk/s/core/http/RequestUrls;->URL_EXIT_IMAGE:Ljava/lang/String;
+    sget-object v0, Lcom/maya/sdk/s/core/a/a;->D:Ljava/lang/String;
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_1
+    if-eqz v0, :cond_1
 
     goto :goto_1
 
     .line 109
     :cond_1
-    new-instance v1, Lcom/maya/sdk/framework/utils/ImageUtil;
+    new-instance v0, Lcom/maya/sdk/framework/utils/ImageUtil;
 
-    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
-    invoke-direct {v1, v2}, Lcom/maya/sdk/framework/utils/ImageUtil;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/maya/sdk/framework/utils/ImageUtil;-><init>(Landroid/content/Context;)V
 
-    sget-object v2, Lcom/maya/sdk/s/core/http/RequestUrls;->URL_EXIT_IMAGE:Ljava/lang/String;
+    sget-object v1, Lcom/maya/sdk/s/core/a/a;->D:Ljava/lang/String;
 
-    new-instance v3, Lcom/maya/sdk/s/app/exit/ExitDialog$2;
+    new-instance v2, Lcom/maya/sdk/s/app/exit/ExitDialog$2;
 
-    invoke-direct {v3, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$2;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
+    invoke-direct {v2, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$2;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
 
-    invoke-virtual {v1, v2, v3}, Lcom/maya/sdk/framework/utils/ImageUtil;->loadBitmap(Ljava/lang/String;Lcom/maya/sdk/framework/utils/ImageUtil$ImageCallback;)V
+    invoke-virtual {v0, v1, v2}, Lcom/maya/sdk/framework/utils/ImageUtil;->a(Ljava/lang/String;Lcom/maya/sdk/framework/utils/ImageUtil$ImageCallback;)V
 
     .line 123
     :goto_1
-    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_bg:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->c:Landroid/widget/ImageView;
 
-    new-instance v2, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogBitmapListener;
+    new-instance v1, Lcom/maya/sdk/s/app/exit/ExitDialog$b;
 
-    invoke-direct {v2, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogBitmapListener;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
+    invoke-direct {v1, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$b;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 125
-    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_bbsbtn:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->e:Landroid/widget/ImageButton;
 
-    new-instance v2, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;
+    new-instance v1, Lcom/maya/sdk/s/app/exit/ExitDialog$a;
 
-    invoke-direct {v2, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogBBSListener;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
+    invoke-direct {v1, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$a;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 127
-    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_giftbtn:Landroid/widget/ImageButton;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->f:Landroid/widget/ImageButton;
 
-    new-instance v2, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogGiftListener;
+    new-instance v1, Lcom/maya/sdk/s/app/exit/ExitDialog$d;
 
-    invoke-direct {v2, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogGiftListener;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
+    invoke-direct {v1, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$d;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 129
-    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_exitbtn:Landroid/widget/Button;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->g:Landroid/widget/Button;
 
-    new-instance v2, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;
+    new-instance v1, Lcom/maya/sdk/s/app/exit/ExitDialog$c;
 
-    invoke-direct {v2, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$ExitDialogExitListener;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
+    invoke-direct {v1, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$c;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 130
     return-void
 .end method
 
-.method private showToas(Ljava/lang/String;)V
+.method static synthetic a(Lcom/maya/sdk/s/app/exit/ExitDialog;Ljava/lang/String;)V
+    .locals 0
+
+    .line 26
+    invoke-direct {p0, p1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->a(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private a(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
     .line 133
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
-    invoke-static {v0, p1}, Lcom/maya/sdk/framework/utils/ViewUtil;->showToast(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/maya/sdk/framework/utils/f;->showToast(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 134
     return-void
+.end method
+
+.method static synthetic a(Lcom/maya/sdk/s/app/exit/ExitDialog;)Z
+    .locals 0
+
+    .line 26
+    iget-boolean p0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->j:Z
+
+    return p0
+.end method
+
+.method static synthetic a(Lcom/maya/sdk/s/app/exit/ExitDialog;Z)Z
+    .locals 0
+
+    .line 26
+    iput-boolean p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->j:Z
+
+    return p1
+.end method
+
+.method static synthetic b(Lcom/maya/sdk/s/app/exit/ExitDialog;)Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
+    .locals 0
+
+    .line 26
+    iget-object p0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->b:Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
+
+    return-object p0
+.end method
+
+.method static synthetic c(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/RelativeLayout;
+    .locals 0
+
+    .line 26
+    iget-object p0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->i:Landroid/widget/RelativeLayout;
+
+    return-object p0
+.end method
+
+.method static synthetic d(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/ImageView;
+    .locals 0
+
+    .line 26
+    iget-object p0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->c:Landroid/widget/ImageView;
+
+    return-object p0
+.end method
+
+.method static synthetic e(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/content/Context;
+    .locals 0
+
+    .line 26
+    iget-object p0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
+
+    return-object p0
 .end method
 
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 4
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 3
 
     .line 54
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
@@ -491,43 +465,42 @@
     .line 56
     invoke-virtual {p0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    const-string v1, "maya_dialog_theme"
+    const-string v0, "maya_dialog_theme"
 
-    const-string v2, "style"
+    const-string v1, "style"
 
-    iget-object v3, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->setTheme(I)V
-
-    .line 57
-    const-string v0, "maya_dialog_exitgame"
-
-    const-string v1, "layout"
-
-    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
 
     invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->setContentView(I)V
+    invoke-virtual {p1, v0}, Landroid/content/Context;->setTheme(I)V
+
+    const-string p1, "maya_dialog_exitgame"
+
+    const-string v0, "layout"
+
+    .line 57
+    iget-object v1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog;->a:Landroid/content/Context;
+
+    invoke-static {p1, v0, v1}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->setContentView(I)V
 
     .line 59
-    invoke-direct {p0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->initViews()V
+    invoke-direct {p0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->a()V
 
     .line 61
-    new-instance v0, Lcom/maya/sdk/s/app/exit/ExitDialog$1;
+    new-instance p1, Lcom/maya/sdk/s/app/exit/ExitDialog$1;
 
-    invoke-direct {v0, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$1;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
+    invoke-direct {p1, p0}, Lcom/maya/sdk/s/app/exit/ExitDialog$1;-><init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/s/app/exit/ExitDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 71
     return-void
 .end method

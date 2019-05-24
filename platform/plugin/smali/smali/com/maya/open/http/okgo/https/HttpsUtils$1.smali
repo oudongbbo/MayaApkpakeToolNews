@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okgo/https/HttpsUtils$1;
 .super Ljava/lang/Object;
-.source "HttpsUtils.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljavax/net/ssl/X509TrustManager;
@@ -31,38 +31,22 @@
 # virtual methods
 .method public checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
-    .param p1, "chain"    # [Ljava/security/cert/X509Certificate;
-    .param p2, "authType"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/cert/CertificateException;
-        }
-    .end annotation
 
-    .line 135
     return-void
 .end method
 
 .method public checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
-    .param p1, "chain"    # [Ljava/security/cert/X509Certificate;
-    .param p2, "authType"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/security/cert/CertificateException;
-        }
-    .end annotation
 
-    .line 139
     return-void
 .end method
 
 .method public getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
     .locals 1
 
-    .line 143
     const/4 v0, 0x0
 
+    .line 143
     new-array v0, v0, [Ljava/security/cert/X509Certificate;
 
     return-object v0

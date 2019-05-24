@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable$1;
 .super Lcom/maya/open/http/okhttp3/internal/NamedRunnable;
-.source "Http2Connection.java"
+.source "SourceFile"
 
 
 # annotations
@@ -23,9 +23,6 @@
 # direct methods
 .method varargs constructor <init>(Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable;Ljava/lang/String;[Ljava/lang/Object;Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;)V
     .locals 0
-    .param p1, "this$1"    # Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable;
-    .param p2, "format"    # Ljava/lang/String;
-    .param p3, "args"    # [Ljava/lang/Object;
 
     .line 626
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable$1;->this$1:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable;
@@ -56,15 +53,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 636
     goto :goto_0
 
-    .line 630
     :catch_0
     move-exception v0
 
     .line 631
-    .local v0, "e":Ljava/io/IOException;
     invoke-static {}, Lcom/maya/open/http/okhttp3/internal/platform/Platform;->get()Lcom/maya/open/http/okhttp3/internal/platform/Platform;
 
     move-result-object v1
@@ -95,23 +89,15 @@
 
     .line 633
     :try_start_1
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable$1;->val$newStream:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$ReaderRunnable$1;->val$newStream:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    sget-object v2, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->PROTOCOL_ERROR:Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
+    sget-object v1, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->PROTOCOL_ERROR:Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 
-    invoke-virtual {v1, v2}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->close(Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;)V
+    invoke-virtual {v0, v1}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->close(Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 635
-    goto :goto_0
-
-    .line 634
     :catch_1
-    move-exception v1
-
-    .line 637
-    .end local v0    # "e":Ljava/io/IOException;
     :goto_0
     return-void
 .end method

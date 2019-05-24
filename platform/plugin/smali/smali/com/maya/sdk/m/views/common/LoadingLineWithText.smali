@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/m/views/common/LoadingLineWithText;
 .super Landroid/view/View;
-.source "LoadingLineWithText.java"
+.source "SourceFile"
 
 
 # instance fields
@@ -18,62 +18,53 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 23
     const/4 v0, 0x0
 
+    .line 23
     invoke-direct {p0, p1, v0}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 24
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
-    .line 27
     const/4 v0, 0x0
 
+    .line 27
     invoke-direct {p0, p1, p2, v0}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 28
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "attrs"    # Landroid/util/AttributeSet;
-    .param p3, "defStyleAttr"    # I
+    .locals 0
 
     .line 31
     invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    .line 16
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mWidth:F
+    .line 16
+    iput p1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mWidth:F
 
     .line 17
-    iput v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mHigh:F
+    iput p1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mHigh:F
+
+    const/4 p1, 0x0
 
     .line 18
-    const/4 v0, 0x0
+    iput p1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mVlaue:I
 
-    iput v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mVlaue:I
+    const/high16 p1, 0x40a00000    # 5.0f
 
     .line 20
-    const/high16 v0, 0x40a00000    # 5.0f
-
-    iput v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPadding:F
+    iput p1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPadding:F
 
     .line 32
     invoke-direct {p0}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->initPaint()V
 
-    .line 33
     return-void
 .end method
 
@@ -134,15 +125,13 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    .line 83
     return-void
 .end method
 
 
 # virtual methods
 .method public dip2px(F)I
-    .locals 3
-    .param p1, "dpValue"    # F
+    .locals 1
 
     .line 99
     invoke-virtual {p0}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->getContext()Landroid/content/Context;
@@ -159,23 +148,19 @@
 
     iget v0, v0, Landroid/util/DisplayMetrics;->density:F
 
-    .line 100
-    .local v0, "scale":F
-    mul-float v1, p1, v0
+    mul-float p1, p1, v0
 
-    const/high16 v2, 0x3f000000    # 0.5f
+    const/high16 v0, 0x3f000000    # 0.5f
 
-    add-float/2addr v1, v2
+    add-float/2addr p1, v0
 
-    float-to-int v1, v1
+    float-to-int p1, p1
 
-    return v1
+    return p1
 .end method
 
 .method public getFontHeight(Landroid/graphics/Paint;Ljava/lang/String;)F
     .locals 3
-    .param p1, "paint"    # Landroid/graphics/Paint;
-    .param p2, "str"    # Ljava/lang/String;
 
     .line 92
     new-instance v0, Landroid/graphics/Rect;
@@ -183,7 +168,6 @@
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     .line 93
-    .local v0, "rect":Landroid/graphics/Rect;
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -195,17 +179,15 @@
     .line 94
     invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
 
-    move-result v1
+    move-result p1
 
-    int-to-float v1, v1
+    int-to-float p1, p1
 
-    return v1
+    return p1
 .end method
 
 .method public getFontlength(Landroid/graphics/Paint;Ljava/lang/String;)F
     .locals 3
-    .param p1, "paint"    # Landroid/graphics/Paint;
-    .param p2, "str"    # Ljava/lang/String;
 
     .line 86
     new-instance v0, Landroid/graphics/Rect;
@@ -213,7 +195,6 @@
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     .line 87
-    .local v0, "rect":Landroid/graphics/Rect;
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -225,16 +206,15 @@
     .line 88
     invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
 
-    move-result v1
+    move-result p1
 
-    int-to-float v1, v1
+    int-to-float p1, p1
 
-    return v1
+    return p1
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 12
-    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
     .line 46
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -257,7 +237,6 @@
     move-result-object v6
 
     .line 51
-    .local v6, "text":Ljava/lang/String;
     iget-object v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p0, v0, v6}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->getFontlength(Landroid/graphics/Paint;Ljava/lang/String;)F
@@ -265,7 +244,6 @@
     move-result v7
 
     .line 52
-    .local v7, "textlength":F
     iget-object v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p0, v0, v6}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->getFontHeight(Landroid/graphics/Paint;Ljava/lang/String;)F
@@ -273,7 +251,6 @@
     move-result v8
 
     .line 54
-    .local v8, "texthigh":F
     iget v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mVlaue:I
 
     const/high16 v9, 0x40000000    # 2.0f
@@ -287,9 +264,9 @@
 
     div-float/2addr v1, v9
 
-    div-float v2, v8, v9
+    div-float/2addr v8, v9
 
-    add-float/2addr v1, v2
+    add-float/2addr v1, v8
 
     iget-object v2, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPaint:Landroid/graphics/Paint;
 
@@ -343,9 +320,9 @@
 
     div-float/2addr v1, v9
 
-    div-float v2, v8, v9
+    div-float/2addr v8, v9
 
-    add-float/2addr v1, v2
+    add-float/2addr v1, v8
 
     iget-object v2, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPaint:Landroid/graphics/Paint;
 
@@ -391,7 +368,6 @@
     sub-float v10, v0, v7
 
     .line 64
-    .local v10, "w":F
     iget v1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPadding:F
 
     iget v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mHigh:F
@@ -464,34 +440,30 @@
 
     int-to-float v1, v1
 
-    mul-float v1, v1, v10
+    mul-float v10, v10, v1
 
-    div-float/2addr v1, v11
+    div-float/2addr v10, v11
 
-    add-float/2addr v0, v1
+    add-float/2addr v0, v10
 
     iget v1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mHigh:F
 
     div-float/2addr v1, v9
 
-    div-float v2, v8, v9
+    div-float/2addr v8, v9
 
-    add-float/2addr v1, v2
+    add-float/2addr v1, v8
 
     iget-object v2, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v6, v0, v1, v2}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    .line 71
-    .end local v10    # "w":F
     :goto_0
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 1
-    .param p1, "widthMeasureSpec"    # I
-    .param p2, "heightMeasureSpec"    # I
+    .locals 0
 
     .line 37
     invoke-super {p0, p1, p2}, Landroid/view/View;->onMeasure(II)V
@@ -499,28 +471,26 @@
     .line 39
     invoke-virtual {p0}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->getMeasuredWidth()I
 
-    move-result v0
+    move-result p1
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    iput v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mWidth:F
+    iput p1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mWidth:F
 
     .line 40
     invoke-virtual {p0}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->getMeasuredHeight()I
 
-    move-result v0
+    move-result p1
 
-    int-to-float v0, v0
+    int-to-float p1, p1
 
-    iput v0, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mHigh:F
+    iput p1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mHigh:F
 
-    .line 42
     return-void
 .end method
 
 .method public setValue(I)V
     .locals 0
-    .param p1, "value"    # I
 
     .line 104
     iput p1, p0, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->mVlaue:I
@@ -528,6 +498,5 @@
     .line 105
     invoke-virtual {p0}, Lcom/maya/sdk/m/views/common/LoadingLineWithText;->invalidate()V
 
-    .line 106
     return-void
 .end method

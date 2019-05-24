@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okio/SegmentPool;
 .super Ljava/lang/Object;
-.source "SegmentPool.java"
+.source "SourceFile"
 
 
 # static fields
@@ -18,13 +18,11 @@
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 37
     return-void
 .end method
 
 .method static recycle(Lcom/maya/open/http/okio/Segment;)V
     .locals 8
-    .param p0, "segment"    # Lcom/maya/open/http/okio/Segment;
 
     .line 53
     iget-object v0, p0, Lcom/maya/open/http/okio/Segment;->next:Lcom/maya/open/http/okio/Segment;
@@ -81,9 +79,9 @@
 
     iput-object v1, p0, Lcom/maya/open/http/okio/Segment;->next:Lcom/maya/open/http/okio/Segment;
 
-    .line 59
     const/4 v1, 0x0
 
+    .line 59
     iput v1, p0, Lcom/maya/open/http/okio/Segment;->limit:I
 
     iput v1, p0, Lcom/maya/open/http/okio/Segment;->pos:I
@@ -94,26 +92,24 @@
     .line 61
     monitor-exit v0
 
-    .line 62
     return-void
 
-    .line 61
     :catchall_0
-    move-exception v1
+    move-exception p0
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p0
 
     .line 53
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p0
 .end method
 
 .method static take()Lcom/maya/open/http/okio/Segment;
@@ -134,14 +130,13 @@
     sget-object v1, Lcom/maya/open/http/okio/SegmentPool;->next:Lcom/maya/open/http/okio/Segment;
 
     .line 43
-    .local v1, "result":Lcom/maya/open/http/okio/Segment;
     iget-object v2, v1, Lcom/maya/open/http/okio/Segment;->next:Lcom/maya/open/http/okio/Segment;
 
     sput-object v2, Lcom/maya/open/http/okio/SegmentPool;->next:Lcom/maya/open/http/okio/Segment;
 
-    .line 44
     const/4 v2, 0x0
 
+    .line 44
     iput-object v2, v1, Lcom/maya/open/http/okio/Segment;->next:Lcom/maya/open/http/okio/Segment;
 
     .line 45
@@ -159,7 +154,6 @@
     return-object v1
 
     .line 48
-    .end local v1    # "result":Lcom/maya/open/http/okio/Segment;
     :cond_0
     monitor-exit v0
     :try_end_0
@@ -172,10 +166,10 @@
 
     return-object v0
 
-    .line 48
     :catchall_0
     move-exception v1
 
+    .line 48
     :try_start_1
     monitor-exit v0
     :try_end_1

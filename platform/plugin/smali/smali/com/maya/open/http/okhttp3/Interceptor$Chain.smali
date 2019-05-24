@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/Interceptor$Chain;
 .super Ljava/lang/Object;
-.source "Interceptor.java"
+.source "SourceFile"
 
 
 # annotations
@@ -19,11 +19,6 @@
 .end method
 
 .method public abstract proceed(Lcom/maya/open/http/okhttp3/Request;)Lcom/maya/open/http/okhttp3/Response;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method
 
 .method public abstract request()Lcom/maya/open/http/okhttp3/Request;

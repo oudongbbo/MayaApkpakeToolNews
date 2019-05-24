@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$7;
 .super Ljava/lang/Object;
-.source "SdkWebChromeClient.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;Landroid/webkit/JsPromptResult;Landroid/widget/EditText;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
     .line 147
     iput-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$7;->this$0:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
@@ -45,25 +44,22 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
+    .locals 0
 
     .line 150
-    iget-object v0, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$7;->val$result:Landroid/webkit/JsPromptResult;
+    iget-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$7;->val$result:Landroid/webkit/JsPromptResult;
 
-    iget-object v1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$7;->val$et:Landroid/widget/EditText;
+    iget-object p2, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$7;->val$et:Landroid/widget/EditText;
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+    invoke-virtual {p2}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Landroid/webkit/JsPromptResult;->confirm(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Landroid/webkit/JsPromptResult;->confirm(Ljava/lang/String;)V
 
-    .line 151
     return-void
 .end method

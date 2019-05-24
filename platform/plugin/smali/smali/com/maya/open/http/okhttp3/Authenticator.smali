@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/Authenticator;
 .super Ljava/lang/Object;
-.source "Authenticator.java"
+.source "SourceFile"
 
 
 # static fields
@@ -24,9 +24,4 @@
 
 # virtual methods
 .method public abstract authenticate(Lcom/maya/open/http/okhttp3/Route;Lcom/maya/open/http/okhttp3/Response;)Lcom/maya/open/http/okhttp3/Request;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method

@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/Authenticator$1;
 .super Ljava/lang/Object;
-.source "Authenticator.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okhttp3/Authenticator;
@@ -30,12 +30,9 @@
 
 # virtual methods
 .method public authenticate(Lcom/maya/open/http/okhttp3/Route;Lcom/maya/open/http/okhttp3/Response;)Lcom/maya/open/http/okhttp3/Request;
-    .locals 1
-    .param p1, "route"    # Lcom/maya/open/http/okhttp3/Route;
-    .param p2, "response"    # Lcom/maya/open/http/okhttp3/Response;
+    .locals 0
 
-    .line 70
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    return-object v0
+    return-object p1
 .end method

@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okserver/upload/UploadThreadPool;
 .super Ljava/lang/Object;
-.source "UploadThreadPool.java"
+.source "SourceFile"
 
 
 # static fields
@@ -35,9 +35,9 @@
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 24
     const/4 v0, 0x1
 
+    .line 24
     iput v0, p0, Lcom/maya/open/http/okserver/upload/UploadThreadPool;->corePoolSize:I
 
     return-void
@@ -47,9 +47,7 @@
 # virtual methods
 .method public execute(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
-    .line 50
     if-eqz p1, :cond_0
 
     .line 51
@@ -59,7 +57,6 @@
 
     invoke-virtual {v0, p1}, Lcom/maya/open/http/okserver/task/ExecutorWithListener;->execute(Ljava/lang/Runnable;)V
 
-    .line 53
     :cond_0
     return-void
 .end method
@@ -138,9 +135,7 @@
 
 .method public remove(Ljava/lang/Runnable;)V
     .locals 1
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
-    .line 57
     if-eqz p1, :cond_0
 
     .line 58
@@ -150,21 +145,17 @@
 
     invoke-virtual {v0, p1}, Lcom/maya/open/http/okserver/task/ExecutorWithListener;->remove(Ljava/lang/Runnable;)Z
 
-    .line 60
     :cond_0
     return-void
 .end method
 
 .method public setCorePoolSize(I)V
     .locals 1
-    .param p1, "corePoolSize"    # I
 
-    .line 43
     if-gtz p1, :cond_0
 
     const/4 p1, 0x1
 
-    .line 44
     :cond_0
     const/4 v0, 0x5
 
@@ -176,6 +167,5 @@
     :cond_1
     iput p1, p0, Lcom/maya/open/http/okserver/upload/UploadThreadPool;->corePoolSize:I
 
-    .line 46
     return-void
 .end method

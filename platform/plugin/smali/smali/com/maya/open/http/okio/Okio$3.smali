@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okio/Okio$3;
 .super Ljava/lang/Object;
-.source "Okio.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -31,25 +31,13 @@
 # virtual methods
 .method public close()V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
-    .line 211
     return-void
 .end method
 
 .method public flush()V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
-    .line 204
     return-void
 .end method
 
@@ -64,17 +52,9 @@
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
     .locals 0
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 200
     invoke-virtual {p1, p2, p3}, Lcom/maya/open/http/okio/Buffer;->skip(J)V
 
-    .line 201
     return-void
 .end method

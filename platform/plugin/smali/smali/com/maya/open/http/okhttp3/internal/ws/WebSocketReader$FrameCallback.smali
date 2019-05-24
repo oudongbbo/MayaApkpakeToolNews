@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/internal/ws/WebSocketReader$FrameCallback;
 .super Ljava/lang/Object;
-.source "WebSocketReader.java"
+.source "SourceFile"
 
 
 # annotations
@@ -19,19 +19,9 @@
 .end method
 
 .method public abstract onReadMessage(Lcom/maya/open/http/okio/ByteString;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method
 
 .method public abstract onReadMessage(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method
 
 .method public abstract onReadPing(Lcom/maya/open/http/okio/ByteString;)V

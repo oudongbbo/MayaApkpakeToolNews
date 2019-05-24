@@ -1,6 +1,6 @@
 .class public final enum Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 .super Ljava/lang/Enum;
-.source "ErrorCode.java"
+.source "SourceFile"
 
 
 # annotations
@@ -107,9 +107,9 @@
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->CANCEL:Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 
-    .line 19
     const/4 v0, 0x6
 
+    .line 19
     new-array v0, v0, [Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 
     sget-object v1, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->NO_ERROR:Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
@@ -143,7 +143,6 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
-    .param p3, "httpCode"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -156,13 +155,11 @@
     .line 36
     iput p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->httpCode:I
 
-    .line 37
     return-void
 .end method
 
 .method public static fromHttp2(I)Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
     .locals 5
-    .param p0, "code"    # I
 
     .line 40
     invoke-static {}, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->values()[Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
@@ -179,41 +176,36 @@
     aget-object v3, v0, v2
 
     .line 41
-    .local v3, "errorCode":Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
     iget v4, v3, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->httpCode:I
 
     if-ne v4, p0, :cond_0
 
     return-object v3
 
-    .line 40
-    .end local v3    # "errorCode":Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
     :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 43
     :cond_1
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 19
     const-class v0, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
+    check-cast p0, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;

@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;
 .super Ljava/lang/Object;
-.source "Hpack.java"
+.source "SourceFile"
 
 
 # annotations
@@ -45,21 +45,18 @@
 # direct methods
 .method constructor <init>(IZLcom/maya/open/http/okio/Buffer;)V
     .locals 1
-    .param p1, "headerTableSizeSetting"    # I
-    .param p2, "useCompression"    # Z
-    .param p3, "out"    # Lcom/maya/open/http/okio/Buffer;
 
     .line 397
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 380
     const v0, 0x7fffffff
 
+    .line 380
     iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
 
-    .line 387
     const/16 v0, 0x8
 
+    .line 387
     new-array v0, v0, [Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     iput-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
@@ -73,9 +70,9 @@
 
     iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    .line 390
     const/4 v0, 0x0
 
+    .line 390
     iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
 
     .line 391
@@ -93,22 +90,19 @@
     .line 401
     iput-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
 
-    .line 402
     return-void
 .end method
 
 .method constructor <init>(Lcom/maya/open/http/okio/Buffer;)V
     .locals 2
-    .param p1, "out"    # Lcom/maya/open/http/okio/Buffer;
 
-    .line 394
     const/16 v0, 0x1000
 
     const/4 v1, 0x1
 
+    .line 394
     invoke-direct {p0, v0, v1, p1}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;-><init>(IZLcom/maya/open/http/okio/Buffer;)V
 
-    .line 395
     return-void
 .end method
 
@@ -142,7 +136,6 @@
 
     invoke-direct {p0, v0}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->evictToRecoverBytes(I)I
 
-    .line 585
     :cond_1
     :goto_0
     return-void
@@ -167,27 +160,22 @@
 
     iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    .line 407
     const/4 v0, 0x0
 
+    .line 407
     iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
 
     .line 408
     iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
 
-    .line 409
     return-void
 .end method
 
 .method private evictToRecoverBytes(I)I
-    .locals 6
-    .param p1, "bytesToRecover"    # I
+    .locals 5
 
-    .line 413
     const/4 v0, 0x0
 
-    .line 414
-    .local v0, "entriesToEvict":I
     if-lez p1, :cond_1
 
     .line 416
@@ -197,7 +185,6 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    .local v1, "j":I
     :goto_0
     iget v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
@@ -234,41 +221,21 @@
 
     iput v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
 
-    .line 420
     add-int/lit8 v0, v0, 0x1
 
-    .line 416
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     .line 422
-    .end local v1    # "j":I
     :cond_0
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    iget v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
-
-    iget v4, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
-
-    add-int/lit8 v4, v4, 0x1
-
-    add-int/2addr v4, v0
-
-    iget v5, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
-
-    invoke-static {v1, v2, v3, v4, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    .line 424
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
-
-    iget v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
-
-    add-int/lit8 v2, v2, 0x1
+    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     iget v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
@@ -276,31 +243,45 @@
 
     add-int/2addr v3, v0
 
-    const/4 v4, 0x0
+    iget v4, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
 
-    invoke-static {v1, v2, v3, v4}, Ljava/util/Arrays;->fill([Ljava/lang/Object;IILjava/lang/Object;)V
+    invoke-static {p1, v1, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    .line 425
+    .line 424
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+
     iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    add-int/2addr v1, v0
+    add-int/lit8 v1, v1, 0x1
 
-    iput v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iget v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    .line 427
+    add-int/lit8 v2, v2, 0x1
+
+    add-int/2addr v2, v0
+
+    const/4 v3, 0x0
+
+    invoke-static {p1, v1, v2, v3}, Ljava/util/Arrays;->fill([Ljava/lang/Object;IILjava/lang/Object;)V
+
+    .line 425
+    iget p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+
+    add-int/2addr p1, v0
+
+    iput p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+
     :cond_1
     return v0
 .end method
 
 .method private insertIntoDynamicTable(Lcom/maya/open/http/okhttp3/internal/http2/Header;)V
-    .locals 7
-    .param p1, "entry"    # Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    .locals 6
 
     .line 431
     iget v0, p1, Lcom/maya/open/http/okhttp3/internal/http2/Header;->hpackSize:I
 
     .line 434
-    .local v0, "delta":I
     iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
     if-le v0, v1, :cond_0
@@ -308,7 +289,6 @@
     .line 435
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->clearDynamicTable()V
 
-    .line 436
     return-void
 
     .line 440
@@ -322,153 +302,139 @@
     sub-int/2addr v1, v2
 
     .line 441
-    .local v1, "bytesToRecover":I
     invoke-direct {p0, v1}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->evictToRecoverBytes(I)I
 
     .line 443
-    iget v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
+    iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
-
-    array-length v3, v3
-
-    if-le v2, v3, :cond_1
-
-    .line 444
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     array-length v2, v2
 
-    mul-int/lit8 v2, v2, 0x2
+    if-le v1, v2, :cond_1
 
-    new-array v2, v2, [Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    .line 444
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+
+    array-length v1, v1
+
+    mul-int/lit8 v1, v1, 0x2
+
+    new-array v1, v1, [Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     .line 445
-    .local v2, "doubled":[Lcom/maya/open/http/okhttp3/internal/http2/Header;
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
+
+    iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+
+    array-length v4, v4
 
     iget-object v5, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     array-length v5, v5
 
-    iget-object v6, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
-
-    array-length v6, v6
-
-    invoke-static {v3, v4, v2, v5, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+    invoke-static {v2, v3, v1, v4, v5}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 446
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    array-length v3, v3
+    array-length v2, v2
 
-    add-int/lit8 v3, v3, -0x1
+    add-int/lit8 v2, v2, -0x1
 
-    iput v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iput v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
     .line 447
-    iput-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iput-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     .line 449
-    .end local v2    # "doubled":[Lcom/maya/open/http/okhttp3/internal/http2/Header;
     :cond_1
-    iget v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    add-int/lit8 v3, v2, -0x1
+    add-int/lit8 v2, v1, -0x1
 
-    iput v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iput v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
     .line 450
-    .local v2, "index":I
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    aput-object p1, v3, v2
+    aput-object p1, v2, v1
 
     .line 451
-    iget v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
+    iget p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    iput v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
+    iput p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerCount:I
 
     .line 452
-    iget v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
+    iget p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
 
-    add-int/2addr v3, v0
+    add-int/2addr p1, v0
 
-    iput v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
+    iput p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTableByteCount:I
 
-    .line 453
     return-void
 .end method
 
 
 # virtual methods
 .method setHeaderTableSizeSetting(I)V
-    .locals 2
-    .param p1, "headerTableSizeSetting"    # I
+    .locals 1
 
     .line 562
     iput p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->headerTableSizeSetting:I
 
-    .line 563
     const/16 v0, 0x4000
 
+    .line 563
     invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
 
-    move-result v0
+    move-result p1
 
     .line 566
-    .local v0, "effectiveHeaderTableSize":I
-    iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
+    iget v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
-    if-ne v1, v0, :cond_0
+    if-ne v0, p1, :cond_0
 
     return-void
 
     .line 568
     :cond_0
-    iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
+    iget v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
-    if-ge v0, v1, :cond_1
+    if-ge p1, v0, :cond_1
 
     .line 569
-    iget v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
+    iget v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, p1}, Ljava/lang/Math;->min(II)I
 
-    move-result v1
+    move-result v0
 
-    iput v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
+    iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
+
+    :cond_1
+    const/4 v0, 0x1
 
     .line 572
-    :cond_1
-    const/4 v1, 0x1
-
-    iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->emitDynamicTableSizeUpdate:Z
+    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->emitDynamicTableSizeUpdate:Z
 
     .line 573
-    iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
+    iput p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->maxDynamicTableByteCount:I
 
     .line 574
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->adjustDynamicTableByteCount()V
 
-    .line 575
     return-void
 .end method
 
 .method writeByteString(Lcom/maya/open/http/okio/ByteString;)V
-    .locals 5
-    .param p1, "data"    # Lcom/maya/open/http/okio/ByteString;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 3
 
     .line 549
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->useCompression:Z
@@ -497,7 +463,6 @@
     invoke-direct {v0}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
     .line 551
-    .local v0, "huffmanBuffer":Lcom/maya/open/http/okio/Buffer;
     invoke-static {}, Lcom/maya/open/http/okhttp3/internal/http2/Huffman;->get()Lcom/maya/open/http/okhttp3/internal/http2/Huffman;
 
     move-result-object v2
@@ -507,26 +472,22 @@
     .line 552
     invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->readByteString()Lcom/maya/open/http/okio/ByteString;
 
-    move-result-object v2
+    move-result-object p1
 
     .line 553
-    .local v2, "huffmanBytes":Lcom/maya/open/http/okio/ByteString;
-    invoke-virtual {v2}, Lcom/maya/open/http/okio/ByteString;->size()I
+    invoke-virtual {p1}, Lcom/maya/open/http/okio/ByteString;->size()I
 
-    move-result v3
+    move-result v0
 
-    const/16 v4, 0x80
+    const/16 v2, 0x80
 
-    invoke-virtual {p0, v3, v1, v4}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
+    invoke-virtual {p0, v0, v1, v2}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
 
     .line 554
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {v1, v2}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/ByteString;)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v0, p1}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/ByteString;)Lcom/maya/open/http/okio/Buffer;
 
-    .line 555
-    .end local v0    # "huffmanBuffer":Lcom/maya/open/http/okio/Buffer;
-    .end local v2    # "huffmanBytes":Lcom/maya/open/http/okio/ByteString;
     goto :goto_0
 
     .line 556
@@ -544,13 +505,12 @@
 
     invoke-virtual {v0, p1}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/ByteString;)Lcom/maya/open/http/okio/Buffer;
 
-    .line 559
     :goto_0
     return-void
 .end method
 
 .method writeHeaders(Ljava/util/List;)V
-    .locals 14
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -560,14 +520,7 @@
         }
     .end annotation
 
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
     .line 458
-    .local p1, "headerBlock":Ljava/util/List;, "Ljava/util/List<Lcom/maya/open/http/okhttp3/internal/http2/Header;>;"
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->emitDynamicTableSizeUpdate:Z
 
     const/4 v1, 0x0
@@ -594,9 +547,9 @@
     :cond_0
     iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->emitDynamicTableSizeUpdate:Z
 
-    .line 464
     const v0, 0x7fffffff
 
+    .line 464
     iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->smallestHeaderTableSizeSetting:I
 
     .line 465
@@ -606,26 +559,23 @@
 
     .line 468
     :cond_1
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v0
 
-    .local v2, "size":I
+    const/4 v2, 0x0
+
     :goto_0
-    if-ge v0, v2, :cond_a
+    if-ge v2, v0, :cond_b
 
     .line 469
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     .line 470
-    .local v3, "header":Lcom/maya/open/http/okhttp3/internal/http2/Header;
     iget-object v4, v3, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
 
     invoke-virtual {v4}, Lcom/maya/open/http/okio/ByteString;->toAsciiLowercase()Lcom/maya/open/http/okio/ByteString;
@@ -633,192 +583,186 @@
     move-result-object v4
 
     .line 471
-    .local v4, "name":Lcom/maya/open/http/okio/ByteString;
     iget-object v5, v3, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
 
-    .line 472
-    .local v5, "value":Lcom/maya/open/http/okio/ByteString;
-    const/4 v6, -0x1
+    .line 475
+    sget-object v6, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->NAME_TO_FIRST_INDEX:Ljava/util/Map;
 
-    .line 473
-    .local v6, "headerIndex":I
+    invoke-interface {v6, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Integer;
+
     const/4 v7, -0x1
 
-    .line 475
-    .local v7, "headerNameIndex":I
-    sget-object v8, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->NAME_TO_FIRST_INDEX:Ljava/util/Map;
+    const/4 v8, 0x1
 
-    invoke-interface {v8, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Ljava/lang/Integer;
-
-    .line 476
-    .local v8, "staticIndex":Ljava/lang/Integer;
-    const/4 v9, 0x1
-
-    if-eqz v8, :cond_3
+    if-eqz v6, :cond_4
 
     .line 477
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
-    move-result v10
+    move-result v6
 
-    add-int/lit8 v7, v10, 0x1
+    add-int/2addr v6, v8
 
-    .line 478
-    if-le v7, v9, :cond_3
+    if-le v6, v8, :cond_3
 
-    const/16 v10, 0x8
+    const/16 v9, 0x8
 
-    if-ge v7, v10, :cond_3
+    if-ge v6, v9, :cond_3
 
     .line 483
-    sget-object v10, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    sget-object v9, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    add-int/lit8 v11, v7, -0x1
+    add-int/lit8 v10, v6, -0x1
 
-    aget-object v10, v10, v11
+    aget-object v9, v9, v10
 
-    iget-object v10, v10, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
+    iget-object v9, v9, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-static {v10, v5}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v9, v5}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_2
+    if-eqz v9, :cond_2
 
-    .line 484
-    move v6, v7
+    move v9, v6
 
     goto :goto_1
 
     .line 485
     :cond_2
-    sget-object v10, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    sget-object v9, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    aget-object v10, v10, v7
+    aget-object v9, v9, v6
 
-    iget-object v10, v10, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
+    iget-object v9, v9, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-static {v10, v5}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v9, v5}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v9
 
-    if-eqz v10, :cond_3
+    if-eqz v9, :cond_3
 
-    .line 486
-    add-int/lit8 v6, v7, 0x1
+    add-int/lit8 v9, v6, 0x1
 
-    .line 491
+    move v12, v9
+
+    move v9, v6
+
+    move v6, v12
+
+    goto :goto_1
+
     :cond_3
-    :goto_1
-    const/4 v10, -0x1
+    move v9, v6
 
-    if-ne v6, v10, :cond_6
+    const/4 v6, -0x1
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v6, -0x1
+
+    const/4 v9, -0x1
+
+    :goto_1
+    if-ne v6, v7, :cond_7
 
     .line 492
-    iget v11, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iget v10, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    add-int/2addr v11, v9
+    add-int/2addr v10, v8
 
-    .local v11, "j":I
-    iget-object v9, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iget-object v8, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    array-length v9, v9
+    array-length v8, v8
 
-    .local v9, "length":I
     :goto_2
-    if-ge v11, v9, :cond_6
+    if-ge v10, v8, :cond_7
 
     .line 493
-    iget-object v12, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iget-object v11, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    aget-object v12, v12, v11
+    aget-object v11, v11, v10
 
-    iget-object v12, v12, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
+    iget-object v11, v11, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-static {v12, v4}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v11, v4}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v11
 
-    if-eqz v12, :cond_5
+    if-eqz v11, :cond_6
 
     .line 494
-    iget-object v12, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    iget-object v11, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->dynamicTable:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    aget-object v12, v12, v11
+    aget-object v11, v11, v10
 
-    iget-object v12, v12, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
+    iget-object v11, v11, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-static {v12, v5}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v11, v5}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v12
+    move-result v11
 
-    if-eqz v12, :cond_4
+    if-eqz v11, :cond_5
 
     .line 495
-    iget v12, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iget v6, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    sub-int v12, v11, v12
+    sub-int/2addr v10, v6
 
-    sget-object v13, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    sget-object v6, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    array-length v13, v13
+    array-length v6, v6
 
-    add-int v6, v12, v13
+    add-int/2addr v6, v10
 
-    .line 496
     goto :goto_3
 
-    .line 497
-    :cond_4
-    if-ne v7, v10, :cond_5
+    :cond_5
+    if-ne v9, v7, :cond_6
 
     .line 498
-    iget v12, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
+    iget v9, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->nextHeaderIndex:I
 
-    sub-int v12, v11, v12
+    sub-int v9, v10, v9
 
-    sget-object v13, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    sget-object v11, Lcom/maya/open/http/okhttp3/internal/http2/Hpack;->STATIC_HEADER_TABLE:[Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
-    array-length v13, v13
+    array-length v11, v11
 
-    add-int v7, v12, v13
+    add-int/2addr v9, v11
 
-    .line 492
-    :cond_5
-    add-int/lit8 v11, v11, 0x1
+    :cond_6
+    add-int/lit8 v10, v10, 0x1
 
     goto :goto_2
 
-    .line 504
-    .end local v9    # "length":I
-    .end local v11    # "j":I
-    :cond_6
+    :cond_7
     :goto_3
-    if-eq v6, v10, :cond_7
+    if-eq v6, v7, :cond_8
+
+    const/16 v3, 0x7f
+
+    const/16 v4, 0x80
 
     .line 506
-    const/16 v9, 0x7f
-
-    const/16 v10, 0x80
-
-    invoke-virtual {p0, v6, v9, v10}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
+    invoke-virtual {p0, v6, v3, v4}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
 
     goto :goto_4
 
-    .line 507
-    :cond_7
-    const/16 v9, 0x40
+    :cond_8
+    const/16 v6, 0x40
 
-    if-ne v7, v10, :cond_8
+    if-ne v9, v7, :cond_9
 
     .line 509
-    iget-object v10, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
+    iget-object v7, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {v10, v9}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v7, v6}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
     .line 510
     invoke-virtual {p0, v4}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeByteString(Lcom/maya/open/http/okio/ByteString;)V
@@ -832,38 +776,38 @@
     goto :goto_4
 
     .line 513
-    :cond_8
-    sget-object v10, Lcom/maya/open/http/okhttp3/internal/http2/Header;->PSEUDO_PREFIX:Lcom/maya/open/http/okio/ByteString;
+    :cond_9
+    sget-object v7, Lcom/maya/open/http/okhttp3/internal/http2/Header;->PSEUDO_PREFIX:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-virtual {v4, v10}, Lcom/maya/open/http/okio/ByteString;->startsWith(Lcom/maya/open/http/okio/ByteString;)Z
+    invoke-virtual {v4, v7}, Lcom/maya/open/http/okio/ByteString;->startsWith(Lcom/maya/open/http/okio/ByteString;)Z
 
-    move-result v10
+    move-result v7
 
-    if-eqz v10, :cond_9
+    if-eqz v7, :cond_a
 
-    sget-object v10, Lcom/maya/open/http/okhttp3/internal/http2/Header;->TARGET_AUTHORITY:Lcom/maya/open/http/okio/ByteString;
+    sget-object v7, Lcom/maya/open/http/okhttp3/internal/http2/Header;->TARGET_AUTHORITY:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-virtual {v10, v4}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v4}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v4
 
-    if-nez v10, :cond_9
+    if-nez v4, :cond_a
+
+    const/16 v3, 0xf
 
     .line 516
-    const/16 v9, 0xf
-
-    invoke-virtual {p0, v7, v9, v1}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
+    invoke-virtual {p0, v9, v3, v1}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
 
     .line 517
     invoke-virtual {p0, v5}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeByteString(Lcom/maya/open/http/okio/ByteString;)V
 
     goto :goto_4
 
-    .line 520
-    :cond_9
-    const/16 v10, 0x3f
+    :cond_a
+    const/16 v4, 0x3f
 
-    invoke-virtual {p0, v7, v10, v9}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
+    .line 520
+    invoke-virtual {p0, v9, v4, v6}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeInt(III)V
 
     .line 521
     invoke-virtual {p0, v5}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->writeByteString(Lcom/maya/open/http/okio/ByteString;)V
@@ -871,85 +815,62 @@
     .line 522
     invoke-direct {p0, v3}, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->insertIntoDynamicTable(Lcom/maya/open/http/okhttp3/internal/http2/Header;)V
 
-    .line 468
-    .end local v3    # "header":Lcom/maya/open/http/okhttp3/internal/http2/Header;
-    .end local v4    # "name":Lcom/maya/open/http/okio/ByteString;
-    .end local v5    # "value":Lcom/maya/open/http/okio/ByteString;
-    .end local v6    # "headerIndex":I
-    .end local v7    # "headerNameIndex":I
-    .end local v8    # "staticIndex":Ljava/lang/Integer;
     :goto_4
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_0
 
-    .line 525
-    .end local v0    # "i":I
-    .end local v2    # "size":I
-    :cond_a
+    :cond_b
     return-void
 .end method
 
 .method writeInt(III)V
-    .locals 3
-    .param p1, "value"    # I
-    .param p2, "prefixMask"    # I
-    .param p3, "bits"    # I
+    .locals 1
 
-    .line 530
     if-ge p1, p2, :cond_0
 
     .line 531
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
+    iget-object p2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
 
-    or-int v1, p3, p1
+    or-int/2addr p1, p3
 
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {p2, p1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 532
     return-void
 
     .line 536
     :cond_0
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
 
-    or-int v1, p3, p2
+    or-int/2addr p3, p2
 
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v0, p3}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 537
     sub-int/2addr p1, p2
 
-    .line 540
     :goto_0
-    const/16 v0, 0x80
+    const/16 p2, 0x80
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, p2, :cond_1
 
-    .line 541
-    and-int/lit8 v0, p1, 0x7f
+    and-int/lit8 p3, p1, 0x7f
 
     .line 542
-    .local v0, "b":I
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
 
-    or-int/lit16 v2, v0, 0x80
+    or-int/2addr p2, p3
 
-    invoke-virtual {v1, v2}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v0, p2}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 543
     ushr-int/lit8 p1, p1, 0x7
 
-    .line 544
-    .end local v0    # "b":I
     goto :goto_0
 
     .line 545
     :cond_1
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
+    iget-object p2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Hpack$Writer;->out:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {v0, p1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {p2, p1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 546
     return-void
 .end method

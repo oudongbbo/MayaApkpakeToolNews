@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;
 .super Lcom/maya/open/http/okhttp3/internal/NamedRunnable;
-.source "Http2Connection.java"
+.source "SourceFile"
 
 
 # annotations
@@ -29,9 +29,6 @@
 # direct methods
 .method varargs constructor <init>(Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;Ljava/lang/String;[Ljava/lang/Object;ILcom/maya/open/http/okio/Buffer;IZ)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
-    .param p2, "format"    # Ljava/lang/String;
-    .param p3, "args"    # [Ljava/lang/Object;
 
     .line 832
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
@@ -72,10 +69,9 @@
 
     move-result v0
 
-    .line 836
-    .local v0, "cancel":Z
     if-eqz v0, :cond_0
 
+    .line 836
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
     iget-object v1, v1, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->writer:Lcom/maya/open/http/okhttp3/internal/http2/Http2Writer;
@@ -86,64 +82,55 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Writer;->rstStream(ILcom/maya/open/http/okhttp3/internal/http2/ErrorCode;)V
 
-    .line 837
     :cond_0
     if-nez v0, :cond_1
 
-    iget-boolean v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->val$inFinished:Z
+    .line 837
+    iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->val$inFinished:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     .line 838
     :cond_1
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    monitor-enter v1
+    monitor-enter v0
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
     .line 839
     :try_start_1
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    iget-object v2, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
+    iget-object v1, v1, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->currentPushRequests:Ljava/util/Set;
 
-    iget v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->val$streamId:I
+    iget v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection$6;->val$streamId:I
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v2, v3}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {v1, v2}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     .line 840
-    monitor-exit v1
+    monitor-exit v0
 
-    .line 843
-    .end local v0    # "cancel":Z
-    :cond_2
     goto :goto_0
 
-    .line 840
-    .restart local v0    # "cancel":Z
     :catchall_0
-    move-exception v2
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :try_start_2
-    throw v2
+    throw v1
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    .line 842
-    .end local v0    # "cancel":Z
     :catch_0
-    move-exception v0
-
-    .line 844
+    :cond_2
     :goto_0
     return-void
 .end method

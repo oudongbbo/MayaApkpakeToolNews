@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/http/HttpDate$1;
 .super Ljava/lang/ThreadLocal;
-.source "HttpDate.java"
+.source "SourceFile"
 
 
 # annotations
@@ -57,10 +57,9 @@
 
     invoke-direct {v0, v1, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;Ljava/util/Locale;)V
 
-    .line 42
-    .local v0, "rfc1123":Ljava/text/DateFormat;
     const/4 v1, 0x0
 
+    .line 42
     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setLenient(Z)V
 
     .line 43
@@ -68,6 +67,5 @@
 
     invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
-    .line 44
     return-object v0
 .end method

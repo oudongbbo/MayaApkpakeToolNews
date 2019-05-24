@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/ConnectionPool$1;
 .super Ljava/lang/Object;
-.source "ConnectionPool.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/ConnectionPool;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/ConnectionPool;
 
     .line 60
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/ConnectionPool$1;->this$0:Lcom/maya/open/http/okhttp3/ConnectionPool;
@@ -37,9 +36,10 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 6
 
     .line 63
+    :cond_0
     :goto_0
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/ConnectionPool$1;->this$0:Lcom/maya/open/http/okhttp3/ConnectionPool;
 
@@ -51,31 +51,26 @@
 
     move-result-wide v0
 
-    .line 64
-    .local v0, "waitNanos":J
     const-wide/16 v2, -0x1
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
     return-void
 
-    .line 65
-    :cond_0
+    :cond_1
     const-wide/16 v2, 0x0
 
     cmp-long v4, v0, v2
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_0
 
-    .line 66
     const-wide/32 v2, 0xf4240
 
+    .line 66
     div-long v4, v0, v2
 
-    .line 67
-    .local v4, "waitMillis":J
     mul-long v2, v2, v4
 
     sub-long/2addr v0, v2
@@ -89,44 +84,32 @@
     :try_start_0
     iget-object v3, p0, Lcom/maya/open/http/okhttp3/ConnectionPool$1;->this$0:Lcom/maya/open/http/okhttp3/ConnectionPool;
 
-    long-to-int v6, v0
+    long-to-int v0, v0
 
-    invoke-virtual {v3, v4, v5, v6}, Ljava/lang/Object;->wait(JI)V
+    invoke-virtual {v3, v4, v5, v0}, Ljava/lang/Object;->wait(JI)V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 72
     goto :goto_1
 
-    .line 73
     :catchall_0
-    move-exception v3
+    move-exception v0
 
     goto :goto_2
 
-    .line 71
-    :catch_0
-    move-exception v3
-
     .line 73
+    :catch_0
     :goto_1
     :try_start_1
     monitor-exit v2
 
-    goto :goto_3
+    goto :goto_0
 
     :goto_2
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v3
-
-    .line 75
-    .end local v0    # "waitNanos":J
-    .end local v4    # "waitMillis":J
-    :cond_1
-    :goto_3
-    goto :goto_0
+    throw v0
 .end method

@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/m/model/bean/MAppBean;
 .super Ljava/lang/Object;
-.source "MAppBean.java"
+.source "SourceFile"
 
 
 # instance fields
@@ -74,55 +74,45 @@
 
 .method public setDebug(Z)V
     .locals 0
-    .param p1, "debug"    # Z
 
     .line 39
     iput-boolean p1, p0, Lcom/maya/sdk/m/model/bean/MAppBean;->debug:Z
 
-    .line 40
     return-void
 .end method
 
 .method public setGid(Ljava/lang/String;)V
     .locals 0
-    .param p1, "gid"    # Ljava/lang/String;
 
     .line 15
     iput-object p1, p0, Lcom/maya/sdk/m/model/bean/MAppBean;->gid:Ljava/lang/String;
 
-    .line 16
     return-void
 .end method
 
 .method public setMid(Ljava/lang/String;)V
     .locals 0
-    .param p1, "mid"    # Ljava/lang/String;
 
     .line 27
     iput-object p1, p0, Lcom/maya/sdk/m/model/bean/MAppBean;->mid:Ljava/lang/String;
 
-    .line 28
     return-void
 .end method
 
 .method public setPid(Ljava/lang/String;)V
     .locals 0
-    .param p1, "pid"    # Ljava/lang/String;
 
     .line 21
     iput-object p1, p0, Lcom/maya/sdk/m/model/bean/MAppBean;->pid:Ljava/lang/String;
 
-    .line 22
     return-void
 .end method
 
 .method public setSdkVer(Ljava/lang/String;)V
     .locals 0
-    .param p1, "sdkVer"    # Ljava/lang/String;
 
     .line 33
     iput-object p1, p0, Lcom/maya/sdk/m/model/bean/MAppBean;->sdkVer:Ljava/lang/String;
 
-    .line 34
     return-void
 .end method

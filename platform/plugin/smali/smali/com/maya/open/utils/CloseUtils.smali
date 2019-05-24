@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/utils/CloseUtils;
 .super Ljava/lang/Object;
-.source "CloseUtils.java"
+.source "SourceFile"
 
 
 # direct methods
@@ -21,10 +21,8 @@
 .end method
 
 .method public static varargs closeIO([Ljava/io/Closeable;)V
-    .locals 4
-    .param p0, "closeables"    # [Ljava/io/Closeable;
+    .locals 3
 
-    .line 26
     if-nez p0, :cond_0
 
     return-void
@@ -40,8 +38,6 @@
 
     aget-object v2, p0, v1
 
-    .line 28
-    .local v2, "closeable":Ljava/io/Closeable;
     if-eqz v2, :cond_1
 
     .line 30
@@ -50,36 +46,27 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 33
     goto :goto_1
 
-    .line 31
     :catch_0
-    move-exception v3
+    move-exception v2
 
     .line 32
-    .local v3, "e":Ljava/io/IOException;
-    invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
 
-    .line 27
-    .end local v2    # "closeable":Ljava/io/Closeable;
-    .end local v3    # "e":Ljava/io/IOException;
     :cond_1
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 36
     :cond_2
     return-void
 .end method
 
 .method public static varargs closeIOQuietly([Ljava/io/Closeable;)V
-    .locals 4
-    .param p0, "closeables"    # [Ljava/io/Closeable;
+    .locals 3
 
-    .line 44
     if-nez p0, :cond_0
 
     return-void
@@ -95,8 +82,6 @@
 
     aget-object v2, p0, v1
 
-    .line 46
-    .local v2, "closeable":Ljava/io/Closeable;
     if-eqz v2, :cond_1
 
     .line 48
@@ -105,22 +90,12 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 50
-    goto :goto_1
-
-    .line 49
     :catch_0
-    move-exception v3
-
-    .line 45
-    .end local v2    # "closeable":Ljava/io/Closeable;
     :cond_1
-    :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 53
     :cond_2
     return-void
 .end method

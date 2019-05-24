@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okserver/upload/UploadManager;
 .super Ljava/lang/Object;
-.source "UploadManager.java"
+.source "SourceFile"
 
 
 # static fields
@@ -65,7 +65,6 @@
 
     iput-object v0, p0, Lcom/maya/open/http/okserver/upload/UploadManager;->threadPool:Lcom/maya/open/http/okserver/upload/UploadThreadPool;
 
-    .line 55
     return-void
 .end method
 
@@ -121,9 +120,7 @@
 
 # virtual methods
 .method public addTask(Ljava/lang/String;Lcom/maya/open/http/okgo/request/BaseBodyRequest;Lcom/maya/open/http/okserver/listener/UploadListener;)V
-    .locals 2
-    .param p1, "taskKey"    # Ljava/lang/String;
-    .param p2, "request"    # Lcom/maya/open/http/okgo/request/BaseBodyRequest;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -137,46 +134,39 @@
     .end annotation
 
     .line 66
-    .local p3, "listener":Lcom/maya/open/http/okserver/listener/UploadListener;, "Lcom/maya/open/http/okserver/listener/UploadListener<TT;>;"
     new-instance v0, Lcom/maya/open/http/okserver/upload/UploadInfo;
 
     invoke-direct {v0}, Lcom/maya/open/http/okserver/upload/UploadInfo;-><init>()V
 
     .line 67
-    .local v0, "uploadInfo":Lcom/maya/open/http/okserver/upload/UploadInfo;
     invoke-virtual {v0, p1}, Lcom/maya/open/http/okserver/upload/UploadInfo;->setTaskKey(Ljava/lang/String;)V
 
-    .line 68
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okserver/upload/UploadInfo;->setState(I)V
+    .line 68
+    invoke-virtual {v0, p1}, Lcom/maya/open/http/okserver/upload/UploadInfo;->setState(I)V
 
     .line 69
     invoke-virtual {v0, p2}, Lcom/maya/open/http/okserver/upload/UploadInfo;->setRequest(Lcom/maya/open/http/okgo/request/BaseBodyRequest;)V
 
     .line 70
-    iget-object v1, p0, Lcom/maya/open/http/okserver/upload/UploadManager;->mUploadInfoList:Ljava/util/List;
+    iget-object p1, p0, Lcom/maya/open/http/okserver/upload/UploadManager;->mUploadInfoList:Ljava/util/List;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 72
-    new-instance v1, Lcom/maya/open/http/okserver/upload/UploadTask;
+    new-instance p1, Lcom/maya/open/http/okserver/upload/UploadTask;
 
-    invoke-direct {v1, v0, p3}, Lcom/maya/open/http/okserver/upload/UploadTask;-><init>(Lcom/maya/open/http/okserver/upload/UploadInfo;Lcom/maya/open/http/okserver/listener/UploadListener;)V
+    invoke-direct {p1, v0, p3}, Lcom/maya/open/http/okserver/upload/UploadTask;-><init>(Lcom/maya/open/http/okserver/upload/UploadInfo;Lcom/maya/open/http/okserver/listener/UploadListener;)V
 
     .line 73
-    .local v1, "uploadTask":Lcom/maya/open/http/okserver/upload/UploadTask;
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okserver/upload/UploadInfo;->setTask(Lcom/maya/open/http/okserver/upload/UploadTask;)V
+    invoke-virtual {v0, p1}, Lcom/maya/open/http/okserver/upload/UploadInfo;->setTask(Lcom/maya/open/http/okserver/upload/UploadTask;)V
 
-    .line 74
     return-void
 .end method
 
 .method public addTask(Ljava/lang/String;Ljava/io/File;Ljava/lang/String;Lcom/maya/open/http/okserver/listener/UploadListener;)V
     .locals 1
-    .param p1, "url"    # Ljava/lang/String;
-    .param p2, "resource"    # Ljava/io/File;
-    .param p3, "key"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -194,22 +184,19 @@
     .end annotation
 
     .line 60
-    .local p4, "listener":Lcom/maya/open/http/okserver/listener/UploadListener;, "Lcom/maya/open/http/okserver/listener/UploadListener<TT;>;"
     invoke-static {p1}, Lcom/maya/open/http/okgo/OkGo;->post(Ljava/lang/String;)Lcom/maya/open/http/okgo/request/PostRequest;
 
     move-result-object v0
 
     invoke-virtual {v0, p3, p2}, Lcom/maya/open/http/okgo/request/PostRequest;->params(Ljava/lang/String;Ljava/io/File;)Lcom/maya/open/http/okgo/request/BaseBodyRequest;
 
-    move-result-object v0
+    move-result-object p2
 
-    check-cast v0, Lcom/maya/open/http/okgo/request/PostRequest;
+    check-cast p2, Lcom/maya/open/http/okgo/request/PostRequest;
 
     .line 61
-    .local v0, "request":Lcom/maya/open/http/okgo/request/PostRequest;
-    invoke-virtual {p0, p1, v0, p4}, Lcom/maya/open/http/okserver/upload/UploadManager;->addTask(Ljava/lang/String;Lcom/maya/open/http/okgo/request/BaseBodyRequest;Lcom/maya/open/http/okserver/listener/UploadListener;)V
+    invoke-virtual {p0, p1, p2, p4}, Lcom/maya/open/http/okserver/upload/UploadManager;->addTask(Ljava/lang/String;Lcom/maya/open/http/okgo/request/BaseBodyRequest;Lcom/maya/open/http/okserver/listener/UploadListener;)V
 
-    .line 62
     return-void
 .end method
 

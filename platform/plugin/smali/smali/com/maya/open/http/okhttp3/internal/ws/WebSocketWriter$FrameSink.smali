@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;
 .super Ljava/lang/Object;
-.source "WebSocketWriter.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -32,7 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
 
     .line 221
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
@@ -46,11 +45,6 @@
 # virtual methods
 .method public close()V
     .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 261
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->closed:Z
@@ -87,9 +81,9 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 266
     const/4 v0, 0x1
 
+    .line 266
     iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->closed:Z
 
     .line 267
@@ -99,13 +93,12 @@
 
     iput-boolean v1, v0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;->activeWriter:Z
 
-    .line 268
     return-void
 
-    .line 265
     :catchall_0
     move-exception v1
 
+    .line 265
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -126,11 +119,6 @@
 
 .method public flush()V
     .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 247
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->closed:Z
@@ -167,18 +155,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 252
     const/4 v0, 0x0
 
+    .line 252
     iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
 
-    .line 253
     return-void
 
-    .line 251
     :catchall_0
     move-exception v1
 
+    .line 251
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -213,14 +200,7 @@
 .end method
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
-    .locals 11
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 6
 
     .line 228
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->closed:Z
@@ -235,121 +215,113 @@
     invoke-virtual {v0, p1, p2, p3}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/Buffer;J)V
 
     .line 233
-    iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
+    iget-boolean p1, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
 
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
+
+    iget-wide v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->contentLength:J
+
+    const-wide/16 v2, -0x1
+
+    cmp-long p1, v0, v2
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
+
+    iget-object p1, p1, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/maya/open/http/okio/Buffer;
+
+    .line 235
+    invoke-virtual {p1}, Lcom/maya/open/http/okio/Buffer;->size()J
+
+    move-result-wide v0
 
     iget-wide v2, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->contentLength:J
 
-    const-wide/16 v4, -0x1
+    const-wide/16 v4, 0x2000
 
-    cmp-long v0, v2, v4
+    sub-long/2addr v2, v4
 
-    if-eqz v0, :cond_0
+    cmp-long p1, v0, v2
 
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
+    if-lez p1, :cond_0
 
-    iget-object v0, v0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/maya/open/http/okio/Buffer;
-
-    .line 235
-    invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->size()J
-
-    move-result-wide v2
-
-    iget-wide v4, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->contentLength:J
-
-    const-wide/16 v6, 0x2000
-
-    sub-long/2addr v4, v6
-
-    cmp-long v0, v2, v4
-
-    if-lez v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     .line 237
-    .local v0, "deferWrite":Z
     :goto_0
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
 
-    iget-object v2, v2, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/maya/open/http/okio/Buffer;
+    iget-object p3, p3, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;->buffer:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {v2}, Lcom/maya/open/http/okio/Buffer;->completeSegmentByteCount()J
+    invoke-virtual {p3}, Lcom/maya/open/http/okio/Buffer;->completeSegmentByteCount()J
 
-    move-result-wide v9
+    move-result-wide v2
 
-    .line 238
-    .local v9, "emitCount":J
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v4, v9, v2
+    cmp-long p3, v2, v0
 
-    if-lez v4, :cond_1
+    if-lez p3, :cond_1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 239
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
 
-    monitor-enter v2
+    monitor-enter p1
 
     .line 240
     :try_start_0
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;
 
-    iget v4, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->formatOpcode:I
+    iget v1, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->formatOpcode:I
 
-    iget-boolean v7, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
+    iget-boolean v4, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
 
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
-    move-wide v5, v9
-
-    invoke-virtual/range {v3 .. v8}, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;->writeMessageFrameSynchronized(IJZZ)V
+    invoke-virtual/range {v0 .. v5}, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter;->writeMessageFrameSynchronized(IJZZ)V
 
     .line 241
-    monitor-exit v2
+    monitor-exit p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 242
-    iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
+    iput-boolean p2, p0, Lcom/maya/open/http/okhttp3/internal/ws/WebSocketWriter$FrameSink;->isFirstFrame:Z
 
     goto :goto_1
 
-    .line 241
     :catchall_0
-    move-exception v1
+    move-exception p2
 
+    .line 241
     :try_start_1
-    monitor-exit v2
+    monitor-exit p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v1
+    throw p2
 
-    .line 244
     :cond_1
     :goto_1
     return-void
 
     .line 228
-    .end local v0    # "deferWrite":Z
-    .end local v9    # "emitCount":J
     :cond_2
-    new-instance v0, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

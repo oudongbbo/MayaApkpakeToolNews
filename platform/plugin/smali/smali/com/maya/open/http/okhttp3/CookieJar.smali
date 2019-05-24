@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/CookieJar;
 .super Ljava/lang/Object;
-.source "CookieJar.java"
+.source "SourceFile"
 
 
 # static fields

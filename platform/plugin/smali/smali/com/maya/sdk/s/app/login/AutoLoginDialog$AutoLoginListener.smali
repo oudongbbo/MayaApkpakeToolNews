@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/s/app/login/AutoLoginDialog$AutoLoginListener;
 .super Ljava/lang/Object;
-.source "AutoLoginDialog.java"
+.source "SourceFile"
 
 
 # annotations

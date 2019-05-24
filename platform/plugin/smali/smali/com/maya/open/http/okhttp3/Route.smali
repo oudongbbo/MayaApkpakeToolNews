@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/Route;
 .super Ljava/lang/Object;
-.source "Route.java"
+.source "SourceFile"
 
 
 # instance fields
@@ -13,21 +13,15 @@
 
 # direct methods
 .method public constructor <init>(Lcom/maya/open/http/okhttp3/Address;Ljava/net/Proxy;Ljava/net/InetSocketAddress;)V
-    .locals 2
-    .param p1, "address"    # Lcom/maya/open/http/okhttp3/Address;
-    .param p2, "proxy"    # Ljava/net/Proxy;
-    .param p3, "inetSocketAddress"    # Ljava/net/InetSocketAddress;
+    .locals 0
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     if-eqz p1, :cond_2
 
-    .line 48
     if-eqz p2, :cond_1
 
-    .line 51
     if-eqz p3, :cond_0
 
     .line 54
@@ -39,38 +33,37 @@
     .line 56
     iput-object p3, p0, Lcom/maya/open/http/okhttp3/Route;->inetSocketAddress:Ljava/net/InetSocketAddress;
 
-    .line 57
     return-void
 
     .line 52
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "inetSocketAddress == null"
+    const-string p2, "inetSocketAddress == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 49
     :cond_1
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "proxy == null"
+    const-string p2, "proxy == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 46
     :cond_2
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    const-string v1, "address == null"
+    const-string p2, "address == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 
@@ -85,8 +78,7 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "obj"    # Ljava/lang/Object;
+    .locals 3
 
     .line 86
     instance-of v0, p1, Lcom/maya/open/http/okhttp3/Route;
@@ -96,105 +88,86 @@
     if-eqz v0, :cond_1
 
     .line 87
-    move-object v0, p1
-
-    check-cast v0, Lcom/maya/open/http/okhttp3/Route;
+    check-cast p1, Lcom/maya/open/http/okhttp3/Route;
 
     .line 88
-    .local v0, "other":Lcom/maya/open/http/okhttp3/Route;
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Route;->address:Lcom/maya/open/http/okhttp3/Address;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Route;->address:Lcom/maya/open/http/okhttp3/Address;
 
-    iget-object v3, v0, Lcom/maya/open/http/okhttp3/Route;->address:Lcom/maya/open/http/okhttp3/Address;
+    iget-object v2, p1, Lcom/maya/open/http/okhttp3/Route;->address:Lcom/maya/open/http/okhttp3/Address;
 
-    invoke-virtual {v2, v3}, Lcom/maya/open/http/okhttp3/Address;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lcom/maya/open/http/okhttp3/Address;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Route;->proxy:Ljava/net/Proxy;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Route;->proxy:Ljava/net/Proxy;
 
-    iget-object v3, v0, Lcom/maya/open/http/okhttp3/Route;->proxy:Ljava/net/Proxy;
+    iget-object v2, p1, Lcom/maya/open/http/okhttp3/Route;->proxy:Ljava/net/Proxy;
 
     .line 89
-    invoke-virtual {v2, v3}, Ljava/net/Proxy;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/net/Proxy;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Route;->inetSocketAddress:Ljava/net/InetSocketAddress;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Route;->inetSocketAddress:Ljava/net/InetSocketAddress;
 
-    iget-object v3, v0, Lcom/maya/open/http/okhttp3/Route;->inetSocketAddress:Ljava/net/InetSocketAddress;
+    iget-object p1, p1, Lcom/maya/open/http/okhttp3/Route;->inetSocketAddress:Ljava/net/InetSocketAddress;
 
     .line 90
-    invoke-virtual {v2, v3}, Ljava/net/InetSocketAddress;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/net/InetSocketAddress;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
-    nop
-
-    .line 88
     :cond_0
     return v1
 
-    .line 92
-    .end local v0    # "other":Lcom/maya/open/http/okhttp3/Route;
     :cond_1
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    .line 96
-    const/16 v0, 0x11
+    .locals 2
 
     .line 97
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Route;->address:Lcom/maya/open/http/okhttp3/Address;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Route;->address:Lcom/maya/open/http/okhttp3/Address;
+    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/Address;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/maya/open/http/okhttp3/Address;->hashCode()I
+    move-result v0
 
-    move-result v2
+    const/16 v1, 0x20f
 
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 98
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Route;->proxy:Ljava/net/Proxy;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Route;->proxy:Ljava/net/Proxy;
+    invoke-virtual {v0}, Ljava/net/Proxy;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/net/Proxy;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v2
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 99
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Route;->inetSocketAddress:Ljava/net/InetSocketAddress;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Route;->inetSocketAddress:Ljava/net/InetSocketAddress;
+    invoke-virtual {v0}, Ljava/net/InetSocketAddress;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/net/InetSocketAddress;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v1, v2
-
-    .line 100
-    .end local v0    # "result":I
-    .restart local v1    # "result":I
     return v1
 .end method
 

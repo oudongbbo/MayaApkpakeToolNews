@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/main/OpenImageUtils$OpenImageCallback;
 .super Ljava/lang/Object;
-.source "OpenImageUtils.java"
+.source "SourceFile"
 
 
 # annotations

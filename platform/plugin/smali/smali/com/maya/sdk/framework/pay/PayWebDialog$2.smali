@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/framework/pay/PayWebDialog$2;
 .super Ljava/lang/Object;
-.source "PayWebDialog.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -18,20 +18,19 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
+.field final synthetic a:Lcom/maya/sdk/framework/view/a/a;
 
-.field final synthetic val$mMaterialDialog:Lcom/maya/sdk/framework/view/dialog/MaterialDialog;
+.field final synthetic b:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/maya/sdk/framework/pay/PayWebDialog;Lcom/maya/sdk/framework/view/dialog/MaterialDialog;)V
+.method constructor <init>(Lcom/maya/sdk/framework/pay/PayWebDialog;Lcom/maya/sdk/framework/view/a/a;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/pay/PayWebDialog;
 
     .line 168
-    iput-object p1, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$2;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
+    iput-object p1, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$2;->b:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
-    iput-object p2, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$2;->val$mMaterialDialog:Lcom/maya/sdk/framework/view/dialog/MaterialDialog;
+    iput-object p2, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$2;->a:Lcom/maya/sdk/framework/view/a/a;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,14 +40,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
-    .param p1, "v"    # Landroid/view/View;
+    .locals 0
 
     .line 170
-    iget-object v0, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$2;->val$mMaterialDialog:Lcom/maya/sdk/framework/view/dialog/MaterialDialog;
+    iget-object p1, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$2;->a:Lcom/maya/sdk/framework/view/a/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/dialog/MaterialDialog;->dismiss()V
+    invoke-virtual {p1}, Lcom/maya/sdk/framework/view/a/a;->b()V
 
-    .line 171
     return-void
 .end method

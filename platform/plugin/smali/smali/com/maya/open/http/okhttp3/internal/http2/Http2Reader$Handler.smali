@@ -1,6 +1,6 @@
 .class interface abstract Lcom/maya/open/http/okhttp3/internal/http2/Http2Reader$Handler;
 .super Ljava/lang/Object;
-.source "Http2Reader.java"
+.source "SourceFile"
 
 
 # annotations
@@ -22,11 +22,6 @@
 .end method
 
 .method public abstract data(ZILcom/maya/open/http/okio/BufferedSource;I)V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 .end method
 
 .method public abstract goAway(ILcom/maya/open/http/okhttp3/internal/http2/ErrorCode;Lcom/maya/open/http/okio/ByteString;)V
@@ -56,12 +51,6 @@
             "Ljava/util/List<",
             "Lcom/maya/open/http/okhttp3/internal/http2/Header;",
             ">;)V"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
         }
     .end annotation
 .end method

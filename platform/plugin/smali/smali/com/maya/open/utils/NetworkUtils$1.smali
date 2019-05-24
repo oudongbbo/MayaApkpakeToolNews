@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/utils/NetworkUtils$1;
 .super Ljava/lang/Object;
-.source "NetworkUtils.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/util/concurrent/Callable;
@@ -46,11 +46,6 @@
 # virtual methods
 .method public bridge synthetic call()Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
 
     .line 326
     invoke-virtual {p0}, Lcom/maya/open/utils/NetworkUtils$1;->call()Ljava/lang/String;
@@ -61,12 +56,7 @@
 .end method
 
 .method public call()Ljava/lang/String;
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
+    .locals 1
 
     .line 331
     :try_start_0
@@ -77,26 +67,20 @@
     move-result-object v0
 
     .line 332
-    .local v0, "inetAddress":Ljava/net/InetAddress;
     invoke-virtual {v0}, Ljava/net/InetAddress;->getHostAddress()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
     :try_end_0
     .catch Ljava/net/UnknownHostException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
+    return-object v0
 
-    .line 333
-    .end local v0    # "inetAddress":Ljava/net/InetAddress;
     :catch_0
     move-exception v0
 
     .line 334
-    .local v0, "e":Ljava/net/UnknownHostException;
     invoke-virtual {v0}, Ljava/net/UnknownHostException;->printStackTrace()V
 
-    .line 336
-    .end local v0    # "e":Ljava/net/UnknownHostException;
     const/4 v0, 0x0
 
     return-object v0

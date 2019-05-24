@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okio/Timeout$1;
 .super Lcom/maya/open/http/okio/Timeout;
-.source "Timeout.java"
+.source "SourceFile"
 
 
 # annotations
@@ -28,29 +28,18 @@
 # virtual methods
 .method public deadlineNanoTime(J)Lcom/maya/open/http/okio/Timeout;
     .locals 0
-    .param p1, "deadlineNanoTime"    # J
 
-    .line 56
     return-object p0
 .end method
 
 .method public throwIfReached()V
     .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
-    .line 60
     return-void
 .end method
 
 .method public timeout(JLjava/util/concurrent/TimeUnit;)Lcom/maya/open/http/okio/Timeout;
     .locals 0
-    .param p1, "timeout"    # J
-    .param p3, "unit"    # Ljava/util/concurrent/TimeUnit;
 
-    .line 52
     return-object p0
 .end method

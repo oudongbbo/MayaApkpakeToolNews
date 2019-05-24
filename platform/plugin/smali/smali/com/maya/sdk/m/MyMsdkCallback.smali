@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/m/MyMsdkCallback;
 .super Ljava/lang/Object;
-.source "MyMsdkCallback.java"
+.source "SourceFile"
 
 
 # virtual methods

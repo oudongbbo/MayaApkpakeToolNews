@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
 .super Ljava/lang/Object;
-.source "Relay.java"
+.source "SourceFile"
 
 
 # annotations
@@ -49,18 +49,18 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 46
     const-string v0, "OkHttp cache v1\n"
 
+    .line 46
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->PREFIX_CLEAN:Lcom/maya/open/http/okio/ByteString;
 
-    .line 47
     const-string v0, "OkHttp DIRTY :(\n"
 
+    .line 47
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
@@ -72,11 +72,6 @@
 
 .method private constructor <init>(Ljava/io/RandomAccessFile;Lcom/maya/open/http/okio/Source;JLcom/maya/open/http/okio/ByteString;J)V
     .locals 1
-    .param p1, "file"    # Ljava/io/RandomAccessFile;
-    .param p2, "upstream"    # Lcom/maya/open/http/okio/Source;
-    .param p3, "upstreamPos"    # J
-    .param p5, "metadata"    # Lcom/maya/open/http/okio/ByteString;
-    .param p6, "bufferMaxSize"    # J
 
     .line 108
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -101,18 +96,18 @@
     .line 110
     iput-object p2, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->upstream:Lcom/maya/open/http/okio/Source;
 
-    .line 111
     if-nez p2, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
+    .line 111
     :goto_0
-    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->complete:Z
+    iput-boolean p1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->complete:Z
 
     .line 112
     iput-wide p3, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->upstreamPos:J
@@ -123,327 +118,267 @@
     .line 114
     iput-wide p6, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->bufferMaxSize:J
 
-    .line 115
     return-void
 .end method
 
 .method public static edit(Ljava/io/File;Lcom/maya/open/http/okio/Source;Lcom/maya/open/http/okio/ByteString;J)Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
-    .locals 14
-    .param p0, "file"    # Ljava/io/File;
-    .param p1, "upstream"    # Lcom/maya/open/http/okio/Source;
-    .param p2, "metadata"    # Lcom/maya/open/http/okio/ByteString;
-    .param p3, "bufferMaxSize"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 9
 
     .line 127
-    new-instance v0, Ljava/io/RandomAccessFile;
+    new-instance v8, Ljava/io/RandomAccessFile;
 
-    const-string v1, "rw"
+    const-string v0, "rw"
 
-    move-object v2, p0
-
-    invoke-direct {v0, p0, v1}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v8, p0, v0}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 128
-    .local v0, "randomAccessFile":Ljava/io/RandomAccessFile;
-    new-instance v1, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
+    new-instance p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
 
-    const-wide/16 v6, 0x0
-
-    move-object v3, v1
-
-    move-object v4, v0
-
-    move-object v5, p1
-
-    move-object/from16 v8, p2
-
-    move-wide/from16 v9, p3
-
-    invoke-direct/range {v3 .. v10}, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;-><init>(Ljava/io/RandomAccessFile;Lcom/maya/open/http/okio/Source;JLcom/maya/open/http/okio/ByteString;J)V
-
-    .line 131
-    .local v1, "result":Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
     const-wide/16 v3, 0x0
 
-    invoke-virtual {v0, v3, v4}, Ljava/io/RandomAccessFile;->setLength(J)V
+    move-object v0, p0
+
+    move-object v1, v8
+
+    move-object v2, p1
+
+    move-object v5, p2
+
+    move-wide v6, p3
+
+    invoke-direct/range {v0 .. v7}, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;-><init>(Ljava/io/RandomAccessFile;Lcom/maya/open/http/okio/Source;JLcom/maya/open/http/okio/ByteString;J)V
+
+    const-wide/16 p1, 0x0
+
+    .line 131
+    invoke-virtual {v8, p1, p2}, Ljava/io/RandomAccessFile;->setLength(J)V
 
     .line 132
-    sget-object v9, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->PREFIX_DIRTY:Lcom/maya/open/http/okio/ByteString;
+    sget-object v2, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->PREFIX_DIRTY:Lcom/maya/open/http/okio/ByteString;
 
-    const-wide/16 v10, -0x1
+    const-wide/16 v3, -0x1
 
-    const-wide/16 v12, -0x1
+    const-wide/16 v5, -0x1
 
-    move-object v8, v1
+    move-object v1, p0
 
-    invoke-direct/range {v8 .. v13}, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->writeHeader(Lcom/maya/open/http/okio/ByteString;JJ)V
+    invoke-direct/range {v1 .. v6}, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->writeHeader(Lcom/maya/open/http/okio/ByteString;JJ)V
 
-    .line 134
-    return-object v1
+    return-object p0
 .end method
 
 .method public static read(Ljava/io/File;)Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
-    .locals 22
-    .param p0, "file"    # Ljava/io/File;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 10
 
     .line 145
     new-instance v1, Ljava/io/RandomAccessFile;
 
     const-string v0, "rw"
 
-    move-object/from16 v8, p0
-
-    invoke-direct {v1, v8, v0}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, p0, v0}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 146
-    .local v1, "randomAccessFile":Ljava/io/RandomAccessFile;
-    new-instance v9, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
+    new-instance p0, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
 
     invoke-virtual {v1}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
 
     move-result-object v0
 
-    invoke-direct {v9, v0}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
+    invoke-direct {p0, v0}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
 
     .line 149
-    .local v9, "fileOperator":Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
     new-instance v0, Lcom/maya/open/http/okio/Buffer;
 
     invoke-direct {v0}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
-    move-object v15, v0
+    const-wide/16 v3, 0x0
+
+    const-wide/16 v6, 0x20
+
+    move-object v2, p0
+
+    move-object v5, v0
 
     .line 150
-    .local v15, "header":Lcom/maya/open/http/okio/Buffer;
-    const-wide/16 v10, 0x0
-
-    const-wide/16 v13, 0x20
-
-    move-object v12, v15
-
-    invoke-virtual/range {v9 .. v14}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->read(JLcom/maya/open/http/okio/Buffer;J)V
+    invoke-virtual/range {v2 .. v7}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->read(JLcom/maya/open/http/okio/Buffer;J)V
 
     .line 151
-    sget-object v0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->PREFIX_CLEAN:Lcom/maya/open/http/okio/ByteString;
+    sget-object v2, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->PREFIX_CLEAN:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okio/ByteString;->size()I
+    invoke-virtual {v2}, Lcom/maya/open/http/okio/ByteString;->size()I
 
-    move-result v0
+    move-result v2
 
-    int-to-long v2, v0
+    int-to-long v2, v2
 
-    invoke-virtual {v15, v2, v3}, Lcom/maya/open/http/okio/Buffer;->readByteString(J)Lcom/maya/open/http/okio/ByteString;
+    invoke-virtual {v0, v2, v3}, Lcom/maya/open/http/okio/Buffer;->readByteString(J)Lcom/maya/open/http/okio/ByteString;
 
-    move-result-object v10
+    move-result-object v2
 
     .line 152
-    .local v10, "prefix":Lcom/maya/open/http/okio/ByteString;
-    sget-object v0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->PREFIX_CLEAN:Lcom/maya/open/http/okio/ByteString;
+    sget-object v3, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->PREFIX_CLEAN:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-virtual {v10, v0}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v3}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v2, :cond_0
 
     .line 153
-    invoke-virtual {v15}, Lcom/maya/open/http/okio/Buffer;->readLong()J
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->readLong()J
 
-    move-result-wide v11
+    move-result-wide v8
 
     .line 154
-    .local v11, "upstreamSize":J
-    invoke-virtual {v15}, Lcom/maya/open/http/okio/Buffer;->readLong()J
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->readLong()J
 
-    move-result-wide v13
+    move-result-wide v6
 
     .line 157
-    .local v13, "metadataSize":J
-    new-instance v19, Lcom/maya/open/http/okio/Buffer;
+    new-instance v0, Lcom/maya/open/http/okio/Buffer;
 
-    invoke-direct/range {v19 .. v19}, Lcom/maya/open/http/okio/Buffer;-><init>()V
+    invoke-direct {v0}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
-    .line 158
-    .local v19, "metadataBuffer":Lcom/maya/open/http/okio/Buffer;
     const-wide/16 v2, 0x20
 
-    add-long v17, v11, v2
+    add-long v4, v8, v2
 
-    move-object/from16 v16, v9
+    move-object v2, p0
 
-    move-wide/from16 v20, v13
+    move-wide v3, v4
 
-    invoke-virtual/range {v16 .. v21}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->read(JLcom/maya/open/http/okio/Buffer;J)V
+    move-object v5, v0
+
+    .line 158
+    invoke-virtual/range {v2 .. v7}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->read(JLcom/maya/open/http/okio/Buffer;J)V
 
     .line 159
-    invoke-virtual/range {v19 .. v19}, Lcom/maya/open/http/okio/Buffer;->readByteString()Lcom/maya/open/http/okio/ByteString;
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->readByteString()Lcom/maya/open/http/okio/ByteString;
 
-    move-result-object v16
+    move-result-object v5
 
     .line 162
-    .local v16, "metadata":Lcom/maya/open/http/okio/ByteString;
-    new-instance v17, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
+    new-instance p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;
 
     const/4 v2, 0x0
 
     const-wide/16 v6, 0x0
 
-    move-object/from16 v0, v17
+    move-object v0, p0
 
-    move-wide v3, v11
-
-    move-object/from16 v5, v16
+    move-wide v3, v8
 
     invoke-direct/range {v0 .. v7}, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;-><init>(Ljava/io/RandomAccessFile;Lcom/maya/open/http/okio/Source;JLcom/maya/open/http/okio/ByteString;J)V
 
-    return-object v17
+    return-object p0
 
     .line 152
-    .end local v11    # "upstreamSize":J
-    .end local v13    # "metadataSize":J
-    .end local v16    # "metadata":Lcom/maya/open/http/okio/ByteString;
-    .end local v19    # "metadataBuffer":Lcom/maya/open/http/okio/Buffer;
     :cond_0
-    new-instance v0, Ljava/io/IOException;
+    new-instance p0, Ljava/io/IOException;
 
-    const-string v2, "unreadable cache file"
+    const-string v0, "unreadable cache file"
 
-    invoke-direct {v0, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method private writeHeader(Lcom/maya/open/http/okio/ByteString;JJ)V
-    .locals 7
-    .param p1, "prefix"    # Lcom/maya/open/http/okio/ByteString;
-    .param p2, "upstreamSize"    # J
-    .param p4, "metadataSize"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 6
 
     .line 167
-    new-instance v0, Lcom/maya/open/http/okio/Buffer;
+    new-instance v3, Lcom/maya/open/http/okio/Buffer;
 
-    invoke-direct {v0}, Lcom/maya/open/http/okio/Buffer;-><init>()V
+    invoke-direct {v3}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
     .line 168
-    .local v0, "header":Lcom/maya/open/http/okio/Buffer;
-    invoke-virtual {v0, p1}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/ByteString;)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v3, p1}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/ByteString;)Lcom/maya/open/http/okio/Buffer;
 
     .line 169
-    invoke-virtual {v0, p2, p3}, Lcom/maya/open/http/okio/Buffer;->writeLong(J)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v3, p2, p3}, Lcom/maya/open/http/okio/Buffer;->writeLong(J)Lcom/maya/open/http/okio/Buffer;
 
     .line 170
-    invoke-virtual {v0, p4, p5}, Lcom/maya/open/http/okio/Buffer;->writeLong(J)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v3, p4, p5}, Lcom/maya/open/http/okio/Buffer;->writeLong(J)Lcom/maya/open/http/okio/Buffer;
 
     .line 171
-    invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->size()J
+    invoke-virtual {v3}, Lcom/maya/open/http/okio/Buffer;->size()J
 
-    move-result-wide v1
+    move-result-wide p1
 
-    const-wide/16 v3, 0x20
+    const-wide/16 p3, 0x20
 
-    cmp-long v5, v1, v3
+    cmp-long p5, p1, p3
 
-    if-nez v5, :cond_0
+    if-nez p5, :cond_0
 
     .line 173
-    new-instance v1, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
+    new-instance v0, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
-    invoke-virtual {v2}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
+    invoke-virtual {p1}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
 
-    move-result-object v2
+    move-result-object p1
 
-    invoke-direct {v1, v2}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
+    invoke-direct {v0, p1}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
+
+    const-wide/16 v1, 0x0
+
+    const-wide/16 v4, 0x20
 
     .line 174
-    .local v1, "fileOperator":Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
-    const-wide/16 v2, 0x0
+    invoke-virtual/range {v0 .. v5}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->write(JLcom/maya/open/http/okio/Buffer;J)V
 
-    const-wide/16 v5, 0x20
-
-    move-object v4, v0
-
-    invoke-virtual/range {v1 .. v6}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->write(JLcom/maya/open/http/okio/Buffer;J)V
-
-    .line 175
     return-void
 
     .line 171
-    .end local v1    # "fileOperator":Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
     :cond_0
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v1}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v1
+    throw p1
 .end method
 
 .method private writeMetadata(J)V
-    .locals 7
-    .param p1, "upstreamSize"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 6
 
     .line 178
-    new-instance v0, Lcom/maya/open/http/okio/Buffer;
+    new-instance v3, Lcom/maya/open/http/okio/Buffer;
 
-    invoke-direct {v0}, Lcom/maya/open/http/okio/Buffer;-><init>()V
+    invoke-direct {v3}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
     .line 179
-    .local v0, "metadataBuffer":Lcom/maya/open/http/okio/Buffer;
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->metadata:Lcom/maya/open/http/okio/ByteString;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->metadata:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/ByteString;)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v3, v0}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/ByteString;)Lcom/maya/open/http/okio/Buffer;
 
     .line 181
-    new-instance v1, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
+    new-instance v0, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
-    invoke-virtual {v2}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
+    invoke-virtual {v1}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-direct {v1, v2}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
+    invoke-direct {v0, v1}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;-><init>(Ljava/nio/channels/FileChannel;)V
+
+    const-wide/16 v1, 0x20
+
+    add-long/2addr v1, p1
 
     .line 182
-    .local v1, "fileOperator":Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;
-    const-wide/16 v2, 0x20
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->metadata:Lcom/maya/open/http/okio/ByteString;
 
-    add-long/2addr v2, p1
+    invoke-virtual {p1}, Lcom/maya/open/http/okio/ByteString;->size()I
 
-    iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->metadata:Lcom/maya/open/http/okio/ByteString;
+    move-result p1
 
-    invoke-virtual {v4}, Lcom/maya/open/http/okio/ByteString;->size()I
+    int-to-long v4, p1
 
-    move-result v4
+    invoke-virtual/range {v0 .. v5}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->write(JLcom/maya/open/http/okio/Buffer;J)V
 
-    int-to-long v5, v4
-
-    move-object v4, v0
-
-    invoke-virtual/range {v1 .. v6}, Lcom/maya/open/http/okhttp3/internal/cache2/FileOperator;->write(JLcom/maya/open/http/okio/Buffer;J)V
-
-    .line 183
     return-void
 .end method
 
@@ -451,12 +386,6 @@
 # virtual methods
 .method commit(J)V
     .locals 8
-    .param p1, "upstreamSize"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 187
     invoke-direct {p0, p1, p2}, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->writeMetadata(J)V
@@ -490,22 +419,22 @@
     invoke-direct/range {v2 .. v7}, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->writeHeader(Lcom/maya/open/http/okio/ByteString;JJ)V
 
     .line 192
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->file:Ljava/io/RandomAccessFile;
 
-    invoke-virtual {v0}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
+    invoke-virtual {p1}, Ljava/io/RandomAccessFile;->getChannel()Ljava/nio/channels/FileChannel;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, v1}, Ljava/nio/channels/FileChannel;->force(Z)V
+    invoke-virtual {p1, v1}, Ljava/nio/channels/FileChannel;->force(Z)V
 
     .line 195
     monitor-enter p0
 
-    .line 196
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
+    .line 196
     :try_start_0
-    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->complete:Z
+    iput-boolean p1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->complete:Z
 
     .line 197
     monitor-exit p0
@@ -513,28 +442,27 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 199
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->upstream:Lcom/maya/open/http/okio/Source;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->upstream:Lcom/maya/open/http/okio/Source;
 
-    invoke-static {v0}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
+    invoke-static {p1}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
+
+    const/4 p1, 0x0
 
     .line 200
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->upstream:Lcom/maya/open/http/okio/Source;
 
-    iput-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache2/Relay;->upstream:Lcom/maya/open/http/okio/Source;
-
-    .line 201
     return-void
 
-    .line 197
     :catchall_0
-    move-exception v0
+    move-exception p1
 
+    .line 197
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
 .end method
 
 .method isClosed()Z
@@ -603,10 +531,10 @@
 
     return-object v0
 
-    .line 220
     :catchall_0
     move-exception v0
 
+    .line 220
     :try_start_1
     monitor-exit p0
     :try_end_1

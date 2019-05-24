@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$1;
 .super Ljava/lang/Object;
-.source "ExitDialogForSecond.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnDismissListener;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
+.field final synthetic a:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
 
     .line 73
-    iput-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$1;->this$0:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
+    iput-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$1;->a:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,33 +36,29 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 0
 
     .line 77
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$1;->this$0:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
+    iget-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$1;->a:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
 
-    # getter for: Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;->isExitClick:Z
-    invoke-static {v0}, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;->access$000(Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;)Z
+    invoke-static {p1}, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;->a(Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     goto :goto_0
 
     .line 80
     :cond_0
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$1;->this$0:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
+    iget-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$1;->a:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;
 
-    # getter for: Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;->mCallback:Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$ExitDialogCallBack;
-    invoke-static {v0}, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;->access$100(Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;)Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$ExitDialogCallBack;
+    invoke-static {p1}, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;->b(Lcom/maya/sdk/s/app/exit/ExitDialogForSecond;)Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$ExitDialogCallBack;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-interface {v0}, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$ExitDialogCallBack;->close()V
+    invoke-interface {p1}, Lcom/maya/sdk/s/app/exit/ExitDialogForSecond$ExitDialogCallBack;->close()V
 
-    .line 82
     :goto_0
     return-void
 .end method

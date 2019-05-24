@@ -1,6 +1,6 @@
 .class Lcom/maya/open/main/OpenImageUtils$1;
 .super Ljava/lang/Object;
-.source "OpenImageUtils.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/image/AsyncImageLoader$onImageLoaderListener;
@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/main/OpenImageUtils;Lcom/maya/open/main/OpenImageUtils$OpenImageCallback;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/main/OpenImageUtils;
 
     .line 37
     iput-object p1, p0, Lcom/maya/open/main/OpenImageUtils$1;->this$0:Lcom/maya/open/main/OpenImageUtils;
@@ -42,10 +41,7 @@
 # virtual methods
 .method public onImageLoader(Landroid/graphics/Bitmap;Ljava/lang/String;)V
     .locals 1
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "url"    # Ljava/lang/String;
 
-    .line 42
     if-eqz p1, :cond_0
 
     .line 43
@@ -57,11 +53,10 @@
 
     .line 45
     :cond_0
-    iget-object v0, p0, Lcom/maya/open/main/OpenImageUtils$1;->val$callback:Lcom/maya/open/main/OpenImageUtils$OpenImageCallback;
+    iget-object p1, p0, Lcom/maya/open/main/OpenImageUtils$1;->val$callback:Lcom/maya/open/main/OpenImageUtils$OpenImageCallback;
 
-    invoke-interface {v0, p2}, Lcom/maya/open/main/OpenImageUtils$OpenImageCallback;->onFail(Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Lcom/maya/open/main/OpenImageUtils$OpenImageCallback;->onFail(Ljava/lang/String;)V
 
-    .line 47
     :goto_0
     return-void
 .end method

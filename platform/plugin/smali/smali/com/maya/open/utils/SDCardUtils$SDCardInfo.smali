@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/utils/SDCardUtils$SDCardInfo;
 .super Ljava/lang/Object;
-.source "SDCardUtils.java"
+.source "SourceFile"
 
 
 # annotations

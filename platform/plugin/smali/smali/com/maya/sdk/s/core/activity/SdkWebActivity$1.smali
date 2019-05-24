@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/core/activity/SdkWebActivity$1;
 .super Ljava/lang/Object;
-.source "SdkWebActivity.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnDismissListener;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
+.field final synthetic a:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/core/activity/SdkWebActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/core/activity/SdkWebActivity;
 
     .line 48
-    iput-object p1, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$1;->this$0:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
+    iput-object p1, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$1;->a:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,14 +36,12 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "paramDialogInterface"    # Landroid/content/DialogInterface;
+    .locals 0
 
     .line 53
-    iget-object v0, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$1;->this$0:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
+    iget-object p1, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$1;->a:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/s/core/activity/SdkWebActivity;->finish()V
+    invoke-virtual {p1}, Lcom/maya/sdk/s/core/activity/SdkWebActivity;->finish()V
 
-    .line 54
     return-void
 .end method

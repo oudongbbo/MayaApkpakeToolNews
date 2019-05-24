@@ -1,6 +1,6 @@
 .class Lcom/maya/open/utils/CrashUtils$1;
 .super Ljava/lang/Object;
-.source "CrashUtils.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -28,7 +28,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/utils/CrashUtils;Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/utils/CrashUtils;
 
     .line 93
     iput-object p1, p0, Lcom/maya/open/utils/CrashUtils$1;->this$0:Lcom/maya/open/utils/CrashUtils;
@@ -45,17 +44,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .locals 7
 
-    .line 96
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
-    .line 98
-    .local v0, "pw":Ljava/io/PrintWriter;
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
     const/4 v2, 0x0
 
+    .line 98
     :try_start_0
     new-instance v3, Ljava/io/PrintWriter;
 
@@ -63,102 +60,111 @@
 
     iget-object v5, p0, Lcom/maya/open/utils/CrashUtils$1;->val$fullPath:Ljava/lang/String;
 
-    invoke-direct {v4, v5, v2}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
+    invoke-direct {v4, v5, v1}, Ljava/io/FileWriter;-><init>(Ljava/lang/String;Z)V
 
     invoke-direct {v3, v4}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
-
-    move-object v0, v3
-
-    .line 99
-    iget-object v3, p0, Lcom/maya/open/utils/CrashUtils$1;->this$0:Lcom/maya/open/utils/CrashUtils;
-
-    # invokes: Lcom/maya/open/utils/CrashUtils;->getCrashHead()Ljava/lang/String;
-    invoke-static {v3}, Lcom/maya/open/utils/CrashUtils;->access$000(Lcom/maya/open/utils/CrashUtils;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
-
-    .line 100
-    iget-object v3, p0, Lcom/maya/open/utils/CrashUtils$1;->val$throwable:Ljava/lang/Throwable;
-
-    invoke-virtual {v3, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
-
-    .line 101
-    iget-object v3, p0, Lcom/maya/open/utils/CrashUtils$1;->val$throwable:Ljava/lang/Throwable;
-
-    invoke-virtual {v3}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
-
-    move-result-object v3
-
-    .line 102
-    .local v3, "cause":Ljava/lang/Throwable;
-    :goto_0
-    if-eqz v3, :cond_0
-
-    .line 103
-    invoke-virtual {v3, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
-
-    .line 104
-    invoke-virtual {v3}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
-
-    move-result-object v4
     :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v3, v4
+    .line 99
+    :try_start_1
+    iget-object v2, p0, Lcom/maya/open/utils/CrashUtils$1;->this$0:Lcom/maya/open/utils/CrashUtils;
+
+    invoke-static {v2}, Lcom/maya/open/utils/CrashUtils;->access$000(Lcom/maya/open/utils/CrashUtils;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->write(Ljava/lang/String;)V
+
+    .line 100
+    iget-object v2, p0, Lcom/maya/open/utils/CrashUtils$1;->val$throwable:Ljava/lang/Throwable;
+
+    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
+
+    .line 101
+    iget-object v2, p0, Lcom/maya/open/utils/CrashUtils$1;->val$throwable:Ljava/lang/Throwable;
+
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+
+    move-result-object v2
+
+    :goto_0
+    if-eqz v2, :cond_0
+
+    .line 103
+    invoke-virtual {v2, v3}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
+
+    .line 104
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+
+    move-result-object v2
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     goto :goto_0
 
     .line 109
-    .end local v3    # "cause":Ljava/lang/Throwable;
     :cond_0
-    new-array v1, v1, [Ljava/io/Closeable;
+    new-array v0, v0, [Ljava/io/Closeable;
 
-    aput-object v0, v1, v2
+    aput-object v3, v0, v1
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v2
 
     goto :goto_1
 
     :catchall_0
     move-exception v3
 
-    goto :goto_2
+    move-object v6, v3
 
-    .line 106
-    :catch_0
+    move-object v3, v2
+
+    move-object v2, v6
+
+    goto :goto_3
+
+    :catch_1
     move-exception v3
 
+    move-object v6, v3
+
+    move-object v3, v2
+
+    move-object v2, v6
+
     .line 107
-    .local v3, "e":Ljava/io/IOException;
-    :try_start_1
-    invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :goto_1
+    :try_start_2
+    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     .line 109
-    .end local v3    # "e":Ljava/io/IOException;
-    new-array v1, v1, [Ljava/io/Closeable;
+    new-array v0, v0, [Ljava/io/Closeable;
 
-    aput-object v0, v1, v2
+    aput-object v3, v0, v1
 
-    :goto_1
-    invoke-static {v1}, Lcom/maya/open/utils/CloseUtils;->closeIO([Ljava/io/Closeable;)V
+    :goto_2
+    invoke-static {v0}, Lcom/maya/open/utils/CloseUtils;->closeIO([Ljava/io/Closeable;)V
 
-    .line 110
-    nop
-
-    .line 111
     return-void
 
-    .line 109
-    :goto_2
-    new-array v1, v1, [Ljava/io/Closeable;
+    :catchall_1
+    move-exception v2
 
-    aput-object v0, v1, v2
+    :goto_3
+    new-array v0, v0, [Ljava/io/Closeable;
 
-    invoke-static {v1}, Lcom/maya/open/utils/CloseUtils;->closeIO([Ljava/io/Closeable;)V
+    aput-object v3, v0, v1
+
+    invoke-static {v0}, Lcom/maya/open/utils/CloseUtils;->closeIO([Ljava/io/Closeable;)V
 
     .line 110
-    throw v3
+    throw v2
 .end method

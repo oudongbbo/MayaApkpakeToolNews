@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/s/core/interfaces/SdkInterface;
 .super Ljava/lang/Object;
-.source "SdkInterface.java"
+.source "SourceFile"
 
 
 # virtual methods
@@ -43,7 +43,7 @@
 .method public abstract userLogout()V
 .end method
 
-.method public abstract userPay(Landroid/content/Context;Lcom/maya/sdk/framework/pay/PayInfoBean;Lcom/maya/sdk/framework/interfaces/SdkResultCallback;)V
+.method public abstract userPay(Landroid/content/Context;Lcom/maya/sdk/framework/pay/a;Lcom/maya/sdk/framework/interfaces/SdkResultCallback;)V
 .end method
 
 .method public abstract userSwitch(Landroid/content/Context;Lcom/maya/sdk/framework/interfaces/SdkResultCallback;)V

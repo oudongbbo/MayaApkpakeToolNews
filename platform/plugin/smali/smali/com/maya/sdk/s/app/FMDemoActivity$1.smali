@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/FMDemoActivity$1;
 .super Ljava/lang/Object;
-.source "FMDemoActivity.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/sdk/framework/interfaces/ResultCallback;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+.field final synthetic a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/FMDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/FMDemoActivity;
 
     .line 40
-    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$1;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$1;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,10 +37,9 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 3
-    .param p1, "message"    # Ljava/lang/String;
 
     .line 50
-    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$1;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$1;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -55,17 +53,16 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
-    .line 51
     return-void
 .end method
 
@@ -73,7 +70,7 @@
     .locals 3
 
     .line 44
-    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$1;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$1;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     const-string v1, "\u521d\u59cb\u5316\u6210\u529f"
 
@@ -85,6 +82,5 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    .line 46
     return-void
 .end method

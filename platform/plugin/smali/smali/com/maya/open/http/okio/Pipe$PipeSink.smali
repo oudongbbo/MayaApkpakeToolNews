@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okio/Pipe$PipeSink;
 .super Ljava/lang/Object;
-.source "Pipe.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -25,8 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okio/Pipe;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/maya/open/http/okio/Pipe;
+    .locals 0
 
     .line 59
     iput-object p1, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
@@ -34,11 +33,11 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 60
-    new-instance v0, Lcom/maya/open/http/okio/Timeout;
+    new-instance p1, Lcom/maya/open/http/okio/Timeout;
 
-    invoke-direct {v0}, Lcom/maya/open/http/okio/Timeout;-><init>()V
+    invoke-direct {p1}, Lcom/maya/open/http/okio/Timeout;-><init>()V
 
-    iput-object v0, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->timeout:Lcom/maya/open/http/okio/Timeout;
+    iput-object p1, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->timeout:Lcom/maya/open/http/okio/Timeout;
 
     return-void
 .end method
@@ -47,11 +46,6 @@
 # virtual methods
 .method public close()V
     .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 95
     iget-object v0, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
@@ -74,10 +68,10 @@
 
     return-void
 
-    .line 98
     :cond_0
     const/4 v1, 0x1
 
+    .line 98
     :try_start_1
     invoke-virtual {p0}, Lcom/maya/open/http/okio/Pipe$PipeSink;->flush()V
     :try_end_1
@@ -96,19 +90,15 @@
 
     invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
-    .line 102
-    nop
-
     .line 103
     monitor-exit v0
 
-    .line 104
     return-void
 
-    .line 100
     :catchall_0
     move-exception v2
 
+    .line 100
     iget-object v3, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
 
     iput-boolean v1, v3, Lcom/maya/open/http/okio/Pipe;->sinkClosed:Z
@@ -123,10 +113,10 @@
     .line 102
     throw v2
 
-    .line 103
     :catchall_1
     move-exception v1
 
+    .line 103
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
@@ -136,11 +126,6 @@
 
 .method public flush()V
     .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 84
     iget-object v0, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
@@ -205,7 +190,6 @@
     :cond_1
     monitor-exit v0
 
-    .line 92
     return-void
 
     .line 85
@@ -218,10 +202,10 @@
 
     throw v1
 
-    .line 91
     :catchall_0
     move-exception v1
 
+    .line 91
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -240,13 +224,6 @@
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
     .locals 8
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 63
     iget-object v0, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
@@ -263,7 +240,6 @@
 
     if-nez v1, :cond_3
 
-    .line 66
     :goto_0
     const-wide/16 v1, 0x0
 
@@ -295,8 +271,6 @@
 
     sub-long/2addr v3, v5
 
-    .line 70
-    .local v3, "bufferSpaceAvailable":J
     cmp-long v5, v3, v1
 
     if-nez v5, :cond_0
@@ -310,7 +284,6 @@
 
     invoke-virtual {v1, v2}, Lcom/maya/open/http/okio/Timeout;->waitUntilNotified(Ljava/lang/Object;)V
 
-    .line 72
     goto :goto_0
 
     .line 75
@@ -320,64 +293,58 @@
     move-result-wide v1
 
     .line 76
-    .local v1, "bytesToWrite":J
-    iget-object v5, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
+    iget-object v3, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
 
-    iget-object v5, v5, Lcom/maya/open/http/okio/Pipe;->buffer:Lcom/maya/open/http/okio/Buffer;
+    iget-object v3, v3, Lcom/maya/open/http/okio/Pipe;->buffer:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {v5, p1, v1, v2}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/Buffer;J)V
+    invoke-virtual {v3, p1, v1, v2}, Lcom/maya/open/http/okio/Buffer;->write(Lcom/maya/open/http/okio/Buffer;J)V
 
-    .line 77
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     sub-long/2addr p2, v1
 
     .line 78
-    iget-object v5, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
+    iget-object v1, p0, Lcom/maya/open/http/okio/Pipe$PipeSink;->this$0:Lcom/maya/open/http/okio/Pipe;
 
-    iget-object v5, v5, Lcom/maya/open/http/okio/Pipe;->buffer:Lcom/maya/open/http/okio/Buffer;
+    iget-object v1, v1, Lcom/maya/open/http/okio/Pipe;->buffer:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {v5}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
-    .line 79
-    .end local v1    # "bytesToWrite":J
-    .end local v3    # "bufferSpaceAvailable":J
     goto :goto_0
 
     .line 67
     :cond_1
-    new-instance v1, Ljava/io/IOException;
+    new-instance p1, Ljava/io/IOException;
 
-    const-string v2, "source is closed"
+    const-string p2, "source is closed"
 
-    invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
 
     .line 80
     :cond_2
     monitor-exit v0
 
-    .line 81
     return-void
 
     .line 64
     :cond_3
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw p1
+
+    :catchall_0
+    move-exception p1
 
     .line 80
-    :catchall_0
-    move-exception v1
-
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw p1
 .end method

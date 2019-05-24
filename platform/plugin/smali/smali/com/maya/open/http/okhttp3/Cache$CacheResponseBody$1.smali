@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/Cache$CacheResponseBody$1;
 .super Lcom/maya/open/http/okio/ForwardingSource;
-.source "Cache.java"
+.source "SourceFile"
 
 
 # annotations
@@ -23,8 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/Cache$CacheResponseBody;Lcom/maya/open/http/okio/Source;Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/Cache$CacheResponseBody;
-    .param p2, "delegate"    # Lcom/maya/open/http/okio/Source;
 
     .line 750
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/Cache$CacheResponseBody$1;->this$0:Lcom/maya/open/http/okhttp3/Cache$CacheResponseBody;
@@ -40,11 +38,6 @@
 # virtual methods
 .method public close()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 752
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/Cache$CacheResponseBody$1;->val$snapshot:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
@@ -54,6 +47,5 @@
     .line 753
     invoke-super {p0}, Lcom/maya/open/http/okio/ForwardingSource;->close()V
 
-    .line 754
     return-void
 .end method

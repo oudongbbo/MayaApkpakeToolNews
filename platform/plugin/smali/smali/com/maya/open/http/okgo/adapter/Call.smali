@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okgo/adapter/Call;
 .super Ljava/lang/Object;
-.source "Call.java"
+.source "SourceFile"
 
 
 # annotations
@@ -34,12 +34,6 @@
             "()",
             "Lcom/maya/open/http/okgo/model/Response<",
             "TT;>;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
         }
     .end annotation
 .end method

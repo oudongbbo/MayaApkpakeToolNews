@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
 .super Ljava/lang/Object;
-.source "ConnectionSpec.java"
+.source "SourceFile"
 
 
 # annotations
@@ -27,7 +27,6 @@
 # direct methods
 .method public constructor <init>(Lcom/maya/open/http/okhttp3/ConnectionSpec;)V
     .locals 1
-    .param p1, "connectionSpec"    # Lcom/maya/open/http/okhttp3/ConnectionSpec;
 
     .line 264
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,17 +47,15 @@
     iput-object v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tlsVersions:[Ljava/lang/String;
 
     .line 268
-    iget-boolean v0, p1, Lcom/maya/open/http/okhttp3/ConnectionSpec;->supportsTlsExtensions:Z
+    iget-boolean p1, p1, Lcom/maya/open/http/okhttp3/ConnectionSpec;->supportsTlsExtensions:Z
 
-    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->supportsTlsExtensions:Z
+    iput-boolean p1, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->supportsTlsExtensions:Z
 
-    .line 269
     return-void
 .end method
 
 .method constructor <init>(Z)V
     .locals 0
-    .param p1, "tls"    # Z
 
     .line 260
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +63,6 @@
     .line 261
     iput-boolean p1, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tls:Z
 
-    .line 262
     return-void
 .end method
 
@@ -80,12 +76,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 273
     const/4 v0, 0x0
 
+    .line 273
     iput-object v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->cipherSuites:[Ljava/lang/String;
 
-    .line 274
     return-object p0
 
     .line 272
@@ -107,12 +102,11 @@
 
     if-eqz v0, :cond_0
 
-    .line 300
     const/4 v0, 0x0
 
+    .line 300
     iput-object v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tlsVersions:[Ljava/lang/String;
 
-    .line 301
     return-object p0
 
     .line 299
@@ -139,7 +133,6 @@
 
 .method public varargs cipherSuites([Lcom/maya/open/http/okhttp3/CipherSuite;)Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
     .locals 3
-    .param p1, "cipherSuites"    # [Lcom/maya/open/http/okhttp3/CipherSuite;
 
     .line 278
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tls:Z
@@ -151,11 +144,9 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 281
-    .local v0, "strings":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 281
     :goto_0
     array-length v2, p1
 
@@ -168,35 +159,31 @@
 
     aput-object v2, v0, v1
 
-    .line 281
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 284
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0, v0}, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->cipherSuites([Ljava/lang/String;)Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 278
-    .end local v0    # "strings":[Ljava/lang/String;
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "no cipher suites for cleartext connections"
+    const-string v0, "no cipher suites for cleartext connections"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs cipherSuites([Ljava/lang/String;)Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
-    .locals 2
-    .param p1, "cipherSuites"    # [Ljava/lang/String;
+    .locals 1
 
     .line 288
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tls:Z
@@ -211,39 +198,37 @@
     .line 294
     invoke-virtual {p1}, [Ljava/lang/String;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/String;
+    check-cast p1, [Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->cipherSuites:[Ljava/lang/String;
+    iput-object p1, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->cipherSuites:[Ljava/lang/String;
 
-    .line 295
     return-object p0
 
     .line 291
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "At least one cipher suite is required"
+    const-string v0, "At least one cipher suite is required"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 288
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "no cipher suites for cleartext connections"
+    const-string v0, "no cipher suites for cleartext connections"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public supportsTlsExtensions(Z)Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
-    .locals 2
-    .param p1, "supportsTlsExtensions"    # Z
+    .locals 1
 
     .line 327
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tls:Z
@@ -253,23 +238,21 @@
     .line 328
     iput-boolean p1, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->supportsTlsExtensions:Z
 
-    .line 329
     return-object p0
 
     .line 327
     :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "no TLS extensions for cleartext connections"
+    const-string v0, "no TLS extensions for cleartext connections"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs tlsVersions([Lcom/maya/open/http/okhttp3/TlsVersion;)Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
     .locals 3
-    .param p1, "tlsVersions"    # [Lcom/maya/open/http/okhttp3/TlsVersion;
 
     .line 305
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tls:Z
@@ -281,11 +264,9 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    .line 308
-    .local v0, "strings":[Ljava/lang/String;
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 308
     :goto_0
     array-length v2, p1
 
@@ -298,35 +279,31 @@
 
     aput-object v2, v0, v1
 
-    .line 308
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     .line 312
-    .end local v1    # "i":I
     :cond_0
     invoke-virtual {p0, v0}, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tlsVersions([Ljava/lang/String;)Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 
     .line 305
-    .end local v0    # "strings":[Ljava/lang/String;
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "no TLS versions for cleartext connections"
+    const-string v0, "no TLS versions for cleartext connections"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public varargs tlsVersions([Ljava/lang/String;)Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;
-    .locals 2
-    .param p1, "tlsVersions"    # [Ljava/lang/String;
+    .locals 1
 
     .line 316
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tls:Z
@@ -341,32 +318,31 @@
     .line 322
     invoke-virtual {p1}, [Ljava/lang/String;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/String;
+    check-cast p1, [Ljava/lang/String;
 
-    iput-object v0, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tlsVersions:[Ljava/lang/String;
+    iput-object p1, p0, Lcom/maya/open/http/okhttp3/ConnectionSpec$Builder;->tlsVersions:[Ljava/lang/String;
 
-    .line 323
     return-object p0
 
     .line 319
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "At least one TLS version is required"
+    const-string v0, "At least one TLS version is required"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 316
     :cond_1
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "no TLS versions for cleartext connections"
+    const-string v0, "no TLS versions for cleartext connections"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

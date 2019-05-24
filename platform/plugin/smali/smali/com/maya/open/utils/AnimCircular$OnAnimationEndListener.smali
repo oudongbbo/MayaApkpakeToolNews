@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/utils/AnimCircular$OnAnimationEndListener;
 .super Ljava/lang/Object;
-.source "AnimCircular.java"
+.source "SourceFile"
 
 
 # annotations

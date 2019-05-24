@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/s/core/activity/SdkProxyActivity;
 .super Landroid/app/Activity;
-.source "SdkProxyActivity.java"
+.source "SourceFile"
 
 
 # static fields
@@ -16,7 +16,7 @@
 
 
 # instance fields
-.field private tag:Ljava/lang/String;
+.field private a:Ljava/lang/String;
 
 
 # direct methods
@@ -32,8 +32,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 1
 
     .line 19
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -41,22 +40,20 @@
     .line 21
     invoke-virtual {p0}, Lcom/maya/sdk/s/core/activity/SdkProxyActivity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p1
 
     .line 22
-    .local v0, "intent":Landroid/content/Intent;
-    invoke-virtual {v0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    invoke-virtual {p1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v1
+    move-result-object p1
 
-    const-string v2, "tag"
+    const-string v0, "tag"
 
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    iput-object v1, p0, Lcom/maya/sdk/s/core/activity/SdkProxyActivity;->tag:Ljava/lang/String;
+    iput-object p1, p0, Lcom/maya/sdk/s/core/activity/SdkProxyActivity;->a:Ljava/lang/String;
 
-    .line 24
     return-void
 .end method

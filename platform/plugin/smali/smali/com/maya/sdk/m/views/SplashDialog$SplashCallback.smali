@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/m/views/SplashDialog$SplashCallback;
 .super Ljava/lang/Object;
-.source "SplashDialog.java"
+.source "SourceFile"
 
 
 # annotations

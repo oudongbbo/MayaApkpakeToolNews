@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okio/Okio$1;
 .super Ljava/lang/Object;
-.source "Okio.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -41,35 +41,23 @@
 # virtual methods
 .method public close()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 95
     iget-object v0, p0, Lcom/maya/open/http/okio/Okio$1;->val$out:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
 
-    .line 96
     return-void
 .end method
 
 .method public flush()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 91
     iget-object v0, p0, Lcom/maya/open/http/okio/Okio$1;->val$out:Ljava/io/OutputStream;
 
     invoke-virtual {v0}, Ljava/io/OutputStream;->flush()V
 
-    .line 92
     return-void
 .end method
 
@@ -111,13 +99,6 @@
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
     .locals 6
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 72
     iget-wide v0, p1, Lcom/maya/open/http/okio/Buffer;->size:J
@@ -128,7 +109,7 @@
 
     invoke-static/range {v0 .. v5}, Lcom/maya/open/http/okio/Util;->checkOffsetAndCount(JJJ)V
 
-    .line 73
+    :cond_0
     :goto_0
     const-wide/16 v0, 0x0
 
@@ -145,7 +126,6 @@
     iget-object v0, p1, Lcom/maya/open/http/okio/Buffer;->head:Lcom/maya/open/http/okio/Segment;
 
     .line 76
-    .local v0, "head":Lcom/maya/open/http/okio/Segment;
     iget v1, v0, Lcom/maya/open/http/okio/Segment;->limit:I
 
     iget v2, v0, Lcom/maya/open/http/okio/Segment;->pos:I
@@ -161,7 +141,6 @@
     long-to-int v1, v1
 
     .line 77
-    .local v1, "toCopy":I
     iget-object v2, p0, Lcom/maya/open/http/okio/Okio$1;->val$out:Ljava/io/OutputStream;
 
     iget-object v3, v0, Lcom/maya/open/http/okio/Segment;->data:[B
@@ -177,44 +156,36 @@
 
     iput v2, v0, Lcom/maya/open/http/okio/Segment;->pos:I
 
-    .line 80
-    int-to-long v2, v1
+    int-to-long v1, v1
 
-    sub-long/2addr p2, v2
+    sub-long/2addr p2, v1
 
     .line 81
-    iget-wide v2, p1, Lcom/maya/open/http/okio/Buffer;->size:J
+    iget-wide v3, p1, Lcom/maya/open/http/okio/Buffer;->size:J
 
-    int-to-long v4, v1
+    sub-long/2addr v3, v1
 
-    sub-long/2addr v2, v4
-
-    iput-wide v2, p1, Lcom/maya/open/http/okio/Buffer;->size:J
+    iput-wide v3, p1, Lcom/maya/open/http/okio/Buffer;->size:J
 
     .line 83
-    iget v2, v0, Lcom/maya/open/http/okio/Segment;->pos:I
+    iget v1, v0, Lcom/maya/open/http/okio/Segment;->pos:I
 
-    iget v3, v0, Lcom/maya/open/http/okio/Segment;->limit:I
+    iget v2, v0, Lcom/maya/open/http/okio/Segment;->limit:I
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
     .line 84
     invoke-virtual {v0}, Lcom/maya/open/http/okio/Segment;->pop()Lcom/maya/open/http/okio/Segment;
 
-    move-result-object v2
+    move-result-object v1
 
-    iput-object v2, p1, Lcom/maya/open/http/okio/Buffer;->head:Lcom/maya/open/http/okio/Segment;
+    iput-object v1, p1, Lcom/maya/open/http/okio/Buffer;->head:Lcom/maya/open/http/okio/Segment;
 
     .line 85
     invoke-static {v0}, Lcom/maya/open/http/okio/SegmentPool;->recycle(Lcom/maya/open/http/okio/Segment;)V
 
-    .line 87
-    .end local v0    # "head":Lcom/maya/open/http/okio/Segment;
-    .end local v1    # "toCopy":I
-    :cond_0
     goto :goto_0
 
-    .line 88
     :cond_1
     return-void
 .end method

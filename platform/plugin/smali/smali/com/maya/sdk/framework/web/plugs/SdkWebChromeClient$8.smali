@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$8;
 .super Ljava/lang/Object;
-.source "SdkWebChromeClient.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnKeyListener;
@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
     .line 161
     iput-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$8;->this$0:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
@@ -37,13 +36,9 @@
 
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "keyCode"    # I
-    .param p3, "event"    # Landroid/view/KeyEvent;
+    .locals 0
 
-    .line 165
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

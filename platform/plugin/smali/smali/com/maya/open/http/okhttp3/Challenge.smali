@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/Challenge;
 .super Ljava/lang/Object;
-.source "Challenge.java"
+.source "SourceFile"
 
 
 # instance fields
@@ -12,8 +12,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .param p1, "scheme"    # Ljava/lang/String;
-    .param p2, "realm"    # Ljava/lang/String;
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +22,6 @@
     .line 29
     iput-object p2, p0, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
 
-    .line 30
     return-void
 .end method
 
@@ -32,7 +29,6 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
 
     .line 43
     instance-of v0, p1, Lcom/maya/open/http/okhttp3/Challenge;
@@ -41,11 +37,9 @@
 
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/Challenge;->scheme:Ljava/lang/String;
 
-    move-object v1, p1
+    check-cast p1, Lcom/maya/open/http/okhttp3/Challenge;
 
-    check-cast v1, Lcom/maya/open/http/okhttp3/Challenge;
-
-    iget-object v1, v1, Lcom/maya/open/http/okhttp3/Challenge;->scheme:Ljava/lang/String;
+    iget-object v1, p1, Lcom/maya/open/http/okhttp3/Challenge;->scheme:Ljava/lang/String;
 
     .line 44
     invoke-static {v0, v1}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -56,85 +50,69 @@
 
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
 
-    move-object v1, p1
-
-    check-cast v1, Lcom/maya/open/http/okhttp3/Challenge;
-
-    iget-object v1, v1, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
+    iget-object p1, p1, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
 
     .line 45
-    invoke-static {v0, v1}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lcom/maya/open/http/okhttp3/internal/Util;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    return p1
+.end method
+
+.method public hashCode()I
+    .locals 3
+
+    .line 50
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
+
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
+
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
+
+    move-result v0
 
     goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
 
-    .line 43
     :goto_0
-    return v0
-.end method
+    const/16 v2, 0x383
 
-.method public hashCode()I
-    .locals 4
+    add-int/2addr v2, v0
 
-    .line 49
-    const/16 v0, 0x1d
-
-    .line 50
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
-
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
-
-    const/4 v3, 0x0
-
-    if-eqz v2, :cond_0
-
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Challenge;->realm:Ljava/lang/String;
-
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
-
-    move-result v2
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v2, 0x0
-
-    :goto_0
-    add-int/2addr v1, v2
+    mul-int/lit8 v2, v2, 0x1f
 
     .line 51
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Challenge;->scheme:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Challenge;->scheme:Ljava/lang/String;
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_1
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/Challenge;->scheme:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/Challenge;->scheme:Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
-
-    move-result v3
-
-    nop
+    move-result v1
 
     :cond_1
-    add-int/2addr v0, v3
+    add-int/2addr v2, v1
 
-    .line 52
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    return v0
+    return v2
 .end method
 
 .method public realm()Ljava/lang/String;

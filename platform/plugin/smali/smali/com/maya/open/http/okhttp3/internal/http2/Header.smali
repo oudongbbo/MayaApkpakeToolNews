@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/internal/http2/Header;
 .super Ljava/lang/Object;
-.source "Header.java"
+.source "SourceFile"
 
 
 # static fields
@@ -29,54 +29,54 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 25
     const-string v0, ":"
 
+    .line 25
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->PSEUDO_PREFIX:Lcom/maya/open/http/okio/ByteString;
 
-    .line 26
     const-string v0, ":status"
 
+    .line 26
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->RESPONSE_STATUS:Lcom/maya/open/http/okio/ByteString;
 
-    .line 27
     const-string v0, ":method"
 
+    .line 27
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->TARGET_METHOD:Lcom/maya/open/http/okio/ByteString;
 
-    .line 28
     const-string v0, ":path"
 
+    .line 28
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->TARGET_PATH:Lcom/maya/open/http/okio/ByteString;
 
-    .line 29
     const-string v0, ":scheme"
 
+    .line 29
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->TARGET_SCHEME:Lcom/maya/open/http/okio/ByteString;
 
-    .line 30
     const-string v0, ":authority"
 
+    .line 30
     invoke-static {v0}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
     move-result-object v0
@@ -87,9 +87,7 @@
 .end method
 
 .method public constructor <init>(Lcom/maya/open/http/okio/ByteString;Lcom/maya/open/http/okio/ByteString;)V
-    .locals 2
-    .param p1, "name"    # Lcom/maya/open/http/okio/ByteString;
-    .param p2, "value"    # Lcom/maya/open/http/okio/ByteString;
+    .locals 0
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,63 +101,55 @@
     .line 50
     invoke-virtual {p1}, Lcom/maya/open/http/okio/ByteString;->size()I
 
-    move-result v0
+    move-result p1
 
-    add-int/lit8 v0, v0, 0x20
+    add-int/lit8 p1, p1, 0x20
 
     invoke-virtual {p2}, Lcom/maya/open/http/okio/ByteString;->size()I
 
-    move-result v1
+    move-result p2
 
-    add-int/2addr v0, v1
+    add-int/2addr p1, p2
 
-    iput v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->hpackSize:I
+    iput p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->hpackSize:I
 
-    .line 51
     return-void
 .end method
 
 .method public constructor <init>(Lcom/maya/open/http/okio/ByteString;Ljava/lang/String;)V
-    .locals 1
-    .param p1, "name"    # Lcom/maya/open/http/okio/ByteString;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 44
     invoke-static {p2}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-direct {p0, p1, v0}, Lcom/maya/open/http/okhttp3/internal/http2/Header;-><init>(Lcom/maya/open/http/okio/ByteString;Lcom/maya/open/http/okio/ByteString;)V
+    invoke-direct {p0, p1, p2}, Lcom/maya/open/http/okhttp3/internal/http2/Header;-><init>(Lcom/maya/open/http/okio/ByteString;Lcom/maya/open/http/okio/ByteString;)V
 
-    .line 45
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
+    .locals 0
 
     .line 40
     invoke-static {p1}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
-    move-result-object v0
+    move-result-object p1
 
     invoke-static {p2}, Lcom/maya/open/http/okio/ByteString;->encodeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/ByteString;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {p0, v0, v1}, Lcom/maya/open/http/okhttp3/internal/http2/Header;-><init>(Lcom/maya/open/http/okio/ByteString;Lcom/maya/open/http/okio/ByteString;)V
+    invoke-direct {p0, p1, p2}, Lcom/maya/open/http/okhttp3/internal/http2/Header;-><init>(Lcom/maya/open/http/okio/ByteString;Lcom/maya/open/http/okio/ByteString;)V
 
-    .line 41
     return-void
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
-    .param p1, "other"    # Ljava/lang/Object;
+    .locals 3
 
     .line 54
     instance-of v0, p1, Lcom/maya/open/http/okhttp3/internal/http2/Header;
@@ -169,92 +159,75 @@
     if-eqz v0, :cond_1
 
     .line 55
-    move-object v0, p1
-
-    check-cast v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;
+    check-cast p1, Lcom/maya/open/http/okhttp3/internal/http2/Header;
 
     .line 56
-    .local v0, "that":Lcom/maya/open/http/okhttp3/internal/http2/Header;
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
 
-    iget-object v3, v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
+    iget-object v2, p1, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
 
-    invoke-virtual {v2, v3}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
 
-    iget-object v3, v0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
+    iget-object p1, p1, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
 
     .line 57
-    invoke-virtual {v2, v3}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Lcom/maya/open/http/okio/ByteString;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result p1
 
-    if-eqz v2, :cond_0
+    if-eqz p1, :cond_0
 
     const/4 v1, 0x1
 
-    nop
-
-    .line 56
     :cond_0
     return v1
 
-    .line 59
-    .end local v0    # "that":Lcom/maya/open/http/okhttp3/internal/http2/Header;
     :cond_1
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 3
-
-    .line 63
-    const/16 v0, 0x11
+    .locals 2
 
     .line 64
-    .local v0, "result":I
-    mul-int/lit8 v1, v0, 0x1f
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/ByteString;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/maya/open/http/okio/ByteString;->hashCode()I
+    move-result v0
 
-    move-result v2
+    const/16 v1, 0x20f
 
-    add-int/2addr v1, v2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
 
     .line 65
-    .end local v0    # "result":I
-    .local v1, "result":I
-    mul-int/lit8 v0, v1, 0x1f
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->value:Lcom/maya/open/http/okio/ByteString;
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/ByteString;->hashCode()I
 
-    invoke-virtual {v2}, Lcom/maya/open/http/okio/ByteString;->hashCode()I
+    move-result v0
 
-    move-result v2
+    add-int/2addr v1, v0
 
-    add-int/2addr v0, v2
-
-    .line 66
-    .end local v1    # "result":I
-    .restart local v0    # "result":I
-    return v0
+    return v1
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
-    .line 70
     const-string v0, "%s: %s"
 
     const/4 v1, 0x2
 
+    .line 70
     new-array v1, v1, [Ljava/lang/Object;
 
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Header;->name:Lcom/maya/open/http/okio/ByteString;

@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/Dns;
 .super Ljava/lang/Object;
-.source "Dns.java"
+.source "SourceFile"
 
 
 # static fields
@@ -32,12 +32,6 @@
             "Ljava/util/List<",
             "Ljava/net/InetAddress;",
             ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/net/UnknownHostException;
         }
     .end annotation
 .end method

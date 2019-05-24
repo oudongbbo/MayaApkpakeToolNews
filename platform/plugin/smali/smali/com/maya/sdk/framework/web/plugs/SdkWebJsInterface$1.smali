@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface$1;
 .super Ljava/lang/Object;
-.source "SdkWebJsInterface.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;
 
     .line 59
     iput-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface$1;->this$0:Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;
@@ -53,7 +52,6 @@
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->reload()V
 
-    .line 65
     :cond_0
     return-void
 .end method

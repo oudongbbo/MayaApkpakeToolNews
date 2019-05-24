@@ -171,6 +171,11 @@ public class PlatformBuild {
                 case Platforms.SDK_YOUXIFAN:
                     builder = new YouXiFanBuilder(apkParser);
                     break;
+
+                case Platforms.SDK_JULERONGCHENG:
+                    builder = new JuLeRongChengBuilder(apkParser);
+                    break;
+
                 default:
                     builder = new BaseBuilder(apkParser);
                     break;

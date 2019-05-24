@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;
 .super Ljava/lang/Object;
-.source "PriorityBlockingQueue.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/util/Iterator;
@@ -60,7 +60,6 @@
     .locals 1
 
     .line 487
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Itr;"
     iput-object p1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -95,13 +94,8 @@
     :cond_0
     invoke-virtual {p1}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->fullyUnlock()V
 
-    .line 494
-    nop
-
-    .line 495
     return-void
 
-    .line 493
     :catchall_0
     move-exception v0
 
@@ -112,7 +106,7 @@
 .end method
 
 .method private nextNode(Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;)Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
-    .locals 2
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,45 +118,37 @@
     .end annotation
 
     .line 504
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Itr;"
-    .local p1, "p":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
     :goto_0
     iget-object v0, p1, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->next:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
-    .line 505
-    .local v0, "s":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
     if-ne v0, p1, :cond_0
 
-    iget-object v1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
+    .line 505
+    iget-object p1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
-    iget-object v1, v1, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->head:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
+    iget-object p1, p1, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->head:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
-    iget-object v1, v1, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->next:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
+    iget-object p1, p1, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->next:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
-    return-object v1
+    return-object p1
 
-    .line 506
     :cond_0
     if-eqz v0, :cond_2
 
+    .line 506
     invoke-virtual {v0}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->getValue()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    if-eqz v1, :cond_1
+    if-eqz p1, :cond_1
 
     goto :goto_1
 
-    .line 507
     :cond_1
     move-object p1, v0
 
-    .line 508
-    .end local v0    # "s":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
     goto :goto_0
 
-    .line 506
-    .restart local v0    # "s":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
     :cond_2
     :goto_1
     return-object v0
@@ -174,7 +160,6 @@
     .locals 1
 
     .line 499
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Itr;"
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->current:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
     if-eqz v0, :cond_0
@@ -199,7 +184,6 @@
     .end annotation
 
     .line 513
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Itr;"
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
     invoke-virtual {v0}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->fullyLock()V
@@ -214,7 +198,6 @@
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->currentElement:Ljava/lang/Object;
 
     .line 517
-    .local v0, "x":Ljava/lang/Object;, "TE;"
     iget-object v1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->current:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
     iput-object v1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->lastRet:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
@@ -249,19 +232,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 520
-    nop
-
     .line 522
     iget-object v1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
     invoke-virtual {v1}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->fullyUnlock()V
 
-    .line 520
     return-object v0
 
     .line 515
-    .end local v0    # "x":Ljava/lang/Object;, "TE;"
     :cond_1
     :try_start_1
     new-instance v0, Ljava/util/NoSuchElementException;
@@ -272,10 +250,10 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 522
     :catchall_0
     move-exception v0
 
+    .line 522
     iget-object v1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
     invoke-virtual {v1}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->fullyUnlock()V
@@ -288,7 +266,6 @@
     .locals 4
 
     .line 528
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Itr;"
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->lastRet:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
     if-eqz v0, :cond_2
@@ -302,10 +279,9 @@
     :try_start_0
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->lastRet:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
-    .line 532
-    .local v0, "node":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
     const/4 v1, 0x0
 
+    .line 532
     iput-object v1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->lastRet:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
     .line 533
@@ -313,53 +289,34 @@
 
     iget-object v1, v1, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->head:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
-    .local v1, "trail":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
+    :cond_0
     iget-object v2, v1, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->next:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 
-    .local v2, "p":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
-    :goto_0
-    if-eqz v2, :cond_1
+    move-object v3, v2
 
-    .line 534
-    if-ne v2, v0, :cond_0
+    move-object v2, v1
+
+    move-object v1, v3
+
+    if-eqz v1, :cond_1
+
+    if-ne v1, v0, :cond_0
 
     .line 535
-    iget-object v3, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
+    iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
-    invoke-virtual {v3, v2, v1}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->unlink(Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;)V
-
-    .line 536
-    goto :goto_1
-
-    .line 533
-    :cond_0
-    move-object v1, v2
-
-    iget-object v3, v2, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->next:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
+    invoke-virtual {v0, v1, v2}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->unlink(Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-object v2, v3
-
-    goto :goto_0
-
     .line 540
-    .end local v0    # "node":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
-    .end local v1    # "trail":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
-    .end local v2    # "p":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TE;>;"
     :cond_1
-    :goto_1
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Itr;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
     invoke-virtual {v0}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;->fullyUnlock()V
 
-    .line 541
-    nop
-
-    .line 542
     return-void
 
-    .line 540
     :catchall_0
     move-exception v0
 

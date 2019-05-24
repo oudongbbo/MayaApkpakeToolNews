@@ -1,6 +1,6 @@
 .class interface abstract Lcom/maya/sdk/framework/web/SdkWebDialog$sdkWebDialogLisenter;
 .super Ljava/lang/Object;
-.source "SdkWebDialog.java"
+.source "SourceFile"
 
 
 # annotations

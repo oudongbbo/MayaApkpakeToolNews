@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$2;
 .super Ljava/lang/Object;
-.source "SdkWebChromeClient.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;Landroid/webkit/JsResult;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
     .line 103
     iput-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$2;->this$0:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
@@ -41,15 +40,12 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
-    .param p2, "which"    # I
+    .locals 0
 
     .line 106
-    iget-object v0, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$2;->val$result:Landroid/webkit/JsResult;
+    iget-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$2;->val$result:Landroid/webkit/JsResult;
 
-    invoke-virtual {v0}, Landroid/webkit/JsResult;->cancel()V
+    invoke-virtual {p1}, Landroid/webkit/JsResult;->cancel()V
 
-    .line 107
     return-void
 .end method

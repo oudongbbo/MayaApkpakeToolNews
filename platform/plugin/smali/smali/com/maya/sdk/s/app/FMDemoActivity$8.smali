@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/FMDemoActivity$8;
 .super Ljava/lang/Object;
-.source "FMDemoActivity.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+.field final synthetic a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/FMDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    .line 248
-    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$8;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 233
+    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$8;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,20 +37,30 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
-    .param p1, "v"    # Landroid/view/View;
 
-    .line 252
-    new-instance v0, Ljava/lang/Thread;
+    .line 237
+    new-instance p1, Lcom/maya/sdk/framework/b/a;
 
-    new-instance v1, Lcom/maya/sdk/s/app/FMDemoActivity$8$1;
+    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$8;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    invoke-direct {v1, p0}, Lcom/maya/sdk/s/app/FMDemoActivity$8$1;-><init>(Lcom/maya/sdk/s/app/FMDemoActivity$8;)V
+    invoke-direct {p1, v0}, Lcom/maya/sdk/framework/b/a;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
+    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$8;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    .line 277
-    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
+    invoke-virtual {p1, v0}, Lcom/maya/sdk/framework/b/a;->g(Landroid/content/Context;)V
 
-    .line 279
+    .line 239
+    iget-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$8;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
+
+    const-string v0, "\u6e05\u9664\u6570\u636e\u6210\u529f"
+
+    const/4 v1, 0x0
+
+    invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+
     return-void
 .end method

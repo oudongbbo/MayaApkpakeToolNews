@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/m/views/MoneySelectDialog;
 .super Landroid/app/Dialog;
-.source "MoneySelectDialog.java"
+.source "SourceFile"
 
 
 # annotations
@@ -12,69 +12,61 @@
 
 
 # instance fields
-.field private callback:Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
+.field private a:Landroid/content/Context;
 
-.field private cancel:Landroid/widget/Button;
+.field private b:Landroid/widget/Button;
 
-.field private confirm:Landroid/widget/Button;
+.field private c:Landroid/widget/Button;
 
-.field private context:Landroid/content/Context;
+.field private d:Landroid/widget/EditText;
 
-.field private money:Landroid/widget/EditText;
+.field private e:Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .param p1, "context"    # Landroid/content/Context;
 
     .line 25
     invoke-direct {p0, p1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;)V
 
     .line 26
-    iput-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->context:Landroid/content/Context;
+    iput-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->a:Landroid/content/Context;
 
-    .line 27
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/maya/sdk/m/views/MoneySelectDialog;)Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/views/MoneySelectDialog;
+.method static synthetic a(Lcom/maya/sdk/m/views/MoneySelectDialog;)Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
+    .locals 0
 
     .line 16
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->callback:Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
+    iget-object p0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->e:Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/maya/sdk/m/views/MoneySelectDialog;)Landroid/widget/EditText;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/views/MoneySelectDialog;
+.method static synthetic b(Lcom/maya/sdk/m/views/MoneySelectDialog;)Landroid/widget/EditText;
+    .locals 0
 
     .line 16
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->money:Landroid/widget/EditText;
+    iget-object p0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->d:Landroid/widget/EditText;
 
-    return-object v0
+    return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/maya/sdk/m/views/MoneySelectDialog;)Landroid/content/Context;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/views/MoneySelectDialog;
+.method static synthetic c(Lcom/maya/sdk/m/views/MoneySelectDialog;)Landroid/content/Context;
+    .locals 0
 
     .line 16
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->context:Landroid/content/Context;
+    iget-object p0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->a:Landroid/content/Context;
 
-    return-object v0
+    return-object p0
 .end method
 
 
 # virtual methods
-.method public getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "name"    # Ljava/lang/String;
-    .param p3, "type"    # Ljava/lang/String;
+.method public a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    .locals 1
 
     .line 95
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -84,21 +76,27 @@
     .line 96
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 95
-    invoke-virtual {v0, p2, p3, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v0, p2, p3, p1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    .line 97
-    .local v0, "id":I
-    return v0
+    return p1
+.end method
+
+.method public a(Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;)V
+    .locals 0
+
+    .line 91
+    iput-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->e:Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
+
+    return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 4
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 3
 
     .line 32
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
@@ -106,127 +104,115 @@
     .line 34
     invoke-virtual {p0}, Lcom/maya/sdk/m/views/MoneySelectDialog;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->context:Landroid/content/Context;
+    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->a:Landroid/content/Context;
 
-    const-string v2, "maya_dialog_theme_main"
+    const-string v1, "maya_dialog_theme_main"
 
-    const-string v3, "style"
+    const-string v2, "style"
 
-    invoke-virtual {p0, v1, v2, v3}, Lcom/maya/sdk/m/views/MoneySelectDialog;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v0, v1, v2}, Lcom/maya/sdk/m/views/MoneySelectDialog;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v1
+    move-result v0
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->setTheme(I)V
+    invoke-virtual {p1, v0}, Landroid/content/Context;->setTheme(I)V
 
     .line 36
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->context:Landroid/content/Context;
+    iget-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->a:Landroid/content/Context;
 
-    const-string v1, "maya_dialog_money"
+    const-string v0, "maya_dialog_money"
 
-    const-string v2, "layout"
+    const-string v1, "layout"
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/maya/sdk/m/views/MoneySelectDialog;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, p1, v0, v1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/views/MoneySelectDialog;->setContentView(I)V
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->setContentView(I)V
 
     .line 38
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->context:Landroid/content/Context;
+    iget-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->a:Landroid/content/Context;
 
-    const-string v1, "money"
+    const-string v0, "money"
 
-    const-string v2, "id"
+    const-string v1, "id"
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/maya/sdk/m/views/MoneySelectDialog;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, p1, v0, v1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/views/MoneySelectDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/widget/EditText;
+    check-cast p1, Landroid/widget/EditText;
 
-    iput-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->money:Landroid/widget/EditText;
+    iput-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->d:Landroid/widget/EditText;
 
     .line 39
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->context:Landroid/content/Context;
+    iget-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->a:Landroid/content/Context;
 
-    const-string v1, "cancel"
+    const-string v0, "cancel"
 
-    const-string v2, "id"
+    const-string v1, "id"
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/maya/sdk/m/views/MoneySelectDialog;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, p1, v0, v1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/views/MoneySelectDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast p1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->cancel:Landroid/widget/Button;
+    iput-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->b:Landroid/widget/Button;
 
     .line 40
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->context:Landroid/content/Context;
+    iget-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->a:Landroid/content/Context;
 
-    const-string v1, "confirm"
+    const-string v0, "confirm"
 
-    const-string v2, "id"
+    const-string v1, "id"
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/maya/sdk/m/views/MoneySelectDialog;->getIdByName(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, p1, v0, v1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->a(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/views/MoneySelectDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->findViewById(I)Landroid/view/View;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Landroid/widget/Button;
+    check-cast p1, Landroid/widget/Button;
 
-    iput-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->confirm:Landroid/widget/Button;
+    iput-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->c:Landroid/widget/Button;
 
     .line 42
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->cancel:Landroid/widget/Button;
+    iget-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->b:Landroid/widget/Button;
 
-    new-instance v1, Lcom/maya/sdk/m/views/MoneySelectDialog$1;
+    new-instance v0, Lcom/maya/sdk/m/views/MoneySelectDialog$1;
 
-    invoke-direct {v1, p0}, Lcom/maya/sdk/m/views/MoneySelectDialog$1;-><init>(Lcom/maya/sdk/m/views/MoneySelectDialog;)V
+    invoke-direct {v0, p0}, Lcom/maya/sdk/m/views/MoneySelectDialog$1;-><init>(Lcom/maya/sdk/m/views/MoneySelectDialog;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 54
-    iget-object v0, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->confirm:Landroid/widget/Button;
+    iget-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->c:Landroid/widget/Button;
 
-    new-instance v1, Lcom/maya/sdk/m/views/MoneySelectDialog$2;
+    new-instance v0, Lcom/maya/sdk/m/views/MoneySelectDialog$2;
 
-    invoke-direct {v1, p0}, Lcom/maya/sdk/m/views/MoneySelectDialog$2;-><init>(Lcom/maya/sdk/m/views/MoneySelectDialog;)V
+    invoke-direct {v0, p0}, Lcom/maya/sdk/m/views/MoneySelectDialog$2;-><init>(Lcom/maya/sdk/m/views/MoneySelectDialog;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    const/4 p1, 0x0
 
     .line 80
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/views/MoneySelectDialog;->setCanceledOnTouchOutside(Z)V
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->setCanceledOnTouchOutside(Z)V
 
     .line 81
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/views/MoneySelectDialog;->setCancelable(Z)V
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/m/views/MoneySelectDialog;->setCancelable(Z)V
 
-    .line 82
-    return-void
-.end method
-
-.method public setMoneyCallback(Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;)V
-    .locals 0
-    .param p1, "callback"    # Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
-
-    .line 91
-    iput-object p1, p0, Lcom/maya/sdk/m/views/MoneySelectDialog;->callback:Lcom/maya/sdk/m/views/MoneySelectDialog$MoneyCallback;
-
-    .line 92
     return-void
 .end method

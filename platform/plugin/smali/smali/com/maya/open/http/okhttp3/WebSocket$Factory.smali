@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okhttp3/WebSocket$Factory;
 .super Ljava/lang/Object;
-.source "WebSocket.java"
+.source "SourceFile"
 
 
 # annotations

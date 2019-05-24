@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okserver/download/DownloadManager$1;
 .super Ljava/lang/Object;
-.source "DownloadManager.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okserver/task/ExecutorWithListener$OnTaskEndListener;
@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okserver/download/DownloadManager;Lcom/maya/open/http/okserver/download/DownloadInfo;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okserver/download/DownloadManager;
 
     .line 210
     iput-object p1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->this$0:Lcom/maya/open/http/okserver/download/DownloadManager;
@@ -41,8 +40,7 @@
 
 # virtual methods
 .method public onTaskEnd(Ljava/lang/Runnable;)V
-    .locals 8
-    .param p1, "r"    # Ljava/lang/Runnable;
+    .locals 7
 
     .line 213
     iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
@@ -58,58 +56,55 @@
     if-ne p1, v0, :cond_0
 
     .line 215
-    iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->this$0:Lcom/maya/open/http/okserver/download/DownloadManager;
+    iget-object p1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->this$0:Lcom/maya/open/http/okserver/download/DownloadManager;
 
-    # getter for: Lcom/maya/open/http/okserver/download/DownloadManager;->threadPool:Lcom/maya/open/http/okserver/download/DownloadThreadPool;
-    invoke-static {v0}, Lcom/maya/open/http/okserver/download/DownloadManager;->access$000(Lcom/maya/open/http/okserver/download/DownloadManager;)Lcom/maya/open/http/okserver/download/DownloadThreadPool;
+    invoke-static {p1}, Lcom/maya/open/http/okserver/download/DownloadManager;->access$000(Lcom/maya/open/http/okserver/download/DownloadManager;)Lcom/maya/open/http/okserver/download/DownloadThreadPool;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okserver/download/DownloadThreadPool;->getExecutor()Lcom/maya/open/http/okserver/task/ExecutorWithListener;
+    invoke-virtual {p1}, Lcom/maya/open/http/okserver/download/DownloadThreadPool;->getExecutor()Lcom/maya/open/http/okserver/task/ExecutorWithListener;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p0}, Lcom/maya/open/http/okserver/task/ExecutorWithListener;->removeOnTaskEndListener(Lcom/maya/open/http/okserver/task/ExecutorWithListener$OnTaskEndListener;)V
+    invoke-virtual {p1, p0}, Lcom/maya/open/http/okserver/task/ExecutorWithListener;->removeOnTaskEndListener(Lcom/maya/open/http/okserver/task/ExecutorWithListener$OnTaskEndListener;)V
 
     .line 217
-    iget-object v1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->this$0:Lcom/maya/open/http/okserver/download/DownloadManager;
+    iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->this$0:Lcom/maya/open/http/okserver/download/DownloadManager;
 
-    iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
+    iget-object p1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getFileName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getFileName()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object p1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
+
+    invoke-virtual {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getTaskKey()Ljava/lang/String;
 
     move-result-object v2
 
-    iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
+    iget-object p1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getTaskKey()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getData()Ljava/io/Serializable;
 
     move-result-object v3
 
-    iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
+    iget-object p1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getData()Ljava/io/Serializable;
+    invoke-virtual {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getRequest()Lcom/maya/open/http/okgo/request/BaseRequest;
 
     move-result-object v4
 
-    iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
+    iget-object p1, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getRequest()Lcom/maya/open/http/okgo/request/BaseRequest;
+    invoke-virtual {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getListener()Lcom/maya/open/http/okserver/listener/DownloadListener;
 
     move-result-object v5
 
-    iget-object v0, p0, Lcom/maya/open/http/okserver/download/DownloadManager$1;->val$downloadInfo:Lcom/maya/open/http/okserver/download/DownloadInfo;
+    const/4 v6, 0x1
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getListener()Lcom/maya/open/http/okserver/listener/DownloadListener;
+    invoke-static/range {v0 .. v6}, Lcom/maya/open/http/okserver/download/DownloadManager;->access$100(Lcom/maya/open/http/okserver/download/DownloadManager;Ljava/lang/String;Ljava/lang/String;Ljava/io/Serializable;Lcom/maya/open/http/okgo/request/BaseRequest;Lcom/maya/open/http/okserver/listener/DownloadListener;Z)V
 
-    move-result-object v6
-
-    const/4 v7, 0x1
-
-    # invokes: Lcom/maya/open/http/okserver/download/DownloadManager;->addTask(Ljava/lang/String;Ljava/lang/String;Ljava/io/Serializable;Lcom/maya/open/http/okgo/request/BaseRequest;Lcom/maya/open/http/okserver/listener/DownloadListener;Z)V
-    invoke-static/range {v1 .. v7}, Lcom/maya/open/http/okserver/download/DownloadManager;->access$100(Lcom/maya/open/http/okserver/download/DownloadManager;Ljava/lang/String;Ljava/lang/String;Ljava/io/Serializable;Lcom/maya/open/http/okgo/request/BaseRequest;Lcom/maya/open/http/okserver/listener/DownloadListener;Z)V
-
-    .line 219
     :cond_0
     return-void
 .end method

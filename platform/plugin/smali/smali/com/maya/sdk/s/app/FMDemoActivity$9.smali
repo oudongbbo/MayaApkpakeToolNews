@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/FMDemoActivity$9;
 .super Ljava/lang/Object;
-.source "FMDemoActivity.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+.field final synthetic a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/FMDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    .line 286
-    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$9;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 248
+    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$9;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,20 +36,19 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
-    .line 289
-    new-instance v0, Landroid/os/Handler;
+    .line 252
+    new-instance p1, Ljava/lang/Thread;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    new-instance v0, Lcom/maya/sdk/s/app/FMDemoActivity$9$1;
 
-    new-instance v1, Lcom/maya/sdk/s/app/FMDemoActivity$9$1;
+    invoke-direct {v0, p0}, Lcom/maya/sdk/s/app/FMDemoActivity$9$1;-><init>(Lcom/maya/sdk/s/app/FMDemoActivity$9;)V
 
-    invoke-direct {v1, p0}, Lcom/maya/sdk/s/app/FMDemoActivity$9$1;-><init>(Lcom/maya/sdk/s/app/FMDemoActivity$9;)V
+    invoke-direct {p1, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    .line 277
+    invoke-virtual {p1}, Ljava/lang/Thread;->start()V
 
-    .line 322
     return-void
 .end method

@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okserver/download/db/DownloadInfoDao;
 .super Lcom/maya/open/http/okgo/cache/DataBaseDao;
-.source "DownloadInfoDao.java"
+.source "SourceFile"
 
 
 # annotations
@@ -24,7 +24,6 @@
 
     invoke-direct {p0, v0}, Lcom/maya/open/http/okgo/cache/DataBaseDao;-><init>(Landroid/database/sqlite/SQLiteOpenHelper;)V
 
-    .line 25
     return-void
 .end method
 
@@ -32,13 +31,12 @@
 # virtual methods
 .method public delete(Ljava/lang/String;)V
     .locals 3
-    .param p1, "taskKey"    # Ljava/lang/String;
 
-    .line 36
     const-string v0, "taskKey=?"
 
     const/4 v1, 0x1
 
+    .line 36
     new-array v1, v1, [Ljava/lang/String;
 
     const/4 v2, 0x0
@@ -47,21 +45,17 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/maya/open/http/okserver/download/db/DownloadInfoDao;->delete(Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 37
     return-void
 .end method
 
 .method public get(Ljava/lang/String;)Lcom/maya/open/http/okserver/download/DownloadInfo;
-    .locals 5
-    .param p1, "key"    # Ljava/lang/String;
+    .locals 3
 
-    .line 29
     const-string v0, "taskKey=?"
 
-    .line 30
-    .local v0, "selection":Ljava/lang/String;
     const/4 v1, 0x1
 
+    .line 30
     new-array v1, v1, [Ljava/lang/String;
 
     const/4 v2, 0x0
@@ -69,32 +63,30 @@
     aput-object p1, v1, v2
 
     .line 31
-    .local v1, "selectionArgs":[Ljava/lang/String;
     invoke-virtual {p0, v0, v1}, Lcom/maya/open/http/okserver/download/db/DownloadInfoDao;->get(Ljava/lang/String;[Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object p1
 
     .line 32
-    .local v3, "infos":Ljava/util/List;, "Ljava/util/List<Lcom/maya/open/http/okserver/download/DownloadInfo;>;"
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v0
 
-    if-lez v4, :cond_0
+    if-lez v0, :cond_0
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object p1
 
-    check-cast v2, Lcom/maya/open/http/okserver/download/DownloadInfo;
+    check-cast p1, Lcom/maya/open/http/okserver/download/DownloadInfo;
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return-object v2
+    return-object p1
 .end method
 
 .method public getAll()Ljava/util/List;
@@ -108,7 +100,6 @@
         }
     .end annotation
 
-    .line 45
     const-string v6, "_id ASC"
 
     const/4 v1, 0x0
@@ -125,6 +116,7 @@
 
     move-object v0, p0
 
+    .line 45
     invoke-virtual/range {v0 .. v7}, Lcom/maya/open/http/okserver/download/db/DownloadInfoDao;->get([Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
@@ -133,15 +125,14 @@
 .end method
 
 .method public getContentValues(Lcom/maya/open/http/okserver/download/DownloadInfo;)Landroid/content/ContentValues;
-    .locals 1
-    .param p1, "downloadInfo"    # Lcom/maya/open/http/okserver/download/DownloadInfo;
+    .locals 0
 
     .line 55
     invoke-static {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->buildContentValues(Lcom/maya/open/http/okserver/download/DownloadInfo;)Landroid/content/ContentValues;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic getContentValues(Ljava/lang/Object;)Landroid/content/ContentValues;
@@ -160,22 +151,20 @@
 .method protected getTableName()Ljava/lang/String;
     .locals 1
 
-    .line 60
     const-string v0, "download_table"
 
     return-object v0
 .end method
 
 .method public parseCursorToBean(Landroid/database/Cursor;)Lcom/maya/open/http/okserver/download/DownloadInfo;
-    .locals 1
-    .param p1, "cursor"    # Landroid/database/Cursor;
+    .locals 0
 
     .line 50
     invoke-static {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->parseCursorToBean(Landroid/database/Cursor;)Lcom/maya/open/http/okserver/download/DownloadInfo;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public bridge synthetic parseCursorToBean(Landroid/database/Cursor;)Ljava/lang/Object;
@@ -191,13 +180,12 @@
 
 .method public update(Lcom/maya/open/http/okserver/download/DownloadInfo;)I
     .locals 4
-    .param p1, "downloadInfo"    # Lcom/maya/open/http/okserver/download/DownloadInfo;
 
-    .line 40
     const-string v0, "taskKey=?"
 
     const/4 v1, 0x1
 
+    .line 40
     new-array v1, v1, [Ljava/lang/String;
 
     invoke-virtual {p1}, Lcom/maya/open/http/okserver/download/DownloadInfo;->getTaskKey()Ljava/lang/String;
@@ -210,7 +198,7 @@
 
     invoke-virtual {p0, p1, v0, v1}, Lcom/maya/open/http/okserver/download/db/DownloadInfoDao;->update(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    return v0
+    return p1
 .end method

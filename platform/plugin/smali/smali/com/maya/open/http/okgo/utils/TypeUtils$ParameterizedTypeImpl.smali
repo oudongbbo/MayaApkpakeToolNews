@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;
 .super Ljava/lang/Object;
-.source "TypeUtils.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/reflect/ParameterizedType;
@@ -28,9 +28,6 @@
 # direct methods
 .method public varargs constructor <init>(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;[Ljava/lang/reflect/Type;)V
     .locals 4
-    .param p1, "ownerType"    # Ljava/lang/reflect/Type;
-    .param p2, "rawType"    # Ljava/lang/reflect/Type;
-    .param p3, "typeArguments"    # [Ljava/lang/reflect/Type;
 
     .line 352
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,11 +73,11 @@
 
     .line 355
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/lang/IllegalArgumentException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IllegalArgumentException;-><init>()V
 
-    throw v0
+    throw p1
 
     .line 358
     :cond_3
@@ -93,46 +90,39 @@
     .line 360
     invoke-virtual {p3}, [Ljava/lang/reflect/Type;->clone()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, [Ljava/lang/reflect/Type;
+    check-cast p1, [Ljava/lang/reflect/Type;
 
-    iput-object v0, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iput-object p1, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
     .line 362
-    iget-object v0, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    iget-object p1, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    array-length v2, v0
+    array-length p2, p1
 
     :goto_3
-    if-ge v1, v2, :cond_5
+    if-ge v1, p2, :cond_5
 
-    aget-object v3, v0, v1
+    aget-object p3, p1, v1
 
-    .line 363
-    .local v3, "typeArgument":Ljava/lang/reflect/Type;
-    if-eqz v3, :cond_4
+    if-eqz p3, :cond_4
 
     .line 364
-    invoke-static {v3}, Lcom/maya/open/http/okgo/utils/TypeUtils;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
+    invoke-static {p3}, Lcom/maya/open/http/okgo/utils/TypeUtils;->checkNotPrimitive(Ljava/lang/reflect/Type;)V
 
-    .line 362
-    .end local v3    # "typeArgument":Ljava/lang/reflect/Type;
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_3
 
     .line 363
-    .restart local v3    # "typeArgument":Ljava/lang/reflect/Type;
     :cond_4
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p1, Ljava/lang/NullPointerException;
 
-    invoke-direct {v0}, Ljava/lang/NullPointerException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/NullPointerException;-><init>()V
 
-    throw v0
+    throw p1
 
-    .line 366
-    .end local v3    # "typeArgument":Ljava/lang/reflect/Type;
     :cond_5
     return-void
 .end method
@@ -141,32 +131,29 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
-    .param p1, "other"    # Ljava/lang/Object;
 
     .line 385
     instance-of v0, p1, Ljava/lang/reflect/ParameterizedType;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
+    check-cast p1, Ljava/lang/reflect/ParameterizedType;
 
-    check-cast v0, Ljava/lang/reflect/ParameterizedType;
+    invoke-static {p0, p1}, Lcom/maya/open/http/okgo/utils/TypeUtils;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
 
-    invoke-static {p0, v0}, Lcom/maya/open/http/okgo/utils/TypeUtils;->equals(Ljava/lang/reflect/Type;Ljava/lang/reflect/Type;)Z
+    move-result p1
 
-    move-result v0
+    if-eqz p1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public getActualTypeArguments()[Ljava/lang/reflect/Type;
@@ -250,7 +237,6 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 396
-    .local v0, "result":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->rawType:Ljava/lang/reflect/Type;
 
     invoke-static {v1}, Lcom/maya/open/http/okgo/utils/TypeUtils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
@@ -268,14 +254,14 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 
-    .line 398
     :cond_0
     const-string v1, "<"
 
+    .line 398
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
@@ -291,50 +277,41 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 399
-    nop
-
-    .local v2, "i":I
     :goto_0
-    move v1, v2
+    iget-object v1, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    .end local v2    # "i":I
-    .local v1, "i":I
-    iget-object v2, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    array-length v1, v1
 
-    array-length v2, v2
+    if-ge v2, v1, :cond_1
 
-    if-ge v1, v2, :cond_1
+    const-string v1, ", "
 
     .line 400
-    const-string v2, ", "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
 
-    iget-object v2, p0, Lcom/maya/open/http/okgo/utils/TypeUtils$ParameterizedTypeImpl;->typeArguments:[Ljava/lang/reflect/Type;
+    aget-object v1, v1, v2
 
-    aget-object v2, v2, v1
+    invoke-static {v1}, Lcom/maya/open/http/okgo/utils/TypeUtils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
 
-    invoke-static {v2}, Lcom/maya/open/http/okgo/utils/TypeUtils;->typeToString(Ljava/lang/reflect/Type;)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    .line 399
-    add-int/lit8 v2, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 402
-    .end local v1    # "i":I
     :cond_1
     const-string v1, ">"
 
+    .line 402
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method

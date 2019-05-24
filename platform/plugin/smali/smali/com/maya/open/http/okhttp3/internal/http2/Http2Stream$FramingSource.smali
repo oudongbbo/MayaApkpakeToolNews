@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;
 .super Ljava/lang/Object;
-.source "Http2Stream.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Source;
@@ -47,7 +47,6 @@
 
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;J)V
     .locals 0
-    .param p2, "maxByteCount"    # J
 
     .line 329
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
@@ -71,17 +70,11 @@
     .line 330
     iput-wide p2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->maxByteCount:J
 
-    .line 331
     return-void
 .end method
 
 .method private checkNotClosed()V
     .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 433
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->closed:Z
@@ -95,7 +88,6 @@
 
     if-nez v0, :cond_0
 
-    .line 439
     return-void
 
     .line 437
@@ -123,11 +115,6 @@
 
 .method private waitUntilReadable()V
     .locals 5
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 369
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
@@ -182,13 +169,8 @@
 
     invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$StreamTimeout;->exitAndThrowIfTimedOut()V
 
-    .line 376
-    nop
-
-    .line 377
     return-void
 
-    .line 375
     :catchall_0
     move-exception v0
 
@@ -206,20 +188,15 @@
 # virtual methods
 .method public close()V
     .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 424
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
     monitor-enter v0
 
-    .line 425
     const/4 v1, 0x1
 
+    .line 425
     :try_start_0
     iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->closed:Z
 
@@ -243,13 +220,12 @@
 
     invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->cancelStreamIfNecessary()V
 
-    .line 430
     return-void
 
-    .line 428
     :catchall_0
     move-exception v1
 
+    .line 428
     :try_start_1
     monitor-exit v0
     :try_end_1
@@ -259,16 +235,8 @@
 .end method
 
 .method public read(Lcom/maya/open/http/okio/Buffer;J)J
-    .locals 10
-    .param p1, "sink"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 7
 
-    .line 334
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
@@ -298,11 +266,11 @@
 
     if-nez v5, :cond_0
 
-    const-wide/16 v0, -0x1
+    const-wide/16 p1, -0x1
 
     monitor-exit v2
 
-    return-wide v0
+    return-wide p1
 
     .line 343
     :cond_0
@@ -316,67 +284,66 @@
 
     invoke-static {p2, p3, v4, v5}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v4
+    move-result-wide p2
 
-    invoke-virtual {v3, p1, v4, v5}, Lcom/maya/open/http/okio/Buffer;->read(Lcom/maya/open/http/okio/Buffer;J)J
+    invoke-virtual {v3, p1, p2, p3}, Lcom/maya/open/http/okio/Buffer;->read(Lcom/maya/open/http/okio/Buffer;J)J
 
-    move-result-wide v3
+    move-result-wide p1
 
     .line 346
-    .local v3, "read":J
-    iget-object v5, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-wide v6, v5, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
+    iget-wide v3, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
 
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
-    add-long/2addr v6, v3
+    add-long/2addr v3, p1
 
-    iput-wide v6, v5, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
+    iput-wide v3, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
 
     .line 347
-    iget-object v5, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-wide v5, v5, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
+    iget-wide v3, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
 
-    iget-object v7, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-object v7, v7, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
+    iget-object p3, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    iget-object v7, v7, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->okHttpSettings:Lcom/maya/open/http/okhttp3/internal/http2/Settings;
+    iget-object p3, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->okHttpSettings:Lcom/maya/open/http/okhttp3/internal/http2/Settings;
 
     .line 348
-    invoke-virtual {v7}, Lcom/maya/open/http/okhttp3/internal/http2/Settings;->getInitialWindowSize()I
+    invoke-virtual {p3}, Lcom/maya/open/http/okhttp3/internal/http2/Settings;->getInitialWindowSize()I
 
-    move-result v7
+    move-result p3
 
-    div-int/lit8 v7, v7, 0x2
+    div-int/lit8 p3, p3, 0x2
 
-    int-to-long v7, v7
+    int-to-long v5, p3
 
-    cmp-long v9, v5, v7
+    cmp-long p3, v3, v5
 
-    if-ltz v9, :cond_1
+    if-ltz p3, :cond_1
 
     .line 349
-    iget-object v5, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-object v5, v5, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
+    iget-object p3, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    iget-object v6, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget v6, v6, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->id:I
+    iget v3, v3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->id:I
 
-    iget-object v7, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-wide v7, v7, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
+    iget-wide v4, v4, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
 
-    invoke-virtual {v5, v6, v7, v8}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->writeWindowUpdateLater(IJ)V
+    invoke-virtual {p3, v3, v4, v5}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->writeWindowUpdateLater(IJ)V
 
     .line 350
-    iget-object v5, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iput-wide v0, v5, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
+    iput-wide v0, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->unacknowledgedBytesRead:J
 
     .line 352
     :cond_1
@@ -385,11 +352,11 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     .line 355
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-object v5, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
+    iget-object p3, p3, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    monitor-enter v5
+    monitor-enter p3
 
     .line 356
     :try_start_1
@@ -397,54 +364,54 @@
 
     iget-object v2, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    iget-wide v6, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
+    iget-wide v3, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
 
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
-    add-long/2addr v6, v3
+    add-long/2addr v3, p1
 
-    iput-wide v6, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
+    iput-wide v3, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
 
     .line 357
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
     iget-object v2, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    iget-wide v6, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
+    iget-wide v2, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-object v2, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
+    iget-object v4, v4, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    iget-object v2, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->okHttpSettings:Lcom/maya/open/http/okhttp3/internal/http2/Settings;
+    iget-object v4, v4, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->okHttpSettings:Lcom/maya/open/http/okhttp3/internal/http2/Settings;
 
     .line 358
-    invoke-virtual {v2}, Lcom/maya/open/http/okhttp3/internal/http2/Settings;->getInitialWindowSize()I
+    invoke-virtual {v4}, Lcom/maya/open/http/okhttp3/internal/http2/Settings;->getInitialWindowSize()I
 
-    move-result v2
+    move-result v4
 
-    div-int/lit8 v2, v2, 0x2
+    div-int/lit8 v4, v4, 0x2
 
-    int-to-long v8, v2
+    int-to-long v4, v4
 
-    cmp-long v2, v6, v8
+    cmp-long v6, v2, v4
 
-    if-ltz v2, :cond_2
+    if-ltz v6, :cond_2
 
     .line 359
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
     iget-object v2, v2, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    const/4 v6, 0x0
+    const/4 v3, 0x0
 
-    iget-object v7, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    iget-object v7, v7, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
+    iget-object v4, v4, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->connection:Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;
 
-    iget-wide v7, v7, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
+    iget-wide v4, v4, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->unacknowledgedBytesRead:J
 
-    invoke-virtual {v2, v6, v7, v8}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->writeWindowUpdateLater(IJ)V
+    invoke-virtual {v2, v3, v4, v5}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Connection;->writeWindowUpdateLater(IJ)V
 
     .line 360
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
@@ -455,70 +422,56 @@
 
     .line 362
     :cond_2
-    monitor-exit v5
+    monitor-exit p3
 
-    .line 364
-    return-wide v3
+    return-wide p1
 
-    .line 362
     :catchall_0
-    move-exception v0
+    move-exception p1
 
-    monitor-exit v5
+    monitor-exit p3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw p1
+
+    :catchall_1
+    move-exception p1
 
     .line 352
-    .end local v3    # "read":J
-    :catchall_1
-    move-exception v0
-
     :try_start_2
     monitor-exit v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
 
     .line 334
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "byteCount < 0: "
+    const-string v1, "byteCount < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method receive(Lcom/maya/open/http/okio/BufferedSource;J)V
-    .locals 12
-    .param p1, "in"    # Lcom/maya/open/http/okio/BufferedSource;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 9
 
-    .line 380
-    nop
-
-    .line 382
     :goto_0
     const-wide/16 v0, 0x0
 
@@ -536,7 +489,6 @@
     iget-boolean v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->finished:Z
 
     .line 387
-    .local v3, "finished":Z
     iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->readBuffer:Lcom/maya/open/http/okio/Buffer;
 
     invoke-virtual {v4}, Lcom/maya/open/http/okio/Buffer;->size()J
@@ -565,36 +517,31 @@
     const/4 v6, 0x0
 
     .line 388
-    .local v6, "flowControlError":Z
     :goto_1
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    .line 391
     if-eqz v6, :cond_1
 
     .line 392
     invoke-interface {p1, p2, p3}, Lcom/maya/open/http/okio/BufferedSource;->skip(J)V
 
     .line 393
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    sget-object v1, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->FLOW_CONTROL_ERROR:Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
+    sget-object p2, Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;->FLOW_CONTROL_ERROR:Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;
 
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->closeLater(Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;)V
+    invoke-virtual {p1, p2}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->closeLater(Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;)V
 
-    .line 394
     return-void
 
-    .line 398
     :cond_1
     if-eqz v3, :cond_2
 
     .line 399
     invoke-interface {p1, p2, p3}, Lcom/maya/open/http/okio/BufferedSource;->skip(J)V
 
-    .line 400
     return-void
 
     .line 404
@@ -603,115 +550,84 @@
 
     invoke-interface {p1, v2, p2, p3}, Lcom/maya/open/http/okio/BufferedSource;->read(Lcom/maya/open/http/okio/Buffer;J)J
 
-    move-result-wide v7
+    move-result-wide v2
 
-    .line 405
-    .local v7, "read":J
-    const-wide/16 v9, -0x1
+    const-wide/16 v6, -0x1
 
-    cmp-long v2, v7, v9
+    cmp-long v8, v2, v6
 
-    if-eqz v2, :cond_5
+    if-eqz v8, :cond_5
 
-    .line 406
-    sub-long v9, p2, v7
+    sub-long/2addr p2, v2
 
     .line 409
-    .end local p2    # "byteCount":J
-    .local v9, "byteCount":J
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
     monitor-enter v2
 
     .line 410
     :try_start_1
-    iget-object p2, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->readBuffer:Lcom/maya/open/http/okio/Buffer;
+    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->readBuffer:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {p2}, Lcom/maya/open/http/okio/Buffer;->size()J
+    invoke-virtual {v3}, Lcom/maya/open/http/okio/Buffer;->size()J
 
-    move-result-wide p2
+    move-result-wide v6
 
-    cmp-long v11, p2, v0
+    cmp-long v3, v6, v0
 
-    if-nez v11, :cond_3
+    if-nez v3, :cond_3
 
     const/4 v4, 0x1
 
-    nop
-
-    :cond_3
-    move p2, v4
-
     .line 411
-    .local p2, "wasEmpty":Z
-    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->readBuffer:Lcom/maya/open/http/okio/Buffer;
+    :cond_3
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->readBuffer:Lcom/maya/open/http/okio/Buffer;
 
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->receiveBuffer:Lcom/maya/open/http/okio/Buffer;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->receiveBuffer:Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {p3, v0}, Lcom/maya/open/http/okio/Buffer;->writeAll(Lcom/maya/open/http/okio/Source;)J
+    invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeAll(Lcom/maya/open/http/okio/Source;)J
 
-    .line 412
-    if-eqz p2, :cond_4
+    if-eqz v4, :cond_4
 
     .line 413
-    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$FramingSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
-    invoke-virtual {p3}, Ljava/lang/Object;->notifyAll()V
+    invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
     .line 415
-    .end local p2    # "wasEmpty":Z
     :cond_4
     monitor-exit v2
 
-    .line 416
-    .end local v3    # "finished":Z
-    .end local v6    # "flowControlError":Z
-    .end local v7    # "read":J
-    nop
-
-    .line 382
-    move-wide p2, v9
-
     goto :goto_0
 
-    .line 415
-    .restart local v3    # "finished":Z
-    .restart local v6    # "flowControlError":Z
-    .restart local v7    # "read":J
     :catchall_0
-    move-exception p2
+    move-exception p1
 
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw p2
+    throw p1
 
     .line 405
-    .end local v9    # "byteCount":J
-    .local p2, "byteCount":J
     :cond_5
-    new-instance v0, Ljava/io/EOFException;
+    new-instance p1, Ljava/io/EOFException;
 
-    invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
+    invoke-direct {p1}, Ljava/io/EOFException;-><init>()V
 
-    throw v0
+    throw p1
+
+    :catchall_1
+    move-exception p1
 
     .line 388
-    .end local v3    # "finished":Z
-    .end local v6    # "flowControlError":Z
-    .end local v7    # "read":J
-    :catchall_1
-    move-exception v0
-
     :try_start_2
     monitor-exit v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v0
+    throw p1
 
-    .line 417
     :cond_6
     return-void
 .end method

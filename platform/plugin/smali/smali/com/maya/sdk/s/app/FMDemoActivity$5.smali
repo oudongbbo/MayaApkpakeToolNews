@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/FMDemoActivity$5;
 .super Ljava/lang/Object;
-.source "FMDemoActivity.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+.field final synthetic a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/FMDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    .line 170
-    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$5;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 128
+    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$5;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,25 +36,22 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
+    .locals 1
 
-    .line 173
-    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$5;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 132
+    new-instance p1, Landroid/os/Handler;
 
-    # getter for: Lcom/maya/sdk/s/app/FMDemoActivity;->mayaCore:Lcom/maya/sdk/s/app/FMSdkCore;
-    invoke-static {v0}, Lcom/maya/sdk/s/app/FMDemoActivity;->access$000(Lcom/maya/sdk/s/app/FMDemoActivity;)Lcom/maya/sdk/s/app/FMSdkCore;
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$5;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    invoke-direct {p1, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    new-instance v2, Lcom/maya/sdk/s/app/FMDemoActivity$5$1;
+    new-instance v0, Lcom/maya/sdk/s/app/FMDemoActivity$5$1;
 
-    invoke-direct {v2, p0}, Lcom/maya/sdk/s/app/FMDemoActivity$5$1;-><init>(Lcom/maya/sdk/s/app/FMDemoActivity$5;)V
+    invoke-direct {v0, p0}, Lcom/maya/sdk/s/app/FMDemoActivity$5$1;-><init>(Lcom/maya/sdk/s/app/FMDemoActivity$5;)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/maya/sdk/s/app/FMSdkCore;->userSwitch(Landroid/content/Context;Lcom/maya/sdk/framework/interfaces/SdkResultCallback;)V
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 194
     return-void
 .end method

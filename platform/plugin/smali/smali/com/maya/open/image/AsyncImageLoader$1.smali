@@ -1,6 +1,6 @@
 .class Lcom/maya/open/image/AsyncImageLoader$1;
 .super Landroid/util/LruCache;
-.source "AsyncImageLoader.java"
+.source "SourceFile"
 
 
 # annotations
@@ -30,8 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/image/AsyncImageLoader;I)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/image/AsyncImageLoader;
-    .param p2, "x0"    # I
 
     .line 39
     iput-object p1, p0, Lcom/maya/open/image/AsyncImageLoader$1;->this$0:Lcom/maya/open/image/AsyncImageLoader;
@@ -59,20 +57,18 @@
 .end method
 
 .method protected sizeOf(Ljava/lang/String;Landroid/graphics/Bitmap;)I
-    .locals 2
-    .param p1, "key"    # Ljava/lang/String;
-    .param p2, "value"    # Landroid/graphics/Bitmap;
+    .locals 0
 
     .line 44
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getRowBytes()I
 
-    move-result v0
+    move-result p1
 
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v1
+    move-result p2
 
-    mul-int v0, v0, v1
+    mul-int p1, p1, p2
 
-    return v0
+    return p1
 .end method

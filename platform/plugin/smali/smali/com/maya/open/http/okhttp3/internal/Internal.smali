@@ -1,6 +1,6 @@
 .class public abstract Lcom/maya/open/http/okhttp3/internal/Internal;
 .super Ljava/lang/Object;
-.source "Internal.java"
+.source "SourceFile"
 
 
 # static fields
@@ -25,7 +25,6 @@
 
     invoke-direct {v0}, Lcom/maya/open/http/okhttp3/OkHttpClient;-><init>()V
 
-    .line 48
     return-void
 .end method
 
@@ -53,12 +52,6 @@
 .end method
 
 .method public abstract getHttpUrlChecked(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/net/MalformedURLException;,
-            Ljava/net/UnknownHostException;
-        }
-    .end annotation
 .end method
 
 .method public abstract newWebSocketCall(Lcom/maya/open/http/okhttp3/OkHttpClient;Lcom/maya/open/http/okhttp3/Request;)Lcom/maya/open/http/okhttp3/Call;

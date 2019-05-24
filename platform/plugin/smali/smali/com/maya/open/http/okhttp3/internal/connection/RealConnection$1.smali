@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/connection/RealConnection$1;
 .super Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket$Streams;
-.source "RealConnection.java"
+.source "SourceFile"
 
 
 # annotations
@@ -23,10 +23,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/connection/RealConnection;ZLcom/maya/open/http/okio/BufferedSource;Lcom/maya/open/http/okio/BufferedSink;Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/connection/RealConnection;
-    .param p2, "client"    # Z
-    .param p3, "source"    # Lcom/maya/open/http/okio/BufferedSource;
-    .param p4, "sink"    # Lcom/maya/open/http/okio/BufferedSink;
 
     .line 398
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/connection/RealConnection$1;->this$0:Lcom/maya/open/http/okhttp3/internal/connection/RealConnection;
@@ -42,11 +38,6 @@
 # virtual methods
 .method public close()V
     .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 400
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/connection/RealConnection$1;->val$streamAllocation:Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;
@@ -61,6 +52,5 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;->streamFinished(ZLcom/maya/open/http/okhttp3/internal/http/HttpCodec;)V
 
-    .line 401
     return-void
 .end method

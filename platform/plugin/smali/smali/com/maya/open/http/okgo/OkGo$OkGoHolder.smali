@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okgo/OkGo$OkGoHolder;
 .super Ljava/lang/Object;
-.source "OkGo.java"
+.source "SourceFile"
 
 
 # annotations

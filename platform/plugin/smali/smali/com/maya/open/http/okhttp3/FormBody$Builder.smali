@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/FormBody$Builder;
 .super Ljava/lang/Object;
-.source "FormBody.java"
+.source "SourceFile"
 
 
 # annotations
@@ -64,8 +64,6 @@
 # virtual methods
 .method public add(Ljava/lang/String;Ljava/lang/String;)Lcom/maya/open/http/okhttp3/FormBody$Builder;
     .locals 7
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
     .line 110
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/FormBody$Builder;->names:Ljava/util/List;
@@ -84,31 +82,32 @@
 
     invoke-static/range {v1 .. v6}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 111
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/FormBody$Builder;->values:Ljava/util/List;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/FormBody$Builder;->values:Ljava/util/List;
 
-    const-string v2, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
+    const-string v1, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
 
-    move-object v1, p2
+    const/4 v2, 0x0
 
-    invoke-static/range {v1 .. v6}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+    const/4 v4, 0x1
 
-    move-result-object v1
+    move-object v0, p2
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-static/range {v0 .. v5}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
 
-    .line 112
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     return-object p0
 .end method
 
 .method public addEncoded(Ljava/lang/String;Ljava/lang/String;)Lcom/maya/open/http/okhttp3/FormBody$Builder;
     .locals 7
-    .param p1, "name"    # Ljava/lang/String;
-    .param p2, "value"    # Ljava/lang/String;
 
     .line 116
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/FormBody$Builder;->names:Ljava/util/List;
@@ -127,24 +126,29 @@
 
     invoke-static/range {v1 .. v6}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 117
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/FormBody$Builder;->values:Ljava/util/List;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/FormBody$Builder;->values:Ljava/util/List;
 
-    const-string v2, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
+    const-string v1, " \"\':;<=>@[]^`{}|/\\?#&!$(),~"
 
-    move-object v1, p2
+    const/4 v2, 0x1
 
-    invoke-static/range {v1 .. v6}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+    const/4 v3, 0x0
 
-    move-result-object v1
+    const/4 v4, 0x1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-object v0, p2
 
-    .line 118
+    invoke-static/range {v0 .. v5}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
     return-object p0
 .end method
 

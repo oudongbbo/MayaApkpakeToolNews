@@ -1,13 +1,13 @@
 .class public Lcom/maya/sdk/m/controller/MsdkCore;
 .super Ljava/lang/Object;
-.source "MsdkCore.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/sdk/m/interfaces/MsdkInterface;
 
 
 # instance fields
-.field public sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+.field public f:Lcom/maya/sdk/m/controller/a;
 
 
 # direct methods
@@ -18,13 +18,12 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     .line 26
-    new-instance v0, Lcom/maya/sdk/m/controller/MsdkManager;
+    new-instance v0, Lcom/maya/sdk/m/controller/a;
 
-    invoke-direct {v0}, Lcom/maya/sdk/m/controller/MsdkManager;-><init>()V
+    invoke-direct {v0}, Lcom/maya/sdk/m/controller/a;-><init>()V
 
-    iput-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    iput-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    .line 27
     return-void
 .end method
 
@@ -32,227 +31,201 @@
 # virtual methods
 .method public doExitGame(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 54
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 57
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->doExitGame(Landroid/content/Context;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->doExitGame(Landroid/content/Context;)V
 
-    .line 55
     return-void
 .end method
 
 .method public doInit(Landroid/content/Context;Ljava/lang/String;Lcom/maya/sdk/m/MyMsdkCallback;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "appkey"    # Ljava/lang/String;
-    .param p3, "callback"    # Lcom/maya/sdk/m/MyMsdkCallback;
 
-    .line 32
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 35
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/maya/sdk/m/controller/MsdkManager;->doInit(Landroid/content/Context;Ljava/lang/String;Lcom/maya/sdk/m/MyMsdkCallback;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/maya/sdk/m/controller/a;->doInit(Landroid/content/Context;Ljava/lang/String;Lcom/maya/sdk/m/MyMsdkCallback;)V
 
-    .line 33
     return-void
 .end method
 
 .method public getAppConfig(Landroid/content/Context;)Lcom/maya/sdk/m/model/bean/MAppBean;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
-    .line 117
-    invoke-static {p1}, Lcom/maya/sdk/m/model/MGameConfig;->initConfig(Landroid/content/Context;)Lcom/maya/sdk/m/model/bean/MAppBean;
+    .line 120
+    invoke-static {p1}, Lcom/maya/sdk/m/model/a;->a(Landroid/content/Context;)Lcom/maya/sdk/m/model/bean/MAppBean;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getGid(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
-    .line 121
+    .line 124
     invoke-virtual {p0, p1}, Lcom/maya/sdk/m/controller/MsdkCore;->getAppConfig(Landroid/content/Context;)Lcom/maya/sdk/m/model/bean/MAppBean;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/model/bean/MAppBean;->getGid()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/maya/sdk/m/model/bean/MAppBean;->getGid()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getMid(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
-    .line 129
+    .line 132
     invoke-virtual {p0, p1}, Lcom/maya/sdk/m/controller/MsdkCore;->getAppConfig(Landroid/content/Context;)Lcom/maya/sdk/m/model/bean/MAppBean;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/model/bean/MAppBean;->getMid()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/maya/sdk/m/model/bean/MAppBean;->getMid()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getPid(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
-    .line 125
+    .line 128
     invoke-virtual {p0, p1}, Lcom/maya/sdk/m/controller/MsdkCore;->getAppConfig(Landroid/content/Context;)Lcom/maya/sdk/m/model/bean/MAppBean;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/model/bean/MAppBean;->getPid()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/maya/sdk/m/model/bean/MAppBean;->getPid()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public getSdkVer(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
-    .param p1, "context"    # Landroid/content/Context;
+    .locals 0
 
-    .line 133
+    .line 136
     invoke-virtual {p0, p1}, Lcom/maya/sdk/m/controller/MsdkCore;->getAppConfig(Landroid/content/Context;)Lcom/maya/sdk/m/model/bean/MAppBean;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/model/bean/MAppBean;->getSdkVer()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/maya/sdk/m/model/bean/MAppBean;->getSdkVer()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public onActivityResult(IILandroid/content/Intent;)V
     .locals 1
-    .param p1, "requestCode"    # I
-    .param p2, "resultCode"    # I
-    .param p3, "data"    # Landroid/content/Intent;
 
-    .line 104
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 107
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/maya/sdk/m/controller/MsdkManager;->onActivityResult(IILandroid/content/Intent;)V
+    invoke-virtual {v0, p1, p2, p3}, Lcom/maya/sdk/m/controller/a;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 105
     return-void
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
-    .param p1, "config"    # Landroid/content/res/Configuration;
 
-    .line 112
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 115
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 113
     return-void
 .end method
 
 .method public onDestroy()V
     .locals 1
 
-    .line 96
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 99
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/MsdkManager;->onDestroy()V
+    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/a;->onDestroy()V
 
-    .line 97
     return-void
 .end method
 
 .method public onNewIntent(Landroid/content/Intent;)V
     .locals 1
-    .param p1, "intent"    # Landroid/content/Intent;
 
-    .line 108
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 111
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->onNewIntent(Landroid/content/Intent;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->onNewIntent(Landroid/content/Intent;)V
 
-    .line 109
     return-void
 .end method
 
 .method public onPause()V
     .locals 1
 
-    .line 88
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 91
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/MsdkManager;->onPause()V
+    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/a;->onPause()V
 
-    .line 89
     return-void
 .end method
 
 .method public onRestart()V
     .locals 1
 
-    .line 100
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 103
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/MsdkManager;->onRestart()V
+    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/a;->onRestart()V
 
-    .line 101
     return-void
 .end method
 
 .method public onResume()V
     .locals 1
 
-    .line 84
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 87
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/MsdkManager;->onResume()V
+    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/a;->onResume()V
 
-    .line 85
     return-void
 .end method
 
 .method public onStart()V
     .locals 1
 
-    .line 80
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 83
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/MsdkManager;->onStart()V
+    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/a;->onStart()V
 
-    .line 81
     return-void
 .end method
 
 .method public onStop()V
     .locals 1
 
-    .line 92
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 95
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/MsdkManager;->onStop()V
+    invoke-virtual {v0}, Lcom/maya/sdk/m/controller/a;->onStop()V
 
-    .line 93
     return-void
 .end method
 
 .method public openSdkCustomerService(Landroid/content/Context;)V
     .locals 2
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 165
-    sget-object v0, Lcom/maya/sdk/m/http/MReqUrls;->WEB_KEFU_SERVICE:Ljava/lang/String;
+    .line 168
+    sget-object v0, Lcom/maya/sdk/m/http/c;->l:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -260,9 +233,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 166
     const-string v0, "maya_tips_url_not_exit"
 
+    .line 169
     invoke-static {v0, p1}, Lcom/maya/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -271,48 +244,43 @@
 
     invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 167
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    .line 170
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
-    .line 169
+    .line 172
     :cond_0
-    new-instance v0, Lcom/maya/sdk/m/utils/MsdkUtils;
+    new-instance v0, Lcom/maya/sdk/m/utils/b;
 
-    invoke-direct {v0}, Lcom/maya/sdk/m/utils/MsdkUtils;-><init>()V
+    invoke-direct {v0}, Lcom/maya/sdk/m/utils/b;-><init>()V
 
-    sget-object v1, Lcom/maya/sdk/m/http/MReqUrls;->WEB_KEFU_SERVICE:Ljava/lang/String;
+    sget-object v1, Lcom/maya/sdk/m/http/c;->l:Ljava/lang/String;
 
-    invoke-virtual {v0, p1, v1}, Lcom/maya/sdk/m/utils/MsdkUtils;->showSdkCustomerServiceActivity(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-virtual {v0, p1, v1}, Lcom/maya/sdk/m/utils/b;->a(Landroid/content/Context;Ljava/lang/String;)V
 
-    .line 171
     :goto_0
     return-void
 .end method
 
 .method public openUserNameAuth(Landroid/content/Context;Z)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
-    .param p2, "canCancel"    # Z
 
-    .line 139
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 142
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1, p2}, Lcom/maya/sdk/m/controller/MsdkManager;->openUserNameAuth(Landroid/content/Context;Z)V
+    invoke-virtual {v0, p1, p2}, Lcom/maya/sdk/m/controller/a;->openUserNameAuth(Landroid/content/Context;Z)V
 
-    .line 140
     return-void
 .end method
 
 .method public openUserSuperVip(Landroid/content/Context;)V
     .locals 3
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 145
-    sget-object v0, Lcom/maya/sdk/m/http/MReqUrls;->WEB_USER_SUPERVIP:Ljava/lang/String;
+    .line 148
+    sget-object v0, Lcom/maya/sdk/m/http/c;->m:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -320,9 +288,9 @@
 
     if-eqz v0, :cond_0
 
-    .line 146
     const-string v0, "maya_tips_url_not_exit"
 
+    .line 149
     invoke-static {v0, p1}, Lcom/maya/sdk/framework/utils/CommonUtil;->getStringByName(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
@@ -331,16 +299,16 @@
 
     invoke-static {p1, v0, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
-    move-result-object v0
+    move-result-object p1
 
-    .line 147
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    .line 150
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
-    .line 150
+    .line 153
     :cond_0
-    sget-object v0, Lcom/maya/sdk/m/http/MReqUrls;->WEB_USER_SUPERVIP:Ljava/lang/String;
+    sget-object v0, Lcom/maya/sdk/m/http/c;->m:Ljava/lang/String;
 
     new-instance v1, Lcom/maya/sdk/m/controller/MsdkCore$1;
 
@@ -348,9 +316,8 @@
 
     const/4 v2, 0x1
 
-    invoke-static {p1, v0, v2, v2, v1}, Lcom/maya/sdk/m/utils/MsdkUtils;->showWebDialog(Landroid/content/Context;Ljava/lang/String;ZZLcom/maya/sdk/framework/interfaces/ResultCallback;)V
+    invoke-static {p1, v0, v2, v2, v1}, Lcom/maya/sdk/m/utils/b;->a(Landroid/content/Context;Ljava/lang/String;ZZLcom/maya/sdk/framework/interfaces/ResultCallback;)V
 
-    .line 160
     :goto_0
     return-void
 .end method
@@ -367,13 +334,11 @@
         }
     .end annotation
 
-    .line 75
-    .local p1, "infos":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 78
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->roleChangeName(Ljava/util/HashMap;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->roleChangeName(Ljava/util/HashMap;)V
 
-    .line 76
     return-void
 .end method
 
@@ -389,13 +354,11 @@
         }
     .end annotation
 
-    .line 63
-    .local p1, "infos":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 66
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->roleCreate(Ljava/util/HashMap;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->roleCreate(Ljava/util/HashMap;)V
 
-    .line 64
     return-void
 .end method
 
@@ -411,13 +374,11 @@
         }
     .end annotation
 
-    .line 67
-    .local p1, "infos":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 70
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->roleEnterGame(Ljava/util/HashMap;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->roleEnterGame(Ljava/util/HashMap;)V
 
-    .line 68
     return-void
 .end method
 
@@ -433,13 +394,11 @@
         }
     .end annotation
 
-    .line 71
-    .local p1, "infos":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 74
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->roleLevelUp(Ljava/util/HashMap;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->roleLevelUp(Ljava/util/HashMap;)V
 
-    .line 72
     return-void
 .end method
 
@@ -455,45 +414,38 @@
         }
     .end annotation
 
-    .line 59
-    .local p1, "infos":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 62
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->serverSelect(Ljava/util/HashMap;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->serverSelect(Ljava/util/HashMap;)V
 
-    .line 60
     return-void
 .end method
 
 .method public userLogin(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 38
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 41
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->userLogin(Landroid/content/Context;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->userLogin(Landroid/content/Context;)V
 
-    .line 39
     return-void
 .end method
 
 .method public userLogout(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 46
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 49
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->userLogout(Landroid/content/Context;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->userLogout(Landroid/content/Context;)V
 
-    .line 47
     return-void
 .end method
 
 .method public userPay(Landroid/content/Context;Ljava/util/HashMap;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -505,25 +457,21 @@
         }
     .end annotation
 
-    .line 50
-    .local p2, "payinfos":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 53
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1, p2}, Lcom/maya/sdk/m/controller/MsdkManager;->userPay(Landroid/content/Context;Ljava/util/HashMap;)V
+    invoke-virtual {v0, p1, p2}, Lcom/maya/sdk/m/controller/a;->userPay(Landroid/content/Context;Ljava/util/HashMap;)V
 
-    .line 51
     return-void
 .end method
 
 .method public userSwitch(Landroid/content/Context;)V
     .locals 1
-    .param p1, "context"    # Landroid/content/Context;
 
-    .line 42
-    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->sdkCore:Lcom/maya/sdk/m/controller/MsdkManager;
+    .line 45
+    iget-object v0, p0, Lcom/maya/sdk/m/controller/MsdkCore;->f:Lcom/maya/sdk/m/controller/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/MsdkManager;->userSwitch(Landroid/content/Context;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/m/controller/a;->userSwitch(Landroid/content/Context;)V
 
-    .line 43
     return-void
 .end method

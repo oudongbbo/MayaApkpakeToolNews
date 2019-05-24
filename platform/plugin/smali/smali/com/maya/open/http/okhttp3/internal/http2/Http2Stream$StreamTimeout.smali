@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$StreamTimeout;
 .super Lcom/maya/open/http/okio/AsyncTimeout;
-.source "Http2Stream.java"
+.source "SourceFile"
 
 
 # annotations
@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
 
     .line 588
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$StreamTimeout;->this$0:Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;
@@ -35,11 +34,6 @@
 # virtual methods
 .method public exitAndThrowIfTimedOut()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 602
     invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream$StreamTimeout;->exit()Z
@@ -48,10 +42,8 @@
 
     if-nez v0, :cond_0
 
-    .line 603
     return-void
 
-    .line 602
     :cond_0
     const/4 v0, 0x0
 
@@ -64,7 +56,6 @@
 
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
     .locals 2
-    .param p1, "cause"    # Ljava/io/IOException;
 
     .line 594
     new-instance v0, Ljava/net/SocketTimeoutException;
@@ -73,14 +64,11 @@
 
     invoke-direct {v0, v1}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
 
-    .line 595
-    .local v0, "socketTimeoutException":Ljava/net/SocketTimeoutException;
     if-eqz p1, :cond_0
 
     .line 596
     invoke-virtual {v0, p1}, Ljava/net/SocketTimeoutException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 598
     :cond_0
     return-object v0
 .end method
@@ -95,6 +83,5 @@
 
     invoke-virtual {v0, v1}, Lcom/maya/open/http/okhttp3/internal/http2/Http2Stream;->closeLater(Lcom/maya/open/http/okhttp3/internal/http2/ErrorCode;)V
 
-    .line 591
     return-void
 .end method

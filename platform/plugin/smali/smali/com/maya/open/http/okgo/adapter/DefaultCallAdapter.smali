@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter;
 .super Ljava/lang/Object;
-.source "DefaultCallAdapter.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okgo/adapter/CallAdapter;
@@ -25,7 +25,6 @@
     .locals 0
 
     .line 16
-    .local p0, "this":Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter;, "Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter<TT;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -67,9 +66,6 @@
         }
     .end annotation
 
-    .line 24
-    .local p0, "this":Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter;, "Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter<TT;>;"
-    .local p1, "call":Lcom/maya/open/http/okgo/adapter/Call;, "Lcom/maya/open/http/okgo/adapter/Call<TR;>;"
     return-object p1
 .end method
 
@@ -77,7 +73,6 @@
     .locals 0
 
     .line 16
-    .local p0, "this":Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter;, "Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter<TT;>;"
     invoke-virtual {p0, p1}, Lcom/maya/open/http/okgo/adapter/DefaultCallAdapter;->adapt(Lcom/maya/open/http/okgo/adapter/Call;)Lcom/maya/open/http/okgo/adapter/Call;
 
     move-result-object p1

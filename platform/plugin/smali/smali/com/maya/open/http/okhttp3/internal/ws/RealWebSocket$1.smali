@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket$1;
 .super Ljava/lang/Object;
-.source "RealWebSocket.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;
 
     .line 145
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket$1;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;
@@ -54,24 +53,16 @@
 
     goto :goto_0
 
-    .line 152
-    :cond_0
-    goto :goto_1
-
-    .line 150
     :catch_0
     move-exception v0
 
     .line 151
-    .local v0, "e":Ljava/io/IOException;
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket$1;->this$0:Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v0, v2}, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;->failWebSocket(Ljava/lang/Exception;Lcom/maya/open/http/okhttp3/Response;)V
 
-    .line 153
-    .end local v0    # "e":Ljava/io/IOException;
-    :goto_1
+    :cond_0
     return-void
 .end method

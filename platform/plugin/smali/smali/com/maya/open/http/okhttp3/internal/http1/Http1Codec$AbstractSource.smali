@@ -1,6 +1,6 @@
 .class abstract Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;
 .super Ljava/lang/Object;
-.source "Http1Codec.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Source;
@@ -54,8 +54,6 @@
 
 .method synthetic constructor <init>(Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$1;)V
     .locals 0
-    .param p1, "x0"    # Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
-    .param p2, "x1"    # Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$1;
 
     .line 344
     invoke-direct {p0, p1}, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;-><init>(Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;)V
@@ -67,12 +65,6 @@
 # virtual methods
 .method protected final endOfInput(Z)V
     .locals 3
-    .param p1, "reuseConnection"    # Z
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 357
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
@@ -119,41 +111,40 @@
 
     iget-object v0, v0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;->streamAllocation:Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;
 
-    xor-int/lit8 v1, p1, 0x1
+    xor-int/lit8 p1, p1, 0x1
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
 
-    invoke-virtual {v0, v1, v2}, Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;->streamFinished(ZLcom/maya/open/http/okhttp3/internal/http/HttpCodec;)V
+    invoke-virtual {v0, p1, v1}, Lcom/maya/open/http/okhttp3/internal/connection/StreamAllocation;->streamFinished(ZLcom/maya/open/http/okhttp3/internal/http/HttpCodec;)V
 
-    .line 366
     :cond_1
     return-void
 
     .line 358
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "state: "
+    const-string v1, "state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;->this$0:Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;
 
-    iget v2, v2, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;->state:I
+    iget v1, v1, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;->state:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method public timeout()Lcom/maya/open/http/okio/Timeout;

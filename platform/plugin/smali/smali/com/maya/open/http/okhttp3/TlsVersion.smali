@@ -1,6 +1,6 @@
 .class public final enum Lcom/maya/open/http/okhttp3/TlsVersion;
 .super Ljava/lang/Enum;
-.source "TlsVersion.java"
+.source "SourceFile"
 
 
 # annotations
@@ -100,9 +100,9 @@
 
     sput-object v0, Lcom/maya/open/http/okhttp3/TlsVersion;->SSL_3_0:Lcom/maya/open/http/okhttp3/TlsVersion;
 
-    .line 24
     const/4 v0, 0x5
 
+    .line 24
     new-array v0, v0, [Lcom/maya/open/http/okhttp3/TlsVersion;
 
     sget-object v1, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_3:Lcom/maya/open/http/okhttp3/TlsVersion;
@@ -132,7 +132,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p3, "javaName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -147,13 +146,11 @@
     .line 35
     iput-object p3, p0, Lcom/maya/open/http/okhttp3/TlsVersion;->javaName:Ljava/lang/String;
 
-    .line 36
     return-void
 .end method
 
 .method public static forJavaName(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/TlsVersion;
     .locals 3
-    .param p0, "javaName"    # Ljava/lang/String;
 
     .line 39
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
@@ -259,41 +256,41 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
     .line 49
     :pswitch_3
-    sget-object v0, Lcom/maya/open/http/okhttp3/TlsVersion;->SSL_3_0:Lcom/maya/open/http/okhttp3/TlsVersion;
+    sget-object p0, Lcom/maya/open/http/okhttp3/TlsVersion;->SSL_3_0:Lcom/maya/open/http/okhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 47
     :pswitch_4
-    sget-object v0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_0:Lcom/maya/open/http/okhttp3/TlsVersion;
+    sget-object p0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_0:Lcom/maya/open/http/okhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 45
     :pswitch_5
-    sget-object v0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_1:Lcom/maya/open/http/okhttp3/TlsVersion;
+    sget-object p0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_1:Lcom/maya/open/http/okhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 43
     :pswitch_6
-    sget-object v0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_2:Lcom/maya/open/http/okhttp3/TlsVersion;
+    sget-object p0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_2:Lcom/maya/open/http/okhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     .line 41
     :pswitch_7
-    sget-object v0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_3:Lcom/maya/open/http/okhttp3/TlsVersion;
+    sget-object p0, Lcom/maya/open/http/okhttp3/TlsVersion;->TLS_1_3:Lcom/maya/open/http/okhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 
     :pswitch_data_0
     .packed-switch -0x1dfc3f27
@@ -314,18 +311,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/TlsVersion;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 24
     const-class v0, Lcom/maya/open/http/okhttp3/TlsVersion;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/maya/open/http/okhttp3/TlsVersion;
+    check-cast p0, Lcom/maya/open/http/okhttp3/TlsVersion;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/maya/open/http/okhttp3/TlsVersion;

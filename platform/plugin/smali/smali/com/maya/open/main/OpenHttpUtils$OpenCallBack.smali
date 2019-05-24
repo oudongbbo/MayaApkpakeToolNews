@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/main/OpenHttpUtils$OpenCallBack;
 .super Ljava/lang/Object;
-.source "OpenHttpUtils.java"
+.source "SourceFile"
 
 
 # annotations

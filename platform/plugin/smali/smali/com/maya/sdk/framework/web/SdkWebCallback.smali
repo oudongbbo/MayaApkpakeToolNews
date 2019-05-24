@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/framework/web/SdkWebCallback;
 .super Ljava/lang/Object;
-.source "SdkWebCallback.java"
+.source "SourceFile"
 
 
 # virtual methods

@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/m/utils/MCommonUtil;
 .super Lcom/maya/sdk/framework/utils/CommonUtil;
-.source "MCommonUtil.java"
+.source "SourceFile"
 
 
 # direct methods

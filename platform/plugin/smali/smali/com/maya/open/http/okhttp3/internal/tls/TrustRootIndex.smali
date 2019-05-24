@@ -1,6 +1,6 @@
 .class public abstract Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;
 .super Ljava/lang/Object;
-.source "TrustRootIndex.java"
+.source "SourceFile"
 
 
 # annotations
@@ -24,7 +24,6 @@
 
 .method public static get(Ljavax/net/ssl/X509TrustManager;)Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;
     .locals 6
-    .param p0, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     .line 39
     :try_start_0
@@ -49,7 +48,6 @@
     move-result-object v0
 
     .line 41
-    .local v0, "method":Ljava/lang/reflect/Method;
     invoke-virtual {v0, v2}, Ljava/lang/reflect/Method;->setAccessible(Z)V
 
     .line 42
@@ -61,27 +59,21 @@
 
     return-object v1
 
-    .line 43
-    .end local v0    # "method":Ljava/lang/reflect/Method;
-    :catch_0
-    move-exception v0
-
     .line 44
-    .local v0, "e":Ljava/lang/NoSuchMethodException;
+    :catch_0
     invoke-interface {p0}, Ljavax/net/ssl/X509TrustManager;->getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;->get([Ljava/security/cert/X509Certificate;)Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;
+    invoke-static {p0}, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;->get([Ljava/security/cert/X509Certificate;)Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method public static varargs get([Ljava/security/cert/X509Certificate;)Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;
     .locals 1
-    .param p0, "caCerts"    # [Ljava/security/cert/X509Certificate;
 
     .line 49
     new-instance v0, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex$BasicTrustRootIndex;

@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/internal/http2/Http2;
 .super Ljava/lang/Object;
-.source "Http2.java"
+.source "SourceFile"
 
 
 # static fields
@@ -55,7 +55,6 @@
 .method static constructor <clinit>()V
     .locals 15
 
-    .line 25
     const-string v0, "PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n"
 
     .line 26
@@ -65,9 +64,9 @@
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->CONNECTION_PREFACE:Lcom/maya/open/http/okio/ByteString;
 
-    .line 52
     const/16 v0, 0xa
 
+    .line 52
     new-array v0, v0, [Ljava/lang/String;
 
     const-string v1, "DATA"
@@ -132,24 +131,23 @@
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FRAME_NAMES:[Ljava/lang/String;
 
-    .line 69
     const/16 v0, 0x40
 
+    .line 69
     new-array v0, v0, [Ljava/lang/String;
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    .line 70
     const/16 v0, 0x100
 
+    .line 70
     new-array v0, v0, [Ljava/lang/String;
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
-    .line 72
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 72
     :goto_0
     sget-object v1, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
@@ -184,13 +182,11 @@
 
     aput-object v7, v1, v0
 
-    .line 72
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 76
-    .end local v0    # "i":I
     :cond_0
     sget-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
@@ -211,7 +207,6 @@
     aput v3, v0, v2
 
     .line 81
-    .local v0, "prefixFlags":[I
     sget-object v1, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
     const-string v3, "PADDED"
@@ -229,7 +224,6 @@
     aget v8, v0, v3
 
     .line 83
-    .local v8, "prefixFlag":I
     sget-object v9, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
     or-int/lit8 v10, v8, 0x8
@@ -240,22 +234,20 @@
 
     sget-object v12, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    aget-object v12, v12, v8
+    aget-object v8, v12, v8
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v12, "|PADDED"
+    const-string v8, "|PADDED"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v8
 
-    aput-object v11, v9, v10
+    aput-object v8, v9, v10
 
-    .line 82
-    .end local v8    # "prefixFlag":I
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
@@ -290,7 +282,6 @@
     fill-array-data v1, :array_0
 
     .line 93
-    .local v1, "frameFlags":[I
     array-length v3, v1
 
     const/4 v4, 0x0
@@ -301,7 +292,6 @@
     aget v5, v1, v4
 
     .line 94
-    .local v5, "frameFlag":I
     array-length v7, v0
 
     const/4 v8, 0x0
@@ -312,7 +302,6 @@
     aget v9, v0, v8
 
     .line 95
-    .local v9, "prefixFlag":I
     sget-object v10, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
     or-int v11, v9, v5
@@ -346,8 +335,6 @@
     .line 96
     sget-object v10, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    or-int v11, v9, v5
-
     or-int/2addr v11, v6
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -356,36 +343,32 @@
 
     sget-object v14, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    aget-object v14, v14, v9
+    aget-object v9, v14, v9
 
-    invoke-virtual {v12, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    sget-object v13, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
+    sget-object v9, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    aget-object v13, v13, v5
+    aget-object v9, v9, v5
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v13, "|PADDED"
+    const-string v9, "|PADDED"
 
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v9
 
-    aput-object v12, v10, v11
+    aput-object v9, v10, v11
 
-    .line 94
-    .end local v9    # "prefixFlag":I
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_3
 
-    .line 93
-    .end local v5    # "frameFlag":I
     :cond_2
     add-int/lit8 v4, v4, 0x1
 
@@ -393,43 +376,37 @@
 
     .line 101
     :cond_3
-    nop
-
-    .local v2, "i":I
     :goto_4
-    sget-object v3, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
+    sget-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    array-length v3, v3
+    array-length v0, v0
 
-    if-ge v2, v3, :cond_5
+    if-ge v2, v0, :cond_5
 
     .line 102
-    sget-object v3, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
+    sget-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    aget-object v3, v3, v2
+    aget-object v0, v0, v2
 
-    if-nez v3, :cond_4
+    if-nez v0, :cond_4
 
-    sget-object v3, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
+    sget-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FLAGS:[Ljava/lang/String;
 
-    sget-object v4, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
+    sget-object v1, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
-    aget-object v4, v4, v2
+    aget-object v1, v1, v2
 
-    aput-object v4, v3, v2
+    aput-object v1, v0, v2
 
-    .line 101
     :cond_4
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_4
 
-    .line 104
-    .end local v0    # "prefixFlags":[I
-    .end local v1    # "frameFlags":[I
-    .end local v2    # "i":I
     :cond_5
     return-void
+
+    nop
 
     :array_0
     .array-data 4
@@ -445,23 +422,18 @@
     .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 107
     return-void
 .end method
 
 .method static formatFlags(BB)Ljava/lang/String;
-    .locals 3
-    .param p0, "type"    # B
-    .param p1, "flags"    # B
+    .locals 2
 
-    .line 148
     if-nez p1, :cond_0
 
-    const-string v0, ""
+    const-string p0, ""
 
-    return-object v0
+    return-object p0
 
-    .line 149
     :cond_0
     packed-switch p0, :pswitch_data_0
 
@@ -479,31 +451,31 @@
 
     goto :goto_1
 
-    .line 152
     :pswitch_1
-    const/4 v0, 0x1
+    const/4 p0, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, p0, :cond_1
 
-    const-string v0, "ACK"
+    const-string p0, "ACK"
 
     goto :goto_0
 
+    .line 152
     :cond_1
-    sget-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
+    sget-object p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
-    aget-object v0, v0, p1
+    aget-object p0, p0, p1
 
     :goto_0
-    return-object v0
+    return-object p0
 
     .line 157
     :pswitch_2
-    sget-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
+    sget-object p0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->BINARY:[Ljava/lang/String;
 
-    aget-object v0, v0, p1
+    aget-object p0, p0, p1
 
-    return-object v0
+    return-object p0
 
     .line 159
     :cond_2
@@ -511,8 +483,6 @@
 
     aget-object v0, v0, p1
 
-    .line 161
-    .local v0, "result":Ljava/lang/String;
     :goto_1
     const/4 v1, 0x5
 
@@ -522,37 +492,35 @@
 
     if-eqz v1, :cond_3
 
+    const-string p0, "HEADERS"
+
+    const-string p1, "PUSH_PROMISE"
+
     .line 162
-    const-string v1, "HEADERS"
+    invoke-virtual {v0, p0, p1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    const-string v2, "PUSH_PROMISE"
+    move-result-object p0
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    return-object p0
 
-    move-result-object v1
-
-    return-object v1
-
-    .line 163
     :cond_3
     if-nez p0, :cond_4
 
-    and-int/lit8 v1, p1, 0x20
+    and-int/lit8 p0, p1, 0x20
 
-    if-eqz v1, :cond_4
+    if-eqz p0, :cond_4
+
+    const-string p0, "PRIORITY"
+
+    const-string p1, "COMPRESSED"
 
     .line 164
-    const-string v1, "PRIORITY"
+    invoke-virtual {v0, p0, p1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    const-string v2, "COMPRESSED"
+    move-result-object p0
 
-    invoke-virtual {v0, v1, v2}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    return-object p0
 
-    move-result-object v1
-
-    return-object v1
-
-    .line 166
     :cond_4
     return-object v0
 
@@ -569,12 +537,7 @@
 .end method
 
 .method static frameLog(ZIIBB)Ljava/lang/String;
-    .locals 7
-    .param p0, "inbound"    # Z
-    .param p1, "streamId"    # I
-    .param p2, "length"    # I
-    .param p3, "type"    # B
-    .param p4, "flags"    # B
+    .locals 5
 
     .line 136
     sget-object v0, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->FRAME_NAMES:[Ljava/lang/String;
@@ -609,96 +572,85 @@
     move-result-object v0
 
     .line 137
-    .local v0, "formattedType":Ljava/lang/String;
     :goto_0
     invoke-static {p3, p4}, Lcom/maya/open/http/okhttp3/internal/http2/Http2;->formatFlags(BB)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p3
+
+    const-string p4, "%s 0x%08x %5d %-13s %s"
+
+    const/4 v3, 0x5
 
     .line 138
-    .local v3, "formattedFlags":Ljava/lang/String;
-    const-string v4, "%s 0x%08x %5d %-13s %s"
-
-    const/4 v5, 0x5
-
-    new-array v5, v5, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
     if-eqz p0, :cond_1
 
-    const-string v6, "<<"
+    const-string p0, "<<"
 
     goto :goto_1
 
     :cond_1
-    const-string v6, ">>"
+    const-string p0, ">>"
 
     :goto_1
-    aput-object v6, v5, v1
+    aput-object p0, v3, v1
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v1
+    move-result-object p0
 
-    aput-object v1, v5, v2
+    aput-object p0, v3, v2
 
-    const/4 v1, 0x2
+    const/4 p0, 0x2
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object p1
 
-    aput-object v2, v5, v1
+    aput-object p1, v3, p0
 
-    const/4 v1, 0x3
+    const/4 p0, 0x3
 
-    aput-object v0, v5, v1
+    aput-object v0, v3, p0
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    aput-object v3, v5, v1
+    aput-object p3, v3, p0
 
-    invoke-static {v4, v5}, Lcom/maya/open/http/okhttp3/internal/Util;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p4, v3}, Lcom/maya/open/http/okhttp3/internal/Util;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 .method static varargs illegalArgument(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;
-    .locals 2
-    .param p0, "message"    # Ljava/lang/String;
-    .param p1, "args"    # [Ljava/lang/Object;
+    .locals 1
 
     .line 110
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p0, p1}, Lcom/maya/open/http/okhttp3/internal/Util;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method static varargs ioException(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/IOException;
-    .locals 2
-    .param p0, "message"    # Ljava/lang/String;
-    .param p1, "args"    # [Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 1
 
     .line 114
     new-instance v0, Ljava/io/IOException;
 
     invoke-static {p0, p1}, Lcom/maya/open/http/okhttp3/internal/Util;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method

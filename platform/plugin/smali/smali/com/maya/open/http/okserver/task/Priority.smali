@@ -1,6 +1,6 @@
 .class public final enum Lcom/maya/open/http/okserver/task/Priority;
 .super Ljava/lang/Enum;
-.source "Priority.java"
+.source "SourceFile"
 
 
 # annotations
@@ -112,9 +112,9 @@
 
     sput-object v0, Lcom/maya/open/http/okserver/task/Priority;->BG_LOW:Lcom/maya/open/http/okserver/task/Priority;
 
-    .line 12
     const/4 v0, 0x7
 
+    .line 12
     new-array v0, v0, [Lcom/maya/open/http/okserver/task/Priority;
 
     sget-object v1, Lcom/maya/open/http/okserver/task/Priority;->UI_TOP:Lcom/maya/open/http/okserver/task/Priority;
@@ -166,18 +166,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/maya/open/http/okserver/task/Priority;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 12
     const-class v0, Lcom/maya/open/http/okserver/task/Priority;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/maya/open/http/okserver/task/Priority;
+    check-cast p0, Lcom/maya/open/http/okserver/task/Priority;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/maya/open/http/okserver/task/Priority;

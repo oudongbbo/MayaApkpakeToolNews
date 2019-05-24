@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;
 .super Ljava/lang/Object;
-.source "Cache.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okhttp3/internal/cache/CacheRequest;
@@ -32,7 +32,6 @@
 # direct methods
 .method public constructor <init>(Lcom/maya/open/http/okhttp3/Cache;Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Editor;)V
     .locals 2
-    .param p2, "editor"    # Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Editor;
 
     .line 436
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;->this$0:Lcom/maya/open/http/okhttp3/Cache;
@@ -42,9 +41,9 @@
     .line 437
     iput-object p2, p0, Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;->editor:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Editor;
 
-    .line 438
     const/4 v0, 0x1
 
+    .line 438
     invoke-virtual {p2, v0}, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Editor;->newSink(I)Lcom/maya/open/http/okio/Sink;
 
     move-result-object v0
@@ -60,7 +59,6 @@
 
     iput-object v0, p0, Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;->body:Lcom/maya/open/http/okio/Sink;
 
-    .line 452
     return-void
 .end method
 
@@ -85,10 +83,10 @@
 
     return-void
 
-    .line 459
     :cond_0
     const/4 v1, 0x1
 
+    .line 459
     iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/Cache$CacheRequestImpl;->done:Z
 
     .line 460
@@ -118,21 +116,13 @@
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    .line 466
-    goto :goto_0
-
-    .line 465
     :catch_0
-    move-exception v0
-
-    .line 467
-    :goto_0
     return-void
 
-    .line 461
     :catchall_0
     move-exception v1
 
+    .line 461
     :try_start_2
     monitor-exit v0
     :try_end_2

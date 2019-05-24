@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;
 .super Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;
-.source "SdkWebActivity.java"
+.source "SourceFile"
 
 
 # annotations
@@ -24,20 +24,17 @@
 
 # direct methods
 .method public constructor <init>(Lcom/maya/sdk/s/core/activity/SdkWebActivity;Lcom/maya/sdk/framework/web/SdkWebDialog;Landroid/content/Context;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/maya/sdk/s/core/activity/SdkWebActivity;
-    .param p2, "dialog"    # Lcom/maya/sdk/framework/web/SdkWebDialog;
-    .param p3, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 102
     iput-object p1, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->this$0:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
 
     .line 103
-    move-object v0, p3
+    move-object p1, p3
 
-    check-cast v0, Landroid/app/Activity;
+    check-cast p1, Landroid/app/Activity;
 
-    invoke-direct {p0, v0}, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;)V
+    invoke-direct {p0, p1}, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;)V
 
     .line 105
     iput-object p3, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsContext:Landroid/content/Context;
@@ -46,15 +43,14 @@
     iput-object p2, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/maya/sdk/framework/web/SdkWebDialog;
 
     .line 108
-    iget-object v0, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/maya/sdk/framework/web/SdkWebDialog;
+    iget-object p1, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/maya/sdk/framework/web/SdkWebDialog;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/web/SdkWebDialog;->getWebview()Landroid/webkit/WebView;
+    invoke-virtual {p1}, Lcom/maya/sdk/framework/web/SdkWebDialog;->a()Landroid/webkit/WebView;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->setWebview(Landroid/webkit/WebView;)V
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->setWebview(Landroid/webkit/WebView;)V
 
-    .line 109
     return-void
 .end method
 
@@ -65,24 +61,23 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 154
     const-string v0, "bindVistor"
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
+    .line 154
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->b(Ljava/lang/String;)V
 
     .line 155
-    invoke-static {}, Lcom/maya/sdk/s/app/FMSdkCore;->getInstance()Lcom/maya/sdk/s/app/FMSdkCore;
+    invoke-static {}, Lcom/maya/sdk/s/app/a;->a()Lcom/maya/sdk/s/app/a;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/maya/sdk/s/app/FMSdkCore;->vistorBind()V
+    invoke-virtual {v0}, Lcom/maya/sdk/s/app/a;->b()V
 
     .line 156
     iget-object v0, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->this$0:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/s/core/activity/SdkWebActivity;->closeWebActivity()V
+    invoke-virtual {v0}, Lcom/maya/sdk/s/core/activity/SdkWebActivity;->a()V
 
-    .line 157
     return-void
 .end method
 
@@ -94,17 +89,16 @@
     .line 122
     invoke-super {p0}, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;->enClose()V
 
-    .line 123
     const-string v0, "wap \u8c03\u7528enClose"
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
+    .line 123
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->b(Ljava/lang/String;)V
 
     .line 124
     iget-object v0, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/maya/sdk/framework/web/SdkWebDialog;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/web/SdkWebDialog;->closeWeb()V
+    invoke-virtual {v0}, Lcom/maya/sdk/framework/web/SdkWebDialog;->c()V
 
-    .line 125
     return-void
 .end method
 
@@ -116,17 +110,16 @@
     .line 114
     invoke-super {p0}, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;->enRefresh()V
 
-    .line 115
     const-string v0, "wap \u8c03\u7528enRefresh"
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
+    .line 115
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->b(Ljava/lang/String;)V
 
     .line 116
     iget-object v0, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->jsDialog:Lcom/maya/sdk/framework/web/SdkWebDialog;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/web/SdkWebDialog;->refreshWeb()V
+    invoke-virtual {v0}, Lcom/maya/sdk/framework/web/SdkWebDialog;->b()V
 
-    .line 117
     return-void
 .end method
 
@@ -135,10 +128,10 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 147
     const-string v0, "logoutSdkAccount"
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
+    .line 147
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->b(Ljava/lang/String;)V
 
     .line 148
     invoke-virtual {p0}, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->userLogout()V
@@ -146,9 +139,8 @@
     .line 149
     iget-object v0, p0, Lcom/maya/sdk/s/core/activity/SdkWebActivity$SdkWebJavaScriptInterface;->this$0:Lcom/maya/sdk/s/core/activity/SdkWebActivity;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/s/core/activity/SdkWebActivity;->closeWebActivity()V
+    invoke-virtual {v0}, Lcom/maya/sdk/s/core/activity/SdkWebActivity;->a()V
 
-    .line 150
     return-void
 .end method
 
@@ -157,18 +149,18 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 137
     const-string v0, "userLogout"
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
+    .line 137
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->b(Ljava/lang/String;)V
 
     .line 138
-    sget-object v0, Lcom/maya/sdk/s/core/SdkManager;->sdkUserLogoutCallback:Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
+    sget-object v0, Lcom/maya/sdk/s/core/a;->d:Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
 
     if-eqz v0, :cond_0
 
     .line 139
-    sget-object v0, Lcom/maya/sdk/s/core/SdkManager;->sdkUserLogoutCallback:Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
+    sget-object v0, Lcom/maya/sdk/s/core/a;->d:Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
 
     new-instance v1, Landroid/os/Bundle;
 
@@ -176,7 +168,6 @@
 
     invoke-interface {v0, v1}, Lcom/maya/sdk/framework/interfaces/SdkResultCallback;->onSuccess(Landroid/os/Bundle;)V
 
-    .line 141
     :cond_0
     return-void
 .end method
@@ -186,28 +177,27 @@
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
-    .line 129
     const-string v0, "userSwitch"
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/utils/LogUtil;->i(Ljava/lang/String;)V
+    .line 129
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->b(Ljava/lang/String;)V
 
     .line 130
-    sget-object v0, Lcom/maya/sdk/s/core/SdkManager;->sdkContext:Landroid/content/Context;
+    sget-object v0, Lcom/maya/sdk/s/core/a;->g:Landroid/content/Context;
 
     if-eqz v0, :cond_0
 
     .line 131
-    invoke-static {}, Lcom/maya/sdk/s/app/FMSdkCore;->getInstance()Lcom/maya/sdk/s/app/FMSdkCore;
+    invoke-static {}, Lcom/maya/sdk/s/app/a;->a()Lcom/maya/sdk/s/app/a;
 
     move-result-object v0
 
-    sget-object v1, Lcom/maya/sdk/s/core/SdkManager;->sdkContext:Landroid/content/Context;
+    sget-object v1, Lcom/maya/sdk/s/core/a;->g:Landroid/content/Context;
 
-    sget-object v2, Lcom/maya/sdk/s/core/SdkManager;->sdkUserSwitchCallback:Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
+    sget-object v2, Lcom/maya/sdk/s/core/a;->e:Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
 
-    invoke-virtual {v0, v1, v2}, Lcom/maya/sdk/s/app/FMSdkCore;->userSwitch(Landroid/content/Context;Lcom/maya/sdk/framework/interfaces/SdkResultCallback;)V
+    invoke-virtual {v0, v1, v2}, Lcom/maya/sdk/s/app/a;->userSwitch(Landroid/content/Context;Lcom/maya/sdk/framework/interfaces/SdkResultCallback;)V
 
-    .line 133
     :cond_0
     return-void
 .end method

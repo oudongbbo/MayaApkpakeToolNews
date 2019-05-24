@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
 .super Ljava/lang/Object;
-.source "DiskLruCache.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/io/Closeable;
@@ -32,11 +32,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;Ljava/lang/String;J[Lcom/maya/open/http/okio/Source;[J)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
-    .param p2, "key"    # Ljava/lang/String;
-    .param p3, "sequenceNumber"    # J
-    .param p5, "sources"    # [Lcom/maya/open/http/okio/Source;
-    .param p6, "lengths"    # [J
 
     .line 795
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
@@ -55,18 +50,16 @@
     .line 799
     iput-object p6, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->lengths:[J
 
-    .line 800
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;
+    .locals 0
 
     .line 789
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->key:Ljava/lang/String;
+    iget-object p0, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->key:Ljava/lang/String;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -87,27 +80,18 @@
     aget-object v3, v0, v2
 
     .line 827
-    .local v3, "in":Lcom/maya/open/http/okio/Source;
     invoke-static {v3}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 826
-    .end local v3    # "in":Lcom/maya/open/http/okio/Source;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    .line 829
     :cond_0
     return-void
 .end method
 
 .method public edit()Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Editor;
     .locals 4
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 811
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
@@ -125,7 +109,6 @@
 
 .method public getLength(I)J
     .locals 3
-    .param p1, "index"    # I
 
     .line 821
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->lengths:[J
@@ -137,14 +120,13 @@
 
 .method public getSource(I)Lcom/maya/open/http/okio/Source;
     .locals 1
-    .param p1, "index"    # I
 
     .line 816
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$Snapshot;->sources:[Lcom/maya/open/http/okio/Source;
 
-    aget-object v0, v0, p1
+    aget-object p1, v0, p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public key()Ljava/lang/String;

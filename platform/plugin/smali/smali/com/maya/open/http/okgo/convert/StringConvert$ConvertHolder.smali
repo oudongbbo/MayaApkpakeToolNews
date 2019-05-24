@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okgo/convert/StringConvert$ConvertHolder;
 .super Ljava/lang/Object;
-.source "StringConvert.java"
+.source "SourceFile"
 
 
 # annotations

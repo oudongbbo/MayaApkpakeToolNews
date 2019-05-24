@@ -1,6 +1,6 @@
 .class public abstract Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
 .super Ljava/lang/Object;
-.source "CertificateChainCleaner.java"
+.source "SourceFile"
 
 
 # direct methods
@@ -15,7 +15,6 @@
 
 .method public static get(Ljavax/net/ssl/X509TrustManager;)Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
     .locals 1
-    .param p0, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
     .line 46
     invoke-static {}, Lcom/maya/open/http/okhttp3/internal/platform/Platform;->get()Lcom/maya/open/http/okhttp3/internal/platform/Platform;
@@ -24,23 +23,22 @@
 
     invoke-virtual {v0, p0}, Lcom/maya/open/http/okhttp3/internal/platform/Platform;->buildCertificateChainCleaner(Ljavax/net/ssl/X509TrustManager;)Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static varargs get([Ljava/security/cert/X509Certificate;)Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
-    .locals 2
-    .param p0, "caCerts"    # [Ljava/security/cert/X509Certificate;
+    .locals 1
 
     .line 50
     new-instance v0, Lcom/maya/open/http/okhttp3/internal/tls/BasicCertificateChainCleaner;
 
     invoke-static {p0}, Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;->get([Ljava/security/cert/X509Certificate;)Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Lcom/maya/open/http/okhttp3/internal/tls/BasicCertificateChainCleaner;-><init>(Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;)V
+    invoke-direct {v0, p0}, Lcom/maya/open/http/okhttp3/internal/tls/BasicCertificateChainCleaner;-><init>(Lcom/maya/open/http/okhttp3/internal/tls/TrustRootIndex;)V
 
     return-object v0
 .end method
@@ -59,12 +57,6 @@
             "Ljava/util/List<",
             "Ljava/security/cert/Certificate;",
             ">;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljavax/net/ssl/SSLPeerUnverifiedException;
         }
     .end annotation
 .end method

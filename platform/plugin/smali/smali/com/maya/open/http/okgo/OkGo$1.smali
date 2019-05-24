@@ -1,6 +1,6 @@
 .class synthetic Lcom/maya/open/http/okgo/OkGo$1;
 .super Ljava/lang/Object;
-.source "OkGo.java"
+.source "SourceFile"
 
 
 # annotations

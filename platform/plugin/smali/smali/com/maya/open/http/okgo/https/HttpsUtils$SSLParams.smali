@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okgo/https/HttpsUtils$SSLParams;
 .super Ljava/lang/Object;
-.source "HttpsUtils.java"
+.source "SourceFile"
 
 
 # annotations

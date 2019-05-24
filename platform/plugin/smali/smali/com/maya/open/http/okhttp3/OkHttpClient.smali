@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okhttp3/OkHttpClient;
 .super Ljava/lang/Object;
-.source "OkHttpClient.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okhttp3/Call$Factory;
@@ -128,9 +128,9 @@
 .method static constructor <clinit>()V
     .locals 5
 
-    .line 124
     const/4 v0, 0x2
 
+    .line 124
     new-array v1, v0, [Lcom/maya/open/http/okhttp3/Protocol;
 
     sget-object v2, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_2:Lcom/maya/open/http/okhttp3/Protocol;
@@ -175,7 +175,6 @@
 
     sput-object v0, Lcom/maya/open/http/okhttp3/internal/Internal;->instance:Lcom/maya/open/http/okhttp3/internal/Internal;
 
-    .line 189
     return-void
 .end method
 
@@ -189,13 +188,11 @@
 
     invoke-direct {p0, v0}, Lcom/maya/open/http/okhttp3/OkHttpClient;-><init>(Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;)V
 
-    .line 220
     return-void
 .end method
 
 .method constructor <init>(Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;)V
     .locals 4
-    .param p1, "builder"    # Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;
 
     .line 222
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -263,231 +260,208 @@
 
     iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->socketFactory:Ljavax/net/SocketFactory;
 
-    .line 235
-    const/4 v0, 0x0
-
     .line 236
-    .local v0, "isTLS":Z
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->connectionSpecs:Ljava/util/List;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->connectionSpecs:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    :cond_0
+    const/4 v2, 0x0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/maya/open/http/okhttp3/ConnectionSpec;
-
-    .line 237
-    .local v2, "spec":Lcom/maya/open/http/okhttp3/ConnectionSpec;
-    if-nez v0, :cond_1
-
-    invoke-virtual {v2}, Lcom/maya/open/http/okhttp3/ConnectionSpec;->isTls()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_2
 
-    goto :goto_1
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    :cond_0
-    const/4 v3, 0x0
+    move-result-object v3
 
-    goto :goto_2
+    check-cast v3, Lcom/maya/open/http/okhttp3/ConnectionSpec;
+
+    if-nez v2, :cond_1
+
+    .line 237
+    invoke-virtual {v3}, Lcom/maya/open/http/okhttp3/ConnectionSpec;->isTls()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     :cond_1
-    :goto_1
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    :goto_2
-    move v0, v3
-
-    .line 238
-    .end local v2    # "spec":Lcom/maya/open/http/okhttp3/ConnectionSpec;
     goto :goto_0
 
     .line 240
     :cond_2
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
 
-    if-nez v1, :cond_4
+    if-nez v0, :cond_4
 
-    if-nez v0, :cond_3
+    if-nez v2, :cond_3
 
-    goto :goto_3
+    goto :goto_1
 
     .line 244
     :cond_3
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/OkHttpClient;->systemDefaultTrustManager()Ljavax/net/ssl/X509TrustManager;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 245
-    .local v1, "trustManager":Ljavax/net/ssl/X509TrustManager;
-    invoke-direct {p0, v1}, Lcom/maya/open/http/okhttp3/OkHttpClient;->systemDefaultSslSocketFactory(Ljavax/net/ssl/X509TrustManager;)Ljavax/net/ssl/SSLSocketFactory;
+    invoke-direct {p0, v0}, Lcom/maya/open/http/okhttp3/OkHttpClient;->systemDefaultSslSocketFactory(Ljavax/net/ssl/X509TrustManager;)Ljavax/net/ssl/SSLSocketFactory;
 
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
-
-    .line 246
-    invoke-static {v1}, Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;->get(Ljavax/net/ssl/X509TrustManager;)Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
-
-    goto :goto_4
-
-    .line 241
-    .end local v1    # "trustManager":Ljavax/net/ssl/X509TrustManager;
-    :cond_4
-    :goto_3
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+    move-result-object v1
 
     iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
 
-    .line 242
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
+    .line 246
+    invoke-static {v0}, Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;->get(Ljavax/net/ssl/X509TrustManager;)Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
+
+    goto :goto_2
+
+    .line 241
+    :cond_4
+    :goto_1
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->sslSocketFactory:Ljavax/net/ssl/SSLSocketFactory;
+
+    .line 242
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
+
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
 
     .line 249
-    :goto_4
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
+    :goto_2
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->hostnameVerifier:Ljavax/net/ssl/HostnameVerifier;
 
     .line 250
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->certificatePinner:Lcom/maya/open/http/okhttp3/CertificatePinner;
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->certificatePinner:Lcom/maya/open/http/okhttp3/CertificatePinner;
 
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificateChainCleaner:Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;
 
-    invoke-virtual {v1, v2}, Lcom/maya/open/http/okhttp3/CertificatePinner;->withCertificateChainCleaner(Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;)Lcom/maya/open/http/okhttp3/CertificatePinner;
+    invoke-virtual {v0, v1}, Lcom/maya/open/http/okhttp3/CertificatePinner;->withCertificateChainCleaner(Lcom/maya/open/http/okhttp3/internal/tls/CertificateChainCleaner;)Lcom/maya/open/http/okhttp3/CertificatePinner;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificatePinner:Lcom/maya/open/http/okhttp3/CertificatePinner;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->certificatePinner:Lcom/maya/open/http/okhttp3/CertificatePinner;
 
     .line 252
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->proxyAuthenticator:Lcom/maya/open/http/okhttp3/Authenticator;
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->proxyAuthenticator:Lcom/maya/open/http/okhttp3/Authenticator;
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->proxyAuthenticator:Lcom/maya/open/http/okhttp3/Authenticator;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->proxyAuthenticator:Lcom/maya/open/http/okhttp3/Authenticator;
 
     .line 253
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->authenticator:Lcom/maya/open/http/okhttp3/Authenticator;
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->authenticator:Lcom/maya/open/http/okhttp3/Authenticator;
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->authenticator:Lcom/maya/open/http/okhttp3/Authenticator;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->authenticator:Lcom/maya/open/http/okhttp3/Authenticator;
 
     .line 254
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->connectionPool:Lcom/maya/open/http/okhttp3/ConnectionPool;
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->connectionPool:Lcom/maya/open/http/okhttp3/ConnectionPool;
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->connectionPool:Lcom/maya/open/http/okhttp3/ConnectionPool;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->connectionPool:Lcom/maya/open/http/okhttp3/ConnectionPool;
 
     .line 255
-    iget-object v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->dns:Lcom/maya/open/http/okhttp3/Dns;
+    iget-object v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->dns:Lcom/maya/open/http/okhttp3/Dns;
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->dns:Lcom/maya/open/http/okhttp3/Dns;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->dns:Lcom/maya/open/http/okhttp3/Dns;
 
     .line 256
-    iget-boolean v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->followSslRedirects:Z
+    iget-boolean v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->followSslRedirects:Z
 
-    iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->followSslRedirects:Z
+    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->followSslRedirects:Z
 
     .line 257
-    iget-boolean v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->followRedirects:Z
+    iget-boolean v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->followRedirects:Z
 
-    iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->followRedirects:Z
+    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->followRedirects:Z
 
     .line 258
-    iget-boolean v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->retryOnConnectionFailure:Z
+    iget-boolean v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->retryOnConnectionFailure:Z
 
-    iput-boolean v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->retryOnConnectionFailure:Z
+    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->retryOnConnectionFailure:Z
 
     .line 259
-    iget v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->connectTimeout:I
+    iget v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->connectTimeout:I
 
-    iput v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->connectTimeout:I
+    iput v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->connectTimeout:I
 
     .line 260
-    iget v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->readTimeout:I
+    iget v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->readTimeout:I
 
-    iput v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->readTimeout:I
+    iput v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->readTimeout:I
 
     .line 261
-    iget v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->writeTimeout:I
+    iget v0, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->writeTimeout:I
 
-    iput v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->writeTimeout:I
+    iput v0, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->writeTimeout:I
 
     .line 262
-    iget v1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->pingInterval:I
+    iget p1, p1, Lcom/maya/open/http/okhttp3/OkHttpClient$Builder;->pingInterval:I
 
-    iput v1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->pingInterval:I
+    iput p1, p0, Lcom/maya/open/http/okhttp3/OkHttpClient;->pingInterval:I
 
-    .line 263
     return-void
 .end method
 
 .method private systemDefaultSslSocketFactory(Ljavax/net/ssl/X509TrustManager;)Ljavax/net/ssl/SSLSocketFactory;
     .locals 3
-    .param p1, "trustManager"    # Ljavax/net/ssl/X509TrustManager;
 
-    .line 283
     :try_start_0
     const-string v0, "TLS"
 
+    .line 283
     invoke-static {v0}, Ljavax/net/ssl/SSLContext;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/SSLContext;
 
     move-result-object v0
 
-    .line 284
-    .local v0, "sslContext":Ljavax/net/ssl/SSLContext;
     const/4 v1, 0x1
 
+    .line 284
     new-array v1, v1, [Ljavax/net/ssl/TrustManager;
 
     const/4 v2, 0x0
 
     aput-object p1, v1, v2
 
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v2, v1, v2}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
+    invoke-virtual {v0, p1, v1, p1}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
 
     .line 285
     invoke-virtual {v0}, Ljavax/net/ssl/SSLContext;->getSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
 
-    move-result-object v1
+    move-result-object p1
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v1
-
-    .line 286
-    .end local v0    # "sslContext":Ljavax/net/ssl/SSLContext;
-    :catch_0
-    move-exception v0
+    return-object p1
 
     .line 287
-    .local v0, "e":Ljava/security/GeneralSecurityException;
-    new-instance v1, Ljava/lang/AssertionError;
+    :catch_0
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v1
+    throw p1
 .end method
 
 .method private systemDefaultTrustManager()Ljavax/net/ssl/X509TrustManager;
-    .locals 5
+    .locals 4
 
     .line 268
     :try_start_0
@@ -500,10 +474,9 @@
 
     move-result-object v0
 
-    .line 269
-    .local v0, "trustManagerFactory":Ljavax/net/ssl/TrustManagerFactory;
     const/4 v1, 0x0
 
+    .line 269
     check-cast v1, Ljava/security/KeyStore;
 
     invoke-virtual {v0, v1}, Ljavax/net/ssl/TrustManagerFactory;->init(Ljava/security/KeyStore;)V
@@ -511,73 +484,66 @@
     .line 270
     invoke-virtual {v0}, Ljavax/net/ssl/TrustManagerFactory;->getTrustManagers()[Ljavax/net/ssl/TrustManager;
 
-    move-result-object v1
+    move-result-object v0
 
     .line 271
-    .local v1, "trustManagers":[Ljavax/net/ssl/TrustManager;
-    array-length v2, v1
+    array-length v1, v0
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aget-object v3, v1, v2
+    aget-object v2, v0, v1
 
-    instance-of v3, v3, Ljavax/net/ssl/X509TrustManager;
+    instance-of v2, v2, Ljavax/net/ssl/X509TrustManager;
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
     .line 275
-    aget-object v2, v1, v2
+    aget-object v0, v0, v1
 
-    check-cast v2, Ljavax/net/ssl/X509TrustManager;
+    check-cast v0, Ljavax/net/ssl/X509TrustManager;
 
-    return-object v2
+    return-object v0
 
     .line 272
     :cond_0
-    new-instance v2, Ljava/lang/IllegalStateException;
+    new-instance v1, Ljava/lang/IllegalStateException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unexpected default trust managers:"
+    const-string v3, "Unexpected default trust managers:"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 273
-    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
     :try_end_0
     .catch Ljava/security/GeneralSecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 276
-    .end local v0    # "trustManagerFactory":Ljavax/net/ssl/TrustManagerFactory;
-    .end local v1    # "trustManagers":[Ljavax/net/ssl/TrustManager;
-    :catch_0
-    move-exception v0
-
     .line 277
-    .local v0, "e":Ljava/security/GeneralSecurityException;
-    new-instance v1, Ljava/lang/AssertionError;
+    :catch_0
+    new-instance v0, Ljava/lang/AssertionError;
 
-    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v1
+    throw v0
 .end method
 
 
@@ -766,7 +732,6 @@
 
 .method public newCall(Lcom/maya/open/http/okhttp3/Request;)Lcom/maya/open/http/okhttp3/Call;
     .locals 2
-    .param p1, "request"    # Lcom/maya/open/http/okhttp3/Request;
 
     .line 409
     new-instance v0, Lcom/maya/open/http/okhttp3/RealCall;
@@ -780,8 +745,6 @@
 
 .method public newWebSocket(Lcom/maya/open/http/okhttp3/Request;Lcom/maya/open/http/okhttp3/WebSocketListener;)Lcom/maya/open/http/okhttp3/WebSocket;
     .locals 2
-    .param p1, "request"    # Lcom/maya/open/http/okhttp3/Request;
-    .param p2, "listener"    # Lcom/maya/open/http/okhttp3/WebSocketListener;
 
     .line 416
     new-instance v0, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;
@@ -793,10 +756,8 @@
     invoke-direct {v0, p1, p2, v1}, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;-><init>(Lcom/maya/open/http/okhttp3/Request;Lcom/maya/open/http/okhttp3/WebSocketListener;Ljava/util/Random;)V
 
     .line 417
-    .local v0, "webSocket":Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;
     invoke-virtual {v0, p0}, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket;->connect(Lcom/maya/open/http/okhttp3/OkHttpClient;)V
 
-    .line 418
     return-object v0
 .end method
 

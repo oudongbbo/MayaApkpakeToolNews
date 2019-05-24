@@ -1,50 +1,50 @@
 .class public Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
 .super Landroid/app/Activity;
-.source "SdkCustomerServiceActivity.java"
+.source "SourceFile"
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;,
-        Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$MyWebViewDownLoadListener;,
-        Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$JsObj;
+        Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$c;,
+        Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$b;,
+        Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$a;
     }
 .end annotation
 
 
 # instance fields
-.field private LOAD_TIMEOUT:J
+.field a:Landroid/os/Handler;
 
-.field private final RETRY_LOAD_COUNTS:I
+.field b:Landroid/os/Handler;
 
-.field closeHandler:Landroid/os/Handler;
+.field c:Landroid/os/Handler;
 
-.field private currentUrl:Ljava/lang/String;
+.field d:Lcom/maya/sdk/framework/web/SdkWebCallback;
 
-.field private isTransparent:Z
+.field private e:Ljava/lang/String;
 
-.field private mContext:Landroid/content/Context;
+.field private f:J
 
-.field private maya_customer_rl:Landroid/widget/RelativeLayout;
+.field private final g:I
 
-.field private runnable:Ljava/lang/Runnable;
+.field private h:Landroid/content/Context;
 
-.field private screenWidth:I
+.field private i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-.field private screenheight:I
+.field private j:Lcom/maya/sdk/framework/view/loading/a;
 
-.field private sdkWebChromeClient:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
+.field private k:I
 
-.field showErrorWebHandler:Landroid/os/Handler;
+.field private l:I
 
-.field showWebHandler:Landroid/os/Handler;
+.field private m:Landroid/widget/RelativeLayout;
 
-.field private waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+.field private n:Z
 
-.field webLoadCallback:Lcom/maya/sdk/framework/web/SdkWebCallback;
+.field private o:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
-.field private webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+.field private p:Ljava/lang/Runnable;
 
 
 # direct methods
@@ -54,323 +54,296 @@
     .line 41
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
-    .line 45
     const-wide/16 v0, 0x1388
 
-    iput-wide v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->LOAD_TIMEOUT:J
+    .line 45
+    iput-wide v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->f:J
 
-    .line 46
     const/4 v0, 0x3
 
-    iput v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->RETRY_LOAD_COUNTS:I
+    .line 46
+    iput v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->g:I
 
-    .line 55
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->isTransparent:Z
+    .line 55
+    iput-boolean v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->n:Z
 
     .line 139
     new-instance v0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$2;
 
     invoke-direct {v0, p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$2;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
 
-    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->showWebHandler:Landroid/os/Handler;
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->a:Landroid/os/Handler;
 
     .line 169
     new-instance v0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$3;
 
     invoke-direct {v0, p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$3;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
 
-    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->closeHandler:Landroid/os/Handler;
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->b:Landroid/os/Handler;
 
     .line 179
     new-instance v0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$4;
 
     invoke-direct {v0, p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$4;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
 
-    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->showErrorWebHandler:Landroid/os/Handler;
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->c:Landroid/os/Handler;
 
     .line 355
     new-instance v0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$5;
 
     invoke-direct {v0, p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$5;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
 
-    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webLoadCallback:Lcom/maya/sdk/framework/web/SdkWebCallback;
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->d:Lcom/maya/sdk/framework/web/SdkWebCallback;
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Ljava/lang/String;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-
-    .line 41
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->currentUrl:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1000(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
+.method static synthetic a(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/Runnable;)Ljava/lang/Runnable;
     .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
 
     .line 41
-    invoke-direct {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->hideWaitDialog()V
-
-    return-void
-.end method
-
-.method static synthetic access$102(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p1, "x1"    # Ljava/lang/String;
-
-    .line 41
-    iput-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->currentUrl:Ljava/lang/String;
+    iput-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->p:Ljava/lang/Runnable;
 
     return-object p1
 .end method
 
-.method static synthetic access$1100(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+.method static synthetic a(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Ljava/lang/String;
     .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p1, "x1"    # Ljava/lang/String;
 
     .line 41
-    invoke-direct {p0, p1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->updateWaitDialog(Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->e:Ljava/lang/String;
 
-    return-void
+    return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-
-    .line 41
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Lcom/maya/sdk/framework/web/webview/WebViewBase;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-
-    .line 41
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Z
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-
-    .line 41
-    iget-boolean v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->isTransparent:Z
-
-    return v0
-.end method
-
-.method static synthetic access$500(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
-    .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p1, "x1"    # Ljava/lang/String;
-
-    .line 41
-    invoke-direct {p0, p1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
-    .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-
-    .line 41
-    invoke-direct {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->removeTimeoutCheckingRunnable()V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Ljava/lang/Runnable;
-    .locals 1
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-
-    .line 41
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->runnable:Ljava/lang/Runnable;
-
-    return-object v0
-.end method
-
-.method static synthetic access$702(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/Runnable;)Ljava/lang/Runnable;
-    .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p1, "x1"    # Ljava/lang/Runnable;
-
-    .line 41
-    iput-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->runnable:Ljava/lang/Runnable;
-
-    return-object p1
-.end method
-
-.method static synthetic access$800(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)J
-    .locals 2
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-
-    .line 41
-    iget-wide v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->LOAD_TIMEOUT:J
-
-    return-wide v0
-.end method
-
-.method static synthetic access$900(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
-    .locals 0
-    .param p0, "x0"    # Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;
-    .param p1, "x1"    # Landroid/content/Context;
-
-    .line 41
-    invoke-direct {p0, p1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->showWaitDialog(Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method private hideWaitDialog()V
+.method private a()V
     .locals 1
 
     .line 214
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;->isShowing()Z
+    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/a;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 215
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;->dismiss()V
+    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/a;->dismiss()V
 
-    .line 217
     :cond_0
     return-void
 .end method
 
-.method private removeTimeoutCheckingRunnable()V
+.method private a(Landroid/content/Context;)V
     .locals 1
 
-    .line 349
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->runnable:Ljava/lang/Runnable;
-
-    if-eqz v0, :cond_0
-
-    .line 350
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->runnable:Ljava/lang/Runnable;
-
-    invoke-static {v0}, Lcom/maya/sdk/framework/web/webview/WebviewHandler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    .line 351
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->runnable:Ljava/lang/Runnable;
-
-    .line 353
-    :cond_0
-    return-void
-.end method
-
-.method private sendLog(Ljava/lang/String;)V
-    .locals 1
-    .param p1, "log"    # Ljava/lang/String;
-
-    .line 406
-    const-string v0, "SdkCustomerServiceActivity"
-
-    invoke-static {v0, p1}, Lcom/maya/sdk/m/utils/MLogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    .line 407
-    return-void
-.end method
-
-.method private showWaitDialog(Landroid/content/Context;)V
-    .locals 2
-    .param p1, "context"    # Landroid/content/Context;
-
-    .line 191
     if-eqz p1, :cond_1
 
     .line 193
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
     if-nez v0, :cond_0
 
     .line 194
-    new-instance v0, Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    new-instance v0, Lcom/maya/sdk/framework/view/loading/a;
 
-    invoke-direct {v0, p1}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Lcom/maya/sdk/framework/view/loading/a;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
     .line 195
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;->setCanceledOnTouchOutside(Z)V
+    invoke-virtual {p1, v0}, Lcom/maya/sdk/framework/view/loading/a;->setCanceledOnTouchOutside(Z)V
 
     .line 198
     :cond_0
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;->isShowing()Z
+    invoke-virtual {p1}, Lcom/maya/sdk/framework/view/loading/a;->isShowing()Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_1
+    if-nez p1, :cond_1
 
     .line 199
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;->show()V
+    invoke-virtual {p1}, Lcom/maya/sdk/framework/view/loading/a;->show()V
 
-    .line 203
     :cond_1
     return-void
 .end method
 
-.method private updateWaitDialog(Ljava/lang/String;)V
+.method static synthetic a(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
+    .locals 0
+
+    .line 41
+    invoke-direct {p0, p1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->a(Landroid/content/Context;)V
+
+    return-void
+.end method
+
+.method static synthetic a(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+    .locals 0
+
+    .line 41
+    invoke-direct {p0, p1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->b(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private a(Ljava/lang/String;)V
     .locals 1
-    .param p1, "msg"    # Ljava/lang/String;
 
     .line 220
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;->isShowing()Z
+    invoke-virtual {v0}, Lcom/maya/sdk/framework/view/loading/a;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
     .line 221
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->waitDialog:Lcom/maya/sdk/framework/view/loading/LoadingDialog;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->j:Lcom/maya/sdk/framework/view/loading/a;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/framework/view/loading/LoadingDialog;->setLoadingMessage(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/framework/view/loading/a;->a(Ljava/lang/CharSequence;)V
 
-    .line 223
     :cond_0
+    return-void
+.end method
+
+.method static synthetic b(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Landroid/content/Context;
+    .locals 0
+
+    .line 41
+    iget-object p0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
+
+    return-object p0
+.end method
+
+.method static synthetic b(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    .line 41
+    iput-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->e:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method private b()V
+    .locals 1
+
+    .line 349
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->p:Ljava/lang/Runnable;
+
+    if-eqz v0, :cond_0
+
+    .line 350
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->p:Ljava/lang/Runnable;
+
+    invoke-static {v0}, Lcom/maya/sdk/framework/web/webview/a;->a(Ljava/lang/Runnable;)V
+
+    const/4 v0, 0x0
+
+    .line 351
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->p:Ljava/lang/Runnable;
+
+    :cond_0
+    return-void
+.end method
+
+.method private b(Ljava/lang/String;)V
+    .locals 1
+
+    const-string v0, "SdkCustomerServiceActivity"
+
+    .line 406
+    invoke-static {v0, p1}, Lcom/maya/sdk/m/utils/a;->a(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic c(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    .locals 0
+
+    .line 41
+    iget-object p0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+
+    return-object p0
+.end method
+
+.method static synthetic c(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Ljava/lang/String;)V
+    .locals 0
+
+    .line 41
+    invoke-direct {p0, p1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->a(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic d(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Z
+    .locals 0
+
+    .line 41
+    iget-boolean p0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->n:Z
+
+    return p0
+.end method
+
+.method static synthetic e(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
+    .locals 0
+
+    .line 41
+    invoke-direct {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->b()V
+
+    return-void
+.end method
+
+.method static synthetic f(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)Ljava/lang/Runnable;
+    .locals 0
+
+    .line 41
+    iget-object p0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->p:Ljava/lang/Runnable;
+
+    return-object p0
+.end method
+
+.method static synthetic g(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)J
+    .locals 2
+
+    .line 41
+    iget-wide v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->f:J
+
+    return-wide v0
+.end method
+
+.method static synthetic h(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
+    .locals 0
+
+    .line 41
+    invoke-direct {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->a()V
+
     return-void
 .end method
 
@@ -378,17 +351,14 @@
 # virtual methods
 .method protected onActivityResult(IILandroid/content/Intent;)V
     .locals 1
-    .param p1, "requestCode"    # I
-    .param p2, "resultCode"    # I
-    .param p3, "intent"    # Landroid/content/Intent;
 
     .line 391
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sdkWebChromeClient:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->o:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
     if-eqz v0, :cond_0
 
     .line 392
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sdkWebChromeClient:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->o:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;->onActivityResult(IILandroid/content/Intent;)V
 
@@ -396,498 +366,449 @@
     :cond_0
     invoke-super {p0, p1, p2, p3}, Landroid/app/Activity;->onActivityResult(IILandroid/content/Intent;)V
 
-    .line 395
-    return-void
-.end method
-
-.method public onActivityResultAboveL(IILandroid/content/Intent;)V
-    .locals 1
-    .param p1, "requestCode"    # I
-    .param p2, "resultCode"    # I
-    .param p3, "intent"    # Landroid/content/Intent;
-    .annotation build Landroid/annotation/TargetApi;
-        value = 0x15
-    .end annotation
-
-    .line 399
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sdkWebChromeClient:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
-
-    if-eqz v0, :cond_0
-
-    .line 400
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sdkWebChromeClient:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;->onActivityResultAboveL(IILandroid/content/Intent;)V
-
-    .line 401
-    invoke-virtual {p0, p1, p2, p3}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->onActivityResult(IILandroid/content/Intent;)V
-
-    .line 403
-    :cond_0
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 12
-    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
+    .locals 7
 
     .line 61
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     .line 62
-    iput-object p0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iput-object p0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
+
+    const/4 p1, 0x0
 
     .line 63
-    const/4 v0, 0x0
+    invoke-virtual {p0, p1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->setFinishOnTouchOutside(Z)V
 
-    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->setFinishOnTouchOutside(Z)V
+    const-string v0, "window"
 
     .line 65
-    const-string v1, "window"
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    invoke-virtual {p0, v1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v1
-
-    check-cast v1, Landroid/view/WindowManager;
+    check-cast v0, Landroid/view/WindowManager;
 
     .line 66
-    .local v1, "manager":Landroid/view/WindowManager;
-    new-instance v2, Landroid/util/DisplayMetrics;
+    new-instance v1, Landroid/util/DisplayMetrics;
 
-    invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V
+    invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
 
     .line 67
-    .local v2, "metrics":Landroid/util/DisplayMetrics;
-    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3, v2}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+    invoke-virtual {v0, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
 
     .line 68
-    iget v3, v2, Landroid/util/DisplayMetrics;->widthPixels:I
+    iget v0, v1, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    iput v3, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->screenWidth:I
+    iput v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->k:I
 
     .line 69
-    iget v3, v2, Landroid/util/DisplayMetrics;->heightPixels:I
+    iget v0, v1, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    iput v3, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->screenheight:I
+    iput v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->l:I
 
     .line 71
     invoke-virtual {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v0
 
     .line 72
-    .local v3, "intent":Landroid/content/Intent;
-    invoke-virtual {v3}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+    invoke-virtual {v0}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v4
+    move-result-object v0
 
-    const-string v5, "url"
+    const-string v1, "url"
 
-    invoke-virtual {v4, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    iput-object v4, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->currentUrl:Ljava/lang/String;
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->e:Ljava/lang/String;
 
     .line 74
-    sget-object v4, Ljava/lang/System;->out:Ljava/io/PrintStream;
+    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Web\u9875\u52a0\u8f7durl:"
+    const-string v2, "Web\u9875\u52a0\u8f7durl:"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v6, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->currentUrl:Ljava/lang/String;
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->e:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v4, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 76
-    iget-object v4, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->currentUrl:Ljava/lang/String;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->e:Ljava/lang/String;
 
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
-    .line 77
     return-void
 
-    .line 80
     :cond_0
-    const-string v4, "maya_dialog_customer"
+    const-string v0, "maya_dialog_customer"
 
-    const-string v5, "layout"
+    const-string v1, "layout"
 
-    iget-object v6, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    .line 80
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    invoke-static {v4, v5, v6}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v4
+    move-result v0
 
-    invoke-virtual {p0, v4}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->setContentView(I)V
-
-    .line 83
-    const/4 v4, 0x0
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->setContentView(I)V
 
     .line 85
-    .local v4, "lParams":Landroid/widget/FrameLayout$LayoutParams;
-    iget-object v5, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    invoke-static {v5}, Lcom/maya/sdk/framework/utils/CommonUtil;->isScreenLandscape(Landroid/content/Context;)Z
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/CommonUtil;->isScreenLandscape(Landroid/content/Context;)Z
 
-    move-result v5
+    move-result v0
 
-    const-wide v6, 0x3fe4cccccccccccdL    # 0.65
+    const-wide v1, 0x3fe4cccccccccccdL    # 0.65
 
-    if-eqz v5, :cond_1
+    if-eqz v0, :cond_1
 
     .line 86
-    new-instance v5, Landroid/widget/FrameLayout$LayoutParams;
+    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    iget v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->screenWidth:I
+    iget v3, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->k:I
 
-    int-to-double v8, v8
+    int-to-double v3, v3
 
-    invoke-static {v8, v9}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v8, v8, v6
+    mul-double v3, v3, v1
 
-    double-to-int v8, v8
+    double-to-int v3, v3
 
-    iget v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->screenWidth:I
+    iget v4, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->k:I
 
-    int-to-double v9, v9
+    int-to-double v4, v4
 
-    invoke-static {v9, v10}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v9, v9, v6
+    mul-double v4, v4, v1
 
-    const-wide v6, 0x3fe3333333333333L    # 0.6
+    const-wide v1, 0x3fe3333333333333L    # 0.6
 
-    mul-double v9, v9, v6
+    mul-double v4, v4, v1
 
-    double-to-int v6, v9
+    double-to-int v1, v4
 
-    invoke-direct {v5, v8, v6}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    move-object v4, v5
+    invoke-direct {v0, v3, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
     goto :goto_0
 
     .line 88
     :cond_1
-    new-instance v5, Landroid/widget/FrameLayout$LayoutParams;
+    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    iget v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->screenWidth:I
+    iget v3, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->k:I
 
-    int-to-double v8, v8
+    int-to-double v3, v3
 
-    const-wide v10, 0x3feccccccccccccdL    # 0.9
+    const-wide v5, 0x3feccccccccccccdL    # 0.9
 
-    invoke-static {v8, v9}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v3, v4}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v8, v8, v10
+    mul-double v3, v3, v5
 
-    double-to-int v8, v8
+    double-to-int v3, v3
 
-    iget v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->screenheight:I
+    iget v4, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->l:I
 
-    int-to-double v9, v9
+    int-to-double v4, v4
 
-    invoke-static {v9, v10}, Ljava/lang/Double;->isNaN(D)Z
+    invoke-static {v4, v5}, Ljava/lang/Double;->isNaN(D)Z
 
-    mul-double v9, v9, v6
+    mul-double v4, v4, v1
 
-    double-to-int v6, v9
+    double-to-int v1, v4
 
-    invoke-direct {v5, v8, v6}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v0, v3, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    move-object v4, v5
+    :goto_0
+    const/16 v1, 0x11
 
     .line 91
-    :goto_0
-    const/16 v5, 0x11
+    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
-    iput v5, v4, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+    const-string v1, "maya_customer_content"
+
+    const-string v2, "id"
 
     .line 93
-    const-string v5, "maya_customer_content"
-
-    const-string v6, "id"
-
-    iget-object v7, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
     .line 94
-    invoke-static {v5, v6, v7}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    move-result v5
+    move-result v1
 
     .line 93
-    invoke-virtual {p0, v5}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v1
 
-    check-cast v5, Landroid/widget/LinearLayout;
+    check-cast v1, Landroid/widget/LinearLayout;
 
     .line 95
-    .local v5, "layout":Landroid/widget/LinearLayout;
-    invoke-virtual {v5, v4}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    const-string v0, "maya_customer_title"
+
+    const-string v1, "id"
 
     .line 97
-    const-string v6, "maya_customer_title"
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    const-string v7, "id"
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    move-result v0
 
-    invoke-static {v6, v7, v8}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
 
-    move-result v6
+    move-result-object v0
 
-    invoke-virtual {p0, v6}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
+    check-cast v0, Landroid/widget/ImageView;
 
-    move-result-object v6
+    const-string v0, "maya_customer_close"
+
+    const-string v1, "id"
 
     .line 98
-    .local v6, "title":Landroid/widget/ImageView;
-    const-string v7, "maya_customer_close"
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    const-string v8, "id"
+    invoke-static {v0, v1, v2}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    move-result v0
 
-    invoke-static {v7, v8, v9}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-virtual {p0, v0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
 
-    move-result v7
+    move-result-object v0
 
-    invoke-virtual {p0, v7}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
+    check-cast v0, Landroid/widget/ImageView;
 
-    move-result-object v7
+    const-string v1, "maya_customer_rl"
 
-    check-cast v7, Landroid/widget/ImageView;
+    const-string v2, "id"
 
     .line 99
-    .local v7, "close":Landroid/widget/ImageView;
-    const-string v8, "maya_customer_rl"
+    iget-object v3, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    const-string v9, "id"
+    invoke-static {v1, v2, v3}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
 
-    iget-object v10, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    move-result v1
 
-    invoke-static {v8, v9, v10}, Lcom/maya/sdk/framework/utils/CommonUtil;->getResourcesID(Ljava/lang/String;Ljava/lang/String;Landroid/content/Context;)I
+    invoke-virtual {p0, v1}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
 
-    move-result v8
+    move-result-object v1
 
-    invoke-virtual {p0, v8}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->findViewById(I)Landroid/view/View;
+    check-cast v1, Landroid/widget/RelativeLayout;
 
-    move-result-object v8
-
-    check-cast v8, Landroid/widget/RelativeLayout;
-
-    iput-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->maya_customer_rl:Landroid/widget/RelativeLayout;
+    iput-object v1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->m:Landroid/widget/RelativeLayout;
 
     .line 100
-    new-instance v8, Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    new-instance v1, Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    invoke-direct {v8, v9}, Lcom/maya/sdk/framework/web/webview/WebViewBase;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Lcom/maya/sdk/framework/web/webview/WebViewBase;-><init>(Landroid/content/Context;)V
 
-    iput-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iput-object v1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
     .line 101
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    new-instance v9, Landroid/widget/RelativeLayout$LayoutParams;
+    new-instance v2, Landroid/widget/RelativeLayout$LayoutParams;
 
-    const/4 v10, -0x1
+    const/4 v3, -0x1
 
-    invoke-direct {v9, v10, v10}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
+    invoke-direct {v2, v3, v3}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v8, v9}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v1, v2}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 103
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->maya_customer_rl:Landroid/widget/RelativeLayout;
+    iget-object v1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->m:Landroid/widget/RelativeLayout;
 
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    invoke-virtual {v8, v9}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v2}, Landroid/widget/RelativeLayout;->addView(Landroid/view/View;)V
 
     .line 105
-    new-instance v8, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$1;
+    new-instance v1, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$1;
 
-    invoke-direct {v8, p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$1;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
+    invoke-direct {v1, p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$1;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;)V
 
-    invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 114
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    invoke-virtual {v8, v0}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setEnableHardwareAccelerated(Z)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setEnableHardwareAccelerated(Z)V
 
     .line 117
     invoke-virtual {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->getWindow()Landroid/view/Window;
 
-    move-result-object v8
+    move-result-object v0
 
-    const/16 v9, 0x13
+    const/16 v1, 0x13
 
-    invoke-virtual {v8, v9}, Landroid/view/Window;->setSoftInputMode(I)V
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setSoftInputMode(I)V
 
     .line 121
-    new-instance v8, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
+    new-instance v0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    iget-object v10, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webLoadCallback:Lcom/maya/sdk/framework/web/SdkWebCallback;
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->d:Lcom/maya/sdk/framework/web/SdkWebCallback;
 
-    invoke-direct {v8, v9, v10}, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;-><init>(Landroid/content/Context;Lcom/maya/sdk/framework/web/SdkWebCallback;)V
+    invoke-direct {v0, v1, v2}, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;-><init>(Landroid/content/Context;Lcom/maya/sdk/framework/web/SdkWebCallback;)V
 
-    iput-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sdkWebChromeClient:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
+    iput-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->o:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
     .line 123
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    new-instance v9, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$MyWebViewDownLoadListener;
+    new-instance v1, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$b;
 
-    const/4 v10, 0x0
+    const/4 v2, 0x0
 
-    invoke-direct {v9, p0, v10}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$MyWebViewDownLoadListener;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$1;)V
+    invoke-direct {v1, p0, v2}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$b;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$1;)V
 
-    invoke-virtual {v8, v9}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setDownloadListener(Landroid/webkit/DownloadListener;)V
+    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setDownloadListener(Landroid/webkit/DownloadListener;)V
 
     .line 124
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    new-instance v9, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;
+    new-instance v1, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$c;
 
-    iget-object v10, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    invoke-direct {v9, p0, v10}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$myWebViewClient;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
+    invoke-direct {v1, p0, v2}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$c;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
 
-    invoke-virtual {v8, v9}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setWebViewClient(Landroid/webkit/WebViewClient;)V
+    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setWebViewClient(Landroid/webkit/WebViewClient;)V
 
     .line 125
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sdkWebChromeClient:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
+    iget-object v1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->o:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
-    invoke-virtual {v8, v9}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setWebChromeClient(Landroid/webkit/WebChromeClient;)V
+    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setWebChromeClient(Landroid/webkit/WebChromeClient;)V
 
     .line 128
-    iget-object v8, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    invoke-virtual {v8}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->getSettings()Landroid/webkit/WebSettings;
+    invoke-virtual {v0}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->getSettings()Landroid/webkit/WebSettings;
 
-    move-result-object v8
+    move-result-object v0
 
-    invoke-virtual {v8}, Landroid/webkit/WebSettings;->getUserAgentString()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/webkit/WebSettings;->getUserAgentString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v0
 
     .line 129
-    .local v8, "uaName":Ljava/lang/String;
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    invoke-virtual {v9}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->getSettings()Landroid/webkit/WebSettings;
+    invoke-virtual {v1}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->getSettings()Landroid/webkit/WebSettings;
 
-    move-result-object v9
+    move-result-object v1
 
-    const-string v10, "Android"
+    const-string v2, "Android"
 
-    const-string v11, "Android FMWebView"
+    const-string v3, "Android FMWebView"
 
-    invoke-virtual {v8, v10, v11}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v0
 
-    invoke-virtual {v9, v10}, Landroid/webkit/WebSettings;->setUserAgentString(Ljava/lang/String;)V
+    invoke-virtual {v1, v0}, Landroid/webkit/WebSettings;->setUserAgentString(Ljava/lang/String;)V
 
     .line 131
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    new-instance v10, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$JsObj;
+    new-instance v1, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$a;
 
-    iget-object v11, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    invoke-direct {v10, p0, v11}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$JsObj;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
+    invoke-direct {v1, p0, v2}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity$a;-><init>(Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;Landroid/content/Context;)V
 
-    const-string v11, "fmWebUtils"
+    const-string v2, "fmWebUtils"
 
-    invoke-virtual {v9, v10, v11}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->addJavascriptInterface(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 133
-    iget-object v9, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->showWebHandler:Landroid/os/Handler;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->a:Landroid/os/Handler;
 
-    const-wide/16 v10, 0x64
+    const-wide/16 v1, 0x64
 
-    invoke-virtual {v9, v0, v10, v11}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {v0, p1, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     .line 135
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->webView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    iget-object p1, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->i:Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    const/4 v9, 0x4
+    const/4 v0, 0x4
 
-    invoke-virtual {v0, v9}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setVisibility(I)V
+    invoke-virtual {p1, v0}, Lcom/maya/sdk/framework/web/webview/WebViewBase;->setVisibility(I)V
 
-    .line 137
     return-void
 .end method
 
 .method protected onDestroy()V
     .locals 1
 
-    .line 382
     const-string v0, "myWeb\u88ab\u9500\u6bc1\uff0c\u5148\u5173\u95ed\u52a0\u8f7d\u8fdb\u5ea6\u6846"
 
-    invoke-direct {p0, v0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->sendLog(Ljava/lang/String;)V
+    .line 382
+    invoke-direct {p0, v0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->b(Ljava/lang/String;)V
 
     .line 383
-    invoke-direct {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->hideWaitDialog()V
+    invoke-direct {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->a()V
 
     .line 385
-    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->h:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/web/webview/WebviewUtils;->clearWebviewPrefs(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/maya/sdk/framework/web/webview/b;->a(Landroid/content/Context;)V
 
     .line 386
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
-    .line 387
     return-void
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 1
-    .param p1, "keyCode"    # I
-    .param p2, "event"    # Landroid/view/KeyEvent;
+    .locals 0
 
-    .line 207
-    const/4 v0, 0x4
+    const/4 p2, 0x4
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, p2, :cond_0
 
     .line 208
     invoke-virtual {p0}, Lcom/maya/sdk/m/activity/SdkCustomerServiceActivity;->finish()V
 
-    .line 210
     :cond_0
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    return v0
+    return p1
 .end method

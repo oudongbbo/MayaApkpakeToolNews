@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/main/OpenDownloadUtils$OpenDownLoadCallBack;
 .super Ljava/lang/Object;
-.source "OpenDownloadUtils.java"
+.source "SourceFile"
 
 
 # annotations

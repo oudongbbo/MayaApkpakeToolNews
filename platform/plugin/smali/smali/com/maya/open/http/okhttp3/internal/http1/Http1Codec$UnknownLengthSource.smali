@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;
 .super Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;
-.source "Http1Codec.java"
+.source "SourceFile"
 
 
 # annotations
@@ -31,7 +31,6 @@
 
     invoke-direct {p0, p1, v0}, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$AbstractSource;-><init>(Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec;Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$1;)V
 
-    .line 475
     return-void
 .end method
 
@@ -39,11 +38,6 @@
 # virtual methods
 .method public close()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 493
     iget-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;->closed:Z
@@ -58,32 +52,23 @@
 
     if-nez v0, :cond_1
 
-    .line 495
     const/4 v0, 0x0
 
+    .line 495
     invoke-virtual {p0, v0}, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;->endOfInput(Z)V
 
-    .line 497
     :cond_1
     const/4 v0, 0x1
 
+    .line 497
     iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;->closed:Z
 
-    .line 498
     return-void
 .end method
 
 .method public read(Lcom/maya/open/http/okio/Buffer;J)J
-    .locals 5
-    .param p1, "sink"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 3
 
-    .line 479
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
@@ -112,59 +97,54 @@
 
     invoke-interface {v0, p1, p2, p3}, Lcom/maya/open/http/okio/BufferedSource;->read(Lcom/maya/open/http/okio/Buffer;J)J
 
-    move-result-wide v3
+    move-result-wide p1
 
-    .line 484
-    .local v3, "read":J
-    cmp-long v0, v3, v1
+    cmp-long p3, p1, v1
 
-    if-nez v0, :cond_1
+    if-nez p3, :cond_1
+
+    const/4 p1, 0x1
 
     .line 485
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;->inputExhausted:Z
+    iput-boolean p1, p0, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;->inputExhausted:Z
 
     .line 486
-    invoke-virtual {p0, v0}, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;->endOfInput(Z)V
+    invoke-virtual {p0, p1}, Lcom/maya/open/http/okhttp3/internal/http1/Http1Codec$UnknownLengthSource;->endOfInput(Z)V
 
-    .line 487
     return-wide v1
 
-    .line 489
     :cond_1
-    return-wide v3
+    return-wide p1
 
     .line 480
-    .end local v3    # "read":J
     :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v1, "closed"
+    const-string p2, "closed"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 
     .line 479
     :cond_3
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "byteCount < 0: "
+    const-string v1, "byteCount < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method

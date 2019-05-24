@@ -1,6 +1,6 @@
 .class public final enum Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
 .super Ljava/lang/Enum;
-.source "HttpLoggingInterceptor.java"
+.source "SourceFile"
 
 
 # annotations
@@ -82,9 +82,9 @@
 
     sput-object v0, Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;->BODY:Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
 
-    .line 39
     const/4 v0, 0x4
 
+    .line 39
     new-array v0, v0, [Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
 
     sget-object v1, Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;->NONE:Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
@@ -124,18 +124,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 39
     const-class v0, Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
+    check-cast p0, Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/maya/open/http/okgo/interceptor/HttpLoggingInterceptor$Level;

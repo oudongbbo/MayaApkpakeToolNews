@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okgo/convert/FileConvert$1;
 .super Ljava/lang/Object;
-.source "FileConvert.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -30,7 +30,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okgo/convert/FileConvert;JJJ)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okgo/convert/FileConvert;
 
     .line 90
     iput-object p1, p0, Lcom/maya/open/http/okgo/convert/FileConvert$1;->this$0:Lcom/maya/open/http/okgo/convert/FileConvert;
@@ -54,7 +53,6 @@
     .line 93
     iget-object v0, p0, Lcom/maya/open/http/okgo/convert/FileConvert$1;->this$0:Lcom/maya/open/http/okgo/convert/FileConvert;
 
-    # getter for: Lcom/maya/open/http/okgo/convert/FileConvert;->callback:Lcom/maya/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/maya/open/http/okgo/convert/FileConvert;->access$000(Lcom/maya/open/http/okgo/convert/FileConvert;)Lcom/maya/open/http/okgo/callback/AbsCallback;
 
     move-result-object v1
@@ -81,6 +79,5 @@
 
     invoke-virtual/range {v1 .. v8}, Lcom/maya/open/http/okgo/callback/AbsCallback;->downloadProgress(JJFJ)V
 
-    .line 94
     return-void
 .end method

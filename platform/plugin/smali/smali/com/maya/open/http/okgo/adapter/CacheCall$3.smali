@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okgo/adapter/CacheCall$3;
 .super Ljava/lang/Object;
-.source "CacheCall.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -34,10 +34,8 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okgo/adapter/CacheCall;ZLjava/lang/Object;Lcom/maya/open/http/okhttp3/Call;Lcom/maya/open/http/okgo/cache/CacheMode;Lcom/maya/open/http/okhttp3/Response;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okgo/adapter/CacheCall;
 
     .line 240
-    .local p0, "this":Lcom/maya/open/http/okgo/adapter/CacheCall$3;, "Lcom/maya/open/http/okgo/adapter/CacheCall$3;"
     iput-object p1, p0, Lcom/maya/open/http/okgo/adapter/CacheCall$3;->this$0:Lcom/maya/open/http/okgo/adapter/CacheCall;
 
     iput-boolean p2, p0, Lcom/maya/open/http/okgo/adapter/CacheCall$3;->val$isFromCache:Z
@@ -61,7 +59,6 @@
     .locals 5
 
     .line 243
-    .local p0, "this":Lcom/maya/open/http/okgo/adapter/CacheCall$3;, "Lcom/maya/open/http/okgo/adapter/CacheCall$3;"
     iget-boolean v0, p0, Lcom/maya/open/http/okgo/adapter/CacheCall$3;->val$isFromCache:Z
 
     const/4 v1, 0x0
@@ -71,7 +68,6 @@
     .line 244
     iget-object v0, p0, Lcom/maya/open/http/okgo/adapter/CacheCall$3;->this$0:Lcom/maya/open/http/okgo/adapter/CacheCall;
 
-    # getter for: Lcom/maya/open/http/okgo/adapter/CacheCall;->mCallback:Lcom/maya/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/maya/open/http/okgo/adapter/CacheCall;->access$200(Lcom/maya/open/http/okgo/adapter/CacheCall;)Lcom/maya/open/http/okgo/callback/AbsCallback;
 
     move-result-object v0
@@ -105,7 +101,6 @@
     :cond_0
     iget-object v0, p0, Lcom/maya/open/http/okgo/adapter/CacheCall$3;->this$0:Lcom/maya/open/http/okgo/adapter/CacheCall;
 
-    # getter for: Lcom/maya/open/http/okgo/adapter/CacheCall;->mCallback:Lcom/maya/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/maya/open/http/okgo/adapter/CacheCall;->access$200(Lcom/maya/open/http/okgo/adapter/CacheCall;)Lcom/maya/open/http/okgo/callback/AbsCallback;
 
     move-result-object v0
@@ -120,7 +115,6 @@
     :cond_1
     iget-object v0, p0, Lcom/maya/open/http/okgo/adapter/CacheCall$3;->this$0:Lcom/maya/open/http/okgo/adapter/CacheCall;
 
-    # getter for: Lcom/maya/open/http/okgo/adapter/CacheCall;->mCallback:Lcom/maya/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/maya/open/http/okgo/adapter/CacheCall;->access$200(Lcom/maya/open/http/okgo/adapter/CacheCall;)Lcom/maya/open/http/okgo/callback/AbsCallback;
 
     move-result-object v0
@@ -136,7 +130,6 @@
     .line 250
     iget-object v0, p0, Lcom/maya/open/http/okgo/adapter/CacheCall$3;->this$0:Lcom/maya/open/http/okgo/adapter/CacheCall;
 
-    # getter for: Lcom/maya/open/http/okgo/adapter/CacheCall;->mCallback:Lcom/maya/open/http/okgo/callback/AbsCallback;
     invoke-static {v0}, Lcom/maya/open/http/okgo/adapter/CacheCall;->access$200(Lcom/maya/open/http/okgo/adapter/CacheCall;)Lcom/maya/open/http/okgo/callback/AbsCallback;
 
     move-result-object v0
@@ -145,7 +138,6 @@
 
     invoke-virtual {v0, v2, v1}, Lcom/maya/open/http/okgo/callback/AbsCallback;->onAfter(Ljava/lang/Object;Ljava/lang/Exception;)V
 
-    .line 252
     :cond_2
     :goto_0
     return-void

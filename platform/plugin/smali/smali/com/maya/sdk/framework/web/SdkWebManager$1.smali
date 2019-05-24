@@ -1,6 +1,6 @@
 .class final Lcom/maya/sdk/framework/web/SdkWebManager$1;
 .super Ljava/lang/Object;
-.source "SdkWebManager.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnDismissListener;
@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field final synthetic val$sdkcallback:Lcom/maya/sdk/framework/interfaces/ResultCallback;
+.field final synthetic a:Lcom/maya/sdk/framework/interfaces/ResultCallback;
 
 
 # direct methods
@@ -26,7 +26,7 @@
     .locals 0
 
     .line 57
-    iput-object p1, p0, Lcom/maya/sdk/framework/web/SdkWebManager$1;->val$sdkcallback:Lcom/maya/sdk/framework/interfaces/ResultCallback;
+    iput-object p1, p0, Lcom/maya/sdk/framework/web/SdkWebManager$1;->a:Lcom/maya/sdk/framework/interfaces/ResultCallback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,20 +36,18 @@
 
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "paramDialogInterface"    # Landroid/content/DialogInterface;
+    .locals 0
 
     .line 62
-    iget-object v0, p0, Lcom/maya/sdk/framework/web/SdkWebManager$1;->val$sdkcallback:Lcom/maya/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/maya/sdk/framework/web/SdkWebManager$1;->a:Lcom/maya/sdk/framework/interfaces/ResultCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     .line 63
-    iget-object v0, p0, Lcom/maya/sdk/framework/web/SdkWebManager$1;->val$sdkcallback:Lcom/maya/sdk/framework/interfaces/ResultCallback;
+    iget-object p1, p0, Lcom/maya/sdk/framework/web/SdkWebManager$1;->a:Lcom/maya/sdk/framework/interfaces/ResultCallback;
 
-    invoke-interface {v0}, Lcom/maya/sdk/framework/interfaces/ResultCallback;->onSuccess()V
+    invoke-interface {p1}, Lcom/maya/sdk/framework/interfaces/ResultCallback;->onSuccess()V
 
-    .line 65
     :cond_0
     return-void
 .end method

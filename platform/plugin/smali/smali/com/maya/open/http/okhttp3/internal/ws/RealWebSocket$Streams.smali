@@ -1,6 +1,6 @@
 .class public abstract Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket$Streams;
 .super Ljava/lang/Object;
-.source "RealWebSocket.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/io/Closeable;
@@ -28,9 +28,6 @@
 # direct methods
 .method public constructor <init>(ZLcom/maya/open/http/okio/BufferedSource;Lcom/maya/open/http/okio/BufferedSink;)V
     .locals 0
-    .param p1, "client"    # Z
-    .param p2, "source"    # Lcom/maya/open/http/okio/BufferedSource;
-    .param p3, "sink"    # Lcom/maya/open/http/okio/BufferedSink;
 
     .line 577
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,6 +41,5 @@
     .line 580
     iput-object p3, p0, Lcom/maya/open/http/okhttp3/internal/ws/RealWebSocket$Streams;->sink:Lcom/maya/open/http/okio/BufferedSink;
 
-    .line 581
     return-void
 .end method

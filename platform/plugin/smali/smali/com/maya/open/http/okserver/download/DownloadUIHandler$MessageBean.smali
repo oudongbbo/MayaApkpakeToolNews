@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/http/okserver/download/DownloadUIHandler$MessageBean;
 .super Ljava/lang/Object;
-.source "DownloadUIHandler.java"
+.source "SourceFile"
 
 
 # annotations

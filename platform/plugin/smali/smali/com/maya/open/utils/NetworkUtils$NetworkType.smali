@@ -1,6 +1,6 @@
 .class public final enum Lcom/maya/open/utils/NetworkUtils$NetworkType;
 .super Ljava/lang/Enum;
-.source "NetworkUtils.java"
+.source "SourceFile"
 
 
 # annotations
@@ -108,9 +108,9 @@
 
     sput-object v0, Lcom/maya/open/utils/NetworkUtils$NetworkType;->NETWORK_NO:Lcom/maya/open/utils/NetworkUtils$NetworkType;
 
-    .line 37
     const/4 v0, 0x6
 
+    .line 37
     new-array v0, v0, [Lcom/maya/open/utils/NetworkUtils$NetworkType;
 
     sget-object v1, Lcom/maya/open/utils/NetworkUtils$NetworkType;->NETWORK_WIFI:Lcom/maya/open/utils/NetworkUtils$NetworkType;
@@ -158,18 +158,17 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/maya/open/utils/NetworkUtils$NetworkType;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 37
     const-class v0, Lcom/maya/open/utils/NetworkUtils$NetworkType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/maya/open/utils/NetworkUtils$NetworkType;
+    check-cast p0, Lcom/maya/open/utils/NetworkUtils$NetworkType;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/maya/open/utils/NetworkUtils$NetworkType;

@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
 .super Ljava/lang/Object;
-.source "SdkResultCallback.java"
+.source "SourceFile"
 
 
 # virtual methods

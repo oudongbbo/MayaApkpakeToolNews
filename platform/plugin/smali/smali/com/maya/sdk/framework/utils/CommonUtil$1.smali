@@ -1,6 +1,6 @@
 .class final Lcom/maya/sdk/framework/utils/CommonUtil$1;
 .super Ljava/lang/Object;
-.source "CommonUtil.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field final synthetic val$handler:Landroid/os/Handler;
+.field final synthetic a:Ljava/lang/String;
 
-.field final synthetic val$link:Ljava/lang/String;
+.field final synthetic b:Landroid/os/Handler;
 
 
 # direct methods
@@ -28,9 +28,9 @@
     .locals 0
 
     .line 462
-    iput-object p1, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->val$link:Ljava/lang/String;
+    iput-object p1, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->a:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->val$handler:Landroid/os/Handler;
+    iput-object p2, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->b:Landroid/os/Handler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -40,111 +40,96 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 4
 
-    .line 468
     const/4 v0, -0x1
 
+    .line 468
     :try_start_0
     new-instance v1, Ljava/net/URL;
 
-    iget-object v2, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->val$link:Ljava/lang/String;
+    iget-object v2, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->a:Ljava/lang/String;
 
     invoke-direct {v1, v2}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
 
     .line 469
-    .local v1, "url":Ljava/net/URL;
     invoke-virtual {v1}, Ljava/net/URL;->openConnection()Ljava/net/URLConnection;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Ljava/net/HttpURLConnection;
+    check-cast v1, Ljava/net/HttpURLConnection;
+
+    const/16 v2, 0x1388
 
     .line 470
-    .local v2, "conn":Ljava/net/HttpURLConnection;
-    const/16 v3, 0x1388
+    invoke-virtual {v1, v2}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
 
-    invoke-virtual {v2, v3}, Ljava/net/HttpURLConnection;->setConnectTimeout(I)V
+    const-string v2, "GET"
 
     .line 471
-    const-string v3, "GET"
-
-    invoke-virtual {v2, v3}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Ljava/net/HttpURLConnection;->setRequestMethod(Ljava/lang/String;)V
 
     .line 473
-    invoke-virtual {v2}, Ljava/net/HttpURLConnection;->getResponseCode()I
+    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getResponseCode()I
 
-    move-result v3
+    move-result v2
 
-    const/16 v4, 0xc8
+    const/16 v3, 0xc8
 
-    if-ne v3, v4, :cond_0
+    if-ne v2, v3, :cond_0
 
     .line 475
-    invoke-virtual {v2}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
+    invoke-virtual {v1}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
 
-    move-result-object v3
+    move-result-object v1
 
     .line 476
-    .local v3, "inStream":Ljava/io/InputStream;
-    invoke-static {v3}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
+    invoke-static {v1}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
-    move-result-object v4
+    move-result-object v1
 
     .line 477
-    .local v4, "bitmap":Landroid/graphics/Bitmap;
-    iget-object v5, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->val$handler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->b:Landroid/os/Handler;
 
-    const/4 v6, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v5, v6, v4}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v5}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
-    .line 479
-    .end local v3    # "inStream":Ljava/io/InputStream;
-    .end local v4    # "bitmap":Landroid/graphics/Bitmap;
     goto :goto_0
 
     .line 481
     :cond_0
-    iget-object v3, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->val$handler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->b:Landroid/os/Handler;
 
-    invoke-virtual {v3, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 488
-    .end local v1    # "url":Ljava/net/URL;
-    .end local v2    # "conn":Ljava/net/HttpURLConnection;
-    :goto_0
-    goto :goto_1
+    goto :goto_0
 
-    .line 484
     :catch_0
     move-exception v1
 
     .line 486
-    .local v1, "e":Ljava/io/IOException;
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     .line 487
-    iget-object v2, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->val$handler:Landroid/os/Handler;
+    iget-object v1, p0, Lcom/maya/sdk/framework/utils/CommonUtil$1;->b:Landroid/os/Handler;
 
-    invoke-virtual {v2, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    .line 490
-    .end local v1    # "e":Ljava/io/IOException;
-    :goto_1
+    :goto_0
     return-void
 .end method

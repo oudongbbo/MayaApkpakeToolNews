@@ -1,6 +1,6 @@
 .class public Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;
 .super Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;
-.source "PayWebDialog.java"
+.source "SourceFile"
 
 
 # annotations
@@ -20,26 +20,20 @@
 
 # direct methods
 .method public constructor <init>(Lcom/maya/sdk/framework/pay/PayWebDialog;Landroid/content/Context;)V
-    .locals 2
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/pay/PayWebDialog;
-    .param p2, "context"    # Landroid/content/Context;
+    .locals 0
 
     .line 124
     iput-object p1, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
     .line 125
-    move-object v0, p2
+    check-cast p2, Landroid/app/Activity;
 
-    check-cast v0, Landroid/app/Activity;
+    invoke-static {p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(Lcom/maya/sdk/framework/pay/PayWebDialog;)Lcom/maya/sdk/framework/web/webview/WebViewBase;
 
-    # getter for: Lcom/maya/sdk/framework/pay/PayWebDialog;->mWebView:Lcom/maya/sdk/framework/web/webview/WebViewBase;
-    invoke-static {p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->access$000(Lcom/maya/sdk/framework/pay/PayWebDialog;)Lcom/maya/sdk/framework/web/webview/WebViewBase;
+    move-result-object p1
 
-    move-result-object v1
+    invoke-direct {p0, p2, p1}, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;)V
 
-    invoke-direct {p0, v0, v1}, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;-><init>(Landroid/app/Activity;Landroid/webkit/WebView;)V
-
-    .line 126
     return-void
 .end method
 
@@ -58,15 +52,13 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(I)V
 
-    .line 131
     return-void
 .end method
 
 .method public payDismiss(I)V
     .locals 1
-    .param p1, "type"    # I
 
     .line 156
     invoke-super {p0, p1}, Lcom/maya/sdk/framework/web/plugs/SdkWebJsInterface;->payDismiss(I)V
@@ -74,9 +66,8 @@
     .line 157
     iget-object v0, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
-    invoke-virtual {v0, p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {v0, p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(I)V
 
-    .line 158
     return-void
 .end method
 
@@ -93,15 +84,13 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(I)V
 
-    .line 147
     return-void
 .end method
 
 .method public payFail(I)V
     .locals 3
-    .param p1, "type"    # I
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -127,17 +116,15 @@
     .line 151
     iget-object v0, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
-    # setter for: Lcom/maya/sdk/framework/pay/PayWebDialog;->payType:I
-    invoke-static {v0, p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->access$102(Lcom/maya/sdk/framework/pay/PayWebDialog;I)I
+    invoke-static {v0, p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(Lcom/maya/sdk/framework/pay/PayWebDialog;I)I
 
     .line 152
-    iget-object v0, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
+    iget-object p1, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {p1, v0}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(I)V
 
-    .line 153
     return-void
 .end method
 
@@ -154,15 +141,13 @@
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(I)V
 
-    .line 136
     return-void
 .end method
 
 .method public paySuccess(I)V
     .locals 3
-    .param p1, "type"    # I
     .annotation runtime Landroid/webkit/JavascriptInterface;
     .end annotation
 
@@ -188,16 +173,14 @@
     .line 140
     iget-object v0, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
-    # setter for: Lcom/maya/sdk/framework/pay/PayWebDialog;->payType:I
-    invoke-static {v0, p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->access$102(Lcom/maya/sdk/framework/pay/PayWebDialog;I)I
+    invoke-static {v0, p1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(Lcom/maya/sdk/framework/pay/PayWebDialog;I)I
 
     .line 141
-    iget-object v0, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
+    iget-object p1, p0, Lcom/maya/sdk/framework/pay/PayWebDialog$PayJsInterface;->this$0:Lcom/maya/sdk/framework/pay/PayWebDialog;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/pay/PayWebDialog;->payWebDismiss(I)V
+    invoke-virtual {p1, v0}, Lcom/maya/sdk/framework/pay/PayWebDialog;->a(I)V
 
-    .line 142
     return-void
 .end method

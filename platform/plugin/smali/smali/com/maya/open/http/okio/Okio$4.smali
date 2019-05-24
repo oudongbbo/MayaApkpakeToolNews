@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okio/Okio$4;
 .super Lcom/maya/open/http/okio/AsyncTimeout;
-.source "Okio.java"
+.source "SourceFile"
 
 
 # annotations
@@ -34,7 +34,6 @@
 # virtual methods
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
     .locals 2
-    .param p1, "cause"    # Ljava/io/IOException;
 
     .line 230
     new-instance v0, Ljava/net/SocketTimeoutException;
@@ -43,14 +42,11 @@
 
     invoke-direct {v0, v1}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
 
-    .line 231
-    .local v0, "ioe":Ljava/io/InterruptedIOException;
     if-eqz p1, :cond_0
 
     .line 232
     invoke-virtual {v0, p1}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    .line 234
     :cond_0
     return-object v0
 .end method
@@ -69,12 +65,10 @@
 
     goto :goto_0
 
-    .line 242
     :catch_0
     move-exception v0
 
     .line 243
-    .local v0, "e":Ljava/lang/AssertionError;
     invoke-static {v0}, Lcom/maya/open/http/okio/Okio;->isAndroidGetsocknameError(Ljava/lang/AssertionError;)Z
 
     move-result v1
@@ -104,19 +98,16 @@
 
     invoke-virtual {v1, v2, v3, v0}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_0
 
     .line 248
     :cond_0
     throw v0
 
-    .line 240
-    .end local v0    # "e":Ljava/lang/AssertionError;
     :catch_1
     move-exception v0
 
     .line 241
-    .local v0, "e":Ljava/lang/Exception;
     sget-object v1, Lcom/maya/open/http/okio/Okio;->logger:Ljava/util/logging/Logger;
 
     sget-object v2, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
@@ -139,12 +130,6 @@
 
     invoke-virtual {v1, v2, v3, v0}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 250
-    .end local v0    # "e":Ljava/lang/Exception;
     :goto_0
-    nop
-
-    .line 251
-    :goto_1
     return-void
 .end method

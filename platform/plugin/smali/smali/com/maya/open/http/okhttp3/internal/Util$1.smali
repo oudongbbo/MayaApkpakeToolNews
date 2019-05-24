@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/internal/Util$1;
 .super Ljava/lang/Object;
-.source "Util.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/util/concurrent/ThreadFactory;
@@ -41,7 +41,6 @@
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 2
-    .param p1, "runnable"    # Ljava/lang/Runnable;
 
     .line 195
     new-instance v0, Ljava/lang/Thread;
@@ -51,11 +50,9 @@
     invoke-direct {v0, p1, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
     .line 196
-    .local v0, "result":Ljava/lang/Thread;
-    iget-boolean v1, p0, Lcom/maya/open/http/okhttp3/internal/Util$1;->val$daemon:Z
+    iget-boolean p1, p0, Lcom/maya/open/http/okhttp3/internal/Util$1;->val$daemon:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/Thread;->setDaemon(Z)V
+    invoke-virtual {v0, p1}, Ljava/lang/Thread;->setDaemon(Z)V
 
-    .line 197
     return-object v0
 .end method

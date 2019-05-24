@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;
 .super Ljava/lang/Object;
-.source "PriorityBlockingQueue.java"
+.source "SourceFile"
 
 
 # annotations
@@ -49,8 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;Ljava/lang/Object;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -58,21 +57,18 @@
     .end annotation
 
     .line 589
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TT;>;"
-    .local p2, "value":Ljava/lang/Object;, "TT;"
     iput-object p1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->this$0:Lcom/maya/open/http/okserver/task/PriorityBlockingQueue;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 585
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->valueAsT:Z
+    .line 585
+    iput-boolean p1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->valueAsT:Z
 
     .line 590
     invoke-virtual {p0, p2}, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->setValue(Ljava/lang/Object;)V
 
-    .line 591
     return-void
 .end method
 
@@ -82,7 +78,6 @@
     .locals 1
 
     .line 594
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TT;>;"
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->value:Lcom/maya/open/http/okserver/task/PriorityObject;
 
     iget-object v0, v0, Lcom/maya/open/http/okserver/task/PriorityObject;->priority:Lcom/maya/open/http/okserver/task/Priority;
@@ -99,12 +94,10 @@
     .end annotation
 
     .line 599
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TT;>;"
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->value:Lcom/maya/open/http/okserver/task/PriorityObject;
 
     if-nez v0, :cond_0
 
-    .line 600
     const/4 v0, 0x0
 
     return-object v0
@@ -137,15 +130,12 @@
         }
     .end annotation
 
-    .line 609
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;, "Lcom/maya/open/http/okserver/task/PriorityBlockingQueue<TE;>.Node<TT;>;"
-    .local p1, "value":Ljava/lang/Object;, "TT;"
     if-nez p1, :cond_0
 
-    .line 610
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->value:Lcom/maya/open/http/okserver/task/PriorityObject;
+    .line 610
+    iput-object p1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->value:Lcom/maya/open/http/okserver/task/PriorityObject;
 
     goto :goto_0
 
@@ -156,16 +146,14 @@
     if-eqz v0, :cond_1
 
     .line 612
-    move-object v0, p1
+    check-cast p1, Lcom/maya/open/http/okserver/task/PriorityObject;
 
-    check-cast v0, Lcom/maya/open/http/okserver/task/PriorityObject;
+    iput-object p1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->value:Lcom/maya/open/http/okserver/task/PriorityObject;
 
-    iput-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->value:Lcom/maya/open/http/okserver/task/PriorityObject;
+    const/4 p1, 0x1
 
     .line 613
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->valueAsT:Z
+    iput-boolean p1, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->valueAsT:Z
 
     goto :goto_0
 
@@ -179,7 +167,6 @@
 
     iput-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityBlockingQueue$Node;->value:Lcom/maya/open/http/okserver/task/PriorityObject;
 
-    .line 617
     :goto_0
     return-void
 .end method

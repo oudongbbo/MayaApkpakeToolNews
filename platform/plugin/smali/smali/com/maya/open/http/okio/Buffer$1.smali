@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okio/Buffer$1;
 .super Ljava/io/OutputStream;
-.source "Buffer.java"
+.source "SourceFile"
 
 
 # annotations
@@ -21,7 +21,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okio/Buffer;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okio/Buffer;
 
     .line 72
     iput-object p1, p0, Lcom/maya/open/http/okio/Buffer$1;->this$0:Lcom/maya/open/http/okio/Buffer;
@@ -36,14 +35,12 @@
 .method public close()V
     .locals 0
 
-    .line 85
     return-void
 .end method
 
 .method public flush()V
     .locals 0
 
-    .line 82
     return-void
 .end method
 
@@ -71,31 +68,25 @@
 .end method
 
 .method public write(I)V
-    .locals 2
-    .param p1, "b"    # I
+    .locals 1
 
     .line 74
     iget-object v0, p0, Lcom/maya/open/http/okio/Buffer$1;->this$0:Lcom/maya/open/http/okio/Buffer;
 
-    int-to-byte v1, p1
+    int-to-byte p1, p1
 
-    invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v0, p1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 75
     return-void
 .end method
 
 .method public write([BII)V
     .locals 1
-    .param p1, "data"    # [B
-    .param p2, "offset"    # I
-    .param p3, "byteCount"    # I
 
     .line 78
     iget-object v0, p0, Lcom/maya/open/http/okio/Buffer$1;->this$0:Lcom/maya/open/http/okio/Buffer;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/maya/open/http/okio/Buffer;->write([BII)Lcom/maya/open/http/okio/Buffer;
 
-    .line 79
     return-void
 .end method

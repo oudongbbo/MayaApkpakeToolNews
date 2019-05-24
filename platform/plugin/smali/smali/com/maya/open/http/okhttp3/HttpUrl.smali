@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/HttpUrl;
 .super Ljava/lang/Object;
-.source "HttpUrl.java"
+.source "SourceFile"
 
 
 # annotations
@@ -75,9 +75,9 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    .line 286
     const/16 v0, 0x10
 
+    .line 286
     new-array v0, v0, [C
 
     fill-array-data v0, :array_0
@@ -109,7 +109,6 @@
 
 .method constructor <init>(Lcom/maya/open/http/okhttp3/HttpUrl$Builder;)V
     .locals 4
-    .param p1, "builder"    # Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
 
     .line 334
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -196,100 +195,81 @@
 
     move-result-object v2
 
-    nop
-
     :cond_1
     iput-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->fragment:Ljava/lang/String;
 
     .line 347
     invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
+    iput-object p1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    .line 348
     return-void
 .end method
 
 .method static canonicalize(Ljava/lang/String;IILjava/lang/String;ZZZZ)Ljava/lang/String;
-    .locals 15
-    .param p0, "input"    # Ljava/lang/String;
-    .param p1, "pos"    # I
-    .param p2, "limit"    # I
-    .param p3, "encodeSet"    # Ljava/lang/String;
-    .param p4, "alreadyEncoded"    # Z
-    .param p5, "strict"    # Z
-    .param p6, "plusIsSpace"    # Z
-    .param p7, "asciiOnly"    # Z
+    .locals 10
 
-    .line 1810
-    move-object v9, p0
+    move-object v1, p0
 
-    move/from16 v10, p2
+    move v3, p2
 
-    move/from16 v0, p1
+    move v2, p1
 
-    .local v0, "i":I
     :goto_0
-    move v11, v0
-
-    .end local v0    # "i":I
-    .local v11, "i":I
-    if-ge v11, v10, :cond_5
+    if-ge v2, v3, :cond_5
 
     .line 1811
-    invoke-virtual {p0, v11}, Ljava/lang/String;->codePointAt(I)I
-
-    move-result v12
-
-    .line 1812
-    .local v12, "codePoint":I
-    const/16 v0, 0x20
-
-    if-lt v12, v0, :cond_3
-
-    const/16 v0, 0x7f
-
-    if-eq v12, v0, :cond_3
-
-    const/16 v0, 0x80
-
-    if-lt v12, v0, :cond_0
-
-    if-nez p7, :cond_3
-
-    .line 1815
-    :cond_0
-    move-object/from16 v13, p3
-
-    invoke-virtual {v13, v12}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {p0, v2}, Ljava/lang/String;->codePointAt(I)I
 
     move-result v0
 
-    const/4 v1, -0x1
+    const/16 v4, 0x20
 
-    if-ne v0, v1, :cond_4
+    if-lt v0, v4, :cond_3
 
-    const/16 v0, 0x25
+    const/16 v4, 0x7f
 
-    if-ne v12, v0, :cond_1
+    if-eq v0, v4, :cond_3
+
+    const/16 v4, 0x80
+
+    if-lt v0, v4, :cond_0
+
+    if-nez p7, :cond_3
+
+    :cond_0
+    move-object v4, p3
+
+    .line 1815
+    invoke-virtual {p3, v0}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v5
+
+    const/4 v6, -0x1
+
+    if-ne v5, v6, :cond_4
+
+    const/16 v5, 0x25
+
+    if-ne v0, v5, :cond_1
 
     if-eqz p4, :cond_4
 
     if-eqz p5, :cond_1
 
     .line 1816
-    invoke-static {p0, v11, v10}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentEncoded(Ljava/lang/String;II)Z
+    invoke-static {p0, v2, p2}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentEncoded(Ljava/lang/String;II)Z
 
-    move-result v0
+    move-result v7
 
-    if-eqz v0, :cond_4
+    if-eqz v7, :cond_4
 
     :cond_1
-    const/16 v0, 0x2b
+    const/16 v7, 0x2b
 
-    if-ne v12, v0, :cond_2
+    if-ne v0, v7, :cond_2
 
     if-eqz p6, :cond_2
 
@@ -297,70 +277,60 @@
 
     .line 1810
     :cond_2
-    invoke-static {v12}, Ljava/lang/Character;->charCount(I)I
+    invoke-static {v0}, Ljava/lang/Character;->charCount(I)I
 
     move-result v0
 
-    add-int/2addr v0, v11
+    add-int/2addr v2, v0
 
     goto :goto_0
 
-    .line 1819
     :cond_3
-    move-object/from16 v13, p3
+    move-object v4, p3
 
+    .line 1819
     :cond_4
     :goto_1
-    new-instance v0, Lcom/maya/open/http/okio/Buffer;
+    new-instance v9, Lcom/maya/open/http/okio/Buffer;
 
-    invoke-direct {v0}, Lcom/maya/open/http/okio/Buffer;-><init>()V
+    invoke-direct {v9}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
-    move-object v8, v0
+    move v0, p1
 
     .line 1820
-    .local v8, "out":Lcom/maya/open/http/okio/Buffer;
-    move/from16 v7, p1
+    invoke-virtual {v9, p0, p1, v2}, Lcom/maya/open/http/okio/Buffer;->writeUtf8(Ljava/lang/String;II)Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {v8, p0, v7, v11}, Lcom/maya/open/http/okio/Buffer;->writeUtf8(Ljava/lang/String;II)Lcom/maya/open/http/okio/Buffer;
+    move-object v0, v9
 
-    .line 1821
     move-object v1, p0
 
-    move v2, v11
+    move v3, p2
 
-    move/from16 v3, p2
+    move-object v4, p3
 
-    move-object/from16 v4, p3
+    move v5, p4
 
-    move/from16 v5, p4
-
-    move/from16 v6, p5
+    move v6, p5
 
     move/from16 v7, p6
 
-    move-object v14, v8
-
-    .end local v8    # "out":Lcom/maya/open/http/okio/Buffer;
-    .local v14, "out":Lcom/maya/open/http/okio/Buffer;
     move/from16 v8, p7
 
+    .line 1821
     invoke-static/range {v0 .. v8}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Lcom/maya/open/http/okio/Buffer;Ljava/lang/String;IILjava/lang/String;ZZZZ)V
 
     .line 1823
-    invoke-virtual {v14}, Lcom/maya/open/http/okio/Buffer;->readUtf8()Ljava/lang/String;
+    invoke-virtual {v9}, Lcom/maya/open/http/okio/Buffer;->readUtf8()Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 
-    .line 1828
-    .end local v11    # "i":I
-    .end local v12    # "codePoint":I
-    .end local v14    # "out":Lcom/maya/open/http/okio/Buffer;
     :cond_5
-    move-object/from16 v13, p3
+    move v0, p1
 
-    invoke-virtual/range {p0 .. p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    .line 1828
+    invoke-virtual {p0, p1, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
@@ -369,22 +339,12 @@
 
 .method static canonicalize(Ljava/lang/String;Ljava/lang/String;ZZZZ)Ljava/lang/String;
     .locals 8
-    .param p0, "input"    # Ljava/lang/String;
-    .param p1, "encodeSet"    # Ljava/lang/String;
-    .param p2, "alreadyEncoded"    # Z
-    .param p3, "strict"    # Z
-    .param p4, "plusIsSpace"    # Z
-    .param p5, "asciiOnly"    # Z
-
-    .line 1868
-    nop
 
     .line 1869
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    .line 1868
     const/4 v1, 0x0
 
     move-object v0, p0
@@ -399,368 +359,318 @@
 
     move v7, p5
 
+    .line 1868
     invoke-static/range {v0 .. v7}, Lcom/maya/open/http/okhttp3/HttpUrl;->canonicalize(Ljava/lang/String;IILjava/lang/String;ZZZZ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static canonicalize(Lcom/maya/open/http/okio/Buffer;Ljava/lang/String;IILjava/lang/String;ZZZZ)V
-    .locals 7
-    .param p0, "out"    # Lcom/maya/open/http/okio/Buffer;
-    .param p1, "input"    # Ljava/lang/String;
-    .param p2, "pos"    # I
-    .param p3, "limit"    # I
-    .param p4, "encodeSet"    # Ljava/lang/String;
-    .param p5, "alreadyEncoded"    # Z
-    .param p6, "strict"    # Z
-    .param p7, "plusIsSpace"    # Z
-    .param p8, "asciiOnly"    # Z
+    .locals 6
 
-    .line 1833
     const/4 v0, 0x0
 
-    .line 1835
-    .local v0, "utf8Buffer":Lcom/maya/open/http/okio/Buffer;
-    move-object v1, v0
-
-    move v0, p2
-
-    .local v0, "i":I
-    .local v1, "utf8Buffer":Lcom/maya/open/http/okio/Buffer;
     :goto_0
-    if-ge v0, p3, :cond_8
+    if-ge p2, p3, :cond_8
 
     .line 1836
-    invoke-virtual {p1, v0}, Ljava/lang/String;->codePointAt(I)I
+    invoke-virtual {p1, p2}, Ljava/lang/String;->codePointAt(I)I
 
-    move-result v2
+    move-result v1
 
-    .line 1837
-    .local v2, "codePoint":I
     if-eqz p5, :cond_0
 
-    const/16 v3, 0x9
+    const/16 v2, 0x9
 
-    if-eq v2, v3, :cond_7
+    if-eq v1, v2, :cond_7
 
-    const/16 v3, 0xa
+    const/16 v2, 0xa
 
-    if-eq v2, v3, :cond_7
+    if-eq v1, v2, :cond_7
 
-    const/16 v3, 0xc
+    const/16 v2, 0xc
 
-    if-eq v2, v3, :cond_7
+    if-eq v1, v2, :cond_7
 
-    const/16 v3, 0xd
+    const/16 v2, 0xd
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
     goto/16 :goto_4
 
-    .line 1840
     :cond_0
-    const/16 v3, 0x2b
+    const/16 v2, 0x2b
 
-    if-ne v2, v3, :cond_2
+    if-ne v1, v2, :cond_2
 
     if-eqz p7, :cond_2
 
-    .line 1842
     if-eqz p5, :cond_1
 
-    const-string v3, "+"
+    const-string v2, "+"
 
     goto :goto_1
 
     :cond_1
-    const-string v3, "%2B"
+    const-string v2, "%2B"
 
+    .line 1842
     :goto_1
-    invoke-virtual {p0, v3}, Lcom/maya/open/http/okio/Buffer;->writeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {p0, v2}, Lcom/maya/open/http/okio/Buffer;->writeUtf8(Ljava/lang/String;)Lcom/maya/open/http/okio/Buffer;
 
     goto :goto_4
 
-    .line 1843
     :cond_2
-    const/16 v3, 0x20
+    const/16 v2, 0x20
 
-    const/16 v4, 0x25
+    const/16 v3, 0x25
 
-    if-lt v2, v3, :cond_5
+    if-lt v1, v2, :cond_5
 
-    const/16 v3, 0x7f
+    const/16 v2, 0x7f
 
-    if-eq v2, v3, :cond_5
+    if-eq v1, v2, :cond_5
 
-    const/16 v3, 0x80
+    const/16 v2, 0x80
 
-    if-lt v2, v3, :cond_3
+    if-lt v1, v2, :cond_3
 
     if-nez p8, :cond_5
 
     .line 1846
     :cond_3
-    invoke-virtual {p4, v2}, Ljava/lang/String;->indexOf(I)I
+    invoke-virtual {p4, v1}, Ljava/lang/String;->indexOf(I)I
 
-    move-result v3
+    move-result v2
 
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
-    if-ne v3, v5, :cond_5
+    if-ne v2, v4, :cond_5
 
-    if-ne v2, v4, :cond_4
+    if-ne v1, v3, :cond_4
 
     if-eqz p5, :cond_5
 
     if-eqz p6, :cond_4
 
     .line 1847
-    invoke-static {p1, v0, p3}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentEncoded(Ljava/lang/String;II)Z
+    invoke-static {p1, p2, p3}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentEncoded(Ljava/lang/String;II)Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_4
+    if-nez v2, :cond_4
 
     goto :goto_2
 
     .line 1861
     :cond_4
-    invoke-virtual {p0, v2}, Lcom/maya/open/http/okio/Buffer;->writeUtf8CodePoint(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {p0, v1}, Lcom/maya/open/http/okio/Buffer;->writeUtf8CodePoint(I)Lcom/maya/open/http/okio/Buffer;
 
     goto :goto_4
 
-    .line 1849
     :cond_5
     :goto_2
-    if-nez v1, :cond_6
+    if-nez v0, :cond_6
 
     .line 1850
-    new-instance v3, Lcom/maya/open/http/okio/Buffer;
+    new-instance v0, Lcom/maya/open/http/okio/Buffer;
 
-    invoke-direct {v3}, Lcom/maya/open/http/okio/Buffer;-><init>()V
-
-    move-object v1, v3
+    invoke-direct {v0}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
     .line 1852
     :cond_6
-    invoke-virtual {v1, v2}, Lcom/maya/open/http/okio/Buffer;->writeUtf8CodePoint(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeUtf8CodePoint(I)Lcom/maya/open/http/okio/Buffer;
 
     .line 1853
     :goto_3
-    invoke-virtual {v1}, Lcom/maya/open/http/okio/Buffer;->exhausted()Z
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->exhausted()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_7
+    if-nez v2, :cond_7
 
     .line 1854
-    invoke-virtual {v1}, Lcom/maya/open/http/okio/Buffer;->readByte()B
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/Buffer;->readByte()B
 
-    move-result v3
+    move-result v2
 
-    and-int/lit16 v3, v3, 0xff
+    and-int/lit16 v2, v2, 0xff
 
     .line 1855
-    .local v3, "b":I
-    invoke-virtual {p0, v4}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {p0, v3}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
     .line 1856
-    sget-object v5, Lcom/maya/open/http/okhttp3/HttpUrl;->HEX_DIGITS:[C
+    sget-object v4, Lcom/maya/open/http/okhttp3/HttpUrl;->HEX_DIGITS:[C
 
-    shr-int/lit8 v6, v3, 0x4
+    shr-int/lit8 v5, v2, 0x4
 
-    and-int/lit8 v6, v6, 0xf
+    and-int/lit8 v5, v5, 0xf
 
-    aget-char v5, v5, v6
+    aget-char v4, v4, v5
 
-    invoke-virtual {p0, v5}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {p0, v4}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
     .line 1857
-    sget-object v5, Lcom/maya/open/http/okhttp3/HttpUrl;->HEX_DIGITS:[C
+    sget-object v4, Lcom/maya/open/http/okhttp3/HttpUrl;->HEX_DIGITS:[C
 
-    and-int/lit8 v6, v3, 0xf
+    and-int/lit8 v2, v2, 0xf
 
-    aget-char v5, v5, v6
+    aget-char v2, v4, v2
 
-    invoke-virtual {p0, v5}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {p0, v2}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 1858
-    .end local v3    # "b":I
     goto :goto_3
 
     .line 1835
     :cond_7
     :goto_4
-    invoke-static {v2}, Ljava/lang/Character;->charCount(I)I
+    invoke-static {v1}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v3
+    move-result v1
 
-    add-int/2addr v0, v3
+    add-int/2addr p2, v1
 
     goto/16 :goto_0
 
-    .line 1864
-    .end local v0    # "i":I
-    .end local v2    # "codePoint":I
     :cond_8
     return-void
 .end method
 
 .method static decodeHexDigit(C)I
-    .locals 1
-    .param p0, "c"    # C
+    .locals 2
 
-    .line 1785
     const/16 v0, 0x30
 
     if-lt p0, v0, :cond_0
 
-    const/16 v0, 0x39
+    const/16 v1, 0x39
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v1, :cond_0
 
-    add-int/lit8 v0, p0, -0x30
+    sub-int/2addr p0, v0
 
-    return v0
+    return p0
 
-    .line 1786
     :cond_0
     const/16 v0, 0x61
 
     if-lt p0, v0, :cond_1
 
-    const/16 v0, 0x66
+    const/16 v1, 0x66
 
-    if-gt p0, v0, :cond_1
+    if-gt p0, v1, :cond_1
 
-    add-int/lit8 v0, p0, -0x61
+    sub-int/2addr p0, v0
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p0, p0, 0xa
 
-    return v0
+    return p0
 
-    .line 1787
     :cond_1
     const/16 v0, 0x41
 
     if-lt p0, v0, :cond_2
 
-    const/16 v0, 0x46
+    const/16 v1, 0x46
 
-    if-gt p0, v0, :cond_2
+    if-gt p0, v1, :cond_2
 
-    add-int/lit8 v0, p0, -0x41
+    sub-int/2addr p0, v0
 
-    add-int/lit8 v0, v0, 0xa
+    add-int/lit8 p0, p0, 0xa
 
-    return v0
+    return p0
 
-    .line 1788
     :cond_2
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
-    return v0
+    return p0
 .end method
 
 .method public static defaultPort(Ljava/lang/String;)I
     .locals 1
-    .param p0, "scheme"    # Ljava/lang/String;
 
-    .line 506
     const-string v0, "http"
 
+    .line 506
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 507
-    const/16 v0, 0x50
+    const/16 p0, 0x50
 
-    return v0
+    return p0
 
-    .line 508
     :cond_0
     const-string v0, "https"
 
+    .line 508
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_1
+    if-eqz p0, :cond_1
 
-    .line 509
-    const/16 v0, 0x1bb
+    const/16 p0, 0x1bb
 
-    return v0
+    return p0
 
-    .line 511
     :cond_1
-    const/4 v0, -0x1
+    const/4 p0, -0x1
 
-    return v0
+    return p0
 .end method
 
 .method public static get(Ljava/net/URI;)Lcom/maya/open/http/okhttp3/HttpUrl;
-    .locals 1
-    .param p0, "uri"    # Ljava/net/URI;
+    .locals 0
 
     .line 934
     invoke-virtual {p0}, Ljava/net/URI;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/http/okhttp3/HttpUrl;->parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
+    invoke-static {p0}, Lcom/maya/open/http/okhttp3/HttpUrl;->parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static get(Ljava/net/URL;)Lcom/maya/open/http/okhttp3/HttpUrl;
-    .locals 1
-    .param p0, "url"    # Ljava/net/URL;
+    .locals 0
 
     .line 907
     invoke-virtual {p0}, Ljava/net/URL;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/http/okhttp3/HttpUrl;->parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
+    invoke-static {p0}, Lcom/maya/open/http/okhttp3/HttpUrl;->parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static getChecked(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
-    .locals 5
-    .param p0, "url"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/net/MalformedURLException;,
-            Ljava/net/UnknownHostException;
-        }
-    .end annotation
+    .locals 4
 
     .line 918
     new-instance v0, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
 
     invoke-direct {v0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;-><init>()V
 
-    .line 919
-    .local v0, "builder":Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
     const/4 v1, 0x0
 
+    .line 919
     invoke-virtual {v0, v1, p0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->parse(Lcom/maya/open/http/okhttp3/HttpUrl;Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
 
     move-result-object v1
 
     .line 920
-    .local v1, "result":Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
     sget-object v2, Lcom/maya/open/http/okhttp3/HttpUrl$1;->$SwitchMap$com$maya$open$http$okhttp3$HttpUrl$Builder$ParseResult:[I
 
     invoke-virtual {v1}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;->ordinal()I
@@ -772,61 +682,61 @@
     packed-switch v2, :pswitch_data_0
 
     .line 929
-    new-instance v2, Ljava/net/MalformedURLException;
+    new-instance v0, Ljava/net/MalformedURLException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Invalid URL: "
+    const-string v3, "Invalid URL: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v4, " for "
+    const-string v1, " for "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Ljava/net/MalformedURLException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/net/MalformedURLException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v0
 
     .line 924
     :pswitch_0
-    new-instance v2, Ljava/net/UnknownHostException;
+    new-instance v0, Ljava/net/UnknownHostException;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Invalid host: "
+    const-string v2, "Invalid host: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    invoke-direct {v2, v3}, Ljava/net/UnknownHostException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/net/UnknownHostException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v0
 
     .line 922
     :pswitch_1
     invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->build()Lcom/maya/open/http/okhttp3/HttpUrl;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -837,7 +747,6 @@
 
 .method static namesAndValuesToQueryString(Ljava/lang/StringBuilder;Ljava/util/List;)V
     .locals 5
-    .param p0, "out"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -849,101 +758,84 @@
     .end annotation
 
     .line 616
-    .local p1, "namesAndValues":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    .local v1, "size":I
+    const/4 v1, 0x0
+
     :goto_0
-    if-ge v0, v1, :cond_2
+    if-ge v1, v0, :cond_2
 
     .line 617
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Ljava/lang/String;
 
-    .line 618
-    .local v2, "name":Ljava/lang/String;
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v3, v1, 0x1
 
+    .line 618
     invoke-interface {p1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
 
-    .line 619
-    .local v3, "value":Ljava/lang/String;
-    if-lez v0, :cond_0
+    if-lez v1, :cond_0
 
     const/16 v4, 0x26
 
+    .line 619
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 620
     :cond_0
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 621
     if-eqz v3, :cond_1
 
-    .line 622
-    const/16 v4, 0x3d
+    const/16 v2, 0x3d
 
-    invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    .line 622
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 623
     invoke-virtual {p0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 616
-    .end local v2    # "name":Ljava/lang/String;
-    .end local v3    # "value":Ljava/lang/String;
     :cond_1
-    add-int/lit8 v0, v0, 0x2
+    add-int/lit8 v1, v1, 0x2
 
     goto :goto_0
 
-    .line 626
-    .end local v0    # "i":I
-    .end local v1    # "size":I
     :cond_2
     return-void
 .end method
 
 .method public static parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
-    .locals 4
-    .param p0, "url"    # Ljava/lang/String;
+    .locals 3
 
     .line 897
     new-instance v0, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
 
     invoke-direct {v0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;-><init>()V
 
-    .line 898
-    .local v0, "builder":Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
     const/4 v1, 0x0
 
+    .line 898
     invoke-virtual {v0, v1, p0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->parse(Lcom/maya/open/http/okhttp3/HttpUrl;Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
 
-    move-result-object v2
+    move-result-object p0
 
     .line 899
-    .local v2, "result":Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
-    sget-object v3, Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;->SUCCESS:Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
+    sget-object v2, Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;->SUCCESS:Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
 
-    if-ne v2, v3, :cond_0
+    if-ne p0, v2, :cond_0
 
     invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->build()Lcom/maya/open/http/okhttp3/HttpUrl;
 
     move-result-object v1
-
-    nop
 
     :cond_0
     return-object v1
@@ -951,7 +843,6 @@
 
 .method static pathSegmentsToString(Ljava/lang/StringBuilder;Ljava/util/List;)V
     .locals 3
-    .param p0, "out"    # Ljava/lang/StringBuilder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -963,25 +854,22 @@
     .end annotation
 
     .line 548
-    .local p1, "pathSegments":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    const/4 v0, 0x0
-
-    .local v0, "i":I
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v0
 
-    .local v1, "size":I
+    const/4 v1, 0x0
+
     :goto_0
-    if-ge v0, v1, :cond_0
+    if-ge v1, v0, :cond_0
 
-    .line 549
     const/16 v2, 0x2f
 
+    .line 549
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 550
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -989,29 +877,19 @@
 
     invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 548
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    .line 552
-    .end local v0    # "i":I
-    .end local v1    # "size":I
     :cond_0
     return-void
 .end method
 
 .method static percentDecode(Ljava/lang/String;IIZ)Ljava/lang/String;
-    .locals 4
-    .param p0, "encoded"    # Ljava/lang/String;
-    .param p1, "pos"    # I
-    .param p2, "limit"    # I
-    .param p3, "plusIsSpace"    # Z
+    .locals 3
 
-    .line 1742
     move v0, p1
 
-    .local v0, "i":I
     :goto_0
     if-ge v0, p2, :cond_2
 
@@ -1020,8 +898,6 @@
 
     move-result v1
 
-    .line 1744
-    .local v1, "c":C
     const/16 v2, 0x25
 
     if-eq v1, v2, :cond_1
@@ -1034,51 +910,42 @@
 
     goto :goto_1
 
-    .line 1742
-    .end local v1    # "c":C
     :cond_0
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     .line 1746
-    .restart local v1    # "c":C
     :cond_1
     :goto_1
-    new-instance v2, Lcom/maya/open/http/okio/Buffer;
+    new-instance v1, Lcom/maya/open/http/okio/Buffer;
 
-    invoke-direct {v2}, Lcom/maya/open/http/okio/Buffer;-><init>()V
+    invoke-direct {v1}, Lcom/maya/open/http/okio/Buffer;-><init>()V
 
     .line 1747
-    .local v2, "out":Lcom/maya/open/http/okio/Buffer;
-    invoke-virtual {v2, p0, p1, v0}, Lcom/maya/open/http/okio/Buffer;->writeUtf8(Ljava/lang/String;II)Lcom/maya/open/http/okio/Buffer;
+    invoke-virtual {v1, p0, p1, v0}, Lcom/maya/open/http/okio/Buffer;->writeUtf8(Ljava/lang/String;II)Lcom/maya/open/http/okio/Buffer;
 
     .line 1748
-    invoke-static {v2, p0, v0, p2, p3}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentDecode(Lcom/maya/open/http/okio/Buffer;Ljava/lang/String;IIZ)V
+    invoke-static {v1, p0, v0, p2, p3}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentDecode(Lcom/maya/open/http/okio/Buffer;Ljava/lang/String;IIZ)V
 
     .line 1749
-    invoke-virtual {v2}, Lcom/maya/open/http/okio/Buffer;->readUtf8()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/maya/open/http/okio/Buffer;->readUtf8()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p0
 
-    return-object v3
+    return-object p0
 
     .line 1754
-    .end local v0    # "i":I
-    .end local v1    # "c":C
-    .end local v2    # "out":Lcom/maya/open/http/okio/Buffer;
     :cond_2
     invoke-virtual {p0, p1, p2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method static percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
     .locals 2
-    .param p0, "encoded"    # Ljava/lang/String;
-    .param p1, "plusIsSpace"    # Z
 
     .line 1728
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -1089,14 +956,13 @@
 
     invoke-static {p0, v1, v0, p1}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentDecode(Ljava/lang/String;IIZ)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private percentDecode(Ljava/util/List;Z)Ljava/util/List;
-    .locals 5
-    .param p2, "plusIsSpace"    # Z
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1110,22 +976,17 @@
     .end annotation
 
     .line 1732
-    .local p1, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
     .line 1733
-    .local v0, "size":I
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1, v0}, Ljava/util/ArrayList;-><init>(I)V
 
-    .line 1734
-    .local v1, "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v2, 0x0
 
-    .local v2, "i":I
     :goto_0
     if-ge v2, v0, :cond_1
 
@@ -1136,71 +997,56 @@
 
     check-cast v3, Ljava/lang/String;
 
-    .line 1736
-    .local v3, "s":Ljava/lang/String;
     if-eqz v3, :cond_0
 
+    .line 1736
     invoke-static {v3, p2}, Lcom/maya/open/http/okhttp3/HttpUrl;->percentDecode(Ljava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
     goto :goto_1
 
     :cond_0
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     :goto_1
-    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 1734
-    .end local v3    # "s":Ljava/lang/String;
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     .line 1738
-    .end local v2    # "i":I
     :cond_1
     invoke-static {v1}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v2
+    move-result-object p1
 
-    return-object v2
+    return-object p1
 .end method
 
 .method static percentDecode(Lcom/maya/open/http/okio/Buffer;Ljava/lang/String;IIZ)V
     .locals 5
-    .param p0, "out"    # Lcom/maya/open/http/okio/Buffer;
-    .param p1, "encoded"    # Ljava/lang/String;
-    .param p2, "pos"    # I
-    .param p3, "limit"    # I
-    .param p4, "plusIsSpace"    # Z
 
-    .line 1759
-    move v0, p2
-
-    .local v0, "i":I
     :goto_0
-    if-ge v0, p3, :cond_3
+    if-ge p2, p3, :cond_2
 
     .line 1760
-    invoke-virtual {p1, v0}, Ljava/lang/String;->codePointAt(I)I
+    invoke-virtual {p1, p2}, Ljava/lang/String;->codePointAt(I)I
 
-    move-result v1
+    move-result v0
 
-    .line 1761
-    .local v1, "codePoint":I
-    const/16 v2, 0x25
+    const/16 v1, 0x25
 
-    if-ne v1, v2, :cond_1
+    if-ne v0, v1, :cond_0
 
-    add-int/lit8 v2, v0, 0x2
+    add-int/lit8 v1, p2, 0x2
 
-    if-ge v2, p3, :cond_1
+    if-ge v1, p3, :cond_0
+
+    add-int/lit8 v2, p2, 0x1
 
     .line 1762
-    add-int/lit8 v2, v0, 0x1
-
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v2
@@ -1210,10 +1056,7 @@
     move-result v2
 
     .line 1763
-    .local v2, "d1":I
-    add-int/lit8 v3, v0, 0x2
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v3
 
@@ -1221,135 +1064,110 @@
 
     move-result v3
 
-    .line 1764
-    .local v3, "d2":I
     const/4 v4, -0x1
 
-    if-eq v2, v4, :cond_0
+    if-eq v2, v4, :cond_1
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_1
+
+    shl-int/lit8 p2, v2, 0x4
+
+    add-int/2addr p2, v3
 
     .line 1765
-    shl-int/lit8 v4, v2, 0x4
+    invoke-virtual {p0, p2}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    add-int/2addr v4, v3
+    move p2, v1
 
-    invoke-virtual {p0, v4}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
-
-    .line 1766
-    add-int/lit8 v0, v0, 0x2
-
-    .line 1767
-    goto :goto_2
-
-    .line 1769
-    .end local v2    # "d1":I
-    .end local v3    # "d2":I
-    :cond_0
     goto :goto_1
 
-    :cond_1
-    const/16 v2, 0x2b
+    :cond_0
+    const/16 v1, 0x2b
 
-    if-ne v1, v2, :cond_2
+    if-ne v0, v1, :cond_1
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_1
+
+    const/16 v1, 0x20
 
     .line 1770
-    const/16 v2, 0x20
+    invoke-virtual {p0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    invoke-virtual {p0, v2}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
-
-    .line 1771
-    goto :goto_2
+    goto :goto_1
 
     .line 1773
-    :cond_2
-    :goto_1
-    invoke-virtual {p0, v1}, Lcom/maya/open/http/okio/Buffer;->writeUtf8CodePoint(I)Lcom/maya/open/http/okio/Buffer;
+    :cond_1
+    invoke-virtual {p0, v0}, Lcom/maya/open/http/okio/Buffer;->writeUtf8CodePoint(I)Lcom/maya/open/http/okio/Buffer;
 
     .line 1759
-    :goto_2
-    invoke-static {v1}, Ljava/lang/Character;->charCount(I)I
+    :goto_1
+    invoke-static {v0}, Ljava/lang/Character;->charCount(I)I
 
-    move-result v2
+    move-result v0
 
-    add-int/2addr v0, v2
+    add-int/2addr p2, v0
 
     goto :goto_0
 
-    .line 1775
-    .end local v0    # "i":I
-    .end local v1    # "codePoint":I
-    :cond_3
+    :cond_2
     return-void
 .end method
 
 .method static percentEncoded(Ljava/lang/String;II)Z
-    .locals 2
-    .param p0, "encoded"    # Ljava/lang/String;
-    .param p1, "pos"    # I
-    .param p2, "limit"    # I
+    .locals 3
 
-    .line 1778
     add-int/lit8 v0, p1, 0x2
+
+    const/4 v1, 0x1
 
     if-ge v0, p2, :cond_0
 
     .line 1779
     invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result p2
 
-    const/16 v1, 0x25
+    const/16 v2, 0x25
 
-    if-ne v0, v1, :cond_0
+    if-ne p2, v2, :cond_0
 
-    add-int/lit8 v0, p1, 0x1
+    add-int/2addr p1, v1
 
     .line 1780
-    invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {p0, p1}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result p1
 
-    invoke-static {v0}, Lcom/maya/open/http/okhttp3/HttpUrl;->decodeHexDigit(C)I
+    invoke-static {p1}, Lcom/maya/open/http/okhttp3/HttpUrl;->decodeHexDigit(C)I
 
-    move-result v0
+    move-result p1
 
-    const/4 v1, -0x1
+    const/4 p2, -0x1
 
-    if-eq v0, v1, :cond_0
-
-    add-int/lit8 v0, p1, 0x2
+    if-eq p1, p2, :cond_0
 
     .line 1781
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
-    move-result v0
+    move-result p0
 
-    invoke-static {v0}, Lcom/maya/open/http/okhttp3/HttpUrl;->decodeHexDigit(C)I
+    invoke-static {p0}, Lcom/maya/open/http/okhttp3/HttpUrl;->decodeHexDigit(C)I
 
-    move-result v0
+    move-result p0
 
-    if-eq v0, v1, :cond_0
-
-    .line 1778
-    const/4 v0, 0x1
+    if-eq p0, p2, :cond_0
 
     goto :goto_0
 
-    .line 1781
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    .line 1778
     :goto_0
-    return v0
+    return v1
 .end method
 
 .method static queryStringToNamesAndValues(Ljava/lang/String;)Ljava/util/List;
     .locals 5
-    .param p0, "encodedQuery"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1366,11 +1184,9 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 636
-    .local v0, "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v1, 0x0
 
-    .local v1, "pos":I
+    .line 636
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -1378,33 +1194,30 @@
 
     if-gt v1, v2, :cond_3
 
-    .line 637
     const/16 v2, 0x26
 
+    .line 637
     invoke-virtual {p0, v2, v1}, Ljava/lang/String;->indexOf(II)I
 
     move-result v2
 
-    .line 638
-    .local v2, "ampersandOffset":I
     const/4 v3, -0x1
 
     if-ne v2, v3, :cond_0
 
+    .line 638
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    .line 640
     :cond_0
     const/16 v4, 0x3d
 
+    .line 640
     invoke-virtual {p0, v4, v1}, Ljava/lang/String;->indexOf(II)I
 
     move-result v4
 
-    .line 641
-    .local v4, "equalsOffset":I
     if-eq v4, v3, :cond_2
 
     if-le v4, v2, :cond_1
@@ -1415,18 +1228,18 @@
     :cond_1
     invoke-virtual {p0, v1, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v4, v4, 0x1
 
     .line 646
-    add-int/lit8 v3, v4, 0x1
+    invoke-virtual {p0, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {p0, v3, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v3
-
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
@@ -1435,26 +1248,20 @@
     :goto_1
     invoke-virtual {p0, v1, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const/4 v1, 0x0
 
     .line 643
-    const/4 v3, 0x0
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    .line 648
     :goto_2
     add-int/lit8 v1, v2, 0x1
 
-    .line 649
-    .end local v2    # "ampersandOffset":I
-    .end local v4    # "equalsOffset":I
     goto :goto_0
 
-    .line 650
-    .end local v1    # "pos":I
     :cond_3
     return-object v0
 .end method
@@ -1486,14 +1293,13 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 826
-    .local v0, "fragmentStart":I
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public encodedPassword()Ljava/lang/String;
@@ -1533,7 +1339,6 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 443
-    .local v0, "passwordStart":I
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     const/16 v2, 0x40
@@ -1543,14 +1348,13 @@
     move-result v1
 
     .line 444
-    .local v1, "passwordEnd":I
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public encodedPath()Ljava/lang/String;
@@ -1574,7 +1378,6 @@
     move-result v0
 
     .line 543
-    .local v0, "pathStart":I
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
@@ -1590,18 +1393,17 @@
     move-result v1
 
     .line 544
-    .local v1, "pathEnd":I
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public encodedPathSegments()Ljava/util/List;
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1629,7 +1431,6 @@
     move-result v0
 
     .line 567
-    .local v0, "pathStart":I
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     iget-object v3, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
@@ -1645,48 +1446,35 @@
     move-result v1
 
     .line 568
-    .local v1, "pathEnd":I
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    .line 569
-    .local v3, "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
-    move v4, v0
-
-    .local v4, "i":I
     :goto_0
-    if-ge v4, v1, :cond_0
+    if-ge v0, v1, :cond_0
 
-    .line 570
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     .line 571
-    iget-object v5, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
+    iget-object v4, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    invoke-static {v5, v4, v1, v2}, Lcom/maya/open/http/okhttp3/internal/Util;->delimiterOffset(Ljava/lang/String;IIC)I
+    invoke-static {v4, v0, v1, v2}, Lcom/maya/open/http/okhttp3/internal/Util;->delimiterOffset(Ljava/lang/String;IIC)I
 
-    move-result v5
+    move-result v4
 
     .line 572
-    .local v5, "segmentEnd":I
-    iget-object v6, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
+    iget-object v5, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    invoke-virtual {v6, v4, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v5, v0, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v0
 
-    invoke-interface {v3, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 573
-    move v4, v5
+    move v0, v4
 
-    .line 574
-    .end local v5    # "segmentEnd":I
     goto :goto_0
 
-    .line 575
-    .end local v4    # "i":I
     :cond_0
     return-object v3
 .end method
@@ -1716,7 +1504,6 @@
     add-int/lit8 v0, v0, 0x1
 
     .line 611
-    .local v0, "queryStart":I
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     add-int/lit8 v2, v0, 0x1
@@ -1734,14 +1521,13 @@
     move-result v1
 
     .line 612
-    .local v1, "queryEnd":I
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public encodedUsername()Ljava/lang/String;
@@ -1771,7 +1557,6 @@
     add-int/lit8 v0, v0, 0x3
 
     .line 410
-    .local v0, "usernameStart":I
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
@@ -1787,48 +1572,44 @@
     move-result v1
 
     .line 411
-    .local v1, "usernameEnd":I
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
     invoke-virtual {v2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    return-object v2
+    return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
-    .param p1, "o"    # Ljava/lang/Object;
+    .locals 1
 
     .line 938
     instance-of v0, p1, Lcom/maya/open/http/okhttp3/HttpUrl;
 
     if-eqz v0, :cond_0
 
-    move-object v0, p1
+    check-cast p1, Lcom/maya/open/http/okhttp3/HttpUrl;
 
-    check-cast v0, Lcom/maya/open/http/okhttp3/HttpUrl;
+    iget-object p1, p1, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    iget-object v0, v0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
+    iget-object v0, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->url:Ljava/lang/String;
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result p1
 
-    move-result v0
+    if-eqz p1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return v0
+    return p1
 .end method
 
 .method public fragment()Ljava/lang/String;
@@ -1886,7 +1667,6 @@
     invoke-direct {v0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;-><init>()V
 
     .line 869
-    .local v0, "result":Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->scheme:Ljava/lang/String;
 
     iput-object v1, v0, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->scheme:Ljava/lang/String;
@@ -1959,13 +1739,11 @@
 
     iput-object v1, v0, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->encodedFragment:Ljava/lang/String;
 
-    .line 879
     return-object v0
 .end method
 
 .method public newBuilder(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
-    .locals 3
-    .param p1, "link"    # Ljava/lang/String;
+    .locals 2
 
     .line 887
     new-instance v0, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
@@ -1973,26 +1751,22 @@
     invoke-direct {v0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;-><init>()V
 
     .line 888
-    .local v0, "builder":Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
     invoke-virtual {v0, p0, p1}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->parse(Lcom/maya/open/http/okhttp3/HttpUrl;Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 889
-    .local v1, "result":Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
-    sget-object v2, Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;->SUCCESS:Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
+    sget-object v1, Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;->SUCCESS:Lcom/maya/open/http/okhttp3/HttpUrl$Builder$ParseResult;
 
-    if-ne v1, v2, :cond_0
-
-    move-object v2, v0
+    if-ne p1, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
     :goto_0
-    return-object v2
+    return-object v0
 .end method
 
 .method public password()Ljava/lang/String;
@@ -2062,7 +1836,6 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 671
-    .local v0, "result":Ljava/lang/StringBuilder;
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
     invoke-static {v0, v1}, Lcom/maya/open/http/okhttp3/HttpUrl;->namesAndValuesToQueryString(Ljava/lang/StringBuilder;Ljava/util/List;)V
@@ -2070,14 +1843,13 @@
     .line 672
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public queryParameter(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
-    .param p1, "name"    # Ljava/lang/String;
 
     .line 707
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
@@ -2088,18 +1860,16 @@
 
     return-object v1
 
-    .line 708
     :cond_0
     const/4 v0, 0x0
 
-    .local v0, "i":I
+    .line 708
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    .local v2, "size":I
     :goto_0
     if-ge v0, v2, :cond_2
 
@@ -2117,34 +1887,29 @@
     if-eqz v3, :cond_1
 
     .line 710
-    iget-object v1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    add-int/lit8 v3, v0, 0x1
+    add-int/lit8 v0, v0, 0x1
 
-    invoke-interface {v1, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p1
 
-    check-cast v1, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    return-object v1
+    return-object p1
 
-    .line 708
     :cond_1
     add-int/lit8 v0, v0, 0x2
 
     goto :goto_0
 
-    .line 713
-    .end local v0    # "i":I
-    .end local v2    # "size":I
     :cond_2
     return-object v1
 .end method
 
 .method public queryParameterName(I)Ljava/lang/String;
-    .locals 2
-    .param p1, "index"    # I
+    .locals 1
 
     .line 785
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
@@ -2154,23 +1919,23 @@
     .line 786
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    mul-int/lit8 v1, p1, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    return-object v0
+    return-object p1
 
     .line 785
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public queryParameterNames()Ljava/util/Set;
@@ -2201,18 +1966,15 @@
 
     invoke-direct {v0}, Ljava/util/LinkedHashSet;-><init>()V
 
-    .line 732
-    .local v0, "result":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 732
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    .local v2, "size":I
     :goto_0
     if-ge v1, v2, :cond_1
 
@@ -2225,25 +1987,21 @@
 
     invoke-interface {v0, v3}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    .line 732
     add-int/lit8 v1, v1, 0x2
 
     goto :goto_0
 
     .line 735
-    .end local v1    # "i":I
-    .end local v2    # "size":I
     :cond_1
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableSet(Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public queryParameterValue(I)Ljava/lang/String;
-    .locals 2
-    .param p1, "index"    # I
+    .locals 1
 
     .line 807
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
@@ -2253,30 +2011,29 @@
     .line 808
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
-    mul-int/lit8 v1, p1, 0x2
+    mul-int/lit8 p1, p1, 0x2
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 p1, p1, 0x1
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p1
 
-    check-cast v0, Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    return-object v0
+    return-object p1
 
     .line 807
     :cond_0
-    new-instance v0, Ljava/lang/IndexOutOfBoundsException;
+    new-instance p1, Ljava/lang/IndexOutOfBoundsException;
 
-    invoke-direct {v0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
+    invoke-direct {p1}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
 
-    throw v0
+    throw p1
 .end method
 
 .method public queryParameterValues(Ljava/lang/String;)Ljava/util/List;
     .locals 5
-    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2295,9 +2052,9 @@
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 
     .line 758
     :cond_0
@@ -2305,18 +2062,15 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    .line 759
-    .local v0, "result":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v1, 0x0
 
-    .local v1, "i":I
+    .line 759
     iget-object v2, p0, Lcom/maya/open/http/okhttp3/HttpUrl;->queryNamesAndValues:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    .local v2, "size":I
     :goto_0
     if-ge v1, v2, :cond_2
 
@@ -2344,21 +2098,18 @@
 
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    .line 759
     :cond_1
     add-int/lit8 v1, v1, 0x2
 
     goto :goto_0
 
     .line 764
-    .end local v1    # "i":I
-    .end local v2    # "size":I
     :cond_2
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object p1
 
-    return-object v1
+    return-object p1
 .end method
 
 .method public querySize()I
@@ -2389,9 +2140,9 @@
 .method public redact()Ljava/lang/String;
     .locals 2
 
-    .line 851
     const-string v0, "/..."
 
+    .line 851
     invoke-virtual {p0, v0}, Lcom/maya/open/http/okhttp3/HttpUrl;->newBuilder(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
 
     move-result-object v0
@@ -2420,34 +2171,31 @@
 
     move-result-object v0
 
-    .line 851
     return-object v0
 .end method
 
 .method public resolve(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl;
-    .locals 2
-    .param p1, "link"    # Ljava/lang/String;
+    .locals 0
 
     .line 863
     invoke-virtual {p0, p1}, Lcom/maya/open/http/okhttp3/HttpUrl;->newBuilder(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
 
-    move-result-object v0
+    move-result-object p1
+
+    if-eqz p1, :cond_0
 
     .line 864
-    .local v0, "builder":Lcom/maya/open/http/okhttp3/HttpUrl$Builder;
-    if-eqz v0, :cond_0
+    invoke-virtual {p1}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->build()Lcom/maya/open/http/okhttp3/HttpUrl;
 
-    invoke-virtual {v0}, Lcom/maya/open/http/okhttp3/HttpUrl$Builder;->build()Lcom/maya/open/http/okhttp3/HttpUrl;
-
-    move-result-object v1
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 p1, 0x0
 
     :goto_0
-    return-object v1
+    return-object p1
 .end method
 
 .method public scheme()Ljava/lang/String;
@@ -2485,7 +2233,6 @@
     move-result-object v0
 
     .line 375
-    .local v0, "uri":Ljava/lang/String;
     :try_start_0
     new-instance v1, Ljava/net/URI;
 
@@ -2495,43 +2242,35 @@
 
     return-object v1
 
-    .line 376
     :catch_0
     move-exception v1
 
-    .line 379
-    .local v1, "e":Ljava/net/URISyntaxException;
     :try_start_1
     const-string v2, "[\\u0000-\\u001F\\u007F-\\u009F\\p{javaWhitespace}]"
 
     const-string v3, ""
 
+    .line 379
     invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replaceAll(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
     .line 380
-    .local v2, "stripped":Ljava/lang/String;
-    invoke-static {v2}, Ljava/net/URI;->create(Ljava/lang/String;)Ljava/net/URI;
+    invoke-static {v0}, Ljava/net/URI;->create(Ljava/lang/String;)Ljava/net/URI;
 
-    move-result-object v3
+    move-result-object v0
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    return-object v3
-
-    .line 381
-    .end local v2    # "stripped":Ljava/lang/String;
-    :catch_1
-    move-exception v2
+    return-object v0
 
     .line 382
-    .local v2, "e1":Ljava/lang/Exception;
-    new-instance v3, Ljava/lang/RuntimeException;
+    :catch_1
+    new-instance v0, Ljava/lang/RuntimeException;
 
-    invoke-direct {v3, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+    invoke-direct {v0, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
-    throw v3
+    throw v0
 .end method
 
 .method public url()Ljava/net/URL;
@@ -2549,12 +2288,10 @@
 
     return-object v0
 
-    .line 354
     :catch_0
     move-exception v0
 
     .line 355
-    .local v0, "e":Ljava/net/MalformedURLException;
     new-instance v1, Ljava/lang/RuntimeException;
 
     invoke-direct {v1, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V

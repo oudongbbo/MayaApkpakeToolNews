@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okserver/task/ExecutorWithListener$2;
 .super Ljava/lang/Object;
-.source "ExecutorWithListener.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okserver/task/ExecutorWithListener;Lcom/maya/open/http/okserver/task/ExecutorWithListener$OnAllTaskEndListener;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okserver/task/ExecutorWithListener;
 
     .line 61
     iput-object p1, p0, Lcom/maya/open/http/okserver/task/ExecutorWithListener$2;->this$0:Lcom/maya/open/http/okserver/task/ExecutorWithListener;
@@ -48,6 +47,5 @@
 
     invoke-interface {v0}, Lcom/maya/open/http/okserver/task/ExecutorWithListener$OnAllTaskEndListener;->onAllTaskEnd()V
 
-    .line 65
     return-void
 .end method

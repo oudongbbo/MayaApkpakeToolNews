@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/FMDemoActivity$3;
 .super Ljava/lang/Object;
-.source "FMDemoActivity.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/sdk/framework/interfaces/SdkResultCallback;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+.field final synthetic a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/FMDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    .line 82
-    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 55
+    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,67 +36,140 @@
 
 # virtual methods
 .method public onCancel(Ljava/lang/String;)V
-    .locals 0
-    .param p1, "message"    # Ljava/lang/String;
+    .locals 3
 
-    .line 121
+    .line 77
+    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "switch cancel:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+
     return-void
 .end method
 
 .method public onFail(Ljava/lang/String;)V
     .locals 3
-    .param p1, "message"    # Ljava/lang/String;
 
-    .line 115
-    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 70
+    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    const-string v1, "\u6ce8\u9500\u5931\u8d25\uff0c\u65e0\u9700\u64cd\u4f5c"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    const-string v2, "switch fail:"
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    .line 116
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+
     return-void
 .end method
 
 .method public onSuccess(Landroid/os/Bundle;)V
     .locals 3
-    .param p1, "bundle"    # Landroid/os/Bundle;
 
-    .line 87
-    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 60
+    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    const-string v1, "\u6ce8\u9500\u6210\u529f\uff0c\u8bf7\u91cd\u65b0\u53d1\u8d77\u767b\u5f55\u64cd\u4f5c."
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    const-string v2, "\u5207\u6362\u5e10\u53f7\u76d1\u542c\uff1a\u6210\u529f\n uid: "
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    const-string v2, "uid"
 
-    .line 89
-    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 61
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    # getter for: Lcom/maya/sdk/s/app/FMDemoActivity;->mayaCore:Lcom/maya/sdk/s/app/FMSdkCore;
-    invoke-static {v0}, Lcom/maya/sdk/s/app/FMDemoActivity;->access$000(Lcom/maya/sdk/s/app/FMDemoActivity;)Lcom/maya/sdk/s/app/FMSdkCore;
+    move-result-object v2
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$3;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    const-string v2, "\n uname: "
 
-    new-instance v2, Lcom/maya/sdk/s/app/FMDemoActivity$3$1;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v2, p0}, Lcom/maya/sdk/s/app/FMDemoActivity$3$1;-><init>(Lcom/maya/sdk/s/app/FMDemoActivity$3;)V
+    const-string v2, "uname"
 
-    invoke-virtual {v0, v1, v2}, Lcom/maya/sdk/s/app/FMSdkCore;->userSwitch(Landroid/content/Context;Lcom/maya/sdk/framework/interfaces/SdkResultCallback;)V
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    .line 111
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "\n vname: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "vname"
+
+    .line 62
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "\n token: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "token"
+
+    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    .line 60
+    invoke-static {v0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    .line 63
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
+
     return-void
 .end method

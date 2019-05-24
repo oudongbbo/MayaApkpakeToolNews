@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/FMDemoActivity$7;
 .super Ljava/lang/Object;
-.source "FMDemoActivity.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+.field final synthetic a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/FMDemoActivity;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/FMDemoActivity;
 
-    .line 233
-    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$7;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    .line 201
+    iput-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$7;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,33 +36,66 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
-    .param p1, "v"    # Landroid/view/View;
+    .locals 9
 
-    .line 237
-    new-instance v0, Lcom/maya/sdk/framework/user/AccountManager;
+    const-string p1, "007"
 
-    iget-object v1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$7;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    const-string v0, "\u8a79\u59c6\u65af\u90a6\u5fb7"
 
-    invoke-direct {v0, v1}, Lcom/maya/sdk/framework/user/AccountManager;-><init>(Landroid/content/Context;)V
+    const-string v1, "88"
 
-    iget-object v1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$7;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    const-string v2, "001"
 
-    invoke-virtual {v0, v1}, Lcom/maya/sdk/framework/user/AccountManager;->cleanAccountInfoCache(Landroid/content/Context;)V
+    const-string v3, "\u5f00\u5929\u8f9f\u5730"
 
-    .line 239
-    iget-object v0, p0, Lcom/maya/sdk/s/app/FMDemoActivity$7;->this$0:Lcom/maya/sdk/s/app/FMDemoActivity;
+    const-string v4, "7"
 
-    const-string v1, "\u6e05\u9664\u6570\u636e\u6210\u529f"
+    const-string v5, "100"
 
-    const/4 v2, 0x0
+    const-string v6, "\u5730\u7403\u4eba\u4e00\u5bb6\u4eb2"
 
-    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    const-string v7, "\u62d3\u5c55\u5b57\u6bb5"
 
-    move-result-object v0
+    .line 214
+    new-instance v8, Lcom/maya/sdk/s/core/b/a/b;
 
-    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+    invoke-direct {v8}, Lcom/maya/sdk/s/core/b/a/b;-><init>()V
 
-    .line 241
+    .line 215
+    invoke-virtual {v8, p1}, Lcom/maya/sdk/s/core/b/a/b;->a(Ljava/lang/String;)V
+
+    .line 216
+    invoke-virtual {v8, v0}, Lcom/maya/sdk/s/core/b/a/b;->b(Ljava/lang/String;)V
+
+    .line 217
+    invoke-virtual {v8, v1}, Lcom/maya/sdk/s/core/b/a/b;->c(Ljava/lang/String;)V
+
+    .line 218
+    invoke-virtual {v8, v2}, Lcom/maya/sdk/s/core/b/a/b;->d(Ljava/lang/String;)V
+
+    .line 219
+    invoke-virtual {v8, v3}, Lcom/maya/sdk/s/core/b/a/b;->e(Ljava/lang/String;)V
+
+    .line 220
+    invoke-virtual {v8, v4}, Lcom/maya/sdk/s/core/b/a/b;->g(Ljava/lang/String;)V
+
+    .line 221
+    invoke-virtual {v8, v5}, Lcom/maya/sdk/s/core/b/a/b;->f(Ljava/lang/String;)V
+
+    .line 222
+    invoke-virtual {v8, v6}, Lcom/maya/sdk/s/core/b/a/b;->h(Ljava/lang/String;)V
+
+    .line 223
+    invoke-virtual {v8, v7}, Lcom/maya/sdk/s/core/b/a/b;->i(Ljava/lang/String;)V
+
+    .line 225
+    iget-object p1, p0, Lcom/maya/sdk/s/app/FMDemoActivity$7;->a:Lcom/maya/sdk/s/app/FMDemoActivity;
+
+    invoke-static {p1}, Lcom/maya/sdk/s/app/FMDemoActivity;->a(Lcom/maya/sdk/s/app/FMDemoActivity;)Lcom/maya/sdk/s/app/a;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v8}, Lcom/maya/sdk/s/app/a;->a(Lcom/maya/sdk/s/core/b/a/b;)V
+
     return-void
 .end method

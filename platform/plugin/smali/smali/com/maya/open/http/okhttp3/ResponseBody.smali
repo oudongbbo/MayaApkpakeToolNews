@@ -1,6 +1,6 @@
 .class public abstract Lcom/maya/open/http/okhttp3/ResponseBody;
 .super Ljava/lang/Object;
-.source "ResponseBody.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/io/Closeable;
@@ -36,32 +36,27 @@
 
     move-result-object v0
 
-    .line 188
-    .local v0, "contentType":Lcom/maya/open/http/okhttp3/MediaType;
     if-eqz v0, :cond_0
 
+    .line 188
     sget-object v1, Lcom/maya/open/http/okhttp3/internal/Util;->UTF_8:Ljava/nio/charset/Charset;
 
     invoke-virtual {v0, v1}, Lcom/maya/open/http/okhttp3/MediaType;->charset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    sget-object v1, Lcom/maya/open/http/okhttp3/internal/Util;->UTF_8:Ljava/nio/charset/Charset;
+    sget-object v0, Lcom/maya/open/http/okhttp3/internal/Util;->UTF_8:Ljava/nio/charset/Charset;
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public static create(Lcom/maya/open/http/okhttp3/MediaType;JLcom/maya/open/http/okio/BufferedSource;)Lcom/maya/open/http/okhttp3/ResponseBody;
-    .locals 2
-    .param p0, "contentType"    # Lcom/maya/open/http/okhttp3/MediaType;
-    .param p1, "contentLength"    # J
-    .param p3, "content"    # Lcom/maya/open/http/okio/BufferedSource;
+    .locals 1
 
-    .line 221
     if-eqz p3, :cond_0
 
     .line 222
@@ -73,25 +68,21 @@
 
     .line 221
     :cond_0
-    new-instance v0, Ljava/lang/NullPointerException;
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    const-string v1, "source == null"
+    const-string p1, "source == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p0
 .end method
 
 .method public static create(Lcom/maya/open/http/okhttp3/MediaType;Ljava/lang/String;)Lcom/maya/open/http/okhttp3/ResponseBody;
-    .locals 4
-    .param p0, "contentType"    # Lcom/maya/open/http/okhttp3/MediaType;
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 2
 
     .line 200
     sget-object v0, Lcom/maya/open/http/okhttp3/internal/Util;->UTF_8:Ljava/nio/charset/Charset;
 
-    .line 201
-    .local v0, "charset":Ljava/nio/charset/Charset;
     if-eqz p0, :cond_0
 
     .line 202
@@ -99,7 +90,6 @@
 
     move-result-object v0
 
-    .line 203
     if-nez v0, :cond_0
 
     .line 204
@@ -112,15 +102,15 @@
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v2, "; charset=utf-8"
+    const-string p0, "; charset=utf-8"
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Lcom/maya/open/http/okhttp3/MediaType;->parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/MediaType;
+    invoke-static {p0}, Lcom/maya/open/http/okhttp3/MediaType;->parse(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/MediaType;
 
     move-result-object p0
 
@@ -132,25 +122,22 @@
 
     invoke-virtual {v1, p1, v0}, Lcom/maya/open/http/okio/Buffer;->writeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lcom/maya/open/http/okio/Buffer;
 
-    move-result-object v1
+    move-result-object p1
 
     .line 209
-    .local v1, "buffer":Lcom/maya/open/http/okio/Buffer;
-    invoke-virtual {v1}, Lcom/maya/open/http/okio/Buffer;->size()J
+    invoke-virtual {p1}, Lcom/maya/open/http/okio/Buffer;->size()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    invoke-static {p0, v2, v3, v1}, Lcom/maya/open/http/okhttp3/ResponseBody;->create(Lcom/maya/open/http/okhttp3/MediaType;JLcom/maya/open/http/okio/BufferedSource;)Lcom/maya/open/http/okhttp3/ResponseBody;
+    invoke-static {p0, v0, v1, p1}, Lcom/maya/open/http/okhttp3/ResponseBody;->create(Lcom/maya/open/http/okhttp3/MediaType;JLcom/maya/open/http/okio/BufferedSource;)Lcom/maya/open/http/okhttp3/ResponseBody;
 
-    move-result-object v2
+    move-result-object p0
 
-    return-object v2
+    return-object p0
 .end method
 
 .method public static create(Lcom/maya/open/http/okhttp3/MediaType;[B)Lcom/maya/open/http/okhttp3/ResponseBody;
     .locals 3
-    .param p0, "contentType"    # Lcom/maya/open/http/okhttp3/MediaType;
-    .param p1, "content"    # [B
 
     .line 214
     new-instance v0, Lcom/maya/open/http/okio/Buffer;
@@ -162,16 +149,15 @@
     move-result-object v0
 
     .line 215
-    .local v0, "buffer":Lcom/maya/open/http/okio/Buffer;
-    array-length v1, p1
+    array-length p1, p1
 
-    int-to-long v1, v1
+    int-to-long v1, p1
 
     invoke-static {p0, v1, v2, v0}, Lcom/maya/open/http/okhttp3/ResponseBody;->create(Lcom/maya/open/http/okhttp3/MediaType;JLcom/maya/open/http/okio/BufferedSource;)Lcom/maya/open/http/okhttp3/ResponseBody;
 
-    move-result-object v1
+    move-result-object p0
 
-    return-object v1
+    return-object p0
 .end method
 
 
@@ -192,20 +178,13 @@
 .end method
 
 .method public final bytes()[B
-    .locals 7
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 6
 
     .line 133
     invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/ResponseBody;->contentLength()J
 
     move-result-wide v0
 
-    .line 134
-    .local v0, "contentLength":J
     const-wide/32 v2, 0x7fffffff
 
     cmp-long v4, v0, v2
@@ -218,7 +197,6 @@
     move-result-object v2
 
     .line 141
-    .local v2, "source":Lcom/maya/open/http/okio/BufferedSource;
     :try_start_0
     invoke-interface {v2}, Lcom/maya/open/http/okio/BufferedSource;->readByteArray()[B
 
@@ -227,80 +205,73 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 143
-    .local v3, "bytes":[B
     invoke-static {v2}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 144
-    nop
-
-    .line 145
     const-wide/16 v4, -0x1
 
-    cmp-long v6, v0, v4
+    cmp-long v2, v0, v4
 
-    if-eqz v6, :cond_1
+    if-eqz v2, :cond_1
 
-    array-length v4, v3
+    .line 145
+    array-length v2, v3
 
-    int-to-long v4, v4
+    int-to-long v4, v2
 
-    cmp-long v6, v0, v4
+    cmp-long v2, v0, v4
 
-    if-nez v6, :cond_0
+    if-nez v2, :cond_0
 
     goto :goto_0
 
     .line 146
     :cond_0
-    new-instance v4, Ljava/io/IOException;
+    new-instance v2, Ljava/io/IOException;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Content-Length ("
+    const-string v5, "Content-Length ("
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v6, ") and stream length ("
+    const-string v0, ") and stream length ("
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    array-length v6, v3
+    array-length v0, v3
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v6, ") disagree"
+    const-string v0, ") disagree"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-direct {v4, v5}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
-    throw v4
+    throw v2
 
-    .line 152
     :cond_1
     :goto_0
     return-object v3
 
-    .line 143
-    .end local v3    # "bytes":[B
     :catchall_0
-    move-exception v3
+    move-exception v0
 
+    .line 143
     invoke-static {v2}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 144
-    throw v3
+    throw v0
 
     .line 135
-    .end local v2    # "source":Lcom/maya/open/http/okio/BufferedSource;
     :cond_2
     new-instance v2, Ljava/io/IOException;
 
@@ -316,44 +287,41 @@
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-direct {v2, v3}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v2
 .end method
 
 .method public final charStream()Ljava/io/Reader;
-    .locals 4
+    .locals 3
 
     .line 162
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/ResponseBody;->reader:Ljava/io/Reader;
 
-    .line 163
-    .local v0, "r":Ljava/io/Reader;
     if-eqz v0, :cond_0
-
-    move-object v1, v0
 
     goto :goto_0
 
+    .line 163
     :cond_0
-    new-instance v1, Lcom/maya/open/http/okhttp3/ResponseBody$BomAwareReader;
+    new-instance v0, Lcom/maya/open/http/okhttp3/ResponseBody$BomAwareReader;
 
     invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/ResponseBody;->source()Lcom/maya/open/http/okio/BufferedSource;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/ResponseBody;->charset()Ljava/nio/charset/Charset;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-direct {v1, v2, v3}, Lcom/maya/open/http/okhttp3/ResponseBody$BomAwareReader;-><init>(Lcom/maya/open/http/okio/BufferedSource;Ljava/nio/charset/Charset;)V
+    invoke-direct {v0, v1, v2}, Lcom/maya/open/http/okhttp3/ResponseBody$BomAwareReader;-><init>(Lcom/maya/open/http/okio/BufferedSource;Ljava/nio/charset/Charset;)V
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/ResponseBody;->reader:Ljava/io/Reader;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/ResponseBody;->reader:Ljava/io/Reader;
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method
 
 .method public close()V
@@ -366,7 +334,6 @@
 
     invoke-static {v0}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 193
     return-void
 .end method
 
@@ -380,12 +347,7 @@
 .end method
 
 .method public final string()Ljava/lang/String;
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
+    .locals 2
 
     .line 177
     invoke-virtual {p0}, Lcom/maya/open/http/okhttp3/ResponseBody;->source()Lcom/maya/open/http/okio/BufferedSource;
@@ -393,7 +355,6 @@
     move-result-object v0
 
     .line 179
-    .local v0, "source":Lcom/maya/open/http/okio/BufferedSource;
     :try_start_0
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/ResponseBody;->charset()Ljava/nio/charset/Charset;
 
@@ -404,21 +365,17 @@
     move-result-object v1
 
     .line 180
-    .local v1, "charset":Ljava/nio/charset/Charset;
     invoke-interface {v0, v1}, Lcom/maya/open/http/okio/BufferedSource;->readString(Ljava/nio/charset/Charset;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 182
     invoke-static {v0}, Lcom/maya/open/http/okhttp3/internal/Util;->closeQuietly(Ljava/io/Closeable;)V
 
-    .line 180
-    return-object v2
+    return-object v1
 
-    .line 182
-    .end local v1    # "charset":Ljava/nio/charset/Charset;
     :catchall_0
     move-exception v1
 

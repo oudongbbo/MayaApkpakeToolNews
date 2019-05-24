@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/ResponseBody$1;
 .super Lcom/maya/open/http/okhttp3/ResponseBody;
-.source "ResponseBody.java"
+.source "SourceFile"
 
 
 # annotations

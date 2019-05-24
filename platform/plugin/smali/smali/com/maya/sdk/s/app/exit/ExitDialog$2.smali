@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/s/app/exit/ExitDialog$2;
 .super Ljava/lang/Object;
-.source "ExitDialog.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/sdk/framework/utils/ImageUtil$ImageCallback;
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/maya/sdk/s/app/exit/ExitDialog;->initViews()V
+    value = Lcom/maya/sdk/s/app/exit/ExitDialog;->a()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,16 +18,15 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/maya/sdk/s/app/exit/ExitDialog;
+.field final synthetic a:Lcom/maya/sdk/s/app/exit/ExitDialog;
 
 
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/s/app/exit/ExitDialog;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/s/app/exit/ExitDialog;
 
     .line 109
-    iput-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog$2;->this$0:Lcom/maya/sdk/s/app/exit/ExitDialog;
+    iput-object p1, p0, Lcom/maya/sdk/s/app/exit/ExitDialog$2;->a:Lcom/maya/sdk/s/app/exit/ExitDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,39 +37,32 @@
 # virtual methods
 .method public onFail(Ljava/lang/String;)V
     .locals 0
-    .param p1, "url"    # Ljava/lang/String;
 
-    .line 114
     return-void
 .end method
 
 .method public onSuccess(Landroid/graphics/Bitmap;Ljava/lang/String;)V
-    .locals 2
-    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
-    .param p2, "url"    # Ljava/lang/String;
+    .locals 1
 
     .line 117
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog$2;->this$0:Lcom/maya/sdk/s/app/exit/ExitDialog;
+    iget-object p2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog$2;->a:Lcom/maya/sdk/s/app/exit/ExitDialog;
 
-    # getter for: Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_ad_view:Landroid/widget/RelativeLayout;
-    invoke-static {v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->access$200(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/RelativeLayout;
+    invoke-static {p2}, Lcom/maya/sdk/s/app/exit/ExitDialog;->c(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/RelativeLayout;
 
-    move-result-object v0
+    move-result-object p2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
+    invoke-virtual {p2, v0}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
     .line 118
-    iget-object v0, p0, Lcom/maya/sdk/s/app/exit/ExitDialog$2;->this$0:Lcom/maya/sdk/s/app/exit/ExitDialog;
+    iget-object p2, p0, Lcom/maya/sdk/s/app/exit/ExitDialog$2;->a:Lcom/maya/sdk/s/app/exit/ExitDialog;
 
-    # getter for: Lcom/maya/sdk/s/app/exit/ExitDialog;->exitdialog_bg:Landroid/widget/ImageView;
-    invoke-static {v0}, Lcom/maya/sdk/s/app/exit/ExitDialog;->access$300(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/ImageView;
+    invoke-static {p2}, Lcom/maya/sdk/s/app/exit/ExitDialog;->d(Lcom/maya/sdk/s/app/exit/ExitDialog;)Landroid/widget/ImageView;
 
-    move-result-object v0
+    move-result-object p2
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {p2, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 119
     return-void
 .end method

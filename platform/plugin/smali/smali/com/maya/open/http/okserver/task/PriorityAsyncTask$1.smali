@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;
 .super Lcom/maya/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable;
-.source "PriorityAsyncTask.java"
+.source "SourceFile"
 
 
 # annotations
@@ -27,16 +27,14 @@
 
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okserver/task/PriorityAsyncTask;)V
-    .locals 1
-    .param p1, "this$0"    # Lcom/maya/open/http/okserver/task/PriorityAsyncTask;
+    .locals 0
 
     .line 63
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;, "Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;"
     iput-object p1, p0, Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;->this$0:Lcom/maya/open/http/okserver/task/PriorityAsyncTask;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {p0, v0}, Lcom/maya/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable;-><init>(Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;)V
+    invoke-direct {p0, p1}, Lcom/maya/open/http/okserver/task/PriorityAsyncTask$WorkerRunnable;-><init>(Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;)V
 
     return-void
 .end method
@@ -51,17 +49,9 @@
         }
     .end annotation
 
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
     .line 66
-    .local p0, "this":Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;, "Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;"
     iget-object v0, p0, Lcom/maya/open/http/okserver/task/PriorityAsyncTask$1;->this$0:Lcom/maya/open/http/okserver/task/PriorityAsyncTask;
 
-    # getter for: Lcom/maya/open/http/okserver/task/PriorityAsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
     invoke-static {v0}, Lcom/maya/open/http/okserver/task/PriorityAsyncTask;->access$200(Lcom/maya/open/http/okserver/task/PriorityAsyncTask;)Ljava/util/concurrent/atomic/AtomicBoolean;
 
     move-result-object v0
@@ -70,9 +60,9 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    .line 68
     const/16 v0, 0xa
 
+    .line 68
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
     .line 70
@@ -86,7 +76,6 @@
 
     move-result-object v1
 
-    # invokes: Lcom/maya/open/http/okserver/task/PriorityAsyncTask;->postResult(Ljava/lang/Object;)Ljava/lang/Object;
     invoke-static {v0, v1}, Lcom/maya/open/http/okserver/task/PriorityAsyncTask;->access$300(Lcom/maya/open/http/okserver/task/PriorityAsyncTask;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0

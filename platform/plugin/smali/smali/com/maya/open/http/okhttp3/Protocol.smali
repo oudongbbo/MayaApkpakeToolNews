@@ -1,6 +1,6 @@
 .class public final enum Lcom/maya/open/http/okhttp3/Protocol;
 .super Ljava/lang/Enum;
-.source "Protocol.java"
+.source "SourceFile"
 
 
 # annotations
@@ -85,9 +85,9 @@
 
     sput-object v0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_2:Lcom/maya/open/http/okhttp3/Protocol;
 
-    .line 31
     const/4 v0, 0x4
 
+    .line 31
     new-array v0, v0, [Lcom/maya/open/http/okhttp3/Protocol;
 
     sget-object v1, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_1_0:Lcom/maya/open/http/okhttp3/Protocol;
@@ -113,7 +113,6 @@
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
-    .param p3, "protocol"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,18 +127,11 @@
     .line 69
     iput-object p3, p0, Lcom/maya/open/http/okhttp3/Protocol;->protocol:Ljava/lang/String;
 
-    .line 70
     return-void
 .end method
 
 .method public static get(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/Protocol;
     .locals 3
-    .param p0, "protocol"    # Ljava/lang/String;
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 79
     sget-object v0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_1_0:Lcom/maya/open/http/okhttp3/Protocol;
@@ -152,9 +144,9 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_1_0:Lcom/maya/open/http/okhttp3/Protocol;
+    sget-object p0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_1_0:Lcom/maya/open/http/okhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 80
     :cond_0
@@ -168,9 +160,9 @@
 
     if-eqz v0, :cond_1
 
-    sget-object v0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_1_1:Lcom/maya/open/http/okhttp3/Protocol;
+    sget-object p0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_1_1:Lcom/maya/open/http/okhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 81
     :cond_1
@@ -184,9 +176,9 @@
 
     if-eqz v0, :cond_2
 
-    sget-object v0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_2:Lcom/maya/open/http/okhttp3/Protocol;
+    sget-object p0, Lcom/maya/open/http/okhttp3/Protocol;->HTTP_2:Lcom/maya/open/http/okhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 82
     :cond_2
@@ -200,9 +192,9 @@
 
     if-eqz v0, :cond_3
 
-    sget-object v0, Lcom/maya/open/http/okhttp3/Protocol;->SPDY_3:Lcom/maya/open/http/okhttp3/Protocol;
+    sget-object p0, Lcom/maya/open/http/okhttp3/Protocol;->SPDY_3:Lcom/maya/open/http/okhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 
     .line 83
     :cond_3
@@ -220,27 +212,26 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/maya/open/http/okhttp3/Protocol;
     .locals 1
-    .param p0, "name"    # Ljava/lang/String;
 
     .line 31
     const-class v0, Lcom/maya/open/http/okhttp3/Protocol;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/maya/open/http/okhttp3/Protocol;
+    check-cast p0, Lcom/maya/open/http/okhttp3/Protocol;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static values()[Lcom/maya/open/http/okhttp3/Protocol;

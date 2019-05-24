@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;
 .super Ljava/lang/Object;
-.source "DiskLruCache.java"
+.source "SourceFile"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -24,7 +24,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
 
     .line 169
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
@@ -79,24 +78,18 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    .line 181
     goto :goto_0
 
-    .line 179
-    :catch_0
-    move-exception v1
-
     .line 180
-    .local v1, "ignored":Ljava/io/IOException;
+    :catch_0
     :try_start_2
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
 
-    iput-boolean v2, v3, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
+    iput-boolean v2, v1, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->mostRecentTrimFailed:Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 184
-    .end local v1    # "ignored":Ljava/io/IOException;
     :goto_0
     :try_start_3
     iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
@@ -122,43 +115,35 @@
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    .line 191
-    :cond_1
     goto :goto_1
 
-    .line 188
-    :catch_1
-    move-exception v1
-
     .line 189
-    .local v1, "e":Ljava/io/IOException;
+    :catch_1
     :try_start_4
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
 
-    iput-boolean v2, v3, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->mostRecentRebuildFailed:Z
+    iput-boolean v2, v1, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->mostRecentRebuildFailed:Z
 
     .line 190
-    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
+    iget-object v1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$1;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
 
     invoke-static {}, Lcom/maya/open/http/okio/Okio;->blackhole()Lcom/maya/open/http/okio/Sink;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v3}, Lcom/maya/open/http/okio/Okio;->buffer(Lcom/maya/open/http/okio/Sink;)Lcom/maya/open/http/okio/BufferedSink;
+    invoke-static {v2}, Lcom/maya/open/http/okio/Okio;->buffer(Lcom/maya/open/http/okio/Sink;)Lcom/maya/open/http/okio/BufferedSink;
 
-    move-result-object v3
+    move-result-object v2
 
-    iput-object v3, v2, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/maya/open/http/okio/BufferedSink;
+    iput-object v2, v1, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->journalWriter:Lcom/maya/open/http/okio/BufferedSink;
 
     .line 192
-    .end local v1    # "e":Ljava/io/IOException;
+    :cond_1
     :goto_1
     monitor-exit v0
 
-    .line 193
     return-void
 
-    .line 192
     :catchall_0
     move-exception v1
 

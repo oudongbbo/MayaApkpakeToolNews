@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/utils/IntentUtils;
 .super Ljava/lang/Object;
-.source "IntentUtils.java"
+.source "SourceFile"
 
 
 # direct methods
@@ -22,7 +22,6 @@
 
 .method public static getAppDetailsSettingsIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 3
-    .param p0, "packageName"    # Ljava/lang/String;
 
     .line 92
     new-instance v0, Landroid/content/Intent;
@@ -32,7 +31,6 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 93
-    .local v0, "intent":Landroid/content/Intent;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -45,27 +43,26 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    const/high16 p0, 0x10000000
 
     .line 94
-    const/high16 v1, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static getCallIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 4
-    .param p0, "phoneNumber"    # Ljava/lang/String;
 
     .line 203
     new-instance v0, Landroid/content/Intent;
@@ -84,28 +81,26 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v0, v1, p0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const/high16 p0, 0x10000000
 
     .line 204
-    .local v0, "intent":Landroid/content/Intent;
-    const/high16 v1, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static getCaptureIntent(Landroid/net/Uri;)Landroid/content/Intent;
     .locals 2
-    .param p0, "outUri"    # Landroid/net/Uri;
 
     .line 228
     new-instance v0, Landroid/content/Intent;
@@ -114,42 +109,36 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 229
-    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "output"
 
+    .line 229
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
+    const p0, 0x10000001
+
     .line 230
-    const v1, 0x10000001
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static getComponentIntent(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
     .locals 1
-    .param p0, "packageName"    # Ljava/lang/String;
-    .param p1, "className"    # Ljava/lang/String;
 
-    .line 156
     const/4 v0, 0x0
 
+    .line 156
     invoke-static {p0, p1, v0}, Lcom/maya/open/utils/IntentUtils;->getComponentIntent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getComponentIntent(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
-    .locals 3
-    .param p0, "packageName"    # Ljava/lang/String;
-    .param p1, "className"    # Ljava/lang/String;
-    .param p2, "bundle"    # Landroid/os/Bundle;
+    .locals 2
 
     .line 168
     new-instance v0, Landroid/content/Intent;
@@ -158,35 +147,32 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 169
-    .local v0, "intent":Landroid/content/Intent;
     if-eqz p2, :cond_0
 
+    .line 169
     invoke-virtual {v0, p2}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
     .line 170
     :cond_0
-    new-instance v1, Landroid/content/ComponentName;
+    new-instance p2, Landroid/content/ComponentName;
 
-    invoke-direct {v1, p0, p1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {p2, p0, p1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 171
-    .local v1, "cn":Landroid/content/ComponentName;
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v0, p2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    const/high16 p0, 0x10000000
 
     .line 172
-    const/high16 v2, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v2
-
-    return-object v2
+    return-object p0
 .end method
 
 .method public static getDialIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 4
-    .param p0, "phoneNumber"    # Ljava/lang/String;
 
     .line 192
     new-instance v0, Landroid/content/Intent;
@@ -205,35 +191,32 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v0, v1, p0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const/high16 p0, 0x10000000
 
     .line 193
-    .local v0, "intent":Landroid/content/Intent;
-    const/high16 v1, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static getInstallAppIntent(Ljava/io/File;)Landroid/content/Intent;
     .locals 3
-    .param p0, "file"    # Ljava/io/File;
 
-    .line 45
     if-nez p0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 46
     :cond_0
@@ -244,14 +227,12 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 49
-    .local v0, "intent":Landroid/content/Intent;
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x17
 
     if-ge v1, v2, :cond_1
 
-    .line 50
     const-string v1, "application/vnd.android.package-archive"
 
     goto :goto_0
@@ -271,61 +252,55 @@
     move-result-object v1
 
     .line 59
-    .local v1, "type":Ljava/lang/String;
     :goto_0
     invoke-static {p0}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
-    move-result-object v2
+    move-result-object p0
 
-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
+
+    const/high16 p0, 0x10000000
 
     .line 60
-    const/high16 v2, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v2
-
-    return-object v2
+    return-object p0
 .end method
 
 .method public static getInstallAppIntent(Ljava/lang/String;)Landroid/content/Intent;
-    .locals 1
-    .param p0, "filePath"    # Ljava/lang/String;
+    .locals 0
 
     .line 35
     invoke-static {p0}, Lcom/maya/open/utils/FileUtils;->getFileByPath(Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Lcom/maya/open/utils/IntentUtils;->getInstallAppIntent(Ljava/io/File;)Landroid/content/Intent;
+    invoke-static {p0}, Lcom/maya/open/utils/IntentUtils;->getInstallAppIntent(Ljava/io/File;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getLaunchAppIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 1
-    .param p0, "context"    # Landroid/content/Context;
-    .param p1, "packageName"    # Ljava/lang/String;
+    .locals 0
 
     .line 82
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0, p1}, Landroid/content/pm/PackageManager;->getLaunchIntentForPackage(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->getLaunchIntentForPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getSendSmsIntent(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 3
-    .param p0, "phoneNumber"    # Ljava/lang/String;
-    .param p1, "content"    # Ljava/lang/String;
+    .locals 2
 
     .line 214
     new-instance v0, Ljava/lang/StringBuilder;
@@ -340,40 +315,36 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p0
 
     .line 215
-    .local v0, "uri":Landroid/net/Uri;
-    new-instance v1, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-string v2, "android.intent.action.SENDTO"
+    const-string v1, "android.intent.action.SENDTO"
 
-    invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v0, v1, p0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+
+    const-string p0, "sms_body"
 
     .line 216
-    .local v1, "intent":Landroid/content/Intent;
-    const-string v2, "sms_body"
+    invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const/high16 p0, 0x10000000
 
     .line 217
-    const/high16 v2, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v2
-
-    return-object v2
+    return-object p0
 .end method
 
 .method public static getShareImageIntent(Ljava/lang/String;Landroid/net/Uri;)Landroid/content/Intent;
     .locals 2
-    .param p0, "content"    # Ljava/lang/String;
-    .param p1, "uri"    # Landroid/net/Uri;
 
     .line 141
     new-instance v0, Landroid/content/Intent;
@@ -382,36 +353,33 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 142
-    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "android.intent.extra.TEXT"
 
+    .line 142
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 143
-    const-string v1, "android.intent.extra.STREAM"
+    const-string p0, "android.intent.extra.STREAM"
 
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    .line 143
+    invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    const-string p0, "image/*"
 
     .line 144
-    const-string v1, "image/*"
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
+    const/high16 p0, 0x10000000
 
     .line 145
-    const/high16 v1, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static getShareImageIntent(Ljava/lang/String;Ljava/io/File;)Landroid/content/Intent;
     .locals 1
-    .param p0, "content"    # Ljava/lang/String;
-    .param p1, "image"    # Ljava/io/File;
 
     .line 129
     invoke-static {p1}, Lcom/maya/open/utils/FileUtils;->isFileExists(Ljava/io/File;)Z
@@ -420,43 +388,40 @@
 
     if-nez v0, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    return-object v0
+    return-object p0
 
     .line 130
     :cond_0
     invoke-static {p1}, Landroid/net/Uri;->fromFile(Ljava/io/File;)Landroid/net/Uri;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lcom/maya/open/utils/IntentUtils;->getShareImageIntent(Ljava/lang/String;Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-static {p0, p1}, Lcom/maya/open/utils/IntentUtils;->getShareImageIntent(Ljava/lang/String;Landroid/net/Uri;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getShareImageIntent(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 1
-    .param p0, "content"    # Ljava/lang/String;
-    .param p1, "imagePath"    # Ljava/lang/String;
+    .locals 0
 
     .line 118
     invoke-static {p1}, Lcom/maya/open/utils/FileUtils;->getFileByPath(Ljava/lang/String;)Ljava/io/File;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-static {p0, v0}, Lcom/maya/open/utils/IntentUtils;->getShareImageIntent(Ljava/lang/String;Ljava/io/File;)Landroid/content/Intent;
+    invoke-static {p0, p1}, Lcom/maya/open/utils/IntentUtils;->getShareImageIntent(Ljava/lang/String;Ljava/io/File;)Landroid/content/Intent;
 
-    move-result-object v0
+    move-result-object p0
 
-    return-object v0
+    return-object p0
 .end method
 
 .method public static getShareTextIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 2
-    .param p0, "content"    # Ljava/lang/String;
 
     .line 104
     new-instance v0, Landroid/content/Intent;
@@ -465,25 +430,24 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 105
-    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "text/plain"
 
+    .line 105
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 106
     const-string v1, "android.intent.extra.TEXT"
 
+    .line 106
     invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    const/high16 p0, 0x10000000
+
     .line 107
-    const/high16 v1, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method
 
 .method public static getShutdownIntent()Landroid/content/Intent;
@@ -496,20 +460,18 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 183
-    .local v0, "intent":Landroid/content/Intent;
     const/high16 v1, 0x10000000
 
+    .line 183
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static getUninstallAppIntent(Ljava/lang/String;)Landroid/content/Intent;
     .locals 3
-    .param p0, "packageName"    # Ljava/lang/String;
 
     .line 70
     new-instance v0, Landroid/content/Intent;
@@ -519,7 +481,6 @@
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     .line 71
-    .local v0, "intent":Landroid/content/Intent;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -532,20 +493,20 @@
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v1
+    move-result-object p0
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+
+    const/high16 p0, 0x10000000
 
     .line 72
-    const/high16 v1, 0x10000000
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    move-result-object p0
 
-    move-result-object v1
-
-    return-object v1
+    return-object p0
 .end method

@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/image/AsyncImageLoader$onImageLoaderListener;
 .super Ljava/lang/Object;
-.source "AsyncImageLoader.java"
+.source "SourceFile"
 
 
 # annotations

@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$2;
 .super Lcom/maya/open/http/okhttp3/internal/cache/FaultHidingSink;
-.source "DiskLruCache.java"
+.source "SourceFile"
 
 
 # annotations
@@ -34,8 +34,6 @@
 
 .method constructor <init>(Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;Lcom/maya/open/http/okio/Sink;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
-    .param p2, "delegate"    # Lcom/maya/open/http/okio/Sink;
 
     .line 317
     iput-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$2;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
@@ -48,19 +46,14 @@
 
 # virtual methods
 .method protected onException(Ljava/io/IOException;)V
-    .locals 2
-    .param p1, "e"    # Ljava/io/IOException;
-
-    .line 319
-    nop
+    .locals 1
 
     .line 320
-    iget-object v0, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$2;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
+    iget-object p1, p0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache$2;->this$0:Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean v1, v0, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
+    iput-boolean v0, p1, Lcom/maya/open/http/okhttp3/internal/cache/DiskLruCache;->hasJournalErrors:Z
 
-    .line 321
     return-void
 .end method

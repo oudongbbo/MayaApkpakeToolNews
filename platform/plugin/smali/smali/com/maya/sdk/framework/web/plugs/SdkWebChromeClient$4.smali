@@ -1,6 +1,6 @@
 .class Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$4;
 .super Ljava/lang/Object;
-.source "SdkWebChromeClient.java"
+.source "SourceFile"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnCancelListener;
@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;Landroid/webkit/JsResult;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
 
     .line 109
     iput-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$4;->this$0:Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient;
@@ -41,14 +40,12 @@
 
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 1
-    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .locals 0
 
     .line 112
-    iget-object v0, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$4;->val$result:Landroid/webkit/JsResult;
+    iget-object p1, p0, Lcom/maya/sdk/framework/web/plugs/SdkWebChromeClient$4;->val$result:Landroid/webkit/JsResult;
 
-    invoke-virtual {v0}, Landroid/webkit/JsResult;->cancel()V
+    invoke-virtual {p1}, Landroid/webkit/JsResult;->cancel()V
 
-    .line 113
     return-void
 .end method

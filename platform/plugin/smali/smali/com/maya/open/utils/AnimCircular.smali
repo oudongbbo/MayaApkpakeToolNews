@@ -1,6 +1,6 @@
 .class public Lcom/maya/open/utils/AnimCircular;
 .super Ljava/lang/Object;
-.source "AnimCircular.java"
+.source "SourceFile"
 
 
 # annotations
@@ -31,8 +31,6 @@
 
 .method public static fullActivity(Landroid/app/Activity;Landroid/view/View;)Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;
     .locals 1
-    .param p0, "activity"    # Landroid/app/Activity;
-    .param p1, "triggerView"    # Landroid/view/View;
 
     .line 293
     new-instance v0, Lcom/maya/open/utils/AnimCircular$FullActivityBuilder;
@@ -44,7 +42,6 @@
 
 .method public static hide(Landroid/view/View;)Lcom/maya/open/utils/AnimCircular$VisibleBuilder;
     .locals 2
-    .param p0, "animView"    # Landroid/view/View;
 
     .line 288
     new-instance v0, Lcom/maya/open/utils/AnimCircular$VisibleBuilder;
@@ -58,7 +55,6 @@
 
 .method public static show(Landroid/view/View;)Lcom/maya/open/utils/AnimCircular$VisibleBuilder;
     .locals 2
-    .param p0, "animView"    # Landroid/view/View;
 
     .line 283
     new-instance v0, Lcom/maya/open/utils/AnimCircular$VisibleBuilder;

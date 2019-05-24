@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/sdk/s/app/exit/ExitDialog$ExitCallBack;
 .super Ljava/lang/Object;
-.source "ExitDialog.java"
+.source "SourceFile"
 
 
 # annotations

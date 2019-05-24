@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;
 .super Lcom/maya/open/http/okhttp3/internal/platform/Platform;
-.source "JdkWithJettyBootPlatform.java"
+.source "SourceFile"
 
 
 # annotations
@@ -40,9 +40,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Class;)V
     .locals 0
-    .param p1, "putMethod"    # Ljava/lang/reflect/Method;
-    .param p2, "getMethod"    # Ljava/lang/reflect/Method;
-    .param p3, "removeMethod"    # Ljava/lang/reflect/Method;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,8 +54,6 @@
     .end annotation
 
     .line 41
-    .local p4, "clientProviderClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .local p5, "serverProviderClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/internal/platform/Platform;-><init>()V
 
     .line 42
@@ -76,25 +71,21 @@
     .line 46
     iput-object p5, p0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->serverProviderClass:Ljava/lang/Class;
 
-    .line 47
     return-void
 .end method
 
 .method public static buildIfSupported()Lcom/maya/open/http/okhttp3/internal/platform/Platform;
-    .locals 11
+    .locals 10
 
-    .line 88
     :try_start_0
     const-string v0, "org.eclipse.jetty.alpn.ALPN"
 
     .line 89
-    .local v0, "negoClassName":Ljava/lang/String;
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v1
 
     .line 90
-    .local v1, "negoClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -114,7 +105,6 @@
     move-result-object v2
 
     .line 91
-    .local v2, "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -134,101 +124,86 @@
     move-result-object v8
 
     .line 92
-    .local v8, "clientProviderClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "$ServerProvider"
+    const-string v0, "$ServerProvider"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v9
 
+    const-string v0, "put"
+
+    const/4 v3, 0x2
+
     .line 93
-    .local v9, "serverProviderClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    const-string v3, "put"
+    new-array v3, v3, [Ljava/lang/Class;
 
-    const/4 v4, 0x2
+    const-class v4, Ljavax/net/ssl/SSLSocket;
 
-    new-array v4, v4, [Ljava/lang/Class;
+    const/4 v5, 0x0
 
-    const-class v5, Ljavax/net/ssl/SSLSocket;
+    aput-object v4, v3, v5
 
-    const/4 v7, 0x0
+    const/4 v4, 0x1
 
-    aput-object v5, v4, v7
+    aput-object v2, v3, v4
 
-    const/4 v10, 0x1
+    invoke-virtual {v1, v0, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
-    aput-object v2, v4, v10
+    move-result-object v0
 
-    invoke-virtual {v1, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v5
+    const-string v2, "get"
 
     .line 94
-    .local v5, "putMethod":Ljava/lang/reflect/Method;
-    const-string v3, "get"
-
-    new-array v4, v10, [Ljava/lang/Class;
+    new-array v3, v4, [Ljava/lang/Class;
 
     const-class v6, Ljavax/net/ssl/SSLSocket;
 
-    aput-object v6, v4, v7
+    aput-object v6, v3, v5
 
-    invoke-virtual {v1, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v6
 
+    const-string v2, "remove"
+
     .line 95
-    .local v6, "getMethod":Ljava/lang/reflect/Method;
-    const-string v3, "remove"
+    new-array v3, v4, [Ljava/lang/Class;
 
-    new-array v4, v10, [Ljava/lang/Class;
+    const-class v4, Ljavax/net/ssl/SSLSocket;
 
-    const-class v10, Ljavax/net/ssl/SSLSocket;
+    aput-object v4, v3, v5
 
-    aput-object v10, v4, v7
-
-    invoke-virtual {v1, v3, v4}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+    invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v7
 
     .line 96
-    .local v7, "removeMethod":Ljava/lang/reflect/Method;
-    new-instance v3, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;
+    new-instance v1, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;
 
-    move-object v4, v3
+    move-object v4, v1
+
+    move-object v5, v0
 
     invoke-direct/range {v4 .. v9}, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;-><init>(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/Class;Ljava/lang/Class;)V
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return-object v3
+    return-object v1
 
-    .line 98
-    .end local v0    # "negoClassName":Ljava/lang/String;
-    .end local v1    # "negoClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v2    # "providerClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v5    # "putMethod":Ljava/lang/reflect/Method;
-    .end local v6    # "getMethod":Ljava/lang/reflect/Method;
-    .end local v7    # "removeMethod":Ljava/lang/reflect/Method;
-    .end local v8    # "clientProviderClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
-    .end local v9    # "serverProviderClass":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :catch_0
-    move-exception v0
-
-    .line 101
     const/4 v0, 0x0
 
     return-object v0
@@ -238,7 +213,6 @@
 # virtual methods
 .method public afterHandshake(Ljavax/net/ssl/SSLSocket;)V
     .locals 4
-    .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
 
     .line 64
     :try_start_0
@@ -259,29 +233,19 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 67
-    nop
-
-    .line 68
     return-void
 
-    .line 65
-    :catch_0
-    move-exception v0
-
     .line 66
-    .local v0, "ignored":Ljava/lang/ReflectiveOperationException;
-    new-instance v1, Ljava/lang/AssertionError;
+    :catch_0
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v1
+    throw p1
 .end method
 
 .method public configureTlsExtensions(Ljavax/net/ssl/SSLSocket;Ljava/lang/String;Ljava/util/List;)V
-    .locals 7
-    .param p1, "sslSocket"    # Ljavax/net/ssl/SSLSocket;
-    .param p2, "hostname"    # Ljava/lang/String;
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -294,84 +258,73 @@
     .end annotation
 
     .line 51
-    .local p3, "protocols":Ljava/util/List;, "Ljava/util/List<Lcom/maya/open/http/okhttp3/Protocol;>;"
     invoke-static {p3}, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->alpnProtocolNames(Ljava/util/List;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p2
 
     .line 54
-    .local v0, "names":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :try_start_0
-    const-class v1, Lcom/maya/open/http/okhttp3/internal/platform/Platform;
+    const-class p3, Lcom/maya/open/http/okhttp3/internal/platform/Platform;
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
+    invoke-virtual {p3}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
 
-    move-result-object v1
+    move-result-object p3
 
-    const/4 v2, 0x2
+    const/4 v0, 0x2
 
-    new-array v3, v2, [Ljava/lang/Class;
+    new-array v1, v0, [Ljava/lang/Class;
 
-    iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->clientProviderClass:Ljava/lang/Class;
+    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->clientProviderClass:Ljava/lang/Class;
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
-    aput-object v4, v3, v5
+    aput-object v2, v1, v3
 
-    iget-object v4, p0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->serverProviderClass:Ljava/lang/Class;
+    iget-object v2, p0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->serverProviderClass:Ljava/lang/Class;
 
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
-    aput-object v4, v3, v6
+    aput-object v2, v1, v4
 
-    new-instance v4, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
+    new-instance v2, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
 
-    invoke-direct {v4, v0}, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;-><init>(Ljava/util/List;)V
+    invoke-direct {v2, p2}, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;-><init>(Ljava/util/List;)V
 
-    invoke-static {v1, v3, v4}, Ljava/lang/reflect/Proxy;->newProxyInstance(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
+    invoke-static {p3, v1, v2}, Ljava/lang/reflect/Proxy;->newProxyInstance(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p2
 
     .line 56
-    .local v1, "provider":Ljava/lang/Object;
-    iget-object v3, p0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->putMethod:Ljava/lang/reflect/Method;
+    iget-object p3, p0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform;->putMethod:Ljava/lang/reflect/Method;
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
-    new-array v2, v2, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    aput-object p1, v2, v5
+    aput-object p1, v0, v3
 
-    aput-object v1, v2, v6
+    aput-object p2, v0, v4
 
-    invoke-virtual {v3, v4, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p3, v1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 59
-    .end local v1    # "provider":Ljava/lang/Object;
-    nop
-
-    .line 60
     return-void
 
-    .line 57
     :catch_0
-    move-exception v1
+    move-exception p1
 
     .line 58
-    .local v1, "e":Ljava/lang/ReflectiveOperationException;
-    new-instance v2, Ljava/lang/AssertionError;
+    new-instance p2, Ljava/lang/AssertionError;
 
-    invoke-direct {v2, v1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
+    invoke-direct {p2, p1}, Ljava/lang/AssertionError;-><init>(Ljava/lang/Object;)V
 
-    throw v2
+    throw p2
 .end method
 
 .method public getSelectedProtocol(Ljavax/net/ssl/SSLSocket;)Ljava/lang/String;
-    .locals 5
-    .param p1, "socket"    # Ljavax/net/ssl/SSLSocket;
+    .locals 3
 
     .line 72
     :try_start_0
@@ -385,10 +338,10 @@
 
     aput-object p1, v1, v2
 
-    .line 73
-    const/4 v2, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {v0, v2, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+    .line 73
+    invoke-virtual {v0, p1, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -399,7 +352,6 @@
     check-cast v0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
 
     .line 74
-    .local v0, "provider":Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
     iget-boolean v1, v0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;->unsupported:Z
 
     if-nez v1, :cond_0
@@ -411,16 +363,15 @@
     .line 75
     invoke-static {}, Lcom/maya/open/http/okhttp3/internal/platform/Platform;->get()Lcom/maya/open/http/okhttp3/internal/platform/Platform;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v3, 0x4
+    const/4 v1, 0x4
 
-    const-string v4, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?"
+    const-string v2, "ALPN callback dropped: HTTP/2 is disabled. Is alpn-boot on the boot class path?"
 
-    invoke-virtual {v1, v3, v4, v2}, Lcom/maya/open/http/okhttp3/internal/platform/Platform;->log(ILjava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v0, v1, v2, p1}, Lcom/maya/open/http/okhttp3/internal/platform/Platform;->log(ILjava/lang/String;Ljava/lang/Throwable;)V
 
-    .line 77
-    return-object v2
+    return-object p1
 
     .line 79
     :cond_0
@@ -431,24 +382,19 @@
     goto :goto_0
 
     :cond_1
-    iget-object v2, v0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;->selected:Ljava/lang/String;
+    iget-object p1, v0, Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;->selected:Ljava/lang/String;
     :try_end_0
     .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
-    return-object v2
-
-    .line 80
-    .end local v0    # "provider":Lcom/maya/open/http/okhttp3/internal/platform/JdkWithJettyBootPlatform$JettyNegoProvider;
-    :catch_0
-    move-exception v0
+    return-object p1
 
     .line 81
-    .local v0, "e":Ljava/lang/ReflectiveOperationException;
-    new-instance v1, Ljava/lang/AssertionError;
+    :catch_0
+    new-instance p1, Ljava/lang/AssertionError;
 
-    invoke-direct {v1}, Ljava/lang/AssertionError;-><init>()V
+    invoke-direct {p1}, Ljava/lang/AssertionError;-><init>()V
 
-    throw v1
+    throw p1
 .end method

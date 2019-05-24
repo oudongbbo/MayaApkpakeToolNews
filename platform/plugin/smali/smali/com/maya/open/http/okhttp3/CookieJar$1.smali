@@ -1,6 +1,6 @@
 .class final Lcom/maya/open/http/okhttp3/CookieJar$1;
 .super Ljava/lang/Object;
-.source "CookieJar.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okhttp3/CookieJar;
@@ -30,8 +30,7 @@
 
 # virtual methods
 .method public loadForRequest(Lcom/maya/open/http/okhttp3/HttpUrl;)Ljava/util/List;
-    .locals 1
-    .param p1, "url"    # Lcom/maya/open/http/okhttp3/HttpUrl;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,14 +45,13 @@
     .line 45
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object p1
 
-    return-object v0
+    return-object p1
 .end method
 
 .method public saveFromResponse(Lcom/maya/open/http/okhttp3/HttpUrl;Ljava/util/List;)V
     .locals 0
-    .param p1, "url"    # Lcom/maya/open/http/okhttp3/HttpUrl;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +62,5 @@
         }
     .end annotation
 
-    .line 42
-    .local p2, "cookies":Ljava/util/List;, "Ljava/util/List<Lcom/maya/open/http/okhttp3/Cookie;>;"
     return-void
 .end method

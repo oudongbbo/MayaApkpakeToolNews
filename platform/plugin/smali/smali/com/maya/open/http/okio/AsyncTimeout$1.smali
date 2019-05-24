@@ -1,6 +1,6 @@
 .class Lcom/maya/open/http/okio/AsyncTimeout$1;
 .super Ljava/lang/Object;
-.source "AsyncTimeout.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -26,7 +26,6 @@
 # direct methods
 .method constructor <init>(Lcom/maya/open/http/okio/AsyncTimeout;Lcom/maya/open/http/okio/Sink;)V
     .locals 0
-    .param p1, "this$0"    # Lcom/maya/open/http/okio/AsyncTimeout;
 
     .line 159
     iput-object p1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
@@ -42,31 +41,21 @@
 # virtual methods
 .method public close()V
     .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .line 204
-    const/4 v0, 0x0
 
     .line 205
-    .local v0, "throwOnTimeout":Z
-    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object v0, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v1}, Lcom/maya/open/http/okio/AsyncTimeout;->enter()V
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/AsyncTimeout;->enter()V
 
     .line 207
     :try_start_0
-    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->val$sink:Lcom/maya/open/http/okio/Sink;
+    iget-object v0, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->val$sink:Lcom/maya/open/http/okio/Sink;
 
-    invoke-interface {v1}, Lcom/maya/open/http/okio/Sink;->close()V
+    invoke-interface {v0}, Lcom/maya/open/http/okio/Sink;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 208
     const/4 v0, 0x1
 
     .line 212
@@ -74,73 +63,57 @@
 
     invoke-virtual {v1, v0}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
 
-    .line 213
-    nop
-
-    .line 214
     return-void
 
-    .line 212
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     goto :goto_0
 
-    .line 209
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 210
-    .local v1, "e":Ljava/io/IOException;
     :try_start_1
-    iget-object v2, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v1}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {v1, v0}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 212
-    .end local v1    # "e":Ljava/io/IOException;
     :goto_0
-    iget-object v2, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v0}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
 
     .line 213
-    throw v1
+    throw v0
 .end method
 
 .method public flush()V
     .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    .line 191
-    const/4 v0, 0x0
 
     .line 192
-    .local v0, "throwOnTimeout":Z
-    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object v0, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v1}, Lcom/maya/open/http/okio/AsyncTimeout;->enter()V
+    invoke-virtual {v0}, Lcom/maya/open/http/okio/AsyncTimeout;->enter()V
 
     .line 194
     :try_start_0
-    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->val$sink:Lcom/maya/open/http/okio/Sink;
+    iget-object v0, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->val$sink:Lcom/maya/open/http/okio/Sink;
 
-    invoke-interface {v1}, Lcom/maya/open/http/okio/Sink;->flush()V
+    invoke-interface {v0}, Lcom/maya/open/http/okio/Sink;->flush()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 195
     const/4 v0, 0x1
 
     .line 199
@@ -148,44 +121,38 @@
 
     invoke-virtual {v1, v0}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
 
-    .line 200
-    nop
-
-    .line 201
     return-void
 
-    .line 199
     :catchall_0
-    move-exception v1
+    move-exception v0
 
     goto :goto_0
 
-    .line 196
     :catch_0
-    move-exception v1
+    move-exception v0
 
     .line 197
-    .local v1, "e":Ljava/io/IOException;
     :try_start_1
-    iget-object v2, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v1}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {v1, v0}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
 
-    move-result-object v2
+    move-result-object v0
 
-    throw v2
+    throw v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 199
-    .end local v1    # "e":Ljava/io/IOException;
     :goto_0
-    iget-object v2, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v2, v0}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
 
     .line 200
-    throw v1
+    throw v0
 .end method
 
 .method public timeout()Lcom/maya/open/http/okio/Timeout;
@@ -226,13 +193,6 @@
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
     .locals 6
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 161
     iget-wide v0, p1, Lcom/maya/open/http/okio/Buffer;->size:J
@@ -243,7 +203,6 @@
 
     invoke-static/range {v0 .. v5}, Lcom/maya/open/http/okio/Util;->checkOffsetAndCount(JJJ)V
 
-    .line 163
     :goto_0
     const-wide/16 v0, 0x0
 
@@ -251,14 +210,9 @@
 
     if-lez v2, :cond_2
 
-    .line 165
-    const-wide/16 v0, 0x0
-
     .line 166
-    .local v0, "toWrite":J
     iget-object v2, p1, Lcom/maya/open/http/okio/Buffer;->head:Lcom/maya/open/http/okio/Segment;
 
-    .local v2, "s":Lcom/maya/open/http/okio/Segment;
     :goto_1
     const-wide/32 v3, 0x10000
 
@@ -277,38 +231,29 @@
 
     sub-int/2addr v3, v4
 
-    .line 168
-    .local v3, "segmentSize":I
-    int-to-long v4, v3
+    int-to-long v3, v3
 
-    add-long/2addr v0, v4
+    add-long/2addr v0, v3
 
-    .line 169
-    cmp-long v4, v0, p2
+    cmp-long v3, v0, p2
 
-    if-ltz v4, :cond_0
+    if-ltz v3, :cond_0
 
-    .line 170
     move-wide v0, p2
 
-    .line 171
     goto :goto_2
 
     .line 166
-    .end local v3    # "segmentSize":I
     :cond_0
     iget-object v2, v2, Lcom/maya/open/http/okio/Segment;->next:Lcom/maya/open/http/okio/Segment;
 
     goto :goto_1
 
-    .line 176
-    .end local v2    # "s":Lcom/maya/open/http/okio/Segment;
     :cond_1
     :goto_2
     const/4 v2, 0x0
 
     .line 177
-    .local v2, "throwOnTimeout":Z
     iget-object v3, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
     invoke-virtual {v3}, Lcom/maya/open/http/okio/AsyncTimeout;->enter()V
@@ -322,65 +267,48 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 180
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     sub-long/2addr p2, v0
 
-    .line 181
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
     .line 185
-    iget-object v3, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object v1, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v3, v2}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
+    invoke-virtual {v1, v0}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
 
-    .line 186
-    nop
-
-    .line 187
-    .end local v0    # "toWrite":J
-    .end local v2    # "throwOnTimeout":Z
     goto :goto_0
 
-    .line 185
-    .restart local v0    # "toWrite":J
-    .restart local v2    # "throwOnTimeout":Z
     :catchall_0
-    move-exception v3
+    move-exception p1
 
     goto :goto_3
 
-    .line 182
     :catch_0
-    move-exception v3
+    move-exception p1
 
     .line 183
-    .local v3, "e":Ljava/io/IOException;
     :try_start_1
-    iget-object v4, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object p2, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v4, v3}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
+    invoke-virtual {p2, p1}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
 
-    move-result-object v4
+    move-result-object p1
 
-    throw v4
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 185
-    .end local v3    # "e":Ljava/io/IOException;
     :goto_3
-    iget-object v4, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
+    iget-object p2, p0, Lcom/maya/open/http/okio/AsyncTimeout$1;->this$0:Lcom/maya/open/http/okio/AsyncTimeout;
 
-    invoke-virtual {v4, v2}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
+    invoke-virtual {p2, v2}, Lcom/maya/open/http/okio/AsyncTimeout;->exit(Z)V
 
     .line 186
-    throw v3
+    throw p1
 
-    .line 188
-    .end local v0    # "toWrite":J
-    .end local v2    # "throwOnTimeout":Z
     :cond_2
     return-void
 .end method

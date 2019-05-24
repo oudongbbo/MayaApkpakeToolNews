@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okhttp3/CacheControl;
 .super Ljava/lang/Object;
-.source "CacheControl.java"
+.source "SourceFile"
 
 
 # annotations
@@ -74,9 +74,9 @@
 
     sget-object v1, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
 
-    .line 28
     const v2, 0x7fffffff
 
+    .line 28
     invoke-virtual {v0, v2, v1}, Lcom/maya/open/http/okhttp3/CacheControl$Builder;->maxStale(ILjava/util/concurrent/TimeUnit;)Lcom/maya/open/http/okhttp3/CacheControl$Builder;
 
     move-result-object v0
@@ -88,13 +88,11 @@
 
     sput-object v0, Lcom/maya/open/http/okhttp3/CacheControl;->FORCE_CACHE:Lcom/maya/open/http/okhttp3/CacheControl;
 
-    .line 26
     return-void
 .end method
 
 .method constructor <init>(Lcom/maya/open/http/okhttp3/CacheControl$Builder;)V
     .locals 1
-    .param p1, "builder"    # Lcom/maya/open/http/okhttp3/CacheControl$Builder;
 
     .line 62
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -114,14 +112,14 @@
 
     iput v0, p0, Lcom/maya/open/http/okhttp3/CacheControl;->maxAgeSeconds:I
 
-    .line 66
     const/4 v0, -0x1
 
+    .line 66
     iput v0, p0, Lcom/maya/open/http/okhttp3/CacheControl;->sMaxAgeSeconds:I
 
-    .line 67
     const/4 v0, 0x0
 
+    .line 67
     iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/CacheControl;->isPrivate:Z
 
     .line 68
@@ -146,28 +144,15 @@
     iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/CacheControl;->onlyIfCached:Z
 
     .line 73
-    iget-boolean v0, p1, Lcom/maya/open/http/okhttp3/CacheControl$Builder;->noTransform:Z
+    iget-boolean p1, p1, Lcom/maya/open/http/okhttp3/CacheControl$Builder;->noTransform:Z
 
-    iput-boolean v0, p0, Lcom/maya/open/http/okhttp3/CacheControl;->noTransform:Z
+    iput-boolean p1, p0, Lcom/maya/open/http/okhttp3/CacheControl;->noTransform:Z
 
-    .line 74
     return-void
 .end method
 
 .method private constructor <init>(ZZIIZZZIIZZLjava/lang/String;)V
     .locals 0
-    .param p1, "noCache"    # Z
-    .param p2, "noStore"    # Z
-    .param p3, "maxAgeSeconds"    # I
-    .param p4, "sMaxAgeSeconds"    # I
-    .param p5, "isPrivate"    # Z
-    .param p6, "isPublic"    # Z
-    .param p7, "mustRevalidate"    # Z
-    .param p8, "maxStaleSeconds"    # I
-    .param p9, "minFreshSeconds"    # I
-    .param p10, "onlyIfCached"    # Z
-    .param p11, "noTransform"    # Z
-    .param p12, "headerValue"    # Ljava/lang/String;
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -208,7 +193,6 @@
     .line 59
     iput-object p12, p0, Lcom/maya/open/http/okhttp3/CacheControl;->headerValue:Ljava/lang/String;
 
-    .line 60
     return-void
 .end method
 
@@ -221,7 +205,6 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 249
-    .local v0, "result":Ljava/lang/StringBuilder;
     iget-boolean v1, p0, Lcom/maya/open/http/okhttp3/CacheControl;->noCache:Z
 
     if-eqz v1, :cond_0
@@ -372,9 +355,9 @@
 
     if-nez v1, :cond_b
 
-    const-string v1, ""
+    const-string v0, ""
 
-    return-object v1
+    return-object v0
 
     .line 261
     :cond_b
@@ -393,278 +376,202 @@
     .line 262
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    return-object v1
+    return-object v0
 .end method
 
 .method public static parse(Lcom/maya/open/http/okhttp3/Headers;)Lcom/maya/open/http/okhttp3/CacheControl;
-    .locals 36
-    .param p0, "headers"    # Lcom/maya/open/http/okhttp3/Headers;
+    .locals 22
 
-    .line 146
     move-object/from16 v0, p0
 
-    const/4 v1, 0x0
-
-    .line 147
-    .local v1, "noCache":Z
-    const/4 v2, 0x0
-
-    .line 148
-    .local v2, "noStore":Z
-    const/4 v3, -0x1
-
-    .line 149
-    .local v3, "maxAgeSeconds":I
-    const/4 v4, -0x1
-
-    .line 150
-    .local v4, "sMaxAgeSeconds":I
-    const/4 v5, 0x0
-
-    .line 151
-    .local v5, "isPrivate":Z
-    const/4 v6, 0x0
-
-    .line 152
-    .local v6, "isPublic":Z
-    const/4 v7, 0x0
-
-    .line 153
-    .local v7, "mustRevalidate":Z
-    const/4 v8, -0x1
-
-    .line 154
-    .local v8, "maxStaleSeconds":I
-    const/4 v9, -0x1
-
-    .line 155
-    .local v9, "minFreshSeconds":I
-    const/4 v10, 0x0
-
-    .line 156
-    .local v10, "onlyIfCached":Z
-    const/4 v11, 0x0
-
-    .line 158
-    .local v11, "noTransform":Z
-    const/4 v12, 0x1
-
-    .line 159
-    .local v12, "canUseHeaderValue":Z
-    const/4 v13, 0x0
-
     .line 161
-    .local v13, "headerValue":Ljava/lang/String;
-    const/4 v14, 0x0
-
-    .local v14, "i":I
     invoke-virtual/range {p0 .. p0}, Lcom/maya/open/http/okhttp3/Headers;->size()I
 
-    move-result v15
+    move-result v1
 
-    .local v15, "size":I
+    const/4 v6, 0x0
+
+    const/4 v7, 0x1
+
+    const/4 v8, 0x0
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    const/4 v12, -0x1
+
+    const/4 v13, -0x1
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    const/16 v16, 0x0
+
+    const/16 v17, -0x1
+
+    const/16 v18, -0x1
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x0
+
     :goto_0
-    if-ge v14, v15, :cond_13
+    if-ge v6, v1, :cond_11
 
     .line 162
-    move/from16 v29, v15
+    invoke-virtual {v0, v6}, Lcom/maya/open/http/okhttp3/Headers;->name(I)Ljava/lang/String;
 
-    .end local v15    # "size":I
-    .local v29, "size":I
-    invoke-virtual {v0, v14}, Lcom/maya/open/http/okhttp3/Headers;->name(I)Ljava/lang/String;
-
-    move-result-object v15
+    move-result-object v9
 
     .line 163
-    .local v15, "name":Ljava/lang/String;
-    move/from16 v30, v11
+    invoke-virtual {v0, v6}, Lcom/maya/open/http/okhttp3/Headers;->value(I)Ljava/lang/String;
 
-    .end local v11    # "noTransform":Z
-    .local v30, "noTransform":Z
-    invoke-virtual {v0, v14}, Lcom/maya/open/http/okhttp3/Headers;->value(I)Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v11
+    const-string v4, "Cache-Control"
 
     .line 165
-    .local v11, "value":Ljava/lang/String;
-    const-string v0, "Cache-Control"
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v15, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v4
 
-    move-result v0
+    if-eqz v4, :cond_1
 
-    if-eqz v0, :cond_1
+    if-eqz v8, :cond_0
 
-    .line 166
-    if-eqz v13, :cond_0
+    :goto_1
+    const/4 v7, 0x0
 
-    .line 168
-    const/4 v12, 0x0
+    goto :goto_2
 
-    goto :goto_1
-
-    .line 170
     :cond_0
-    move-object v13, v11
+    move-object v8, v2
 
-    goto :goto_1
+    goto :goto_2
+
+    :cond_1
+    const-string v4, "Pragma"
 
     .line 172
-    :cond_1
-    const-string v0, "Pragma"
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v15, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v4
 
-    move-result v0
+    if-eqz v4, :cond_10
 
-    if-eqz v0, :cond_12
+    goto :goto_1
 
-    .line 174
-    const/4 v12, 0x0
-
-    .line 179
-    :goto_1
-    const/4 v0, 0x0
+    :goto_2
+    const/4 v4, 0x0
 
     .line 180
-    .local v0, "pos":I
-    :goto_2
-    move/from16 v31, v1
+    :goto_3
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    .end local v1    # "noCache":Z
-    .local v31, "noCache":Z
-    invoke-virtual {v11}, Ljava/lang/String;->length()I
+    move-result v9
 
-    move-result v1
+    if-ge v4, v9, :cond_10
 
-    if-ge v0, v1, :cond_11
-
-    .line 181
-    move v1, v0
+    const-string v9, "=,;"
 
     .line 182
-    .local v1, "tokenStart":I
-    move/from16 v32, v2
+    invoke-static {v2, v4, v9}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipUntil(Ljava/lang/String;ILjava/lang/String;)I
 
-    .end local v2    # "noStore":Z
-    .local v32, "noStore":Z
-    const-string v2, "=,;"
-
-    invoke-static {v11, v0, v2}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipUntil(Ljava/lang/String;ILjava/lang/String;)I
-
-    move-result v0
+    move-result v9
 
     .line 183
-    invoke-virtual {v11, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v2, v4, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
     .line 186
-    .local v2, "directive":Ljava/lang/String;
-    move/from16 v33, v1
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    .end local v1    # "tokenStart":I
-    .local v33, "tokenStart":I
-    invoke-virtual {v11}, Ljava/lang/String;->length()I
+    move-result v3
 
-    move-result v1
+    if-eq v9, v3, :cond_4
 
-    if-eq v0, v1, :cond_4
+    invoke-virtual {v2, v9}, Ljava/lang/String;->charAt(I)C
 
-    invoke-virtual {v11, v0}, Ljava/lang/String;->charAt(I)C
+    move-result v3
 
-    move-result v1
+    const/16 v5, 0x2c
 
-    move/from16 v34, v3
+    if-eq v3, v5, :cond_4
 
-    .end local v3    # "maxAgeSeconds":I
-    .local v34, "maxAgeSeconds":I
-    const/16 v3, 0x2c
+    invoke-virtual {v2, v9}, Ljava/lang/String;->charAt(I)C
 
-    if-eq v1, v3, :cond_5
+    move-result v3
 
-    invoke-virtual {v11, v0}, Ljava/lang/String;->charAt(I)C
+    const/16 v5, 0x3b
 
-    move-result v1
+    if-ne v3, v5, :cond_2
 
-    const/16 v3, 0x3b
+    goto :goto_4
 
-    if-ne v1, v3, :cond_2
-
-    goto :goto_3
-
-    .line 190
     :cond_2
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v9, v9, 0x1
 
     .line 191
-    invoke-static {v11, v0}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipWhitespace(Ljava/lang/String;I)I
+    invoke-static {v2, v9}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipWhitespace(Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v3
 
     .line 194
-    invoke-virtual {v11}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v5
 
-    if-ge v0, v1, :cond_3
+    if-ge v3, v5, :cond_3
 
-    invoke-virtual {v11, v0}, Ljava/lang/String;->charAt(I)C
+    invoke-virtual {v2, v3}, Ljava/lang/String;->charAt(I)C
 
-    move-result v1
+    move-result v5
 
-    const/16 v3, 0x22
+    const/16 v9, 0x22
 
-    if-ne v1, v3, :cond_3
+    if-ne v5, v9, :cond_3
 
-    .line 195
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
-    .line 196
-    move v1, v0
+    const-string v5, "\""
 
     .line 197
-    .local v1, "parameterStart":I
-    const-string v3, "\""
+    invoke-static {v2, v3, v5}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipUntil(Ljava/lang/String;ILjava/lang/String;)I
 
-    invoke-static {v11, v0, v3}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipUntil(Ljava/lang/String;ILjava/lang/String;)I
-
-    move-result v0
+    move-result v5
 
     .line 198
-    invoke-virtual {v11, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v2, v3, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 199
-    .local v3, "parameter":Ljava/lang/String;
-    add-int/lit8 v0, v0, 0x1
+    const/16 v21, 0x1
 
-    .line 202
-    .end local v1    # "parameterStart":I
-    goto :goto_4
+    add-int/lit8 v5, v5, 0x1
 
-    .line 203
-    .end local v3    # "parameter":Ljava/lang/String;
+    goto :goto_5
+
     :cond_3
-    move v1, v0
+    const/16 v21, 0x1
+
+    const-string v5, ",;"
 
     .line 204
-    .restart local v1    # "parameterStart":I
-    const-string v3, ",;"
+    invoke-static {v2, v3, v5}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipUntil(Ljava/lang/String;ILjava/lang/String;)I
 
-    invoke-static {v11, v0, v3}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->skipUntil(Ljava/lang/String;ILjava/lang/String;)I
-
-    move-result v0
+    move-result v5
 
     .line 205
-    invoke-virtual {v11, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v2, v3, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
@@ -672,394 +579,244 @@
 
     move-result-object v3
 
-    goto :goto_4
+    goto :goto_5
 
-    .line 187
-    .end local v1    # "parameterStart":I
-    .end local v34    # "maxAgeSeconds":I
-    .local v3, "maxAgeSeconds":I
     :cond_4
-    move/from16 v34, v3
+    :goto_4
+    const/16 v21, 0x1
 
-    .end local v3    # "maxAgeSeconds":I
-    .restart local v34    # "maxAgeSeconds":I
-    :cond_5
-    :goto_3
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v9, v9, 0x1
 
-    .line 188
+    move v5, v9
+
     const/4 v3, 0x0
 
-    .line 205
-    .local v3, "parameter":Ljava/lang/String;
-    :goto_4
-    move-object v1, v3
+    :goto_5
+    const-string v9, "no-cache"
 
     .line 209
-    .end local v3    # "parameter":Ljava/lang/String;
-    .local v1, "parameter":Ljava/lang/String;
-    const-string v3, "no-cache"
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v9
 
-    move-result v3
+    if-eqz v9, :cond_5
 
-    if-eqz v3, :cond_6
+    const/4 v9, -0x1
 
-    .line 210
-    const/4 v3, 0x1
+    const/4 v10, 0x1
 
-    .line 232
-    move/from16 v35, v0
+    goto/16 :goto_6
 
-    move v1, v3
-
-    .end local v0    # "pos":I
-    .end local v31    # "noCache":Z
-    .end local v32    # "noStore":Z
-    .end local v33    # "tokenStart":I
-    .end local v34    # "maxAgeSeconds":I
-    .local v1, "noCache":Z
-    .local v2, "noStore":Z
-    .local v3, "maxAgeSeconds":I
-    .local v35, "pos":I
-    :goto_5
-    move/from16 v2, v32
-
-    :goto_6
-    move/from16 v3, v34
-
-    goto/16 :goto_8
+    :cond_5
+    const-string v9, "no-store"
 
     .line 211
-    .end local v3    # "maxAgeSeconds":I
-    .end local v35    # "pos":I
-    .restart local v0    # "pos":I
-    .local v1, "parameter":Ljava/lang/String;
-    .local v2, "directive":Ljava/lang/String;
-    .restart local v31    # "noCache":Z
-    .restart local v32    # "noStore":Z
-    .restart local v33    # "tokenStart":I
-    .restart local v34    # "maxAgeSeconds":I
-    :cond_6
-    const-string v3, "no-store"
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v9
+
+    if-eqz v9, :cond_6
+
+    const/4 v9, -0x1
+
+    const/4 v11, 0x1
+
+    goto/16 :goto_6
+
+    :cond_6
+    const-string v9, "max-age"
+
+    .line 213
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_7
+
+    const/4 v9, -0x1
+
+    .line 214
+    invoke-static {v3, v9}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    move v12, v3
 
-    .line 212
-    const/4 v3, 0x1
+    goto/16 :goto_6
 
-    .line 232
-    move/from16 v35, v0
+    :cond_7
+    const-string v9, "s-maxage"
 
-    move v2, v3
+    .line 215
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move/from16 v1, v31
+    move-result v9
+
+    if-eqz v9, :cond_8
+
+    const/4 v9, -0x1
+
+    .line 216
+    invoke-static {v3, v9}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
+
+    move-result v3
+
+    move v13, v3
 
     goto :goto_6
 
-    .line 213
-    :cond_7
-    const-string v3, "max-age"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v3
-
-    move/from16 v35, v0
-
-    .end local v0    # "pos":I
-    .restart local v35    # "pos":I
-    const/4 v0, -0x1
-
-    if-eqz v3, :cond_8
-
-    .line 214
-    invoke-static {v1, v0}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
-
-    move-result v0
-
-    .line 232
-    move v3, v0
-
-    move/from16 v1, v31
-
-    move/from16 v2, v32
-
-    goto/16 :goto_8
-
-    .line 215
     :cond_8
-    const-string v3, "s-maxage"
-
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_a
-
-    .line 216
-    invoke-static {v1, v0}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
-
-    move-result v0
-
-    .line 232
-    move v4, v0
-
-    .end local v31    # "noCache":Z
-    .end local v32    # "noStore":Z
-    .end local v33    # "tokenStart":I
-    .end local v34    # "maxAgeSeconds":I
-    .local v1, "noCache":Z
-    .local v2, "noStore":Z
-    .restart local v3    # "maxAgeSeconds":I
-    :cond_9
-    :goto_7
-    move/from16 v1, v31
-
-    goto :goto_5
+    const-string v9, "private"
 
     .line 217
-    .end local v3    # "maxAgeSeconds":I
-    .local v1, "parameter":Ljava/lang/String;
-    .local v2, "directive":Ljava/lang/String;
-    .restart local v31    # "noCache":Z
-    .restart local v32    # "noStore":Z
-    .restart local v33    # "tokenStart":I
-    .restart local v34    # "maxAgeSeconds":I
-    :cond_a
-    const-string v3, "private"
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v9
 
-    move-result v3
+    if-eqz v9, :cond_9
 
-    if-eqz v3, :cond_b
+    const/4 v9, -0x1
 
-    .line 218
-    const/4 v0, 0x1
+    const/4 v14, 0x1
 
-    .line 232
-    move v5, v0
+    goto :goto_6
 
-    goto :goto_7
+    :cond_9
+    const-string v9, "public"
 
     .line 219
-    :cond_b
-    const-string v3, "public"
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v9
 
-    move-result v3
+    if-eqz v9, :cond_a
 
-    if-eqz v3, :cond_c
+    const/4 v9, -0x1
 
-    .line 220
-    const/4 v0, 0x1
+    const/4 v15, 0x1
 
-    .line 232
-    move v6, v0
+    goto :goto_6
 
-    goto :goto_7
+    :cond_a
+    const-string v9, "must-revalidate"
 
     .line 221
-    :cond_c
-    const-string v3, "must-revalidate"
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v9
+
+    if-eqz v9, :cond_b
+
+    const/4 v9, -0x1
+
+    const/16 v16, 0x1
+
+    goto :goto_6
+
+    :cond_b
+    const-string v9, "max-stale"
+
+    .line 223
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_c
+
+    const v4, 0x7fffffff
+
+    .line 224
+    invoke-static {v3, v4}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    move/from16 v17, v3
 
-    .line 222
-    const/4 v0, 0x1
+    const/4 v9, -0x1
 
-    .line 232
-    move v7, v0
+    goto :goto_6
 
-    goto :goto_7
+    :cond_c
+    const-string v9, "min-fresh"
 
-    .line 223
+    .line 225
+    invoke-virtual {v9, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_d
+
+    const/4 v9, -0x1
+
+    .line 226
+    invoke-static {v3, v9}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
+
+    move-result v3
+
+    move/from16 v18, v3
+
+    goto :goto_6
+
     :cond_d
-    const-string v3, "max-stale"
+    const/4 v9, -0x1
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    const-string v3, "only-if-cached"
+
+    .line 227
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v3
 
     if-eqz v3, :cond_e
 
-    .line 224
-    const v0, 0x7fffffff
+    const/16 v19, 0x1
 
-    invoke-static {v1, v0}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
+    goto :goto_6
 
-    move-result v0
-
-    .line 232
-    move v8, v0
-
-    goto :goto_7
-
-    .line 225
     :cond_e
-    const-string v3, "min-fresh"
+    const-string v3, "no-transform"
 
-    invoke-virtual {v3, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    .line 229
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v3
 
     if-eqz v3, :cond_f
 
-    .line 226
-    invoke-static {v1, v0}, Lcom/maya/open/http/okhttp3/internal/http/HttpHeaders;->parseSeconds(Ljava/lang/String;I)I
+    const/16 v20, 0x1
 
-    move-result v0
-
-    .line 232
-    move v9, v0
-
-    goto :goto_7
-
-    .line 227
     :cond_f
-    const-string v0, "only-if-cached"
+    :goto_6
+    move v4, v5
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    goto/16 :goto_3
 
-    move-result v0
-
-    if-eqz v0, :cond_10
-
-    .line 228
-    const/4 v0, 0x1
-
-    .line 232
-    move v10, v0
-
-    goto :goto_7
-
-    .line 229
     :cond_10
-    const-string v0, "no-transform"
+    const/4 v9, -0x1
 
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    const/16 v21, 0x1
 
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    .line 230
-    const/4 v0, 0x1
-
-    .line 232
-    move/from16 v30, v0
-
-    goto :goto_7
-
-    .line 179
-    .end local v31    # "noCache":Z
-    .end local v32    # "noStore":Z
-    .end local v33    # "tokenStart":I
-    .end local v34    # "maxAgeSeconds":I
-    .local v1, "noCache":Z
-    .local v2, "noStore":Z
-    .restart local v3    # "maxAgeSeconds":I
-    :goto_8
-    move/from16 v0, v35
-
-    goto/16 :goto_2
-
-    .line 161
-    .end local v1    # "noCache":Z
-    .end local v11    # "value":Ljava/lang/String;
-    .end local v15    # "name":Ljava/lang/String;
-    .end local v35    # "pos":I
-    .restart local v31    # "noCache":Z
-    :cond_11
-    move/from16 v32, v2
-
-    move/from16 v34, v3
-
-    move/from16 v11, v30
-
-    move/from16 v1, v31
-
-    .end local v2    # "noStore":Z
-    .end local v3    # "maxAgeSeconds":I
-    .restart local v32    # "noStore":Z
-    .restart local v34    # "maxAgeSeconds":I
-    goto :goto_9
-
-    .end local v31    # "noCache":Z
-    .end local v32    # "noStore":Z
-    .end local v34    # "maxAgeSeconds":I
-    .restart local v1    # "noCache":Z
-    .restart local v2    # "noStore":Z
-    .restart local v3    # "maxAgeSeconds":I
-    :cond_12
-    move/from16 v11, v30
-
-    .end local v30    # "noTransform":Z
-    .local v11, "noTransform":Z
-    :goto_9
-    add-int/lit8 v14, v14, 0x1
-
-    move/from16 v15, v29
-
-    move-object/from16 v0, p0
+    add-int/lit8 v6, v6, 0x1
 
     goto/16 :goto_0
 
-    .line 235
-    .end local v14    # "i":I
-    .end local v29    # "size":I
-    :cond_13
-    move/from16 v30, v11
+    :cond_11
+    if-nez v7, :cond_12
 
-    .end local v11    # "noTransform":Z
-    .restart local v30    # "noTransform":Z
-    if-nez v12, :cond_14
+    const/16 v21, 0x0
 
-    .line 236
-    const/4 v13, 0x0
+    goto :goto_7
+
+    :cond_12
+    move-object/from16 v21, v8
 
     .line 238
-    :cond_14
+    :goto_7
     new-instance v0, Lcom/maya/open/http/okhttp3/CacheControl;
 
-    move-object/from16 v16, v0
+    move-object v9, v0
 
-    move/from16 v17, v1
-
-    move/from16 v18, v2
-
-    move/from16 v19, v3
-
-    move/from16 v20, v4
-
-    move/from16 v21, v5
-
-    move/from16 v22, v6
-
-    move/from16 v23, v7
-
-    move/from16 v24, v8
-
-    move/from16 v25, v9
-
-    move/from16 v26, v10
-
-    move/from16 v27, v30
-
-    move-object/from16 v28, v13
-
-    invoke-direct/range {v16 .. v28}, Lcom/maya/open/http/okhttp3/CacheControl;-><init>(ZZIIZZZIIZZLjava/lang/String;)V
+    invoke-direct/range {v9 .. v21}, Lcom/maya/open/http/okhttp3/CacheControl;-><init>(ZZIIZZZIIZZLjava/lang/String;)V
 
     return-object v0
 .end method
@@ -1166,26 +923,23 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
     .line 243
     iget-object v0, p0, Lcom/maya/open/http/okhttp3/CacheControl;->headerValue:Ljava/lang/String;
 
-    .line 244
-    .local v0, "result":Ljava/lang/String;
     if-eqz v0, :cond_0
-
-    move-object v1, v0
 
     goto :goto_0
 
+    .line 244
     :cond_0
     invoke-direct {p0}, Lcom/maya/open/http/okhttp3/CacheControl;->headerValue()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/maya/open/http/okhttp3/CacheControl;->headerValue:Ljava/lang/String;
+    iput-object v0, p0, Lcom/maya/open/http/okhttp3/CacheControl;->headerValue:Ljava/lang/String;
 
     :goto_0
-    return-object v1
+    return-object v0
 .end method

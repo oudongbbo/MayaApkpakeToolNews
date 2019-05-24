@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/maya/open/http/okgo/convert/Converter;
 .super Ljava/lang/Object;
-.source "Converter.java"
+.source "SourceFile"
 
 
 # annotations
@@ -21,12 +21,6 @@
             "(",
             "Lcom/maya/open/http/okhttp3/Response;",
             ")TT;"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
         }
     .end annotation
 .end method

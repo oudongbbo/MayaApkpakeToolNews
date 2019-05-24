@@ -1,6 +1,6 @@
 .class public final Lcom/maya/open/http/okio/GzipSink;
 .super Ljava/lang/Object;
-.source "GzipSink.java"
+.source "SourceFile"
 
 # interfaces
 .implements Lcom/maya/open/http/okio/Sink;
@@ -21,7 +21,6 @@
 # direct methods
 .method public constructor <init>(Lcom/maya/open/http/okio/Sink;)V
     .locals 3
-    .param p1, "sink"    # Lcom/maya/open/http/okio/Sink;
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +32,6 @@
 
     iput-object v0, p0, Lcom/maya/open/http/okio/GzipSink;->crc:Ljava/util/zip/CRC32;
 
-    .line 66
     if-eqz p1, :cond_0
 
     .line 67
@@ -50,103 +48,89 @@
     .line 68
     invoke-static {p1}, Lcom/maya/open/http/okio/Okio;->buffer(Lcom/maya/open/http/okio/Sink;)Lcom/maya/open/http/okio/BufferedSink;
 
-    move-result-object v0
+    move-result-object p1
 
-    iput-object v0, p0, Lcom/maya/open/http/okio/GzipSink;->sink:Lcom/maya/open/http/okio/BufferedSink;
+    iput-object p1, p0, Lcom/maya/open/http/okio/GzipSink;->sink:Lcom/maya/open/http/okio/BufferedSink;
 
     .line 69
-    new-instance v0, Lcom/maya/open/http/okio/DeflaterSink;
+    new-instance p1, Lcom/maya/open/http/okio/DeflaterSink;
 
-    iget-object v1, p0, Lcom/maya/open/http/okio/GzipSink;->sink:Lcom/maya/open/http/okio/BufferedSink;
+    iget-object v0, p0, Lcom/maya/open/http/okio/GzipSink;->sink:Lcom/maya/open/http/okio/BufferedSink;
 
-    iget-object v2, p0, Lcom/maya/open/http/okio/GzipSink;->deflater:Ljava/util/zip/Deflater;
+    iget-object v1, p0, Lcom/maya/open/http/okio/GzipSink;->deflater:Ljava/util/zip/Deflater;
 
-    invoke-direct {v0, v1, v2}, Lcom/maya/open/http/okio/DeflaterSink;-><init>(Lcom/maya/open/http/okio/BufferedSink;Ljava/util/zip/Deflater;)V
+    invoke-direct {p1, v0, v1}, Lcom/maya/open/http/okio/DeflaterSink;-><init>(Lcom/maya/open/http/okio/BufferedSink;Ljava/util/zip/Deflater;)V
 
-    iput-object v0, p0, Lcom/maya/open/http/okio/GzipSink;->deflaterSink:Lcom/maya/open/http/okio/DeflaterSink;
+    iput-object p1, p0, Lcom/maya/open/http/okio/GzipSink;->deflaterSink:Lcom/maya/open/http/okio/DeflaterSink;
 
     .line 71
     invoke-direct {p0}, Lcom/maya/open/http/okio/GzipSink;->writeHeader()V
 
-    .line 72
     return-void
 
     .line 66
     :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "sink == null"
+    const-string v0, "sink == null"
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
 
 .method private updateCrc(Lcom/maya/open/http/okio/Buffer;J)V
-    .locals 5
-    .param p1, "buffer"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
+    .locals 4
 
     .line 148
-    iget-object v0, p1, Lcom/maya/open/http/okio/Buffer;->head:Lcom/maya/open/http/okio/Segment;
+    iget-object p1, p1, Lcom/maya/open/http/okio/Buffer;->head:Lcom/maya/open/http/okio/Segment;
 
-    .local v0, "head":Lcom/maya/open/http/okio/Segment;
     :goto_0
-    const-wide/16 v1, 0x0
+    const-wide/16 v0, 0x0
 
-    cmp-long v3, p2, v1
+    cmp-long v2, p2, v0
 
-    if-lez v3, :cond_0
+    if-lez v2, :cond_0
 
     .line 149
-    iget v1, v0, Lcom/maya/open/http/okio/Segment;->limit:I
+    iget v0, p1, Lcom/maya/open/http/okio/Segment;->limit:I
 
-    iget v2, v0, Lcom/maya/open/http/okio/Segment;->pos:I
+    iget v1, p1, Lcom/maya/open/http/okio/Segment;->pos:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v0, v1
 
-    int-to-long v1, v1
+    int-to-long v0, v0
 
-    invoke-static {p2, p3, v1, v2}, Ljava/lang/Math;->min(JJ)J
+    invoke-static {p2, p3, v0, v1}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v1
+    move-result-wide v0
 
-    long-to-int v1, v1
+    long-to-int v0, v0
 
     .line 150
-    .local v1, "segmentLength":I
-    iget-object v2, p0, Lcom/maya/open/http/okio/GzipSink;->crc:Ljava/util/zip/CRC32;
+    iget-object v1, p0, Lcom/maya/open/http/okio/GzipSink;->crc:Ljava/util/zip/CRC32;
 
-    iget-object v3, v0, Lcom/maya/open/http/okio/Segment;->data:[B
+    iget-object v2, p1, Lcom/maya/open/http/okio/Segment;->data:[B
 
-    iget v4, v0, Lcom/maya/open/http/okio/Segment;->pos:I
+    iget v3, p1, Lcom/maya/open/http/okio/Segment;->pos:I
 
-    invoke-virtual {v2, v3, v4, v1}, Ljava/util/zip/CRC32;->update([BII)V
+    invoke-virtual {v1, v2, v3, v0}, Ljava/util/zip/CRC32;->update([BII)V
 
-    .line 151
-    int-to-long v2, v1
+    int-to-long v0, v0
 
-    sub-long/2addr p2, v2
+    sub-long/2addr p2, v0
 
     .line 148
-    .end local v1    # "segmentLength":I
-    iget-object v0, v0, Lcom/maya/open/http/okio/Segment;->next:Lcom/maya/open/http/okio/Segment;
+    iget-object p1, p1, Lcom/maya/open/http/okio/Segment;->next:Lcom/maya/open/http/okio/Segment;
 
     goto :goto_0
 
-    .line 153
-    .end local v0    # "head":Lcom/maya/open/http/okio/Segment;
     :cond_0
     return-void
 .end method
 
 .method private writeFooter()V
     .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 142
     iget-object v0, p0, Lcom/maya/open/http/okio/GzipSink;->sink:Lcom/maya/open/http/okio/BufferedSink;
@@ -174,7 +158,6 @@
 
     invoke-interface {v0, v1}, Lcom/maya/open/http/okio/BufferedSink;->writeIntLe(I)Lcom/maya/open/http/okio/BufferedSink;
 
-    .line 144
     return-void
 .end method
 
@@ -188,20 +171,19 @@
 
     move-result-object v0
 
-    .line 133
-    .local v0, "buffer":Lcom/maya/open/http/okio/Buffer;
     const/16 v1, 0x1f8b
 
+    .line 133
     invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeShort(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 134
     const/16 v1, 0x8
 
+    .line 134
     invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 135
     const/4 v1, 0x0
 
+    .line 135
     invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
     .line 136
@@ -213,7 +195,6 @@
     .line 138
     invoke-virtual {v0, v1}, Lcom/maya/open/http/okio/Buffer;->writeByte(I)Lcom/maya/open/http/okio/Buffer;
 
-    .line 139
     return-void
 .end method
 
@@ -221,11 +202,6 @@
 # virtual methods
 .method public close()V
     .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 91
     iget-boolean v0, p0, Lcom/maya/open/http/okio/GzipSink;->closed:Z
@@ -234,12 +210,10 @@
 
     return-void
 
-    .line 98
     :cond_0
     const/4 v0, 0x0
 
     .line 100
-    .local v0, "thrown":Ljava/lang/Throwable;
     :try_start_0
     iget-object v1, p0, Lcom/maya/open/http/okio/GzipSink;->deflaterSink:Lcom/maya/open/http/okio/DeflaterSink;
 
@@ -250,19 +224,12 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 104
     goto :goto_0
 
-    .line 102
     :catch_0
-    move-exception v1
-
-    .line 103
-    .local v1, "e":Ljava/lang/Throwable;
-    move-object v0, v1
+    move-exception v0
 
     .line 107
-    .end local v1    # "e":Ljava/lang/Throwable;
     :goto_0
     :try_start_1
     iget-object v1, p0, Lcom/maya/open/http/okio/GzipSink;->deflater:Ljava/util/zip/Deflater;
@@ -271,21 +238,16 @@
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
 
-    .line 110
     goto :goto_1
 
-    .line 108
     :catch_1
     move-exception v1
 
-    .line 109
-    .restart local v1    # "e":Ljava/lang/Throwable;
     if-nez v0, :cond_1
 
     move-object v0, v1
 
     .line 113
-    .end local v1    # "e":Ljava/lang/Throwable;
     :cond_1
     :goto_1
     :try_start_2
@@ -295,33 +257,27 @@
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
 
-    .line 116
     goto :goto_2
 
-    .line 114
     :catch_2
     move-exception v1
 
-    .line 115
-    .restart local v1    # "e":Ljava/lang/Throwable;
     if-nez v0, :cond_2
 
     move-object v0, v1
 
-    .line 117
-    .end local v1    # "e":Ljava/lang/Throwable;
     :cond_2
     :goto_2
     const/4 v1, 0x1
 
+    .line 117
     iput-boolean v1, p0, Lcom/maya/open/http/okio/GzipSink;->closed:Z
 
-    .line 119
     if-eqz v0, :cond_3
 
+    .line 119
     invoke-static {v0}, Lcom/maya/open/http/okio/Util;->sneakyRethrow(Ljava/lang/Throwable;)V
 
-    .line 120
     :cond_3
     return-void
 .end method
@@ -337,18 +293,12 @@
 
 .method public flush()V
     .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
     .line 83
     iget-object v0, p0, Lcom/maya/open/http/okio/GzipSink;->deflaterSink:Lcom/maya/open/http/okio/DeflaterSink;
 
     invoke-virtual {v0}, Lcom/maya/open/http/okio/DeflaterSink;->flush()V
 
-    .line 84
     return-void
 .end method
 
@@ -367,22 +317,13 @@
 
 .method public write(Lcom/maya/open/http/okio/Buffer;J)V
     .locals 3
-    .param p1, "source"    # Lcom/maya/open/http/okio/Buffer;
-    .param p2, "byteCount"    # J
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
 
-    .line 75
     const-wide/16 v0, 0x0
 
     cmp-long v2, p2, v0
 
     if-ltz v2, :cond_1
 
-    .line 76
     cmp-long v2, p2, v0
 
     if-nez v2, :cond_0
@@ -398,28 +339,27 @@
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/maya/open/http/okio/DeflaterSink;->write(Lcom/maya/open/http/okio/Buffer;J)V
 
-    .line 80
     return-void
 
     .line 75
     :cond_1
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "byteCount < 0: "
+    const-string v1, "byteCount < 0: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {p1, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw p1
 .end method
