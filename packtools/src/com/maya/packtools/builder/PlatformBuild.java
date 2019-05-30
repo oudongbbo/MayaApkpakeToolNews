@@ -176,6 +176,10 @@ public class PlatformBuild {
                     builder = new JuLeRongChengBuilder(apkParser);
                     break;
 
+                case Platforms.SDK_KuaiYou:
+                    builder = new KuaiYouBuilder(apkParser);
+                    break;
+
                 default:
                     builder = new BaseBuilder(apkParser);
                     break;

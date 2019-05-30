@@ -24,7 +24,6 @@ public class Build4Manifest {
 			break;
 			
 
-			
 		case 100011:
 			//龙族契约[100011]
 //			String p_100011 = "getui.permission.GetuiService.com.junhai.lzqy.starjoys";
