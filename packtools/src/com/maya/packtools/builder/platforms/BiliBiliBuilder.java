@@ -1,13 +1,12 @@
 package com.maya.packtools.builder.platforms;
 
-import java.util.Properties;
-
 import com.maya.packtools.builder.base.BaseBuilder;
-
 import com.maya.packtools.model.ApkParser;
 import com.maya.packtools.utils.encrypt.ZipMain;
 
-public class BiliBiliBuilder extends BaseBuilder{
+import java.util.Properties;
+
+public class BiliBiliBuilder extends BaseBuilder {
 
 	public BiliBiliBuilder(ApkParser apkParser) {
         super(apkParser);

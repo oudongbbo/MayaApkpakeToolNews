@@ -1,21 +1,16 @@
 package com.maya.packtools.builder.platforms;
 
+import com.maya.base.utils.FileUtil;
+import com.maya.packtools.builder.base.BaseBuilder;
+import com.maya.packtools.model.ApkParser;
+import com.maya.packtools.utils.encrypt.ZipMain;
+
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-
-
-
-
-import com.maya.base.utils.FileUtil;
-import com.maya.packtools.builder.base.BaseBuilder;
-import com.maya.packtools.utils.encrypt.ZipMain;
-import com.maya.packtools.model.ApkParser;
-
-
-public class CoolpadBuilder extends BaseBuilder{
+public class CoolpadBuilder extends BaseBuilder {
 
 	public CoolpadBuilder(ApkParser apkParser) {
 		super(apkParser);
@@ -36,14 +31,14 @@ public class CoolpadBuilder extends BaseBuilder{
 	protected void handleSdkPlugins(String sdkplugin, Properties prop) {
 		
 		String coolpadContent = FileUtil.read(sdkplugin);
-		
+		//android:authorities="com.coolpay.example.fileprovider"
 		Pattern p = Pattern
-				.compile("<meta-data android:name=\"DC_APPID\" android:value=\"(.*?)\"");
+				.compile("android:authorities=\"(.*?).fileprovider\"");
 		Matcher m = p.matcher(coolpadContent);
 		m.find();
-		String DC_APPID = m.group(1);
-		coolpadContent = coolpadContent.replaceAll(DC_APPID,prop.getProperty("appid"));
+		String packName = m.group(1);
 
+		coolpadContent = coolpadContent.replaceAll(packName,pname);
 
 		FileUtil.write(sdkplugin, coolpadContent);
 		
