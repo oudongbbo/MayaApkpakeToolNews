@@ -383,7 +383,7 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->c(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/maya/sdk/framework/utils/c;->d(Ljava/lang/String;)V
 
     const/4 v0, 0x1
 

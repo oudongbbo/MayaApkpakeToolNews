@@ -25,7 +25,7 @@
 .method constructor <init>(Lcom/maya/sdk/demo/MainActivity;)V
     .locals 0
 
-    .line 63
+    .line 68
     iput-object p1, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .method public onExitGameFail()V
     .locals 2
 
-    .line 150
+    .line 155
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     const-string v1, "\u7528\u6237\u53d6\u6d88\u9000\u51fa"
@@ -51,21 +51,21 @@
 .method public onExitGameSuccess()V
     .locals 2
 
-    .line 142
+    .line 147
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     const-string v1, "\u8bf7CP\u8fdb\u884c\u6e38\u620f\u5185\u9000\u51fa\u64cd\u4f5c"
 
     invoke-static {v0, v1}, Lcom/maya/sdk/demo/MainActivity;->a(Lcom/maya/sdk/demo/MainActivity;Ljava/lang/String;)V
 
-    .line 143
+    .line 148
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     invoke-virtual {v0}, Lcom/maya/sdk/demo/MainActivity;->finish()V
 
     const/4 v0, 0x1
 
-    .line 144
+    .line 149
     invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
     return-void
@@ -74,7 +74,7 @@
 .method public onInitFail(Ljava/lang/String;)V
     .locals 1
 
-    .line 73
+    .line 78
     iget-object p1, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     const-string v0, "\u521d\u59cb\u5316\u5931\u8d25\uff0c\u63d0\u793a\u73a9\u5bb6\u9000\u51fa\u91cd\u65b0\u8fdb\u5165"
@@ -87,7 +87,7 @@
 .method public onInitSuccess()V
     .locals 2
 
-    .line 67
+    .line 72
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     const-string v1, "\u521d\u59cb\u5316\u6210\u529f\uff0c\u6e38\u620f\u4e2d\u4e0d\u9700\u8981\u6b64\u63d0\u793a"
@@ -102,14 +102,14 @@
 
     const-string v0, "login_cancel"
 
-    .line 89
+    .line 94
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 90
+    .line 95
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -130,7 +130,7 @@
 
     goto :goto_0
 
-    .line 92
+    .line 97
     :cond_0
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
@@ -157,7 +157,7 @@
 .method public onLoginSuccess(Landroid/os/Bundle;)V
     .locals 3
 
-    .line 80
+    .line 85
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -194,7 +194,7 @@
 .method public onLogoutSuccess()V
     .locals 2
 
-    .line 158
+    .line 163
     invoke-static {}, Lcom/maya/sdk/m/MayaMsdk;->getInstance()Lcom/maya/sdk/m/MayaMsdk;
 
     move-result-object v0
@@ -211,14 +211,14 @@
 
     const-string v0, "pay_cancel"
 
-    .line 131
+    .line 136
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 132
+    .line 137
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -239,7 +239,7 @@
 
     goto :goto_0
 
-    .line 134
+    .line 139
     :cond_0
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
@@ -266,7 +266,7 @@
 .method public onPaySuccess(Landroid/os/Bundle;)V
     .locals 1
 
-    .line 122
+    .line 127
     iget-object p1, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     const-string v0, "\u652f\u4ed8\u6210\u529f\uff0c\u8bf7\u5728\u6e38\u620f\u5185\u53d1\u8d27"
@@ -281,14 +281,14 @@
 
     const-string v0, "switch_cancel"
 
-    .line 112
+    .line 117
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    .line 113
+    .line 118
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -309,7 +309,7 @@
 
     goto :goto_0
 
-    .line 115
+    .line 120
     :cond_0
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
@@ -336,7 +336,7 @@
 .method public onUserSwitchSuccess(Landroid/os/Bundle;)V
     .locals 3
 
-    .line 102
+    .line 107
     iget-object v0, p0, Lcom/maya/sdk/demo/MainActivity$1;->a:Lcom/maya/sdk/demo/MainActivity;
 
     new-instance v1, Ljava/lang/StringBuilder;

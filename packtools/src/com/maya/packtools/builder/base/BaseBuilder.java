@@ -32,7 +32,7 @@ import com.maya.packtools.model.XmlParser;
 public class BaseBuilder {
 
     public static int SDK = Platforms.SDK_MAYA;
-    public static String SDK_TOP_VERSION = "2.0.1";// 每次升级的时候都需要修改
+    public static String SDK_TOP_VERSION = "2.0.2";// 每次升级的时候都需要修改
 
     public static final String GUANFANG_SDK_TAG = "maya";
     public static final String MAJIA_SDK_TAG = "fanxun";

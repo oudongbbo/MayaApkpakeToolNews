@@ -183,9 +183,91 @@ public class Platforms {
     public static final int SDK_KuaiYou = 323;
     public static final String SDK_NAME_KuaiYou = "KuaiYou";
 
+    //灵响
+    public static final int SDK_LINGXIANG = 329;
+    public static final String SDK_NAME_LINGXIANG = "LingXiang";
+
+
+    //B游汇
+    public static final int SDK_BYOUHUI = 244;
+    public static final String SDK_NAME_BYOUHUI = "byouhui";
+
+    //爱趣
+    public static final int SDK_AIQU = 232;
+    public static final String SDK_NAME_AIQU = "aiqu";
+
+
+    // 熊猫玩
+    public static final int SDK_XIONGMAOWAN = 189;
+    public static final String SDK_NAME_XIONGMAOWAN = "xiongmaowan";
+
+
+    public static final int SDK_233 = 196;
+    public static final String SDK_NAME_233 = "233";
+
+
+    //亿客游
+    public static final int SDK_YIKEYOU = 195;
+    public static final String SDK_NAME_YIKEYOU = "yikeyou";
+
+    //七果
+    public static final int SDK_QIGUO = 332;
+    public static final String SDK_NAME_QIGUO = "qiguo";
+
+
+    //悟空
+    public static final int SDK_WUKONG = 194;
+    public static final String SDK_NAME_WUKONG = "wukong";
+
+
+    //果盘
+    public static final int SDK_GUOPAN = 335;
+    public static final String SDK_NAME_GUOPAN = "guopan";
+
+    //九玩
+    public static final int SDK_JIUWAN = 338;
+    public static final String SDK_NAME_JIUWAN = "jiuwan";
+
 
     public static int getSdkNoByName(String sdkName) {
         switch (sdkName) {
+
+            case SDK_NAME_JIUWAN:
+
+                return SDK_JIUWAN;
+
+            case SDK_NAME_GUOPAN:
+
+                return SDK_GUOPAN;
+
+            case SDK_NAME_WUKONG:
+
+                return SDK_WUKONG;
+
+            case SDK_NAME_QIGUO:
+
+                return SDK_QIGUO;
+
+            case SDK_NAME_YIKEYOU:
+
+                return SDK_YIKEYOU;
+
+            case SDK_NAME_233:
+
+                return SDK_233;
+
+            case SDK_NAME_XIONGMAOWAN:
+                return SDK_XIONGMAOWAN;
+
+            case SDK_NAME_AIQU:
+                return SDK_AIQU;
+
+            case SDK_NAME_BYOUHUI:
+
+                return SDK_BYOUHUI;
+
+            case SDK_NAME_LINGXIANG:
+                return SDK_LINGXIANG;
 
             case SDK_NAME_KuaiYou:
                 return SDK_KuaiYou;
@@ -304,9 +386,53 @@ public class Platforms {
     }
 
 
+
+
     public static String getSdkNameByNo(int sdk) {
 
         switch (sdk) {
+
+
+
+            case SDK_JIUWAN:
+
+                return SDK_NAME_JIUWAN;
+
+            case SDK_GUOPAN:
+
+                return SDK_NAME_GUOPAN;
+
+            case SDK_WUKONG:
+
+                return SDK_NAME_WUKONG;
+
+            case SDK_QIGUO:
+
+                return SDK_NAME_QIGUO;
+
+            case SDK_YIKEYOU:
+
+                return SDK_NAME_YIKEYOU;
+
+
+            case SDK_233:
+
+                return SDK_NAME_233;
+
+            case SDK_XIONGMAOWAN:
+
+                return SDK_NAME_XIONGMAOWAN;
+
+            case SDK_AIQU:
+
+                return SDK_NAME_AIQU;
+
+            case SDK_BYOUHUI:
+
+                return SDK_NAME_BYOUHUI;
+
+            case SDK_LINGXIANG:
+                return SDK_NAME_LINGXIANG;
 
             case SDK_KuaiYou:
                 return SDK_NAME_KuaiYou;

@@ -500,7 +500,7 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/maya/sdk/framework/utils/c;->c(Ljava/lang/String;)V
+    invoke-static {p1}, Lcom/maya/sdk/framework/utils/c;->d(Ljava/lang/String;)V
 
     return-void
 .end method

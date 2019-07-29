@@ -36,7 +36,17 @@ public class GamesExplorer {
 
         }
 
+        if(gid.equals("100138")){
 
+            File a = new File(apkTempPath + File.separator + "res" + File.separator + "layout-v26"
+                    + File.separator + "abc_screen_toolbar.xml");
+
+            if(a.exists()){
+                FileUtil.delDir(a);
+                LogUtil.showLog("针对 "+ gid +" 母包Smali 或者资源进行特殊处理", LogUtil.LogLevel.LEVEL_1);
+            }
+
+        }
 
     }
 

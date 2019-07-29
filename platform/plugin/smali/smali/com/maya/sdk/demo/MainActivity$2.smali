@@ -22,7 +22,7 @@
 .method constructor <init>(Lcom/maya/sdk/demo/MainActivity;)V
     .locals 0
 
-    .line 560
+    .line 564
     iput-object p1, p0, Lcom/maya/sdk/demo/MainActivity$2;->a:Lcom/maya/sdk/demo/MainActivity;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -35,7 +35,7 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 0
 
-    .line 563
+    .line 567
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
     return-void

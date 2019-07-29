@@ -64,7 +64,7 @@
 
 .field public static final SDK_OS:Ljava/lang/String; = "android"
 
-.field public static final SDK_VERSION_NAME:Ljava/lang/String; = "2.0.1"
+.field public static final SDK_VERSION_NAME:Ljava/lang/String; = "2.0.2"
 
 .field public static final SUBMIT_ACTION_ROLE_CHANGENAME:Ljava/lang/String; = "changeName"
 

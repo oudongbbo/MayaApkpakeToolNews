@@ -180,8 +180,57 @@ public class PlatformBuild {
                     builder = new KuaiYouBuilder(apkParser);
                     break;
 
+                case Platforms.SDK_LINGXIANG:
+                    builder = new LingXiangBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_BYOUHUI:
+                    builder = new ByouhuiBuilder(apkParser);
+                    break;
+
+
+                case Platforms.SDK_AIQU:
+                    builder = new AiQuBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_XIONGMAOWAN:
+                    builder = new XiongMaoWanBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_233:
+
+                    builder = new _233Builder(apkParser);
+                    break;
+
+
+                case Platforms.SDK_YIKEYOU:
+                    builder = new YiKeYouBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_QIGUO:
+                    builder = new QiGuoBuilder(apkParser);
+                    break;
+
+                case Platforms.SDK_WUKONG:
+                    builder = new WuKongBuilder(apkParser);
+
+                    break;
+
+                case Platforms.SDK_GUOPAN:
+
+                    builder = new GuopanBuilder(apkParser);
+
+                    break;
+                case Platforms.SDK_JIUWAN:
+
+                    builder = new JiuWanBuilder(apkParser);
+
+                    break;
+
                 default:
+
                     builder = new BaseBuilder(apkParser);
+
                     break;
             }
 

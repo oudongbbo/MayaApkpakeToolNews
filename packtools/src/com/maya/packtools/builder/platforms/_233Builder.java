@@ -6,19 +6,19 @@ import com.maya.packtools.utils.encrypt.ZipMain;
 
 import java.util.Properties;
 
-public class YeShenBuilder extends BaseBuilder {
-    public YeShenBuilder(ApkParser apkParser) {
+public class _233Builder extends BaseBuilder {
+    public _233Builder(ApkParser apkParser) {
         super(apkParser);
     }
 
     @Override
     public void handlePlatformComConfig(Properties newPro, Properties oldPro) {
-        String appid= oldPro.getProperty("AppId");
-        String appkey=oldPro.getProperty("AppKey");
-        newPro.setProperty("mAppId",  ZipMain.zipOption("0", appid));
-        newPro.setProperty("mAppKey",  ZipMain.zipOption("0", appkey));
+
+        String appKey = oldPro.getProperty("appKey");
+        String channelId = oldPro.getProperty("channelId");
+        newPro.setProperty("mAppKey", ZipMain.zipOption("0", appKey));
+        newPro.setProperty("gameId", channelId);
+
     }
-
-
 
 }
