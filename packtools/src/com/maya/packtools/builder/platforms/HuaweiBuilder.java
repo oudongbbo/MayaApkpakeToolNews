@@ -1,16 +1,19 @@
 package com.maya.packtools.builder.platforms;
 
-import com.maya.base.utils.FileUtil;
-import com.maya.packtools.builder.base.BaseBuilder;
-import com.maya.packtools.config.Common;
-import com.maya.packtools.model.ApkParser;
-import com.maya.packtools.utils.encrypt.ZipMain;
-
 import java.io.File;
 import java.util.List;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+
+import com.maya.base.utils.FileUtil;
+import com.maya.packtools.builder.base.BaseBuilder;
+import com.maya.packtools.utils.encrypt.ZipMain;
+import com.maya.packtools.model.ApkParser;
+import com.maya.packtools.config.Common;
+
+import static com.maya.packtools.builder.Platforms.SDK_NAME_MAYA;
 
 
 public class HuaweiBuilder extends BaseBuilder {
@@ -92,7 +95,15 @@ public class HuaweiBuilder extends BaseBuilder {
             }
         }
 
-        return replaceApplication("com.leidong.sdk.m.platform.HuaweiSDKApplication", manifest);
+
+
+        if(SDK_NAME_MAYA.equals("leidong")){
+            return replaceApplication("com.leidong.sdk.m.platform.HuaweiSDKApplication", manifest);
+        }else{
+            return replaceApplication("com.maya.sdk.m.platform.HuaweiSDKApplication", manifest);
+        }
+
+
     }
 
 

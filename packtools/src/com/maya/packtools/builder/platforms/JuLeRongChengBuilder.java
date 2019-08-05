@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 
 //聚乐荣城
 public class JuLeRongChengBuilder extends BaseBuilder {
+
     public JuLeRongChengBuilder(ApkParser apkParser) {
         super(apkParser);
     }
@@ -48,6 +49,12 @@ public class JuLeRongChengBuilder extends BaseBuilder {
         FileUtil.write(sdkplugin, sdk_content);
 
     }
+
+    @Override
+    protected String handleApplication(String manifest) {
+        return replaceApplication("com.maya.sdk.m.platform.App", manifest);
+    }
+
 
 
 }

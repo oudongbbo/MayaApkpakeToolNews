@@ -966,10 +966,10 @@ public class BaseBuilder {
             String version = m.group(1);
             if (Integer.parseInt(version) > 19) {
                 // 大于19才不替换
-                content = content.replaceAll("targetSdkVersion: '" + version + "'", "targetSdkVersion: '19'");
+               // content = content.replaceAll("targetSdkVersion: '" + version + "'", "targetSdkVersion: '19'");
             }
         } else {
-            content = content.replaceAll("sdkInfo:", "sdkInfo:\n  targetSdkVersion: '19'");
+           // content = content.replaceAll("sdkInfo:", "sdkInfo:\n  targetSdkVersion: '19'");
         }
 
         //正则找到minSdkVersion

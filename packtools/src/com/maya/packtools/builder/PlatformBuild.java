@@ -37,7 +37,7 @@ public class PlatformBuild {
                     break;
 
                 case Platforms.SDK_HUAWEI:
-                    builder = new HuaWeiBuilder(apkParser);
+                    builder = new HuaweiBuilder(apkParser);
                     break;
 
                 case Platforms.SDK_BAIDU:
@@ -86,7 +86,7 @@ public class PlatformBuild {
                     break;
 
                 case Platforms.SDK_BILIBILI:
-                    builder = new M4399Builder(apkParser);
+                    builder = new BiliBiliBuilder(apkParser);
                     break;
 
                 case Platforms.SDK_JQGAME:

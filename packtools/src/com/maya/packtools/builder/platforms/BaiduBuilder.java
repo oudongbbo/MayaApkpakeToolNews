@@ -12,6 +12,8 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.maya.packtools.builder.Platforms.SDK_NAME_MAYA;
+
 
 public class BaiduBuilder extends BaseBuilder {
 
@@ -31,7 +33,14 @@ public class BaiduBuilder extends BaseBuilder {
 
     @Override
     protected String handleApplication(String manifest) {
-        return replaceApplication("com.leidong.sdk.m.platform.BaiduGameApplication", manifest);
+
+        if(SDK_NAME_MAYA.equals("leidong")){
+            return replaceApplication("com.leidong.sdk.m.platform.BaiduGameApplication", manifest);
+        }else{
+            return replaceApplication("com.maya.sdk.m.platform.BaiduGameApplication", manifest);
+        }
+
+
     }
 
 

@@ -1,20 +1,21 @@
 package com.maya.packtools.builder.platforms;
 
-import com.maya.base.utils.FileUtil;
-import com.maya.packtools.builder.base.BaseBuilder;
-import com.maya.packtools.model.ApkParser;
-import com.maya.packtools.utils.encrypt.ZipMain;
-
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.maya.base.utils.FileUtil;
+import com.maya.packtools.builder.base.BaseBuilder;
+import com.maya.packtools.utils.encrypt.ZipMain;
+import com.maya.packtools.model.ApkParser;
+
+import static com.maya.packtools.builder.Platforms.SDK_NAME_MAYA;
 
 
 public class MiBuilder extends BaseBuilder {
 
     public MiBuilder(ApkParser apkParser) {
         super(apkParser);
-
     }
 
     @Override
@@ -30,7 +31,14 @@ public class MiBuilder extends BaseBuilder {
 
     @Override
     protected String handleApplication(String manifest) {
-        return replaceApplication("com.leidong.sdk.m.platform.Application", manifest);
+
+        if(SDK_NAME_MAYA.equals("leidong")){
+            return replaceApplication("com.leidong.sdk.m.platform.Application", manifest);
+        }else{
+            return replaceApplication("com.maya.sdk.m.platform.Application", manifest);
+        }
+
+
     }
 
 
@@ -44,7 +52,6 @@ public class MiBuilder extends BaseBuilder {
         m.find();
         String packageName = m.group(1);
         MiContent = MiContent.replaceAll(packageName, pname);
-
 
         //android:authorities="${applicationId}.fileprovider"
         p = Pattern.compile("android:authorities=\"(.*?).fileprovider\"");
